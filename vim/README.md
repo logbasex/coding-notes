@@ -11,14 +11,14 @@
 ```
 
 ## Cursor movement
-```bash
+<pre>
 h        # move cursor left
 j        # move cursor down
 k        # move cursor up
 l        # move cursor right
-H        # move to top of screen (**H**igh)
-M        # move to middle of screen (**M**iddle)
-L        # move to bottom of screen (**L**ow)
+H        # move to top of screen (<b>H</b>igh)
+M        # move to middle of screen (<b>M</b>iddle)
+L        # move to bottom of screen (<b>L</b>ow)
 w        # jump forwards to the start of a word
 W        # jump forwards to the start of a word (words can contain punctuation)
 e        # jump forwards to the end of a word
@@ -32,8 +32,8 @@ g_       # jump to the last non-blank character of the line
 gg       # go to the first line of the document
 G        # go to the last line of the document
 5G       # go to line 5
-fx       # jump to next occurrence of character x
-tx       # jump to before next occurrence of character x
+f<b>x</b>       # jump to next occurrence of character <b>x</b>
+t<b>x</b>       # jump to before next occurrence of character <b>x</b>
 }        # jump to next paragraph (or function/block, when editing code)
 {        # jump to previous paragraph (or function/block, when editing code)
 zz       # center cursor on screen
@@ -41,7 +41,8 @@ Ctrl + b # scroll **b**ackword one full screen
 Ctrl + f # scroll **f**orward one full screen
 Ctrl + d # scroll **d**own 1/2 screen
 Ctrl + u # scroll **u**p 1/2 a screen
-```
+</pre>
+
 
 ## Insert mode - inserting/appending text
 ```bash
@@ -52,6 +53,7 @@ A        # insert (append) at the end of the line
 o        # append (open) a new line below the current line
 O        # append (open) a new line above the current line
 ea       # insert (append) at the end of the word
+bi       # insert (append) at the begin of the word
 Esc      # exit insert mode
 ```
 
