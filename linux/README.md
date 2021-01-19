@@ -31,18 +31,32 @@ Ctrl+g           # escape from history search mode
 Ctrl+p           # previous command in history
 Ctrl+n           # next command in history
 Alt+.            # use the last word of the previous command
+
+# repeat last command (https://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/)
+- Ctrl+p
+- up arrow key
+
+# execute last command
+- !!
+- !-1
+- fc -e -
 </pre>
 
 ## Command control shortcuts
 
-<pre>
+```bash
 Ctrl+l           # clear the screen
 Ctrl+s           # stops the output to the screen (for long running verbose command)
 Ctrl+q           # allow output to the screen (if previously stopped using command above)
 Ctrl+c           # terminate the process
 Ctrl+z           # suspend/stop the process (send process to background)
-    <ul>
-        <li>Get list of suspend process: jobs</li>
-        <li>Continue the suspend process/send back to foreground: fg jobs-number</li>
-    </ul>
-</pre>
+Ctrl+o           # execute command
+
+- Get list of suspend process: jobs
+- Continue the suspend process/send back to foreground: fg jobs-number
+```
+
+
+---
+
+https://quantrimang.com/14-lenh-linux-thu-vi-trong-terminal-160595

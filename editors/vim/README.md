@@ -12,35 +12,36 @@
 
 ## Cursor movement
 <pre>
-h        # move cursor left
-j        # move cursor down
-k        # move cursor up
-l        # move cursor right
-H        # move to top of screen (<b>H</b>igh)
-M        # move to middle of screen (<b>M</b>iddle)
-L        # move to bottom of screen (<b>L</b>ow)
-w        # jump forwards to the start of a word
-W        # jump forwards to the start of a word (words can contain punctuation)
-e        # jump forwards to the end of a word
-E        # jump forwards to the end of a word (words can contain punctuation)
-b        # jump backwards to the start of a word
-B        # jump backwards to the start of a word (words can contain punctuation)
-0        # jump to the start of the line
-^        # jump to the first non-blank character of the line
-$        # jump to the end of the line
-g_       # jump to the last non-blank character of the line
-gg       # go to the first line of the document
-G        # go to the last line of the document
-5G       # go to line 5
-f<b>x</b>       # jump to next occurrence of character <b>x</b>
-t<b>x</b>       # jump to before next occurrence of character <b>x</b>
-}        # jump to next paragraph (or function/block, when editing code)
-{        # jump to previous paragraph (or function/block, when editing code)
-zz       # center cursor on screen
-Ctrl + b # scroll **b**ackword one full screen
-Ctrl + f # scroll **f**orward one full screen
-Ctrl + d # scroll **d**own 1/2 screen
-Ctrl + u # scroll **u**p 1/2 a screen
+h                 # move cursor left
+j                 # move cursor down
+k                 # move cursor up
+l                 # move cursor right
+H                 # move to top of screen (<b>H</b>igh)
+M                 # move to middle of screen (<b>M</b>iddle)
+L                 # move to bottom of screen (<b>L</b>ow)
+w                 # jump forwards to the start of a word
+W                 # jump forwards to the start of a word (words can contain punctuation)
+e                 # jump forwards to the end of a word
+E                 # jump forwards to the end of a word (words can contain punctuation)
+b                 # jump backwards to the start of a word
+B                 # jump backwards to the start of a word (words can contain punctuation)
+0                 # jump to the start of the line
+^                 # jump to the first non-blank character of the line
+$                 # jump to the end of the line
+g_                # jump to the last non-blank character of the line
+gg                # go to the first line of the document
+G                 # go to the last line of the document
+5G                # go to line 5
+f<b>x</b>                # jump to next occurrence of character <b>x</b>
+t<b>x</b>                # jump to before next occurrence of character <b>x</b>
+}                 # jump to next paragraph (or function/block, when editing code)
+{                 # jump to previous paragraph (or function/block, when editing code)
+%                 # jump between matching bracket/parenthesis (under the cursor)
+zz                # center cursor on screen
+Ctrl + b          # scroll **b**ackword one full screen
+Ctrl + f          # scroll **f**orward one full screen
+Ctrl + d          # scroll **d**own 1/2 screen
+Ctrl + u          # scroll **u**p 1/2 a screen
 </pre>
 
 
@@ -58,22 +59,28 @@ Esc      # exit insert mode
 ```
 
 ## Editing
-```bash
-r        # replace a single character
-J        # join line below to the current one
-cc       # change (replace) entire line
-cw       # change (replace) to the start of the next word
-ce       # change (replace) to the end of the next word
-cb       # change (replace) to the start of the previous word
-c0       # change (replace) to the start of the line
-c$       # change (replace) to the end of the line
-s        # delete character and substitute text
-S        # delete line and substitute text (same as cc)
-xp       # transpose two letters (delete and paste)
-.        # repeat last command
-u        # undo
-Ctrl + r # redo
-```
+<pre>
+r                 # replace a single character
+J                 # join line below to the current one
+cc                # change (replace) entire line
+cw                # <b>change</b> (replace) to the start of the next <b>word</b>
+ce                # change (replace) to the end of the next word
+cb                # change (replace) to the start of the previous word
+cib/ciB           # change the text inside the current set of parenthesis () or braces {}, respectively.
+c0                # change (replace) to the start of the line
+c$                # change (replace) to the end of the line
+s                 # delete character and substitute text
+S                 # delete line and substitute text (same as cc)
+xp                # transpose two letters (delete and paste)
+.                 # repeat last command
+u                 # undo
+Ctrl + r          # redo
+         
+                  # https://medium.com/usevim/vim-101-efficient-html-editing-with-text-objects-1571734718e3
+dat               # delete <b>a</b> <b>t</b>ag block (HTML)
+dit               # delete <b>i</b>nner <b>t</b>ag block (HTML)
+</pre>
+
 
 ## Marking text (visual mode)
 ```bash
@@ -129,6 +136,8 @@ N              # repeat search in opposite direction
 :%s/old/new/g  # replace all old with new throughout file
 :%s/old/new/gc # replace all old with new throughout file with confirmations
 :noh           # remove highlighting of search matches
+*              # search forward the word under the cursor
+#              # search backward the word under the cursor
 ```
 
 ## Search in multiple files

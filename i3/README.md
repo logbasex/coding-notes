@@ -51,6 +51,7 @@ $mod+Shift+l
 # Default container
 $mod+e
 
+# https://www.reddit.com/r/i3wm/comments/ek4urs/xubuntu_i3_cannot_split_windows/
 # Horizontal split container
 $mod+h
 

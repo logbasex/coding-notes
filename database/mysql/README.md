@@ -15,6 +15,11 @@
 - [DataGrip](https://www.jetbrains.com/datagrip/)
 - [Sequel Pro](http://www.sequelpro.com/) (abandoned)
 
+## Data types
+
+
+
+
 ## Commands
 
 ### DDL commands
@@ -187,6 +192,11 @@ Use `--lock-tables=false` option for locked tables (more info [here](http://stac
 
 ### DML Commands
 
+---
+
+
+
+---
 ## Aggregate functions
 **Select but without duplicates:**
 
