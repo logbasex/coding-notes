@@ -6,14 +6,27 @@
 
 `docker exec -t -i {docker_container_id/name} mysql -uroot -proot`
 
+`docker exec -it mysql56 /bin/bash`
+
 ## TERMS
 
-**[MySQL terminology: processes, threads & connections]**(http://code.openark.org/blog/mysql/mysql-terminology-processes-threads-connections)
+**[MySQL terminology: processes, threads & connections](http://code.openark.org/blog/mysql/mysql-terminology-processes-threads-connections)**
 
 ## Tools
 - [TablePlus](https://tableplus.io/)
 - [DataGrip](https://www.jetbrains.com/datagrip/)
 - [Sequel Pro](http://www.sequelpro.com/) (abandoned)
+
+## Backup and restore
+
+**[Reference](https://gist.github.com/spalladino/6d981f7b33f6e0afe6bb)**
+
+Backup from remote Database
+
+- `sudo docker exec MySQL_CONTAINER_NAME /usr/bin/mysqldump --host=192.168.1.1 -u username --password=password db_name > dump.sql`
+
+Restore
+- `cat dump.sql | docker exec -i MySQL_CONTAINER_NAME /usr/bin/mysql -u root --password=123456 db_name`
 
 ## Data types
 
