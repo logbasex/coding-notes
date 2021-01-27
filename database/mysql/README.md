@@ -23,7 +23,7 @@
 
 Backup from remote Database
 
-- `sudo docker exec MySQL_CONTAINER_NAME /usr/bin/mysqldump --host=192.168.1.1 -u username --password=password db_name > dump.sql`
+- `sudo docker exec MySQL_CONTAINER_NAME /usr/bin/mysqldump --host=192.168.1.1 -u username --password=password --routines(optional) db_name > dump.sql`
 
 Restore
 - `cat dump.sql | docker exec -i MySQL_CONTAINER_NAME /usr/bin/mysql -u root --password=123456 db_name`

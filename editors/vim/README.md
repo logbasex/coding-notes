@@ -223,3 +223,7 @@ Ctrl + R        # Insert the contents of a numbered or named register without le
 
 
 ```
+
+## Vim anywhere
+
+Using vim in a terminal emulator: set -o vi
