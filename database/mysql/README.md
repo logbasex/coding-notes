@@ -28,6 +28,13 @@ Backup from remote Database
 Restore
 - `cat dump.sql | docker exec -i MySQL_CONTAINER_NAME /usr/bin/mysql -u root --password=123456 db_name`
 
+Export
+
+- `mysqldump -u username -p database_name > data-dump.sql`
+
+Import
+
+- `mysql -u username -p new_database < data-dump.sql`
 ## Data types
 
 

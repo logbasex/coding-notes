@@ -5,15 +5,17 @@
 - unused images
     > an unused image means that it has not been assigned or is not being used in a container.
 
-# access image
+#image
 
 docker run -it <image> /bin/sh
 > [check if image has all the files](https://stackoverflow.com/questions/44726832/how-to-check-if-the-docker-image-has-all-the-files)
 
-# inspect image
-
 docker inspect <image>
 > find default shell in "Cmd".
+
+docker tag <image> <repository>:<tag>
+> rename docker
+  >> docker tag c7ded1cb37e7 helloworld:latest
 
 # access container
 
@@ -52,3 +54,9 @@ The stdout for the docker container is piped to your current shell and your inpu
 
 # install
 - [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html)
+
+
+## bug
+Unsupported config option for services.volumes
+>volumes needs to be at the same indentation with services
+

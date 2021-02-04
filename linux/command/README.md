@@ -23,3 +23,16 @@ Check version of package
 > [package] --version
 > 
 > apt/apt-cache show [package]
+
+## Kill process
+pgrep
+> Find or signal process by name: pgrep mongo
+>
+
+npx kill-port 2701netstat -ano | findstr :270177
+
+## ls
+list with line number
+> ls | nl
+> 
+> ls | cat -n
