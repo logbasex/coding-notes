@@ -1,10 +1,29 @@
-# terms
+# Overview
+https://docs.docker.com/get-started/overview/
+
+# Architecture
+https://docs.docker.com/get-started/overview/
+
+https://nickjanetakis.com/blog/understanding-how-the-docker-daemon-and-docker-cli-work-together#it-is-a-client-server-architecture
+
+# glossary
+
+- https://docs.docker.com/glossary/
 - dangling images
     >A dangling image means that you've created a new build of the image but haven't given it a new name. Think about those old, forgotten images that no one knows what to do with anymore – those are "dangling images".
   > 
 - unused images
     > an unused image means that it has not been assigned or is not being used in a container.
 
+- Registry
+  >A service responsible for hosting and distributing images. The default registry is the Docker Hub.
+
+- Repository
+  >A collection of different docker images with same name, that have different tags.
+
+- Tag
+  >An alphanumeric identifier attached to images within a repository (e.g., 14.04 or stable ).
+  
 #image
 
 docker run -it <image> /bin/sh
@@ -53,10 +72,25 @@ The stdout for the docker container is piped to your current shell and your inpu
   > docker image prune -a 
 
 # install
-- [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html)
 
 
 ## bug
 Unsupported config option for services.volumes
->volumes needs to be at the same indentation with services
+>volume needs to be at the same indentation with services
 
+## docker swarm
+
+
+### docker service
+
+```shell
+docker service create	       # Create a new service
+docker service inspect	       # Display detailed information on one or more services
+docker service logs	       # Fetch the logs of a service or task
+docker service ls	       # List services
+docker service ps	       # List the tasks of one or more services
+docker service rm	       # Remove one or more services
+docker service rollback	       # Revert changes to a service’s configuration
+docker service scale	       # Scale one or multiple replicated services
+docker service update	       # Update a service
+```
