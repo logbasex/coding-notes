@@ -26,6 +26,8 @@ https://logz.io/blog/10-elasticsearch-concepts/
 https://logz.io/blog/managing-elasticsearch-indices/
 
 ## install
+https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html
+
 
 ## config
 1. Heap size

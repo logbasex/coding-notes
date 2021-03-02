@@ -1,3 +1,26 @@
+## Man/Manual pages
+- Whatis
+  ```shell
+  man -f printf
+      man (1)              - an interface to the system reference manuals
+      man (7)              - macros to format man pages
+  ```
+- Search key word
+  ```shell
+   man -k printf
+
+      asprintf (3) - print to allocated string
+      dprintf (3) - formatted output conversion
+      dprintf (3p) - print formatted output
+      fprintf (3) - formatted output conversion
+  ```
+-  Find the Filesystem Location of a Command’s Manual Page  
+  ```shell
+    man -w ping
+
+        /usr/share/man/man8/ping.8.gz (zcat to view, zless, zmore, zgrep...)
+  ```
+- [Reference](https://www.baeldung.com/linux/man-command)
 ## List of commands in Linux
 
   <pre>
@@ -40,6 +63,9 @@ groups            # print the groups a user is in
 - pgrep (find or signal process by name)
   ```shell
   pgrep mongo
+  
+  pgrep -u <user> mongo            # Search for process run by a specific user
+
   ```
 - kill port using `npx` (tool for execute `Node` package) and npm package `kill-port` 
   ```shell
@@ -80,4 +106,60 @@ groups            # print the groups a user is in
 - Remove all subdirectories
   ```shell
   rm -R -- */
+  ```
+  
+## Working with text
+- [awk command](https://viblo.asia/p/tim-hieu-awk-co-ban-gGJ59229KX2)
+  - https://java2blog.com/awk-print-1/
+  
+- cat command (concatenate files and print on the standard output)
+  
+  
+## Build bootable usb
+
+
+- Firstly, determine the device name of your plugged USB and then [unmount the device](https://askubuntu.com/questions/590849/why-do-we-have-to-unmount-a-usb-and-format-it-to-fat-or-ntfs-partition-before-ma).
+```shell
+sudo umount /dev/sdb1
+dd if=/home/logbasex/Downloads/ubuntu-20.04.2.0-desktop-amd64.iso of=/dev/sdb1 status=progress
+```
+
+
+## Process Management
+- https://www.bogotobogo.com/Linux/linux_process_and_signals.php
+- https://www.tecmint.com/linux-process-management/  
+- Each process is allocated a unique number, process identifier (PID). It's an integer between 2 and `cat /proc/sys/kernel/pid_max` (2<sup>22</sup>). When a process is started, the numbers restart from 2, and the number 1 is typically reserved for the init process (`ps -ef | grep init`)
+  
+- Find the ID of a process
+  ```shell
+  pidof systemd
+  pidof htop
+  ```
+  
+- Find the process ID and parent process ID of the current shell
+  ```shell
+  echo $$
+  echo $PPID
+  ```
+## Disk management
+- https://www.tecmint.com/duf-linux-disk-monitoring-utility/
+
+
+## curl
+- Download url(s) automatically
+  ```shell
+  curl https://www.python.org/static/apple-touch-icon-144x144-precomposed.png > image.png
+  xargs -n 1 curl -O < files.txt
+  ```
+  
+## Change hostname of bash prompt
+- [Customize linux terminal](https://itsfosscom/customize-linux-terminal/)
+- A `hostname` is a name assigned to a `host`  i.e. a computer on a network. The `hostname` is basically just your computer’s name. It’s used to identify your computer on the network.
+- Ex: Your current hostname is
+  ```shell
+    logbasex@thinkpad-x1
+  ```
+- Your can change `thinkpad-x1` to another using the following command
+  ```shell
+    sudo hostnamectl set-hostname <CUSTOM-NAME>
   ```
