@@ -52,13 +52,18 @@ groups            # print the groups a user is in
 - Ubuntu 16.04 introduced apt commands, simply put, apt is a collection of most common used command options from `apt-get` and `apt-cache`.
 
 - Check version of package
-  ```shell
-  [package] -v
-   
-  [package] --version
-   
-  apt/apt-cache show [package]
-  ```
+  - Using package's option
+    ```shell
+    [package] -v
+    
+    [package] --version
+    ```
+  - Using package manager
+    ```shell
+    apt policy [command] 2>&1 | grep -i installed
+    apt-cache policy [command] | grep -i installed
+    script -c "apt policy elasticsearch" /dev/null | grep -i installed
+    ```
 ## Kill process
 - pgrep (find or signal process by name)
   ```shell
@@ -114,7 +119,7 @@ groups            # print the groups a user is in
   
 - cat command (concatenate files and print on the standard output)
   
-  
+- sed command (**S**tream **Ed**itor)
 ## Build bootable usb
 
 
@@ -154,6 +159,9 @@ dd if=/home/logbasex/Downloads/ubuntu-20.04.2.0-desktop-amd64.iso of=/dev/sdb1 s
   
 ## Change hostname of bash prompt
 - [Customize linux terminal](https://itsfosscom/customize-linux-terminal/)
+- http://bashrcgenerator.com/  
+  
+
 - A `hostname` is a name assigned to a `host`  i.e. a computer on a network. The `hostname` is basically just your computer’s name. It’s used to identify your computer on the network.
 - Ex: Your current hostname is
   ```shell
