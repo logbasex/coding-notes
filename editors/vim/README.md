@@ -73,14 +73,15 @@ s                 # delete character and substitute text
 S                 # delete line and substitute text (same as cc)
 xp                # transpose two letters (delete and paste)
 .                 # repeat last command
-u                 # undo
-Ctrl + r          # redo
+u                 # undo (:undo)
+Ctrl + r          # redo (:redo)
          
                   # https://medium.com/usevim/vim-101-efficient-html-editing-with-text-objects-1571734718e3
 dat               # delete <b>a</b> <b>t</b>ag block (HTML)
 dit               # delete <b>i</b>nner <b>t</b>ag block (HTML)
 </pre>
 
+- Use Ctrl-R (press and hold `Ctrl` and press `r`) to redo the last change. In Vim, you can also use quantifiers. For example, if you want to redo the 4 last changes, you would type `4Ctrl-R`
 
 ## Marking text (visual mode)
 ```bash
@@ -139,6 +140,11 @@ N              # repeat search in opposite direction
 *              # search forward the word under the cursor
 #              # search backward the word under the cursor
 ```
+- Syntax
+  ```shell
+  :[range]s/{pattern}/{string}/[flags] [count]
+  ```
+- `:%s`: `%` is the range over which the `:s` command (short for :substitute) will be run. `%` itself is short for the range `:1,$`, which means from the first line to the last line in the buffer.
 
 ## Search in multiple files
 ```bash
@@ -227,3 +233,19 @@ Ctrl + R        # Insert the contents of a numbered or named register without le
 ## Vim anywhere
 
 Using vim in a terminal emulator: set -o vi
+
+
+# Utilities
+
+1. Execute linux command in Vim
+   
+   Vim allows you to run the code from within the editor without having to lose track of the code. You can do this by the use of an exclamation mark after the colon. Here’s an example:
+    ```shell
+    :!ping www.google.com
+    ```
+2. Insert text from different file
+    ```shell
+    :r <file name>
+    ```
+   
+3. If you often open a file as a normal user and then realize that you dont have root permissions for writing to the file, you can use `:w !sudo tee %` to save the file w/o closing vim.
