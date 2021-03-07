@@ -13,3 +13,8 @@ csvcut -h
 
 # https://www.dataquest.io/blog/data-cleaning-command-line/
 </pre>
+
+- Convert `.xlsx` to `.csv`
+    ```shell
+    in2csv data.xlsx > data.csv
+    ```

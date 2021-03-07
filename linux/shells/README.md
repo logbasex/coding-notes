@@ -54,3 +54,14 @@ When you login (type username and password) via console, either sitting at the m
 But, if you’ve already logged into your machine and open a new terminal window (xterm) then .bashrc is executed before the window command prompt. .bashrc is also run when you start a new bash instance by typing /bin/bash in a terminal.
 
 On OS X, Terminal by default runs a login shell every time, so this is a little different to most other systems, but you can configure that in the preferences.
+
+
+## reset shell environment
+
+```shell
+exec <SHELL>
+
+source ~/.<SHELL>rc
+```
+https://unix.stackexchange.com/questions/14885/how-to-reset-a-shell-environment
+
