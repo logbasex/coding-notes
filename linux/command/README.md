@@ -59,6 +59,7 @@ groups            # print the groups a user is in
     [package] --version
     ```
   - Using package manager
+    - `apt` is a "front-end" for `apt-get`
     ```shell
     apt policy [command] 2>&1 | grep -i installed
     apt-cache policy [command] | grep -i installed
@@ -171,3 +172,12 @@ dd if=/home/logbasex/Downloads/ubuntu-20.04.2.0-desktop-amd64.iso of=/dev/sdb1 s
   ```shell
     sudo hostnamectl set-hostname <CUSTOM-NAME>
   ```
+  
+## Network manager
+
+- openvpn
+  ```shell
+  sudo openvpn --config client.ovpn
+  ```
+  
+- https://www.cyberciti.biz/faq/linux-import-openvpn-ovpn-file-with-networkmanager-commandline/

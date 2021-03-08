@@ -235,7 +235,7 @@ Ctrl + R        # Insert the contents of a numbered or named register without le
 Using vim in a terminal emulator: set -o vi
 
 
-# Utilities
+## Utilities
 
 1. Execute linux command in Vim
    
@@ -249,3 +249,23 @@ Using vim in a terminal emulator: set -o vi
     ```
    
 3. If you often open a file as a normal user and then realize that you dont have root permissions for writing to the file, you can use `:w !sudo tee %` to save the file w/o closing vim.
+
+
+
+# Vim plugins
+
+### I. Plugin managers
+
+- [Vim plug](https://github.com/junegunn/vim-plug)
+- [Vim surround](https://github.com/tpope/vim-surround)
+    - Tutorial [here](https://towardsdatascience.com/how-i-learned-to-enjoy-vim-e310e53e8d56?gi=1893fe29902d).
+        ```shell
+         ys               # surround
+         ysiw"            # surround one word by quote
+         yss(             # surround entire line with bracket
+         ys2aw"           # surround two words with quote
+         S""              # surround in visual mode
+        
+         ds               # delete  
+         cs               # change
+        ```

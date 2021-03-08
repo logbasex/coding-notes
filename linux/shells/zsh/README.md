@@ -11,3 +11,7 @@ curl - <TAB>
   ```shell
   find . | fzf
   ```
+- Search maching name
+  ```shell
+  find . | fzf -E
+  ```
