@@ -1,3 +1,86 @@
+## Install
+- update
+```shell script
+sudo apt update -y && sudo apt upgrade -y && sudo apt full-upgrade -y
+```
+
+- snap
+```shell script
+sudo apt install snapd
+```
+
+- slack
+```shell script
+sudo snap install slack --classic
+```
+
+- skype
+```shell script
+sudo snap install skype --classic
+```
+
+- lastpass cli
+```shell script
+sudo apt install lastpass-cli
+```
+
+- Java
+```shell script
+sudo apt install openjdk-8-jdk openjdk-8-jdk-headless
+```
+
+- python3
+```shell script
+sudo apt install python3-pip -y
+```
+
+- Docker
+
+```shell script
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt install docker-ce && sudo chmod 666 /var/run/docker.sock
+```
+
+- Elasticsearch
+
+```shell script
+curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt install elasticsearch
+```
+
+- xclip
+```shell script
+sudo apt install xclip
+```
+
+- htop
+```shell script
+sudo apt install htop
+```
+
+- bpytop
+```shell script
+sudo apt install bpytop
+pip3 install bpytop --upgrade
+```
+
+- Google Chrome
+```shell script
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+- [Copyq](https://linuxhint.com/install-copyq-ubuntu/)
+
+```shell script
+sudo add-apt-repository -y ppa:hluk/copyq
+sudo apt install -y copyq 
+```
+
 ## Man/Manual pages
 - Whatis
   ```shell
@@ -113,6 +196,13 @@ groups            # print the groups a user is in
   ```shell
   rm -R -- */
   ```
+  
+## mv (move command)
+  
+- Move ignore exits
+  ```shell script
+  mv -n from to
+  ``` 
   
 ## Working with text
 - [awk command](https://viblo.asia/p/tim-hieu-awk-co-ban-gGJ59229KX2)
