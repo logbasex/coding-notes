@@ -19,6 +19,16 @@ sudo snap install slack --classic
 sudo snap install skype --classic
 ```
 
+- libre
+```shell script
+sudo apt install libreoffice
+```
+
+- csvkit
+```shell script
+sudo apt install csvkit
+```
+
 - lastpass cli
 ```shell script
 sudo apt install lastpass-cli
@@ -33,6 +43,13 @@ sudo apt install openjdk-8-jdk openjdk-8-jdk-headless
 ```shell script
 sudo apt install python3-pip -y
 ```
+- Sublime Text
+```shell script
+sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
+sudo apt install sublime-text
+```
 
 - Docker
 
@@ -42,6 +59,11 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt install docker-ce && sudo chmod 666 /var/run/docker.sock
+```
+
+- Docker-compose
+```shell script
+pip3 install docker-compose
 ```
 
 - Elasticsearch
@@ -62,6 +84,11 @@ sudo apt install xclip
 sudo apt install htop
 ```
 
+- tree
+```shell script
+sudo apt install tree
+```
+
 - bpytop
 ```shell script
 sudo apt install bpytop
@@ -72,6 +99,35 @@ pip3 install bpytop --upgrade
 ```shell script
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+- Mysql 
+
+```shell script
+mkdir -p $HOME/docker/mysql56
+
+cd $HOME/docker/mysql56
+
+docker pull mysql:5.6
+
+docker run -p 3307:3306 --name mysql56 \
+-v $PWD/conf:/etc/mysql \
+-v $PWD/logs:/var/log/mysql \
+-v $PWD/data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.6 \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_unicode_ci
+
+docker exec -ti mysql56 /bin/bash
+mysql -u root -p123456
+create database prism_dev;
+docker exec -i mysql56 bash -c 'exec mysql -uroot -p"123456"' < /some/path/on/your/host/all-databases.sql
+```
+
+- MongoDB
+```shell script
+sudo docker run -d --name=mongo44 -p=27017:27017 mongo:latest
 ```
 
 - [Copyq](https://linuxhint.com/install-copyq-ubuntu/)
@@ -148,6 +204,10 @@ groups            # print the groups a user is in
     apt-cache policy [command] | grep -i installed
     script -c "apt policy elasticsearch" /dev/null | grep -i installed
     ```
+  - Check mysql version
+  ```shell script
+    mysqld --version
+  ```  
 ## Kill process
 - pgrep (find or signal process by name)
   ```shell
