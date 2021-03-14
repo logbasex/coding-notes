@@ -1,4 +1,4 @@
-## Install
+# Install
 - update
 ```shell script
 sudo apt update -y && sudo apt upgrade -y && sudo apt full-upgrade -y
@@ -29,11 +29,6 @@ sudo apt install libreoffice
 sudo apt install csvkit
 ```
 
-- lastpass cli
-```shell script
-sudo apt install lastpass-cli
-```
-
 - Java
 ```shell script
 sudo apt install openjdk-8-jdk openjdk-8-jdk-headless
@@ -43,12 +38,24 @@ sudo apt install openjdk-8-jdk openjdk-8-jdk-headless
 ```shell script
 sudo apt install python3-pip -y
 ```
+
+- npm
+```shell script
+sudo apt install -y npm
+```
+
 - Sublime Text
 ```shell script
 sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
 curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
 sudo apt install sublime-text
+```
+
+- Google Chrome
+```shell script
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
 - Docker
@@ -64,41 +71,11 @@ sudo apt install docker-ce && sudo chmod 666 /var/run/docker.sock
 - Docker-compose
 ```shell script
 pip3 install docker-compose
-```
 
-- Elasticsearch
+OR
 
-```shell script
-curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-sudo apt install elasticsearch
-```
-
-- xclip
-```shell script
-sudo apt install xclip
-```
-
-- htop
-```shell script
-sudo apt install htop
-```
-
-- tree
-```shell script
-sudo apt install tree
-```
-
-- bpytop
-```shell script
-sudo apt install bpytop
-pip3 install bpytop --upgrade
-```
-
-- Google Chrome
-```shell script
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo wget --output-document=/usr/local/bin/docker-compose "https://github.com/docker/compose/releases/download/$(wget --quiet --output-document=- https://api.github.com/repos/docker/compose/releases/latest | grep --perl-regexp --only-matching '"tag_name": "\K.*?(?=")')/run.sh"
+sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 - Mysql 
@@ -130,15 +107,143 @@ docker exec -i mysql56 bash -c 'exec mysql -uroot -p"123456"' < /some/path/on/yo
 sudo docker run -d --name=mongo44 -p=27017:27017 mongo:latest
 ```
 
-- [Copyq](https://linuxhint.com/install-copyq-ubuntu/)
+- Jenkins
+```shell script
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' 
+#Note that after add repo to source list, pls update available packages
+sudo apt update
+sudo apt install jenkins -y
+
+OR
+
+docker run -d -p 8080:8080 -p 50000:50000 --name jenkins -v dbdata:/var/jenkins_home jenkins/jenkins:lts
+```
+
+
+- Rabbit MQ
+```shell script
+echo "deb https://packages.erlang-solutions.com/ubuntu focal contrib" | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+sudo apt install erlang
+wget -O- https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc | sudo apt-key add -
+wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
+
+# Ubuntu 20.04 ---
+echo "deb https://dl.bintray.com/rabbitmq-erlang/debian focal erlang-22.x" | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+sudo apt install rabbitmq-server -y
+sudo systemctl enable rabbitmq-server
+
+#Plugins
+sudo rabbitmq-plugins list
+sudo rabbitmq-plugins enable rabbitmq_management
+
+# localhost:15672, guest/guest
+```
+
+- Elasticsearch
+
+```shell script
+curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt install elasticsearch
+```
+
+#### Handy Tools
+- xclip
+```shell script
+sudo apt install xclip
+```
+
+- htop
+```shell script
+sudo apt install htop
+```
+
+- tree
+```shell script
+sudo apt install tree
+```
+
+- rename
+```shell script
+sudo apt install rename
+```
+
+- mlocate
+```shell script
+sudo apt install mlocate
+```
+
+- [bpytop](https://github.com/aristocratos/bpytop)
+```shell script
+sudo apt install bpytop
+pip3 install bpytop --upgrade
+```
+
+- [ngrok](https://ngrok.com/product)
+```shell script
+sudo snap install ngrok
+```
+
+- [duf](https://github.com/muesli/duf)
+```shell script
+# dpkg --print-architecture 
+curl --silent curl --silent "https://api.github.com/repos/muesli/duf/releases/latest" | jq -r ".assets[] | select(.name | test(\"linux_$(dpkg --print-architecture).deb\")) | .browser_download_url" | wget -O duf-latest.deb -i - && sudo dpkg -i duf-latest.deb
+```
+- [riprep](https://github.com/BurntSushi/ripgrep#installation)
+```shell script
+sudo apt install ripgrep
+echo $(rg --version)
+```
+
+- [copyq](https://linuxhint.com/install-copyq-ubuntu/)
 
 ```shell script
 sudo add-apt-repository -y ppa:hluk/copyq
 sudo apt install -y copyq 
 ```
 
+- ibus(unikey)
+```shell script
+sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo -y
+sudo apt update
+sudo apt-get install ibus-bamboo
+ibus restart
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'BambooUs')]"
+
+# gsettings get org.gnome.desktop.input-sources sources (check input source)
+```
+
+- neovim
+```shell script
+sudo apt install neovim
+```
+
+- lastpass cli
+```shell script
+sudo apt install lastpass-cli
+```
+
+- [Jekyll Blog](https://github.com/academicpages/academicpages.github.io)
+```shell script
+sudo apt install ruby-dev ruby-bundler nodejs
+echo 'passwd' | bundle install
+bundle exec jekyll liveserve 
+```
+
+#### Memes
+-Doge
+```shell script
+pip3 install doge
+```
+
+## [Get command description and location](tecmint.com/find-linux-command-description-and-location/)
+```shell script
+type <COMMAND>
+```
+
 ## Man/Manual pages
-- Whatis
+- What is it?
   ```shell
   man -f printf
       man (1)              - an interface to the system reference manuals
@@ -264,6 +369,11 @@ groups            # print the groups a user is in
   mv -n from to
   ``` 
   
+## grep
+
+-https://thenewstack.io/tutorial-hunting-the-secrets-of-unix-grep/  
+-https://thenewstack.io/brian-kernighan-remembers-the-origins-of-grep/
+  
 ## Working with text
 - [awk command](https://viblo.asia/p/tim-hieu-awk-co-ban-gGJ59229KX2)
   - https://java2blog.com/awk-print-1/
@@ -297,6 +407,10 @@ dd if=/home/logbasex/Downloads/ubuntu-20.04.2.0-desktop-amd64.iso of=/dev/sdb1 s
   echo $$
   echo $PPID
   ```
+- [Get process Id of just started process](How to get pid of just started process)
+  ```shell script
+    myCommand & echo $!             # & send process to background
+  ```  
 ## Disk management
 - https://www.tecmint.com/duf-linux-disk-monitoring-utility/
 
@@ -331,3 +445,10 @@ dd if=/home/logbasex/Downloads/ubuntu-20.04.2.0-desktop-amd64.iso of=/dev/sdb1 s
   ```
   
 - https://www.cyberciti.biz/faq/linux-import-openvpn-ovpn-file-with-networkmanager-commandline/
+
+
+
+--------------------
+Resources
+
+1.http://linuxadministrative.blogspot.com/
