@@ -39,11 +39,20 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
     {name: {$eq: null}}             # equal
     {name: {$exits: false}}
   ```
+- Query multi value
+    ```shell script
+    {_id: {$in: [ObjectId('604ee9e4473d470b0b044fcf'), ObjectId('604ae4683ab8ed7d865ccc3c')]}}
+    ```
 
 - Delete multi documents
   ```shell
   db.users.deleteMany({name: {$in: ["viki", "vino", "naranyamoorthy"]}})
   ```
+  
+- Delete all documents in a collection
+    ```shell script
+      db.users.deleteMany({})
+    ```  
 
 ## Add a field to collection
 

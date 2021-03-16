@@ -31,5 +31,15 @@ ls logbasex 2>&1 >/dev/null | grep ls
 ```
 
 
-### Shell redirection order
+### Redirection
+https://www.gnu.org/software/bash/manual/html_node/Redirections.html
+https://linux-training.be/funhtml/ch18.html
+https://www.reddit.com/r/commandline/comments/1gjq6s/bashlinuxconfusion_about_31_12_23_in_script/
 https://stackoverflow.com/questions/17975232/shell-redirection-i-o-order
+https://unix.stackexchange.com/questions/37660/order-of-redirections/37662#37662
+https://wiki.bash-hackers.org/howto/redirection_tutorial
+
+## Question
+- [stdout and /dev/stdout](https://stackoverflow.com/questions/30780780/difference-between-stdout-and-dev-stdout)
+
+https://unix.stackexchange.com/questions/36403/how-portable-are-dev-stdin-dev-stdout-and-dev-stderr

@@ -34,14 +34,38 @@ sudo apt install csvkit
 sudo apt install openjdk-8-jdk openjdk-8-jdk-headless
 ```
 
+- jq
+```shell script
+sudo apt install jq
+```
+
 - python3
 ```shell script
 sudo apt install python3-pip -y
 ```
 
-- npm
+- nvm
 ```shell script
-sudo apt install -y npm
+export NVM_DIR="$HOME/.nvm" && (
+  git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+  cd "$NVM_DIR"
+  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+) && \. "$NVM_DIR/nvm.sh"
+
+nvm ls-remote
+nvm install <SPECIFIC_NODE_VERSION>
+nvm use <SPECIFIC_NODE_VERSION>
+```
+
+- yarn
+```shell script
+sudo curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+
+OR
+
+sudo apt install --no-install-recommends yarn
 ```
 
 - Sublime Text
@@ -56,6 +80,11 @@ sudo apt install sublime-text
 ```shell script
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+- Brave
+```shell script
+sudo snap install brave
 ```
 
 - Docker
@@ -174,6 +203,16 @@ sudo apt install rename
 sudo apt install mlocate
 ```
 
+- finger (display user info)
+```shell script
+sudo apt install finger
+```
+
+- [whois](https://www.howtogeek.com/680086/how-to-use-the-whois-command-on-linux/)
+```shell script
+sudo apt install whois  #gets whois information for domain
+```
+
 - [bpytop](https://github.com/aristocratos/bpytop)
 ```shell script
 sudo apt install bpytop
@@ -217,6 +256,17 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 
 - neovim
 ```shell script
 sudo apt install neovim
+```
+
+- bat
+```shell script
+curl https://api.github.com/repos/sharkdp/bat/releases/latest | jq -r ".assets[] | select (.name | test(\"^.*$(dpkg --print-architectures).deb$\")) | .browser_download_url" | wget -O bat-latest.deb -i - && sudo dpkg -i bat-latest.deb
+```
+
+- [cheat](https://github.com/chubin/cheat.sh)
+```shell script
+curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
+chmod +x /usr/local/bin/cht.sh
 ```
 
 - lastpass cli

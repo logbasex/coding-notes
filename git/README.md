@@ -13,3 +13,8 @@ Be careful with the --force flag as it removes all the subsequent commits after 
 ```
 
 Further reading [here](https://stackoverflow.com/a/3338774/10393067).
+
+- Remove origin
+```shell script
+git remote remove origin
+```

@@ -250,7 +250,16 @@ Using vim in a terminal emulator: set -o vi
    
 3. If you often open a file as a normal user and then realize that you dont have root permissions for writing to the file, you can use `:w !sudo tee %` to save the file w/o closing vim.
 
-
+4. yank from vim to clipboard
+    ```shell script
+    v3j"+y      #visual mode
+    ```
+5. Comment multi line
+    ```shell script
+       select visual mode 
+       :s/^/# /
+    ```   
+   https://ostechnix.com/comment-multiple-lines-vim-editor/
 
 # Vim plugins
 
