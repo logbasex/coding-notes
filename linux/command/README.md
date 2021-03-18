@@ -1,3 +1,37 @@
+# Source
+
+- Command line
+
+```shell script
+https://github.com/jlevy/the-art-of-command-line
+https://gnu.moe/list/
+https://dev.to/_darrenburns/10-tools-to-power-up-your-command-line-4id4
+https://github.com/alebcay/awesome-shell
+```
+
+# PreInstall
+
+- [Disable Secure Boot](https://askubuntu.com/a/843678/978081)
+
+
+# nvidia problems
+[install, remove]
+```
+https://linoxide.com/how-to-install-nvidia-driver-on-ubuntu/
+https://linuxize.com/post/how-to-nvidia-drivers-on-ubuntu-20-04/
+```
+
+https://askubuntu.com/questions/1148785/gnome-suddenly-switching-from-hardware-gpu-to-llvmpipe
+https://askubuntu.com/questions/762764/cannot-change-brightness-ubuntu-16-04-lts-and-onward
+
+```shell script
+sudo apt install inxi  #https://askubuntu.com/questions/1072427/what-can-inxi-be-used-for
+
+lspci -vnnn | perl -lne 'print if /^\d+\:.+(\[\S+\:\S+\])/' | grep VGA
+
+glxinfo|egrep "OpenGL vendor|OpenGL renderer"
+```
+
 # Install
 - update
 ```shell script
@@ -9,6 +43,14 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt full-upgrade -y
 sudo apt install snapd
 ```
 
+- pip3
+```shell script
+sudo apt -y install python3-pip
+
+pip3 install <package>
+pip3 uninstall <package>
+```
+
 - slack
 ```shell script
 sudo snap install slack --classic
@@ -17,6 +59,9 @@ sudo snap install slack --classic
 - skype
 ```shell script
 sudo snap install skype --classic
+
+#https://askubuntu.com/questions/517780/how-do-i-stop-skype-from-auto-launching
+sudo find ./ -regextype posix-egrep -regex "./snap/skype/[0-9]+/.config/autostart/skypeforlinux.desktop" -delete
 ```
 
 - libre
@@ -32,6 +77,16 @@ sudo apt install csvkit
 - Java
 ```shell script
 sudo apt install openjdk-8-jdk openjdk-8-jdk-headless
+```
+
+- Golang
+```shell script
+sudo snap install go --classic
+```
+
+- Rust
+```shell script
+sudo snap install rustup --classic
 ```
 
 - jq
@@ -178,6 +233,39 @@ sudo apt install elasticsearch
 ```
 
 #### Handy Tools
+- [cargo](https://github.com/max-niederman/ttyper)
+```shell script
+cargo install ttyper
+PATH=$PATH:~/.cargo/bin
+```
+
+- [wpm]
+```shell script
+pip3 install wpm
+```
+
+- neofetch
+```shell script
+sudo apt install -y neofetch
+```
+
+- [ranger](https://github.com/ranger/ranger)
+
+```shell script
+# https://codeyarns.com/tech/2013-08-26-how-to-install-and-use-ranger.html
+# https://www.chrisatmachine.com/Neovim/07-ranger/
+
+sudo -H pip3 install ranger-fm
+#sudo apt install w3m-img
+pip3 install ueberzug
+sudo apt install kitty       # Use with kitty terminal emulator
+```
+
+- openssh-server
+```shell script
+sudo apt install -y openssh-server
+```
+
 - xclip
 ```shell script
 sudo apt install xclip
@@ -286,10 +374,28 @@ bundle exec jekyll liveserve
 ```shell script
 pip3 install doge
 ```
+-xeyes
+
+
+
+## User
+
+- username
+    ```shell script
+     whoami
+    ```
+-hostname (computer's name)
+    ```shell script
+      hostname
+    ```
+
 
 ## [Get command description and location](tecmint.com/find-linux-command-description-and-location/)
 ```shell script
-type <COMMAND>
+type -a <COMMAND>
+command -v <COMMAND>
+which <COMMAND>
+whereis <COMMAND>
 ```
 
 ## Man/Manual pages
@@ -496,6 +602,38 @@ dd if=/home/logbasex/Downloads/ubuntu-20.04.2.0-desktop-amd64.iso of=/dev/sdb1 s
   
 - https://www.cyberciti.biz/faq/linux-import-openvpn-ovpn-file-with-networkmanager-commandline/
 
+- ip addr 
+
+
+## Find command
+
+ "This is a match on the whole path, not a search."
+
+```shell script
+# Error
+sudo find ./ -regextype posix-egrep -regex "/[0-9]+/.config/autostart/skypeforlinux.desktop" -delete        
+
+#Work
+sudo find ./ -regextype posix-egrep -regex "./snap/skype/[0-9]+/.config/autostart/skypeforlinux.desktop" -delete
+```
+
+## [scp command](https://unix.stackexchange.com/questions/188285/how-to-copy-a-file-from-a-remote-server-to-a-local-machine)
+If you are **`ON the LOCAL  from which you want to SEND FILE to a REMOTE COMPUTER`**. Here the remote can be a FQDN or an IP address.
+                                                                                  
+```shell script
+scp /file/to/send remote_username@remote_host:/where/to/put
+```
+
+On the other hand if you are **`ON the LOCAL COMPUTER wanting to RECEIVE FILE from a REMOTE COMPUTER`**:
+
+```shell script
+scp username@remote:/file/to/send /where/to/put
+```
+
+Copy between two remote computers
+```shell script
+scp username@source:/location/to/file username@destination:/where/to/put
+```
 
 
 --------------------

@@ -1,3 +1,25 @@
+# History
+<p>
+
+    vi (or vim) IS intuitive and it IS NOT HARD TO USE, once you learn its premises. vim is a TEXT-OBJECT ORIENTED EDITOR, and the commands are applied on the objects. Once you understand that (same way you’ve to learn CUA premises), it’s easy to use.
+    
+    vi is the “VIsual mode” of ex, an ancient editor, from the time the computers didn’t have a monitor. Yep, there was a time when programmers and users interacted with computers through a thing called teletype. Essentially, anything you typed in a keyboard (almost standard typewriter keyboard!) was sent to a computer, and the computer responded by activating the TYPING, so the user saw the response to his or her command in a continous paper (when not in a paper tape).
+    
+    That’s the main reason why ed → ex → em → vi → vim is a command driven application. You coudn’t see the code, you had to send commands like “yank three lines”, “move to the end of the paragraph”, “pasted yanked text here”… If you thinkl vim is hard to use, try to use it without a screen interface. That’s hardcore coding. And, the best of all: it is possible! If youre woring ona remote server and the connection is slow, you can issue a bunch of commands through the TTY emulator (a.k.a. [x]term) and they weill be executed without the need of immediate visual feedback.
+    
+    When computers started to use CRT or other types of “screens”, ex got the “vi” mode, since it was then possible to see the many lines of text, and a cursor was available to reach text positions. vi uses h j k l because there were no cursor keys back then and the machine the author used to write ex had cursor arrows above those keys.
+    vi has no undo or many other “modern” niceties… That’s vim. Vim is far better than standard ex (vi is just the name of a symbolic link that starts ex in vi mode).
+    So, that’s why vi/vim is so different (but not worse) than “modern” software.
+</p>
+
+- [Line Editor](https://en.wikipedia.org/wiki/Line_editor)
+- [Visual Editor](https://en.wikipedia.org/wiki/Visual_editor)
+- [vi](https://en.wikipedia.org/wiki/Vi)
+- [ed and ex](https://medium.com/usevim/vim-101-ed-and-ex-30314f7a2177)
+
+# Resources
+http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
+
 # Vim Cheatsheet
 
 >Disclaimer: This cheatsheet is summarized from personal experience and other online tutorials. It should not be considered as official advice.
@@ -260,6 +282,19 @@ Using vim in a terminal emulator: set -o vi
        :s/^/# /
     ```   
    https://ostechnix.com/comment-multiple-lines-vim-editor/
+6. Format json
+    ```shell script
+    :%!jq .
+   
+    # https://askubuntu.com/questions/718991/what-do-and-mean-in-vim-commands
+    % (:h :%)     Move cursor to the matching bracket.
+                  Place cursor on {}[]() and type "%".
+   
+    ! (:h :!)     filter through external command 
+                  Any UNIX command can be executed from the vi command line by typing an "!" before the UNIX command.
+                  Autowrite can be intentionally avoided by using "!" to avoid the save when switching files.
+    ```
+   
 
 # Vim plugins
 
