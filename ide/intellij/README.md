@@ -6,7 +6,7 @@ ctrl+shift+m                  # moving between bracket/parenthesis
 
 ## See the port of all spring boot services
 
-Help -> Find Action (ctrl + shift + a) -> Rn Dashboard -> Click add service -> select spring boot
+Help -> Find Action (ctrl + shift + a) -> Run Dashboard -> Click add service -> select spring boot
 
 ![](https://s3-ap-southeast-1.amazonaws.com/logbasex.github.io/intellij-run-dashboard.png)
 
@@ -14,4 +14,18 @@ Help -> Find Action (ctrl + shift + a) -> Rn Dashboard -> Click add service -> s
 
 File -> Settings -> Keymap -> Search -> Checkout Selected -> Add mouse shortcut -> Double Click
 
+![](https://s3-ap-southeast-1.amazonaws.com/logbasex.github.io/intellij-git-checkout-branch.png)
+
 ![](https://s3-ap-southeast-1.amazonaws.com/logbasex.github.io/intellij-git-double-click-checkout.png) 
+
+## IntelliJ shows decompiled .class file instead of source code
+
+Because your source path is empty (File -> Project Structure)
+
+![](https://s3-ap-southeast-1.amazonaws.com/logbasex.github.io/intellij-sdk-source-path-empty.png)
+
+Download and select which one has source path
+
+![](https://s3-ap-southeast-1.amazonaws.com/logbasex.github.io/intellij-project-sdk.png)
+
+Further reading here: https://stackoverflow.com/questions/49558009/intellij-shows-decompiled-class-file-instead-of-source-code
