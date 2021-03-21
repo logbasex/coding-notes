@@ -9,7 +9,7 @@ https://dev.to/_darrenburns/10-tools-to-power-up-your-command-line-4id4
 https://github.com/alebcay/awesome-shell
 ```
 
-# PreInstall
+# Pre-install
 
 - [Disable Secure Boot](https://askubuntu.com/a/843678/978081)
 
@@ -233,6 +233,18 @@ sudo apt install elasticsearch
 ```
 
 #### Handy Tools
+- [terminalizer](https://github.com/faressoft/terminalizer)
+```shell script
+sudo npm install --global --allow-root --unsafe-perm=true terminalizer
+```
+
+- [peek](https://github.com/phw/peek#ubuntu)
+```shell script
+sudo add-apt-repository ppa:peek-developers/stable
+sudo apt update
+sudo apt install peek
+```
+
 - [cargo](https://github.com/max-niederman/ttyper)
 ```shell script
 cargo install ttyper
@@ -374,9 +386,6 @@ bundle exec jekyll liveserve
 ```shell script
 pip3 install doge
 ```
--xeyes
-
-
 
 ## User
 
@@ -388,7 +397,6 @@ pip3 install doge
     ```shell script
       hostname
     ```
-
 
 ## [Get command description and location](tecmint.com/find-linux-command-description-and-location/)
 ```shell script
@@ -563,10 +571,14 @@ dd if=/home/logbasex/Downloads/ubuntu-20.04.2.0-desktop-amd64.iso of=/dev/sdb1 s
   echo $$
   echo $PPID
   ```
+  
 - [Get process Id of just started process](How to get pid of just started process)
   ```shell script
     myCommand & echo $!             # & send process to background
   ```  
+- `w`: show who is logged on and what they are doing
+- `who`: show who is logged on
+- `tty`: show current users pseudo terminal
 ## Disk management
 - https://www.tecmint.com/duf-linux-disk-monitoring-utility/
 
