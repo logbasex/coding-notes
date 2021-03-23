@@ -374,6 +374,11 @@ chmod +x /usr/local/bin/cht.sh
 sudo apt install lastpass-cli
 ```
 
+- virtualbox
+```shell script
+sudo apt install virtual box
+```
+
 - [Jekyll Blog](https://github.com/academicpages/academicpages.github.io)
 ```shell script
 sudo apt install ruby-dev ruby-bundler nodejs
@@ -647,6 +652,19 @@ Copy between two remote computers
 scp username@source:/location/to/file username@destination:/where/to/put
 ```
 
+## ssh-keygen command
+```shell script
+ssh-keygen -t rsa -b 4096 -C "contact.hoducanh@gmail.com"
+```
+
+## getent command
+```shell script
+# Find which service is using specific port
+getent services 22
+
+# Get the info for current logged in user
+getent passwd `whoami`
+```
 
 --------------------
 Resources
