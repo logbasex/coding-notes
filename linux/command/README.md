@@ -233,8 +233,19 @@ sudo apt install elasticsearch
 ```
 
 #### Handy Tools
+- [exa](modern replacement for ls)
+```shell script
+sudo apt install exa
+
+exa -l
+exa -bghHliS
+```
+
 - [terminalizer](https://github.com/faressoft/terminalizer)
 ```shell script
+# using node v10.23.0
+# https://github.com/faressoft/terminalizer/issues/139
+
 sudo npm install --global --allow-root --unsafe-perm=true terminalizer
 ```
 
