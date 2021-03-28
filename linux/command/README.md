@@ -455,7 +455,8 @@ whereis <COMMAND>
   alias            # prints the list of aliases in the reusable form 'alias NAME=VALUE' on standard output.
   </pre>
 
-groups            # print the groups a user is in
+- maybe you're missing package's name 
+    - `apropos` command (search through man page)
 
 ## Build in commands
 

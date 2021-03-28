@@ -14,3 +14,11 @@ Related:
 
 /var/cache/apt/archives/    # where .deb package stored.
 </pre>
+
+- sbin
+    - System binary
+- bin
+    - binary
+    
+- Binary folder        
+    - https://www.interserver.net/tips/kb/linux-binary-directories-explained/

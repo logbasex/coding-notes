@@ -29,3 +29,9 @@ Download and select which one has source path
 ![](https://s3-ap-southeast-1.amazonaws.com/logbasex.github.io/intellij-project-sdk.png)
 
 Further reading here: https://stackoverflow.com/questions/49558009/intellij-shows-decompiled-class-file-instead-of-source-code
+
+
+## Replace empty line 
+```regexp
+^(?:[\t ]*(?:\r?\n|\r)){1,}
+```
