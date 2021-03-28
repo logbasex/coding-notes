@@ -25,7 +25,16 @@ Related: https://unix.stackexchange.com/a/11465/363633
 * `/etc/bashrc` or `/etc/bash.bashrc` for bash (but, mostly you see this at the beginning of the script: `[ -z "$PS1" ] && return`. That means don't do anything if it's a non-interactive shell).
 * depending on shell; some of them read the file in the `$ENV` variable.
 
+- interactive login shell (`CTRL + ALT + F1`)
+- interactive non-login shell (Open new terminal)
+- non-interactive non-login shell (run a script)
+- non-interactive login shell (`echo ls | ssh root@192.168.5.21`)
+- [More](https://askubuntu.com/questions/879364/differentiate-interactive-login-and-non-interactive-non-login-shell)
 
+- An interactive shell is a shell with which you can interact, that means you can type commands in it. Most shells you will use are interactive shells.
+- A non-interactive shell is a shell with which you cannot interact. Shell scripts run inside non-interactive shells.
+- A login shell is the shell which is started when you login to your system.
+- A non-login shell is a shell which is started after the login process.
 
 ## What's a "Terminal" ?
 
@@ -65,3 +74,58 @@ source ~/.<SHELL>rc
 ```
 https://unix.stackexchange.com/questions/14885/how-to-reset-a-shell-environment
 
+
+## .bashrc .bash_profile
+
+- Ubuntu uses ~/.profile .
+
+- You can check if your Bash shell is started as a login-shell by running:
+```shell script
+shopt login_shell
+```  
+
+```shell script
+export me="logbasex" >> .bash_profile
+
+ctrl + alt + f1
+
+ctrl + alt + T
+
+bash -l            #make bash behave as if it is a login shell even if started after your have logged in
+
+echo $me
+```
+- Note that with gnome-terminal -> go to preferences -> default profile -> command -> run command as login shell (with `tty` we don't need to do that)
+
+- `.bash_profile` is executed for login shells, while `.bashrc `is executed for interactive non-login shells.
+  
+- Create a ~/.bash_profile file. If bash is started as a login shell it will first look for ~/.bash_profile before looking for ~/.profile. If bash finds ~/.bash_profile then it will not read ~/.profile.  
+
+- [More](https://askubuntu.com/a/132319/978081)
+
+- [.bash_logout](https://unix.stackexchange.com/questions/371161/bash-logout-is-not-running-on-exit-of-putty)
+
+- From `man bash`
+    - When bash is invoked as an interactive login shell, or as a non-interactive shell with the --login option, it first reads and executes commands from the file /etc/profile, if that file exists. After reading that file, it looks for ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order, and reads and executes commands from the first one that exists and is readable. The --noprofile option may be used when the shell is started to inhibit this behavior.
+    
+    - When an interactive shell that is not a login shell is started, bash reads and executes commands from ~/.bashrc, if that file exists. This may be inhibited by using the --norc option. The --rcfile file option will force bash to read and execute commands from file instead of ~/.bashrc.
+    
+- `/etc/profile` and `/etc/bash.bashrc`
+- `/etc/bashrc` for `Redhat`
+
+- [When you login, bash runs ~/.bash_profile and ~/.bash_profile runs ~/.bashrc. Indeed ~/.bashrc isn't bash initialization file, because bash doesn't run it.](https://unix.stackexchange.com/a/45805/363633)
+  
+- [Difference between .profile and .bash_profile](https://unix.stackexchange.com/questions/45684/what-is-the-difference-between-profile-and-bash-profile)  
+
+- [When is /etc/bash.bashrc invoked?](https://unix.stackexchange.com/questions/187369/when-is-etc-bash-bashrc-invoked)
+
+    ```shell script
+    vi /etc/profile
+  
+    if [ -f /etc/bash.bashrc ]; then
+        . /etc/bash.bashrc
+    fi
+
+    ```
+  
+ ![https://unix.stackexchange.com/a/45734/363633](https://what.thedailywtf.com/uploads/files/1462690324423-upload-f8cce917-e33c-4671-ac56-f1b0da9f687f.png) 
