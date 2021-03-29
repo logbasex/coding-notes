@@ -20,6 +20,27 @@
 # Resources
 http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
 
+
+# Install
+
+-https://betterprogramming.pub/setting-up-neovim-for-web-development-in-2020-d800de3efacd?gi=a7302040f293
+
+- Nerd font (use for install vim-devicons)
+```
+git clone https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+./install.sh
+```
+
+- Fzf vim
+
+```
+https://dev.to/iggredible/how-to-search-faster-in-vim-with-fzf-vim-36ko?signin=true
+
+:Files
+:Rg
+```
+
 # Vim Cheatsheet
 
 >Disclaimer: This cheatsheet is summarized from personal experience and other online tutorials. It should not be considered as official advice.
