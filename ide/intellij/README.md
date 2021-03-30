@@ -35,3 +35,8 @@ Further reading here: https://stackoverflow.com/questions/49558009/intellij-show
 ```regexp
 ^(?:[\t ]*(?:\r?\n|\r)){1,}
 ```
+
+
+## Convention
+
+Package's name cannot use reserve word (like enum, class) 

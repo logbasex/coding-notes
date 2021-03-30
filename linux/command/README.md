@@ -7,6 +7,7 @@ https://github.com/jlevy/the-art-of-command-line
 https://gnu.moe/list/
 https://dev.to/_darrenburns/10-tools-to-power-up-your-command-line-4id4
 https://github.com/alebcay/awesome-shell
+https://ketancmaheshwari.github.io/pdfs/LPT_LISA.pdf
 ```
 
 # Pre-install
@@ -367,6 +368,11 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 
 - neovim
 ```shell script
 sudo apt install neovim
+```
+
+- glow
+```shell script
+sudo snap install glow
 ```
 
 - bat
