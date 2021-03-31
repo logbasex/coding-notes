@@ -21,3 +21,7 @@ import com.google.common.base.Joiner;
 
 Joiner.on(" ").skipNulls().join("I", null, "love", null, "null");
 ```
+
+## Enum
+- Enum constructor is fine with private or default constructor, causing an error with protected or public constructor because that would allow more instances to be created.
+	- Enums contain a fixed set of values, which must all be known at compile-time. It doesn't make sense to create new literals at run-time, which would be possible if the constructor were visible.

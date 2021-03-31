@@ -315,7 +315,14 @@ Using vim in a terminal emulator: set -o vi
                   Any UNIX command can be executed from the vi command line by typing an "!" before the UNIX command.
                   Autowrite can be intentionally avoided by using "!" to avoid the save when switching files.
     ```
-   
+7. Remove directory
+    ```
+    ! rmdir <FOLDER-NAME>	
+    ```
+8. Terminal mode
+    ```
+    :term
+    ```
 
 # Vim plugins
 
