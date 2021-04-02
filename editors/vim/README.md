@@ -18,12 +18,12 @@
 - [ed and ex](https://medium.com/usevim/vim-101-ed-and-ex-30314f7a2177)
 
 # Resources
-http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
+- http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
 
 
 # Install
 
--https://betterprogramming.pub/setting-up-neovim-for-web-development-in-2020-d800de3efacd?gi=a7302040f293
+- https://betterprogramming.pub/setting-up-neovim-for-web-development-in-2020-d800de3efacd?gi=a7302040f293
 
 - Nerd font (use for install vim-devicons)
 ```
@@ -238,6 +238,11 @@ gT or :tabprev or :tabp # move to the previous tab
 :tabdo command          # run the command on all tabs (e.g. :tabdo q - closes all opened tabs)
 ```
 
+## Windows
+```shell script
+:vsp newfile
+```
+
 ## Screen Positioning
 ```bash
 https://medium.com/usevim/vim-101-quick-movement-c12889e759e0
@@ -271,6 +276,16 @@ Ctrl + R        # Insert the contents of a numbered or named register without le
                 # To do this, press CTRL-R then type the name of a register (:help C-R)
 
 
+```
+
+## FileExplore
+
+```shell script
+:Ex           # Explore mode
+:bd           # Exit explore mode
+:Rex          # Exit explore mode (:Rexplore - recommend)
+:Sexplore
+:Texplore     # https://askubuntu.com/questions/245387/exit-file-explorer-in-vim-without-closing/1328827#1328827
 ```
 
 ## Vim anywhere
@@ -319,7 +334,15 @@ Using vim in a terminal emulator: set -o vi
     ```
     ! rmdir <FOLDER-NAME>	
     ```
-8. Terminal mode
+8. Create a new directory and file   
+    ```shell script
+    :Ex
+    
+    d for creating a directory
+    % for creating a new file
+    ```
+   
+9. Terminal mode
     ```
     :term
     ```
