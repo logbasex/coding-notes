@@ -234,6 +234,13 @@ sudo apt install elasticsearch
 ```
 
 #### Handy Tools
+- [lazygit]
+```
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
+```
+
 - [exa](modern replacement for ls)
 ```shell script
 sudo apt install exa
