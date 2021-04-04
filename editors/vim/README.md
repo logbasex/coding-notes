@@ -19,7 +19,8 @@
 
 # Resources
 - http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
-- 
+- https://github.com/akrawchyk/awesome-vim#learning-vim
+- https://github.com/kyoz/vim-galore-vi
 
 # Install
 
@@ -288,6 +289,12 @@ Ctrl + R        # Insert the contents of a numbered or named register without le
 :Texplore     # https://askubuntu.com/questions/245387/exit-file-explorer-in-vim-without-closing/1328827#1328827
 ```
 
+
+## Mapping
+- https://vimways.org/2018/for-mappings-and-a-tutorial/
+- https://github.com/kyoz/vim-galore-vi#ctrl-l-t%E1%BB%91t-h%C6%A1n
+
+
 ## Vim anywhere
 
 Using vim in a terminal emulator: set -o vi
@@ -351,6 +358,8 @@ Using vim in a terminal emulator: set -o vi
 9. Terminal mode
     ```
     :term
+   
+    :vs term://zsh
     ```
 10. Reload config
     ```shell script
@@ -431,3 +440,12 @@ Using vim in a terminal emulator: set -o vi
   - Select dir -> `Shift + C` -> go inside directory
   - Press m to launch NERDTree menu inside Vim.
   - [CTRL + W + R](https://stackoverflow.com/questions/47375977/how-to-keep-nerdtree-on-the-left-side) -> Move nerdtree to the left side
+  
+- [vim-fugitive](https://github.com/tpope/vim-fugitive)  
+    - https://irian.to/blogs/vim-fugitive/
+    - https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
+    - https://dev.to/iggredible/working-with-vim-and-git-4nkh
+    
+    ```shell script
+    :vertical Gstatus
+    ```
