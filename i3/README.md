@@ -1,3 +1,18 @@
+## Config
+- Tutorial
+    - https://github.com/addy-dclxvi/i3-starterpack
+    - https://kifarunix.com/install-and-setup-i3-windows-manager-on-ubuntu-20-04/
+- location: `~/.config/i3`
+
+- [swap the Alt and Super keys](https://www.reddit.com/r/i3wm/comments/bakkpg/can_i_completely_swap_the_alt_and_super_keys/)
+    ```
+    setxkbmap -option altwin:swap_alt_win
+
+    config file -> add: set $mod Mod4
+    ```
+- Default terminal: `bindsym $mod+Return exec kitty`
+
+
 ## Controlling i3
 
 <pre>

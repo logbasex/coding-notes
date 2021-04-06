@@ -86,6 +86,11 @@ Ctrl + b          # scroll **b**ackword one full screen
 Ctrl + f          # scroll **f**orward one full screen
 Ctrl + d          # scroll **d**own 1/2 screen
 Ctrl + u          # scroll **u**p 1/2 a screen
+
+
+30G80|                  # goes to line 30, column 80.
+:cal cursor(30, 80)     # goes to line 30, column 80.
+
 </pre>
 
 
@@ -377,6 +382,7 @@ Using vim in a terminal emulator: set -o vi
 ### I. Plugin managers
 
 - [Vim plug](https://github.com/junegunn/vim-plug)
+   - [.local/share/nvim/site/autoload/plug.vim](https://vi.stackexchange.com/questions/15042/why-does-vim-plug-add-the-vim-file-to-vim-autoload-and-not-vim-plugin)
 - [Vim surround](https://github.com/tpope/vim-surround)
     - Tutorial [here](https://towardsdatascience.com/how-i-learned-to-enjoy-vim-e310e53e8d56?gi=1893fe29902d).
         ```shell
