@@ -143,6 +143,11 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo snap install brave
 ```
 
+- qutebrowser
+```
+sudo apt install qutebrowser
+```
+
 - Docker
 
 ```shell script
