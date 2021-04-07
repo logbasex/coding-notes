@@ -239,6 +239,11 @@ sudo apt install elasticsearch
 ```
 
 #### Handy Tools
+- httpie
+```
+sudo apt install httpie
+```
+
 - [lazygit]
 ```
 sudo add-apt-repository ppa:lazygit-team/release

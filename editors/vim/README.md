@@ -292,6 +292,9 @@ Ctrl + R        # Insert the contents of a numbered or named register without le
 :Rex          # Exit explore mode (:Rexplore - recommend)
 :Sexplore
 :Texplore     # https://askubuntu.com/questions/245387/exit-file-explorer-in-vim-without-closing/1328827#1328827
+
+:e            # Reload current file
+              # https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file
 ```
 
 

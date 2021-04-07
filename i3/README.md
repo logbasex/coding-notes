@@ -4,11 +4,16 @@
     - https://kifarunix.com/install-and-setup-i3-windows-manager-on-ubuntu-20-04/
 - location: `~/.config/i3`
 
+- `i3`: copy `/etc/i3/config` to `~/.config/i3`
+- `i3status`: copy `/etc/i3status.conf` to `~/.config/i3status`
+    ```
+    dpkg -L i3status          #list all files of the i3status package
+    ```
 - [swap the Alt and Super keys](https://www.reddit.com/r/i3wm/comments/bakkpg/can_i_completely_swap_the_alt_and_super_keys/)
     ```
     setxkbmap -option altwin:swap_alt_win
 
-    config file -> add: set $mod Mod4
+    config file -> https://www.reddit.com/r/i3wm/comments/9r4brm/changing_mod1_to_mod4_tedious/
     ```
 - Default terminal: `bindsym $mod+Return exec kitty`
 
@@ -58,6 +63,10 @@ $mod+Shift+k
 
 # Move window down
 $mod+Shift+l
+
+
+# change order of window in one workspace
+$mod+shift+left/right
 </pre>
 
 ## Containers
@@ -73,7 +82,7 @@ $mod+h
 # Vertical split container
 $mod+v
 
-# Tabbed container
+# Tabbed container mode
 $mod+w
 
 # Toggle fullscreen mode
