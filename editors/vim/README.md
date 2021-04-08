@@ -374,6 +374,11 @@ Using vim in a terminal emulator: set -o vi
     :source ~/.vimrc
     :so $MYVIMRC
     ```
+11. [Open recent file](https://stackoverflow.com/a/50558960/10393067)
+    ```
+    :oldfiles
+    :History
+    ```
 
 ## Pitfalls    
 

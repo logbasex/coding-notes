@@ -5,9 +5,10 @@
 - location: `~/.config/i3`
 
 - `i3`: copy `/etc/i3/config` to `~/.config/i3`
-- `i3status`: copy `/etc/i3status.conf` to `~/.config/i3status`
+- `i3status`: copy `/etc/i3status.conf` to `~/.config/i3status` and rename `i3status.conf` to `config`
     ```
     dpkg -L i3status          #list all files of the i3status package
+    $mod + shift + r          #reload i3status config
     ```
 - [swap the Alt and Super keys](https://www.reddit.com/r/i3wm/comments/bakkpg/can_i_completely_swap_the_alt_and_super_keys/)
     ```
@@ -16,6 +17,7 @@
     config file -> https://www.reddit.com/r/i3wm/comments/9r4brm/changing_mod1_to_mod4_tedious/
     ```
 - Default terminal: `bindsym $mod+Return exec kitty`
+- [i3, i3bar, i3status](https://www.reddit.com/r/i3wm/wiki/faq/i3i3bari3status)
 
 
 ## Controlling i3
@@ -69,6 +71,7 @@ $mod+Shift+l
 $mod+shift+left/right
 </pre>
 
+
 ## Containers
 
 <pre>
@@ -98,6 +101,11 @@ $mod+Shift+Space
 $mod+f    
 
 </pre>
+
+- Undo split container
+    - I don't know if this is helpful or not, but, on a node that has either a vertical or horizontal preselected split, if you attempt to move it left or right, it clears the split instead of moving it.
+    - https://www.reddit.com/r/i3wm/comments/enl5to/is_there_a_way_to_undo_a_split_intention/
+
 
 ## Application
 
