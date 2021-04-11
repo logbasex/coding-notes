@@ -18,6 +18,7 @@
     ```
 - Default terminal: `bindsym $mod+Return exec kitty`
 - [i3, i3bar, i3status](https://www.reddit.com/r/i3wm/wiki/faq/i3i3bari3status)
+- [Debug i3](https://i3wm.org/docs/debugging.html)
 
 
 ## Controlling i3

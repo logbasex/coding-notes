@@ -239,6 +239,11 @@ sudo apt install elasticsearch
 ```
 
 #### Handy Tools
+- synaptic package manager
+```shell script
+sudo apt update
+sudo apt install synaptic
+```
 
 - [yq, xq](https://github.com/kislyuk/yq)
 ```
@@ -254,21 +259,15 @@ CHROME_DRIVER_VERSION=`curl -sS https://chromedriver.storage.googleapis.com/LATE
 SELENIUM_STANDALONE_JAR=`curl https://selenium-release.storage.googleapis.com | xq | jq 'last(.ListBucketResult|.Contents|.[]|.Key| select(test(".*selenium-server-standalone.*.jar")))`
 
 # Remove existing downloads and binaries so we can start from scratch.
-sudo apt-get remove google-chrome-stable
-rm ~/selenium-server-standalone-*.jar
-rm ~/chromedriver_linux64.zip
-sudo rm /usr/local/bin/chromedriver
-sudo rm /usr/local/bin/selenium-server-standalone.jar
+# sudo apt-get remove google-chrome-stable
+# rm ~/selenium-server-standalone-*.jar
+# rm ~/chromedriver_linux64.zip
+# sudo rm /usr/local/bin/chromedriver
+# sudo rm /usr/local/bin/selenium-server-standalone.jar
 
 # Install dependencies.
 sudo apt-get update
 sudo apt-get install -y unzip openjdk-8-jre-headless xvfb libxi6 libgconf-2-4
-
-# Install Chrome.
-sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
-sudo echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
-sudo apt-get -y update
-sudo apt-get -y install google-chrome-stable
 
 # Install ChromeDriver.
 wget -N https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
