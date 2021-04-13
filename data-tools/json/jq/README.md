@@ -9,6 +9,14 @@ cat my.json | jq -c '.[] | select( ._id | contains(611))'
 ```
 Remember: if JSON value has no double quotes (eg. for numeric) to do not supply in filter i.e. in `contains(611)`
 
+## Get first, last element
+- https://stackoverflow.com/a/45911762/10393067
+```shell script
+curl https://selenium-release.storage.googleapis.com | xq | jq 'last(.ListBucketResult|.Contents|.[]|.Key| select(test(".*selenium-server-standalone.*.jar")))
+```
+
 ## Cheatsheet
 
 - https://gist.github.com/olih/f7437fb6962fb3ee9fe95bda8d2c8fa4
+- https://stedolan.github.io/jq/manual/
+- https://hyperpolyglot.org/json
