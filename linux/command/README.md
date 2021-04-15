@@ -252,7 +252,6 @@ pip3 install yq
 
 - selenium
     - [Install script](https://gist.github.com/ziadoz/3e8ab7e944d02fe872c3454d17af31a5)
-    - 
 ```shell script
 # Versions
 CHROME_DRIVER_VERSION=`curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
@@ -289,7 +288,7 @@ sudo chmod 0755 /usr/local/bin/selenium-server-standalone.jar
 sudo apt install httpie
 ```
 
-- [lazygit]
+- lazygit
 ```
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt-get update
@@ -304,20 +303,52 @@ exa -l
 exa -bghHliS
 ```
 
-- [terminalizer](https://github.com/faressoft/terminalizer)
-```shell script
-# using node v10.23.0
-# https://github.com/faressoft/terminalizer/issues/139
+- #### Media
 
-sudo npm install --global --allow-root --unsafe-perm=true terminalizer
-```
-
-- [peek](https://github.com/phw/peek#ubuntu)
-```shell script
-sudo add-apt-repository ppa:peek-developers/stable
-sudo apt update
-sudo apt install peek
-```
+    - [terminalizer](https://github.com/faressoft/terminalizer): record terminal gif
+    ```shell script
+    # using node v10.23.0
+    # https://github.com/faressoft/terminalizer/issues/139
+    
+    sudo npm install --global --allow-root --unsafe-perm=true terminalizer
+    ```
+    
+    - [peek](https://github.com/phw/peek#ubuntu): record as gif
+    ```shell script
+    sudo add-apt-repository ppa:peek-developers/stable
+    sudo apt update
+    sudo apt install peek
+    ```
+    
+    - byzanz
+    ```shell script
+    sudo apt install byzanz
+    byzanz-record --duration=10 --delay=2 --x=0 --y=0 --width=1920 --height=1080 ~/Desktop/out.gif
+    ```
+    
+    - kazam
+    ```shell script
+    sudo apt install kazam
+    ```
+    
+    - vlc
+    ```shell script
+    sudo apt install vlc
+    ```
+    
+    - ffmpeg
+    ```shell script
+    sudo apt install ffmpeg
+    ```
+  
+    - gimp (edit/crop image)
+    ```shell script
+    sudo apt install aptitude
+    sudo aptitude install gimp
+  
+    # tutorial
+    # https://www.youtube.com/watch?v=hfhJcIGH4o0
+    ```
 
 - [cargo](https://github.com/max-niederman/ttyper)
 ```shell script
@@ -325,7 +356,7 @@ cargo install ttyper
 PATH=$PATH:~/.cargo/bin
 ```
 
-- [wpm]
+- wpm
 ```shell script
 pip3 install wpm
 ```
