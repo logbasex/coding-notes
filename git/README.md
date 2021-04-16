@@ -15,9 +15,9 @@ Be careful with the --force flag as it removes all the subsequent commits after 
 Further reading [here](https://stackoverflow.com/a/3338774/10393067).
 
 - Remove origin
-```shell script
-git remote remove origin
-```
+    ```shell script
+    git remote remove origin
+    ```
 
 ## [Search commit](https://stackoverflow.com/questions/2928584/how-to-grep-search-committed-code-in-the-git-history)
 Search in any revision, any file 
@@ -56,6 +56,13 @@ Search all revisions between rev1 and rev2 for text matching regular expression 
 ## List all developer on a project
 
     git shortlog --summary --numbered --email
+    
+
+## Git fetch and pull
+
+Rebase and autostash
+
+    git pull --rebase --autostash    
 
 ## Cheat sheet
 - https://gist.github.com/chrismccoy/8775224
