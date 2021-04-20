@@ -1,0 +1,73 @@
+# [Scripting language](quora.com/Whats-the-difference-between-a-programming-language-and-a-scripting-language/answer/Harold-Kingsberg)
+
+Scripting languages are a subset of programming languages.
+
+In the old days, if you wanted to build large applications, you had to use some comparatively verbose programming languages. Because processor speeds were slower than they are now and because RAM was much more expensive, programmers really had to optimize on performance for large applications back then. Languages like COBOL, FORTRAN and C were therefore used for enterprise-level applications.
+
+However, for automating small tasks, all of those languages are serious overkill. If you want an application that will check a directory to see if any files within it contain the letter 'E,' for example, you're looking at typing out more than a few lines of code. You then have to compile the code (turn it into machine code) and only then can you execute it.
+
+In order to automate those quick and dirty tasks, people started writing languages that ran much slower than the compiled languages, but required much less typing to get stuff done. This really started off with shell scripts, moving on to AWK, sed and, in 1987, Perl (EDIT: Also Emacs Lisp, thank you Charles H Martin for the reminder - Lisps in general had a reputation for being scripty in nature). These languages were not compiled, but interpreted: you could type individual lines into the command line prompt and get stuff done, but this involved invoking a program that would dynamically execute whatever you'd typed in.
+
+Throughout the 1990's and early 2000's, scripting languages were useful tools on the level of duct tape: you could use them for quick and dirty tasks, but you couldn't build anything particularly substantial out of them or else the whole structure would collapse or be too slow to be practical. However, as RAM and fast processors got cheaper, scripting languages started being fast enough for many people's purposes even on enterprise software. The distinction between scripting and non-scripting languages has therefore been blurred.
+
+There are a few features that generally get people to label a language as a scripting one.
+
+1) **It's interpreted**
+2) It's dynamically typed
+3) It has really good string processing features
+4) It was designed with a specific OS, not an architecture, in mind (Unix in the case of Perl, Amoeba in the case of Python)
+
+----------- 
+[Two definitions first](https://www.quora.com/Whats-the-difference-between-a-programming-language-and-a-scripting-language/answer/%E0%A4%B0%E0%A5%81%E0%A4%9A%E0%A4%BF%E0%A4%B0-%E0%A4%97%E0%A5%81%E0%A4%AA%E0%A5%8D%E0%A4%A4%E0%A4%BE-Ruchir-Gupta):
+
+- **Compilers**: First converts the whole program into assembly code and then converts the assembly code into machine code.
+- **Interpreters**: Converts and executes the program line by line.
+1. Now, the terms Scripting Language and Programming Language are becoming synonymous gradually. There's not any clear definition of these two terms too.
+
+2. When there were small numbers of compilers and interpreters in the market, every language that had a compiler was called a Programming Language and every language that had an interpreter was called a Scripting Language.
+
+3. For example, there were only C, C++, Pascal compilers in the past. There weren't any interpreters of these languages at that time. That's why they were called Programming Languages. The same way JavaScript was categorized as a "Scripting Language" since there were only interpreters of it, not compilers.
+
+4. But now the scenario is different. The JavaScript Engine of the Chrome (V8) is a compiler. It compiles JavaScript code rather than interpreting it. Whereas, there are C interpreters, too.
+
+5. So whether to call it "Programming Language" or "Scripting Language" is the Environment Thing! It's not about language. You can use these two terms interchangeably. But yeah, Markup Language and Programming/Scripting Language are markedly different. **Maybe a couple of decades ago, it was easier to define what was a scripting language and what wasn't, these days it's a very blurry line**.
+
+And a very simple definition and example of protocol:
+
+> Protocol is set of standards to be used by two parties from different environments while communicating.
+
+1. Since, they're from different environments, they don't know each other's technology/language. But they have to communicate. E.g. the code of the same server and database should be used by the clients such as an Android app, iPhone app or Facebook website. They all are from different environments, but these all clients need to fetch the data from the same servers.
+
+2. Here is where the protocol comes. Facebook clients and servers have decided to use the same standards while communicating (sending requests and getting response). And that's HTTP, a protocol.
+
+3. Real world example: You don't know Chinese and a Chinese doesn't know Hindi. But if both of you face each other and he/she offers coffee to you and you want to deny, how would you do? Probably by nodding your face horizontally. This is the protocol. To nod the face horizontally to say NO is protocol - a standard everybody understands even if they are from different environments!
+
+# HTML (HyperText Markup Language)
+Hypertext means machine readable text and Markup means to structure it in a specific format.So,HTML is called hypertext markup language because it is a language that allows users to organize, improve the appearance of, and link text with data on the internet
+
+# Markup language
+
+HTML is a markup language because it is used to distinguish HTML elements from the text. There is [some interesting information on Wikipedia](https://en.wikipedia.org/wiki/Markup_language) that explains the origins of markup languages. According to the article, the term “markup” originated in the publishing industry. When proofreaders apply edits to a manuscript, they add symbols or proofreading marks that indicate their corrections. The process is called “marking up a manuscript”. Their marks are distinct from the text so that an editor can accept or reject changes.
+
+Similarly, a web designer or web developer prepares content for a website by marking it up with HTML elements, such as paragraph tags (`<p></p>`), header tags (`<header></header>`), figure tags for images `<figure></figure>`, etc. These tags, which add structure to webpages, are used to distinguish content from HTML elements.
+
+[Its called markup language because it marks the information by tagging them](https://www.quora.com/Why-is-HTML-known-as-markup-language).
+
+Example:
+
+```html
+<p> hello </p> 
+```
+Here its marking the word “hello” by <p> paragraph tag. So that browser will know how to display it.
+
+# HyperText and HyperLink
+
+In computing, a **hyperlink**, or simply a link, is a reference to data that the reader can directly follow either by clicking, tapping, or hovering. A hyperlink points to a whole document or to a specific element within a document. **Hypertext is text with hyperlinks**.
+
+----
+- Hypertext contains Hyperlinks (e.g., Uniform Resource Locators (URLs) in HyperText Markup Language (HTML)).
+- **Plain Text** does not contain hyperlinks.
+
+
+
+
