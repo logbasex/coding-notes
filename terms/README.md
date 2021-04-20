@@ -42,8 +42,53 @@ And a very simple definition and example of protocol:
 
 3. Real world example: You don't know Chinese and a Chinese doesn't know Hindi. But if both of you face each other and he/she offers coffee to you and you want to deny, how would you do? Probably by nodding your face horizontally. This is the protocol. To nod the face horizontally to say NO is protocol - a standard everybody understands even if they are from different environments!
 
+-----------
+-----------
+
+![](xml_history.jpg)
+# SGML (Standard Generalized Markup Language)
+-  **SGML is the parent of XML**. It started as GML (within IBM) in late 70’s. `Charles Goldfarb` was the major architect
+- SGML is thus a metalanguage used to describe
+tags with which documents can be marked
+- **So SGML is not a fixed tagset**. It describes a standard
+set of ‘punctuation’ for tags, plus char. sets to be used e
+- **SGML almost totally superseded by XML over last few years**.
+
+![](xml-sgml-html.png)
+
+#### Disadvantage
+- Optional tag minimisation (to optimize computer's memory in 70-80's) can make SGML parser’s job very difficult indeed.
+-  SGML document needs to know character set to be used (e.g. UTF8).
+-  SGML always required [DTD](Document Type Definitions) at parsing time.
+
+# XML (Extensible Markup Language)
+XML stands for extensible markup language. A markup language is a set of codes, or tags, that describes the text in a digital document. The most famous markup language is hypertext markup language (HTML), which is used to format Web pages. XML, a more flexible cousin of HTML, makes it possible to conduct complex business over the Internet.
+
+[Whereas HTML tells a browser application how a document should look, XML describes what’s in the document](https://hbr.org/2000/07/explaining-xml). In other words, XML is concerned with how information is organized, not how it is displayed. (XML formatting is done through separate style sheets.)
+
+[`XML` is extensible because it is not a fixed format (fixed tag) like HTML (which is a single, `predefined markup language`)](http://xml.silmaril.ie/whatisxml.html). Instead, XML is a **metalanguage — a language for describing other languages — which lets you design your own markup languages for limitless different types of documents**. XML can do this because it's written in `SGML`, the international standard metalanguage for text document markup (ISO 8879).
+
+- XML: meta language
+- HTML : markup language
+
+1. [What are XML’s advantages over HTML?](https://hbr.org/2000/07/explaining-xml)
+2. [HTML and XML compare](https://www.guru99.com/xml-vs-html-difference.html)
+
 # HTML (HyperText Markup Language)
-Hypertext means machine readable text and Markup means to structure it in a specific format.So,HTML is called hypertext markup language because it is a language that allows users to organize, improve the appearance of, and link text with data on the internet
+The origin of HTML dates back to the year 1980 when **[Tim Berners-Lee while at CERN wanted a way to navigate from one information to another set of information on another computer](https://dev.to/ziizium/history-of-html-m8h)**. This idea was proposed as a hypertext system for sharing documents and would go on to be the fundamental language of the web - HTML.
+
+Hypertext means machine readable text and Markup means to structure it in a specific format. So,HTML is called hypertext markup language because it is a language that allows users to organize, improve the appearance of, and link text with data on the internet.
+- [HTML was the first ‘mass market’ SGML application](http://www.eprg.org/computerphile/newsgml.pdf). People at last realised what SGML notation could achieve.
+-  HTML adopted SGML metasyntax from the outset so it’s an application of SGML.
+-  But it is essentially a fixed tagset so use of ‘ML’ suffix lamentable ! Initial tagset was arbitrarily extended, in different ways by IE and Netscape
+- In early days `Tim Berners-Lee` and browser vendors didn’t fully realise importance of having DTD for HTML.
+- Net result was chaos. IE and Netscape had different tags and different minimisation possibilities.
+- Allowing ‘overlapping hierarchies’ as well as omitted end tags is deadly. More than 95% of Web HTML was illegal! XHTML cleanup is now under way.
+
+# XHTML (EXtensible HyperText Markup Language)
+**XHTML is a stricter, more XML-based version of HTML**. XHTML is HTML defined as an XML application. XHTML is supported by all major browsers.
+
+- [Compare/contrast HTML, XHTML, XML, and HTML5](https://stackoverflow.com/questions/1429065/compare-contrast-html-xhtml-xml-and-html5)
 
 # Markup language
 
@@ -58,7 +103,7 @@ Example:
 ```html
 <p> hello </p> 
 ```
-Here its marking the word “hello” by <p> paragraph tag. So that browser will know how to display it.
+Here its marking the word “hello” by `<p>` paragraph tag. So that browser will know how to display it.
 
 # HyperText and HyperLink
 
@@ -69,5 +114,29 @@ In computing, a **hyperlink**, or simply a link, is a reference to data that the
 - **Plain Text** does not contain hyperlinks.
 
 
+# [Meta language](https://en.wikipedia.org/wiki/Metalanguage)
 
+Metalanguage is language or symbols used when language itself is being discussed or examined. In logic and linguistics, a metalanguage is a language used to make statements about statements in another language (the object language). Expressions in a metalanguage are often distinguished from those in an object language by the use of italics, quotation marks, or writing on a separate line.
 
+- For example: `XML`, `SGML` 
+
+### Source
+1. [SGML, HTML, XML notes](http://www.eprg.org/computerphile/newsgml.pdf)
+2. [SGML HTML XML What's the Difference? (Part 1) - Computerphile](https://www.youtube.com/watch?v=RH0o-QjnwDg)
+3. [HTML: Poison or Panacea? (HTML Part2) - Computerphile](https://www.youtube.com/watch?v=Q4dYwEyjZcY)
+4. [Relation and differences between SGML, XML, HTML and XHTML](https://softwareengineering.stackexchange.com/questions/93296/relation-and-differences-between-sgml-xml-html-and-xhtml)
+------------
+------------
+
+# YAML (YAML Ain't Markup Language)
+[Here's the real story... :)](https://stackoverflow.com/a/18928199/10393067)
+
+Clark, Oren and I started working on YAML in April 2001. Oren and Clark were part of the SML mailing list, which was trying to make XML simpler. I had just written a data serialization language for Perl called Data::Denter. Clark contacted me to tell me about an idea they had called YAML, which looked similar to Data::Denter syntax. Clark already had acquired yaml.org.
+
+After a few months of us working together, I pointed out that YAML (which most definitely stood for **Yet Another Markup Language** at that time) was not really a markup language (marking up various elements of a text document) but a serialization language (textual representation of typed/cyclical data graphs). We all liked the name YAML, so we backronymed it to mean **YAML Ain't Markup Language**.
+
+http://yaml.org/spec/ starts with:
+
+> YAML™ (rhymes with “camel”) is a human-friendly, cross language, Unicode based data serialization language designed around the common native data structures of agile programming languages.
+
+I couldn't have said it better myself… :
