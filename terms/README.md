@@ -45,7 +45,7 @@ And a very simple definition and example of protocol:
 -----------
 -----------
 
-![](xml_history.jpg)
+![](images/xml_history.jpg)
 # SGML (Standard Generalized Markup Language)
 -  **SGML is the parent of XML**. It started as GML (within IBM) in late 70’s. `Charles Goldfarb` was the major architect
 - SGML is thus a metalanguage used to describe
@@ -54,7 +54,7 @@ tags with which documents can be marked
 set of ‘punctuation’ for tags, plus char. sets to be used e
 - **SGML almost totally superseded by XML over last few years**.
 
-![](xml-sgml-html.png)
+![](images/xml-sgml-html.png)
 
 #### Disadvantage
 - Optional tag minimisation (to optimize computer's memory in 70-80's) can make SGML parser’s job very difficult indeed.
@@ -158,7 +158,7 @@ The two major features of AJAX allow you to do the following:
     - Web 1.1: XML + HTML = XHTML
     - Web 1.2: AJAX
     - Web 2.0: Single page application
-    - ![](ajax-diagram.png)
+    - ![](images/ajax-diagram.png)
 
 - **Compare JSON and XML**
     - [JSON vs XML: What's the Difference?](https://www.guru99.com/json-vs-xml-difference.html)
@@ -168,4 +168,8 @@ The two major features of AJAX allow you to do the following:
 1. [A Deep Look at JSON vs. XML, Part 1: The History of Each Standard](https://www.toptal.com/web/json-vs-xml-part-1)
 2. [https://www.toptal.com/web/json-vs-xml-part-2](https://www.toptal.com/web/json-vs-xml-part-2)
 3. [Evolution of web - history to Ajax](https://catalogimages.wiley.com/images/db/pdf/0471777781.excerpt.pdf)
+    
+    
+    
+# Scaffolding
     
