@@ -139,4 +139,33 @@ http://yaml.org/spec/ starts with:
 
 > YAML™ (rhymes with “camel”) is a human-friendly, cross language, Unicode based data serialization language designed around the common native data structures of agile programming languages.
 
-I couldn't have said it better myself… :
+# Frame (World Wide Web)
+In the context of a web browser, **[a frame is a part of a web page or browser window which displays content independent of its container, with the ability to load content independently](https://en.wikipedia.org/wiki/Frame_(World_Wide_Web))**. The HTML or media elements shown in a frame may come from a different web site as the other elements of content on display, although this practice, known as framing,[1] is today often regarded as a violation of same-origin policy and has been considered a form of copyright infringement.
+ 
+ 
+# AJAX (Asynchronous JavaScript and XML)
+AJAX stands for **A**synchronous **J**avaScript And **X**ML. In a nutshell, it is the use of the `XMLHttpRequest` object to communicate with servers. It can send and receive information in various formats, including JSON, XML, HTML, and text files. AJAX’s most appealing characteristic is its "asynchronous" nature, which means it can communicate with the server, exchange data, and update the page without having to refresh the page.
+
+The two major features of AJAX allow you to do the following:
+- Make requests to the server without reloading the page
+- Receive and work with data from the server
+
+--------------
+# JSON (JavaScript Object Notation)
+
+- **History**
+    - Web 1.0: HTML
+    - Web 1.1: XML + HTML = XHTML
+    - Web 1.2: AJAX
+    - Web 2.0: Single page application
+    - ![](ajax-diagram.png)
+
+- **Compare JSON and XML**
+    - [JSON vs XML: What's the Difference?](https://www.guru99.com/json-vs-xml-difference.html)
+    - [Advantage of XML over JSON](https://www.quora.com/What-are-the-advantages-of-XML-over-JSON/answer/Prashant-395)
+    - [XML and JSON — Advantages and Disadvantages?](https://stackoverflow.com/questions/5615352/xml-and-json-advantages-and-disadvantages)
+#### JSON vs XML
+1. [A Deep Look at JSON vs. XML, Part 1: The History of Each Standard](https://www.toptal.com/web/json-vs-xml-part-1)
+2. [https://www.toptal.com/web/json-vs-xml-part-2](https://www.toptal.com/web/json-vs-xml-part-2)
+3. [Evolution of web - history to Ajax](https://catalogimages.wiley.com/images/db/pdf/0471777781.excerpt.pdf)
+    
