@@ -34,6 +34,19 @@ glxinfo|egrep "OpenGL vendor|OpenGL renderer"
 ```
 
 # Install
+
+### Install from releases page
+- Check architecture first.
+```shell script
+dpkg --print-architecture
+```
+- Download zip or (something else) file
+- Extract zip file
+- Copy extracted file (usually is executable binary file) to the directory which is reside in `$PATH` env variable.
+
+-----
+### Packages
+
 - update
 ```shell script
 sudo apt update -y && sudo apt upgrade -y && sudo apt full-upgrade -y
