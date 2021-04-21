@@ -36,7 +36,18 @@ Joiner.on(" ").skipNulls().join("I", null, "love", null, "null");
     ```
 
 ## Jackson
-Jackson is a suite of data-processing tools for Java comprising of [three components](https://www.quora.com/What-is-the-difference-between-fasterxmls-jackson-core-and-jackson-databind-Do-I-need-to-use-both-or-can-I-use-only-one-of-them/answer/Prashanth-Ambure):
+
+#### Jackson history
+- https://github.com/FasterXML/jackson/wiki/Jackson-Releases
+- http://www.cowtowncoder.com/blog/archives/2013/08/entry_479.html
+
+#### Jackson docs
+- https://github.com/FasterXML/jackson-docs
+- [Jackson and JAXB](https://stackoverflow.com/a/33873971/10393067)
+
+--
+
+**Jackson is a suite of data-processing tools for Java comprising of [three components](https://www.quora.com/What-is-the-difference-between-fasterxmls-jackson-core-and-jackson-databind-Do-I-need-to-use-both-or-can-I-use-only-one-of-them/answer/Prashanth-Ambure):**
 
 - Streaming (jackson-core) defines low-level streaming APIs and includes JSON-specific implementations.
     - JsonParser, JsonGenerator

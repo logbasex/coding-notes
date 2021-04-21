@@ -1,3 +1,8 @@
+# Virtualization
+- https://news.cloud365.vn/kvm-tong-quan-ve-virtualization-va-hypervisor/
+- https://bizflycloud.vn/tin-tuc/tong-quan-ve-hypervisor-va-virtualization-20210120095225811.htm
+- https://viblo.asia/p/tan-man-ao-hoa-ai-cung-biet-nhung-cu-the-no-la-gi-Do754NV3ZM6
+
 # Overview
 https://docs.docker.com/get-started/overview/
 

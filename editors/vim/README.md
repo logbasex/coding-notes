@@ -212,13 +212,13 @@ N              # repeat search in opposite direction
 :q! or ZQ       # quit and throw away unsaved changes
 ```
 
-## Working with multiple files
+## Working with multiple files/ Resize window
 ```bash
 :e file       # edit a file in a new buffer
 :bnext or :bn # go to the next buffer
 :bprev or :bp # go to the previous buffer
 :bd           # delete a buffer (close a file)
-:ls           # list all open buffers
+:ls           # list all open buffeanrs
 :sp file      # open a file in a new buffer and split window
 :vsp file     # open a file in a new buffer and vertically split window
 Ctrl + ws     # split window
@@ -229,6 +229,10 @@ Ctrl + wh     # move cursor to the left window (vertical split)
 Ctrl + wl     # move cursor to the right window (vertical split)
 Ctrl + wj     # move cursor to the window below (horizontal split)
 Ctrl + wk     # move cursor to the window above (horizontal split)
+Ctrl + w>     # increase width (vs split)
+ctrl + w<     # decrease width (vs split)
+ctrl + w+     # increase height (horizontal split)
+ctrl + w-     # decrease height (horizontal split)
 ```
 
 ## Tabs

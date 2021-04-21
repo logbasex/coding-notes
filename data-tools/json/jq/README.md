@@ -15,6 +15,12 @@ Remember: if JSON value has no double quotes (eg. for numeric) to do not supply 
 curl https://selenium-release.storage.googleapis.com | xq | jq 'last(.ListBucketResult|.Contents|.[]|.Key| select(test(".*selenium-server-standalone.*.jar")))
 ```
 
+## Remove double quote
+```shell script
+--raw-ouput
+jq -r '.[].name'
+```
+
 ## Cheatsheet
 
 - https://gist.github.com/olih/f7437fb6962fb3ee9fe95bda8d2c8fa4

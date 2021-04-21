@@ -1,3 +1,24 @@
+- Install
+    ```shell script
+    //install pup
+    https://github.com/ericchiang/pup
+  
+    //don't include space around = 
+    GRADLE_VERSION=`curl https://services.gradle.org/distributions/ | pup --color 'div ul li a span.name json{}' | jq -r 'first(.[].text | select(test("gradle.*-bin.zip")))'`
+    wget https://services.gradle.org/distributions/$GRADLE_VERSION -P /tmp
+  
+    # https://linuxize.com/post/how-to-install-gradle-on-ubuntu-20-04/
+    ```
+
+- ## [Gradle's user home directory](https://docs.gradle.org/current/userguide/directory_layout.html)
+    ```shell script
+    $USER_HOME/.gradle
+    ```
+- ## [Project root directory](https://docs.gradle.org/current/userguide/directory_layout.html#dir:project_root)
+
+- Gradle multi version
+    - https://stackoverflow.com/questions/42188495/gradle-multiple-versions-of-gradle
+
 - ## Source compatibility
     ```groovy
     sourceCompatibility = '1.8'
@@ -12,3 +33,6 @@
           compile "org.springframework:spring-orm:$springVersion"
   }
   ```    
+  
+## Tip an tricks
+- https://tomgregory.com/5-tips-for-using-gradle-with-intellij-idea-2019/  
