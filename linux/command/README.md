@@ -40,6 +40,7 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt full-upgrade -y
 ```
 
 - snap
+    - avoid using snap whenever possible(it's like [flatpak](https://itsfoss.com/flatpak-guide/), it has more cons than pros)
 ```shell script
 sudo apt install snapd
 ```
@@ -78,6 +79,13 @@ sudo apt install csvkit
 - Java
 ```shell script
 sudo apt install openjdk-8-jdk openjdk-8-jdk-headless
+```
+
+- [SDKMAN and Springboot](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html)
+```shell script
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk install springboot
 ```
 
 - Golang
@@ -146,6 +154,13 @@ sudo snap install brave
 - qutebrowser
 ```
 sudo apt install qutebrowser
+```
+
+- Tor
+```shell script
+sudo add-apt-repository ppa:micahflee/ppa
+sudo apt update
+sudo apt install torbrowser-launcher
 ```
 
 - Docker
