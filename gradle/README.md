@@ -1,4 +1,13 @@
-- Install
+- ## Source
+    - Gradle life cycle
+        - https://medium.com/@shivam.gosavi340_58315/gradle-103-build-life-cycle-6d1b595d72cc
+        - https://proandroiddev.com/understanding-gradle-the-build-lifecycle-5118c1da613f
+    - How gradle works
+        - https://www.devopsschool.com/blog/what-is-gradle-dag-directed-acyclic-graph/
+        - https://stackoverflow.com/questions/2414281/what-are-real-world-examples-of-gradles-dependency-graph    
+        - https://mail2lakshmi12.medium.com/gradle-gradle-all-about-gradle-a15504a9e4c9
+
+- ## Install
     ```shell script
     //install pup
     https://github.com/ericchiang/pup
@@ -43,6 +52,8 @@
           compile "org.springframework:spring-orm:$springVersion"
   }
   ```    
+  
+- ## [Gradle: build.gradle vs. settings.gradle vs. gradle.properties](https://www.baeldung.com/gradle-build-settings-properties)
   
 ## Tip an tricks
 - https://tomgregory.com/5-tips-for-using-gradle-with-intellij-idea-2019/  

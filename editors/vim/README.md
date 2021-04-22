@@ -21,6 +21,7 @@
 - http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
 - https://github.com/akrawchyk/awesome-vim#learning-vim
 - https://github.com/kyoz/vim-galore-vi
+- [Vim graphical cheatsheet](http://www.viemu.com/vi-vim-cheat-sheet.gif)
 
 # Install
 
@@ -45,6 +46,8 @@ https://dev.to/iggredible/how-to-search-faster-in-vim-with-fzf-vim-36ko?signin=t
 # Vim Cheatsheet
 
 >Disclaimer: This cheatsheet is summarized from personal experience and other online tutorials. It should not be considered as official advice.
+
+![](http://www.viemu.com/vi-vim-cheat-sheet.gif)
 
 ## Global
 ```bash
