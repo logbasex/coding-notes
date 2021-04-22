@@ -4,9 +4,19 @@
     https://github.com/ericchiang/pup
   
     //don't include space around = 
-    GRADLE_VERSION=`curl https://services.gradle.org/distributions/ | pup --color 'div ul li a span.name json{}' | jq -r 'first(.[].text | select(test("gradle.*-bin.zip")))'`
-    wget https://services.gradle.org/distributions/$GRADLE_VERSION -P /tmp
+    GRADLE_FILE_NAME=`curl https://services.gradle.org/distributions/ | pup --color 'div ul li a span.name json{}' | jq -r 'first(.[].text | select(test("gradle.*-bin.zip")))'`
+    wget https://services.gradle.org/distributions/$GRADLE_FILE_NAME -P /tmp
+    GRADLE_VERSION=`echo $GRADLE_FILE_NAME | awk -F '-' '{print $2}'`
+    sudo unzip -d /opt/gradle /tmp/$GRADLE_VERSION
+    sudo ln -s /opt/gradle/gradle-${GRADLE_VERSION} /opt/gradle/latest
   
+    //https://unix.stackexchange.com/questions/261599/how-can-we-prevent-parameter-expansion
+    //https://stackoverflow.com/questions/82256/how-do-i-use-sudo-to-redirect-output-to-a-location-i-dont-have-permission-to-wr
+    //https://unix.stackexchange.com/questions/77277/how-to-append-multiple-lines-to-a-file
+    sudo bash -c 'echo -e "export GRADLE_HOME=/opt/gradle/latest\nexport PATH=\${GRADLE_HOME}/bin:\${PATH}" > /etc/profile.d/gradle.sh'  
+    sudo chmod +x /etc/profile.d/gradle.sh
+    source /etc/profile.d/gradle.sh
+    gradle -v
     # https://linuxize.com/post/how-to-install-gradle-on-ubuntu-20-04/
     ```
 
