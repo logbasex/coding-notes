@@ -23,16 +23,50 @@ https://linuxize.com/post/how-to-nvidia-drivers-on-ubuntu-20-04/
 ```
 
 https://askubuntu.com/questions/1148785/gnome-suddenly-switching-from-hardware-gpu-to-llvmpipe
+
 https://askubuntu.com/questions/762764/cannot-change-brightness-ubuntu-16-04-lts-and-onward
 
 ```shell script
 sudo apt install inxi  #https://askubuntu.com/questions/1072427/what-can-inxi-be-used-for
 
+# check graphic card you have
 lspci -vnnn | perl -lne 'print if /^\d+\:.+(\[\S+\:\S+\])/' | grep VGA
+lspci -k | grep -A 2 -E "(VGA|3D)"
+lspci -k | grep VGA
 
 glxinfo|egrep "OpenGL vendor|OpenGL renderer"
 ```
 
+## Hardware
+- Check RAM info
+    ```shell script
+    sudo dmidecode --type memory
+  
+    Memory Device
+    	Array Handle: 0x0002
+    	Error Information Handle: Not Provided
+    	Total Width: 64 bits
+    	Data Width: 64 bits
+    	Size: 16384 MB
+    	Form Factor: SODIMM
+    	Set: None
+    	Locator: ChannelA-DIMM0
+    	Bank Locator: BANK 0
+    	Type: DDR4
+    	Type Detail: Synchronous
+    	Speed: 2667 MT/s
+    	Manufacturer: SK Hynix
+    	Serial Number: 33C80836
+    	Asset Tag: None
+    	Part Number: HMA82GS6CJR8N-VK    
+    	Rank: 2
+    	Configured Memory Speed: 2667 MT/s
+    	Minimum Voltage: Unknown
+    	Maximum Voltage: Unknown
+    	Configured Voltage: 1.2 V
+    ```
+    - System RAM speed is controlled by bus width and bus speed. Bus width refers to the number of bits that can be sent to the CPU simultaneously, and bus speed refers to the number of times a group of bits can be sent each second. A bus cycle occurs every time data travels from memory to the CPU. For example, a 100-MHz 32-bit bus is theoretically capable of sending 4 bytes (32 bits divided by 8 = 4 bytes) of data to the CPU 100 million times per second, while a 66-MHz 16-bit bus can send 2 bytes of data 66 million times per second. If you do the math, you'll find that simply changing the bus width from 16 bits to 32 bits and the speed from 66 MHz to 100 MHz in our example allows for three times as much data (400 million bytes versus 132 million bytes) to pass through to the CPU every second.
+    - https://computer.howstuffworks.com/computer-memory3.htm 
 # Install
 
 ### Install from releases page
@@ -362,6 +396,10 @@ exa -bghHliS
     - vlc
     ```shell script
     sudo apt install vlc
+    ```
+    - [mplayer](https://linuxhint.com/play_media_linux_terminal/)
+    ```shell script
+    sudo apt install mplayer
     ```
     
     - ffmpeg
