@@ -16,10 +16,17 @@ https://ketancmaheshwari.github.io/pdfs/LPT_LISA.pdf
 
 
 # nvidia problems
-[install, remove]
+- [Does Installing Nvidia drivers on Linux give it better performance?](https://www.quora.com/Does-Installing-Nvidia-drivers-on-Linux-give-it-better-performance)
+    - Yes, if you have an Nvidia graphics card
+      
+- [Nouveau](https://nouveau.freedesktop.org/): free nvidia open source driver
+- install, remove
 ```
 https://linoxide.com/how-to-install-nvidia-driver-on-ubuntu/
 https://linuxize.com/post/how-to-nvidia-drivers-on-ubuntu-20-04/
+
+sudo ubuntu-drivers autoinstall   
+sudo reboot
 ```
 
 https://askubuntu.com/questions/1148785/gnome-suddenly-switching-from-hardware-gpu-to-llvmpipe
