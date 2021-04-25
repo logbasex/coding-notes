@@ -72,6 +72,42 @@ Secondary storage is named as such because it doesn’t have direct access to CP
     - https://tinhte.vn/thread/tim-hieu-ssd-chuan-sata-m-2-va-nvme.2866611/
     - https://www.quora.com/Which-is-better-NVME-SSD-or-HDD
     - **[NVMe management command line interface.](https://github.com/linux-nvme/nvme-cli)**
+- [Why is accessing RAM always faster than accessing Hard Drive?](https://hashnode.com/post/why-is-accessing-ram-always-faster-than-accessing-hard-drive-cijp7id47036t0f53sc3yq6dg)
+    - The easy version:
+      
+      - HDD is relatively far away from the CPU, connected to system logic board via a somewhat slow SATA connection. SATA 6GB/s is the current standard. HDD's can only read or write but not both at the same time.
+      - RAM sits very close to the CPU and has a very high bandwidth connection. DDR4 has a throughput of ~40GB/s some graphs RAM's can read/read, read/write and write/write at the same time (dual channel). RAM's can also send very large data at once (double data).
+      
+      The technical version:
+      
+      - HDD's have spinning platters, and a magnetic read/write head needs to reposition every time you want to read/write something. It needs to find the correct places on each platter. HDD's platters are spinning at 5400 rpm, 7200 rpm or 10000 rpm. The magnetic read/write head sits on each side of a platter. Typically an HDD has three platter and six read/write heads. But those heads are fixed to the movement of just one torque engine. Depending on the layout of a filesystem the read/write head can't constantly read from near positions.
+      
+      - RAM memory typically modules consists 4 or 8 memory modules. Each module is connected via dual-channel and read/read, read/write or write/write at the same time. At best a RAM memory with eight modules can 16 times read data at the same time or write 16 times at the same time. Each memory module has its layout manager; that knows exactly where the data is. Reading data is only affected by something called CAS timing. For example a DDR4 RAM clocks at 1800 Mhz (1,800 billion clock cycles / second ) and has a CAS timing of 34; means that the RAM module just needs 34 clock cycles to be ready.
+    - As Denny said, prior to SSDs a lot of the delay accessing data stored there was due to the fact that you had to physically move a mechanical apparatus to find the place on the disk where the data was stored, like moving the needle on a record player to find the right song, and then wait for the data to spin around until it was underneath the needle. This was known as "seek time" and dominated when you wanted to access a lot of little things that were spread around across the disk.
+      
+      SSDs do not have such a head, which is why they are a lot faster for many purposes. However, they do have a **[wear-leveling](https://www.quora.com/What-is-wear-levelling-of-SSD-drives)** algorithm that tries to use all the bits on the drive evenly, and can be a source of a (much tinier) amount of delay during writes. SSDs are still also a "block-based" device meaning data is fetched and written in larger batches than with RAM. Again this only slows down scattered accesses compared to reading large files in order.
+      
+      Even were we to eliminate all that, there is still the fact that drives are usually on a slower, narrower bus located further away from the CPU. The RAM on the mainboard, in turn, is farther from the CPU and often on a slower bus than the RAM in the cache (which is sometimes divided into levels that each of which in turn are closer to the CPU, but smaller than one before it.) Note that electrical signals which carry the bits to the CPU are limited by the speed of light. Light is pretty fast, but even so, in one clock cycle on a 4Ghz CPU it only moves about the length of your finger. So if you read an address out of memory, and then use that address to read something else from memory, you have to make a round trip to RAM to do that, and the number of clock cycles it takes to do that will depend on how far away those bits are stored. This is why, even with RAM, these days we often read blocks at a time (smaller blocks than disk, though) and try to keep data items that get used at the same time time next to each other when we can, to increase the chances that they will be in the same block.
+    - This is a grossly simplified explanation, but I hope you can relate to it.
+      
+      Essentially, there are two aspects that determine the speed.
+      
+      **(a) How the bits are stored**
+      
+      RAM uses solid state technology (ie, semi-conductors), and this is super-fast. Reading / writing is as simple as checking / setting the voltage at the storage location. You can say this happens at the speed of light.
+      
+      Conventional HDDs store information magnetically. To read or write, a magnetic head has to physically move to a position in the magnetic media and do its stuff. Much slower, as you can imagine. You can think of it as a magnetic cassette tape, but whirring much faster.
+      
+      A Solid State Drive (SSD) uses solid state technology. But it is permanent storage (unlike RAM, which vanishes when power is switched off). Thus, the speed of reading / writing is slower. You can think of it like it has to do more stuff than just set the voltage, so that the state of 0/1 stays permanent.
+      
+      **(b) How the bits are transferred**
+      
+      RAM is connected to the CPU via a super-fast parallel 'bus'. Imagine a bunch of 64 wires going from the CPU to the RAM. In a clock tick, the voltage a the storage location (address) is 'felt' by the CPU, 64 bits at a time. The bus's clock speed can be as fast as 1,800 MHz these days.
+      
+      For a conventional HDD, a serial cable is used (SATA). Even though SATA can run as fast as 3000 MHz, it still transfers one bit at a time. You can do the math.
+      
+      SSDs mimic HDDs for transferring data due to convenience (because no one invented special buses for SSDs yet). So, they too use SATA, and thus limited by that speed.      
+      
 ## HDD (Hard Disk Drive)
 
 ## Clock Cycle
@@ -256,9 +292,20 @@ Secondary storage is named as such because it doesn’t have direct access to CP
       
       RAM stands for Random Access Memory, which really makes no sense because all memory is random access that I ever heard of, except for magnetic tape drive memory?
       
-      There are also several subtypes of DRAM, such as DDR and EDO, but those are optimizations for doing bursts or synchronizing with the clock on both up and down, etc. 
+      There are also several subtypes of DRAM, such as DDR and EDO, but those are optimizations for doing bursts or synchronizing with the clock on both up and down, etc.
+- [What design differences make ram faster than ssd for read/write](https://electronics.stackexchange.com/questions/413028/what-design-differences-make-ram-faster-than-ssd-for-read-write)      
+    - Where DRAM accesses all of the bits in a row at the same time, NAND flash serially accesses the row. This significantly slows down read access versus DRAM.
+      
+      Write access is significantly slowed because flash uses a floating gate which requires orders of magnitude more programming time than the capacitor in a DRAM cell. In most cases, since the write can only set a bit to 0 and erasing is required to set a bit to 1, writes also require erasing before programming. DRAM writes can set either state with no speed penalty.
     
 ## Flash Memory
 
 ## Caching
 - [How Caching works](https://computer.howstuffworks.com/cache.htm)
+- [Why CPU cache memory so fast](https://softwareengineering.stackexchange.com/questions/234253/why-is-cpu-cache-memory-so-fast)
+- [Why cache memory size is limited?](https://www.quora.com/Why-cache-memory-size-is-limited)
+    - That's because cache is made up of SRAM technology which is a costly technology (Still we have come a long way. The latest Intel Xeon CPUs have about total 45 MB of last level cache (L3 cache)); however some CPUs have somewhat cheaper eDRAM for cache, to reduce cost in last level cache.
+      
+      Another reason is, contrary to what you might think, increasing the cache size doesn't equate to increase in overall performance. The latency of looking up a higher size cache for a hit is slower than looking up a smaller size cache. This is the reason why L1 and L2 caches are smaller in size. Those levels are designed for faster look up and transfer times. To compensate for the higher number of misses in the lower level caches, we design higher level caches to have bigger sizes. This synergy of cache levels is what produces the performance we see.
+    - For cache to be fast, it has to be very close to the CPU core. If it is big, it won’t fit that close. Consequently a fast cache has to be a small cache.
+    - https://www.quora.com/Why-is-a-CPU-cache-so-small-Wouldnt-it-be-better-if-it-had-something-like-a-few-gigabytes-like-most-RAM/answer/Ira-J-Perlow       
