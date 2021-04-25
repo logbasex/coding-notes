@@ -28,7 +28,7 @@ Secondary storage is named as such because it doesn’t have direct access to CP
 
 - [How SSD works video animation](https://www.youtube.com/watch?v=5Mh3o886qpg)
 - [What is the difference between an SSD and a USB Flash Drive?](https://www.quora.com/What-is-the-difference-between-an-SSD-and-a-USB-Flash-Drive/answer/Dimitrios-Tolios)
-    - The basic principles are the same, and both use similar technology of NAND memory chips to store data.
+    - **The basic principles are the same, and both use similar technology of NAND memory chips to store data.**
       
       SSDs have more powerful controllers that allow them to communicate in parallel (simultaneously) to more NAND chips at the same time (think of it as a "RAID array" of USB sticks) aggregating their through-output in both reads and writes, and also have large quantities of RAM buffer that can give great burst speeds ontop of that.
 
@@ -41,7 +41,7 @@ Secondary storage is named as such because it doesn’t have direct access to CP
 - [What is DRAM on SSDs? Does it even matter?](https://www.quora.com/What-is-DRAM-on-SSDs-Does-it-even-matter)
     - DRAM is high-speed memory, like the RAM in your computer. Most SSDs have had on-board RAM that acts as a cache, because of a weird quirk in the way NAND flash works.
       
-      **You can’t write just one byte to an SSD. You have to read a whole block, erase that entire block, then re-write the whole block.**
+      **[You can’t write just one byte to an SSD. You have to read a whole block, erase that entire block, then re-write the whole block.](https://www.quora.com/What-is-the-difference-between-RAM-and-SSD/answer/George-Gonzalez-5)**
       
       Most SSDs use on-board RAM primarily to speed up writes. They can cache a big chunk of data to be written and then go through the whole painful read/erase/write an entire chunk in the most efficient way possible.
       
@@ -55,6 +55,23 @@ Secondary storage is named as such because it doesn’t have direct access to CP
       
       It is also common for `prefetch` buffers to exist on CPUs. A prediction of the next likely set of instructions is made and these are loaded so that the CPU doesn’t have to wait on the RAM.  
 
+- [Why not use SSD space as RAM?](https://superuser.com/questions/617864/why-not-use-ssd-space-as-ram)
+    - The key reason why you can not use an SSD as ram is because it is connected to the computer as if it were a disk drive, rather than ram. That is to say, that the processor can not directly address the memory in the SSD but instead has to hand a block of ram to the SATA controller and ask it to transfer data between that ram and an area in the drive.
+
+- **[Difference between SSD and RAM](https://www.quora.com/What-is-the-difference-between-RAM-and-SSD)**
+    - **RAM adds more multi-tasking.** 
+    - **SSD loads everything faster.**
+    - Ram and SSD are both different sort of hardware they both have different works. Like the main work of ram is to temporarily store data for the current task. Yes this is true that the ssd's are way more faster then the hdd's but the speed of your p'c processor is more faster then both of these devices i.e. hdd & ssd.
+      
+      **When you open an application and start working on it the data of the whole application has to transferred from the storage to the processor and then the edited data has to be saved again and all of this process has to very very fast for smooth function the problem is that the hdd & ssd cannot match that speed due to which tasks cannot be performed smoothly. this is where ram comes into action. When you open an application the data of the whole application is transferred to the ram now as you start working on the application the data which is transferred to the processor is transferred through ram and the data which comes back from the processor is also saved into the ram. And when you close the application the whole modified data is agin saved back onto your storage devices because the ram has the capability to match the speed of your processor for smooth functioning and for quick action.**
+      
+      **This is why very high end software and games require very high capacity of ram because the data of those applications. Is huge and small capacity of ram cannot store full data.**
+      
+      Now ssd cannot work like ram as it cannot match that sort of high speed but as we no nothing is perfect ram have a very high speed of data transfer but they cannot store data permanently on them by the time you close an application on your system the ram saves that data onto your storage device and destroy all the data in it and get ready for new task. This is why if you are doing some work and have not saved it and if suddenly your system shuts down due to any reason your work does not get saved because the ram has not saved it and has destroyed all the data so now you cannot recover the data . But whereas ssd and hdd have an ability save the data permanently till you yourself don't delete it.
+- SATA, M.2 và NVMe
+    - https://tinhte.vn/thread/tim-hieu-ssd-chuan-sata-m-2-va-nvme.2866611/
+    - https://www.quora.com/Which-is-better-NVME-SSD-or-HDD
+    - **[NVMe management command line interface.](https://github.com/linux-nvme/nvme-cli)**
 ## HDD (Hard Disk Drive)
 
 ## Clock Cycle
@@ -210,7 +227,38 @@ Secondary storage is named as such because it doesn’t have direct access to CP
     - That’s the whole idea of the Von Neumann architecture - that CPU instructions are data like any other (so, yes, they are normally stored in RAM; there’s caching and stuff, but that’s “transparent” to programmers, the CPUs will make sure to emulate von Neumann as closely as possible).
     
 - [CAS latency](https://en.wikipedia.org/wiki/CAS_latency#Memory_timing_examples)    
+- [SRAM, DRAM, SDRAM](https://quantrimang.com/tim-hieu-ve-cac-cong-nghe-ram-dram-sram-sdram-va-cac-cong-nghe-moi-hon-147248)
+- [SRAM and DRAM difference](https://www.quora.com/What-is-the-difference-between-SRAM-and-DRAM/answers/69090051)
+    - SRAM is an **on-chip** memory whose access time is small while DRAM is an **off-chip** memory which has a large access time. Therefore SRAM is faster than DRAM.
+
+    - DRAM (Dynamic Random Access Memory) is a high-density, low power data storage based on 1 transistor per data bit stored.
+      
+      DRAM Data is “dynamic”, meaning the charge on the bit cell is continuously bleeding away, so you have to “refresh” it periodically or your data is lost.
+      
+      SRAM (Static RAM) uses 6 transistors per data bit, so you can’t fit nearly as many on a chip, so it’s a lower density storage. Also, about half of those transistors are always “ON” (conducting current, burning power), so it’s not energy efficient. The advantages of SRAM are that it’s extremely fast, and that it doesn’t require refresh.
+      
+      (You can tl;dr the rest if you want.)
+      
+      To understand DRAM refresh, imagine your data cell is a bucket that either is full of water or empty. You can know if there’s water in the bucket by looking in it. But unfortunately the bucket has a small hole in it and if you don’t fill the bucket tonight, then when you get up and look tomorrow morning the bucket will be empty and you won’t know if the bucket had water yesterday or not. So tonight you’ll look in the bucket, and if it’s half full you’ll top it off by refilling it. Then tomorrow morning the bucket will still have some water in it and you can top it off again.
+      
+      In this case,
+      
+      The leaky bucket is the DRAM cell capacitor, which can store some water (electrons) but bleeds off over time.
+      Refilling the bucket if it’s partially full is the electrical refresh cycle, that recharges the capacitor if it detects that it’s still somewhat charged.
+      Now imagine that instead of a single bucket you have a field of 4 billion leaky buckets, and they have to be checked and refilled if necessary all within 64/1000 of 1 second. Constantly.
+      
+      (If you have 8 of those fields of buckets, that’s the equivalent of the 4GB DIMM you probably have in your laptop. Fortunately each of those fields is managed in parallel.)
+    - The D stands for Dynamic, which means the memory is cleared whenever it loses power. It may also need constant refreshing, which can complicate engineering. But it is cheap, so used for main memory, and need little power.
+      
+      The S stands for Static memory, which remains nonvolatile as long as there is some power. Static memory does not need constant refreshing. This can make it faster than dynamic memory, but more expensive and draws more power constantly. So typically used for high bandwidth buffers.
+      
+      Computers have to boot off nonvolatile memory, so use flash memory or CMOS memory, which is not the same as static memory or dynamic. A USB memory card or stick is a good example of flash memory, that needs no power at all.
+      
+      RAM stands for Random Access Memory, which really makes no sense because all memory is random access that I ever heard of, except for magnetic tape drive memory?
+      
+      There are also several subtypes of DRAM, such as DDR and EDO, but those are optimizations for doing bursts or synchronizing with the clock on both up and down, etc. 
     
 ## Flash Memory
 
 ## Caching
+- [How Caching works](https://computer.howstuffworks.com/cache.htm)
