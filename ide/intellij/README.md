@@ -46,3 +46,45 @@ Further reading here: https://stackoverflow.com/questions/49558009/intellij-show
 ## Convention
 
 Package's name cannot use reserve word (like enum, class) 
+
+
+## Shortcut
+
+- Reformat popup
+```shell script
+ctrl + shift + alt + l
+```
+
+- Refactor popup
+```shell script
+ctrl + alt + shift + v
+```
+
+- Copy package
+```shell script
+ctrl + shift + c
+```
+- Copy file system absolute path
+```shell script
+ctrl + alt + shift + c
+```
+
+- Show in file
+```shell script
+ctrl + alt + shift + 2
+```
+
+- VCS operation pop up
+```shell script
+alt + shift + ,
+```
+
+- Previous Change
+```shell script
+
+```
+
+- Next Change
+```shell script
+
+```

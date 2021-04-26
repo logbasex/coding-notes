@@ -1,3 +1,7 @@
+## Presign URL
+- https://viblo.asia/p/upload-file-nhu-the-nao-cho-dung-1VgZv6y9ZAw
+- https://viblo.asia/p/use-presigned-url-to-secure-only-some-files-inside-a-public-s3-bucket-GrLZDk8nKk0
+
 ## Billing
 
 Cost management
