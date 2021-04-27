@@ -43,7 +43,18 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
     ```shell script
     {_id: {$in: [ObjectId('604ee9e4473d470b0b044fcf'), ObjectId('604ae4683ab8ed7d865ccc3c')]}}
     ```
-
+  
+- Update field in document
+    ```shell script
+    db.user.update( { _id: ObjectId("5fbf730aec9b315423fd65c8")} , { $set: { city: "logbasex appp" } } );
+    ```  
+- Query unicode character with regex
+    - https://docs.mongodb.com/manual/reference/operator/query/regex/
+    - https://www.regular-expressions.info/unicode.html
+    ```shell script
+    {$and: [{displayName: /Madeline\x{00A0}K\x{00A0}Ramsbotham/}]}
+    ```
+  
 - Delete multi documents
   ```shell
   db.users.deleteMany({name: {$in: ["viki", "vino", "naranyamoorthy"]}})
