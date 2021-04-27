@@ -1,4 +1,100 @@
+## Overview
+- oracle-jdk and open-jdk
+    - https://openplanning.net/12571/lich-su-cua-java-va-su-khac-biet-giua-oracle-jdk-va-openjdk
+    - https://www.baeldung.com/oracle-jdk-vs-openjdk
+    - Both Default JDK aka Oracle JDK and openJDK are owned by Oracle only.
+      
+      [But Oracle JDK is not open for tweaking the implementations, for that you have openJDK.](https://www.quora.com/What-is-the-difference-between-open-JDK-and-default-JDK/answer/Jatin-Tamboli)
+      
+      Also in Cloud environment like Cloudfoundry the jdk used for java compilation is openJDK not the OracleJDK and this will hold true for other cloud PaaS as well.
+      
+      Many Tech giants have their own JDK implementations crafted out from openJDK. One such example is Twitter.
+- LTS versions. Pls check [Java’s Time-Based Releases.](https://www.baeldung.com/java-time-based-releases)
+    - jdk-8
+    - jdk-11
+
+- [Do Java 1.8 and Java 8 refer to the same thing?](https://www.quora.com/Do-Java-1-8-and-Java-8-refer-to-the-same-thing)        
+    - When the version string for the product is reported as `java version 1.8.0_5`, the product will be called `JDK` 8u5, `JDK 8 update 5` or, when the update version is not important, `JDK 8`.
+    
+- ![](https://i.stack.imgur.com/CBNux.png)
 ## Install
+- **JDK/JRE**
+    1. Check Ubuntu is 32-bit or 64-bit
+        ```shell script
+        file /lib/systemd/systemd 
+        ```
+    2. install java versions
+        ```shell script
+        # standard version (current is jdk-11)
+        sudo apt install
+        
+        # java-8
+        sudo apt install openjdk-8-jdk-headless
+        sudo apt install openjdk-8-jre-headless
+        ```
+    3. [where is java-jdk folder?](https://stackoverflow.com/questions/16931327/where-is-the-java-sdk-folder-in-my-computer-ubuntu-12-04)
+        ```shell script
+        # usually reside in
+        /usr/lib/jvm
+        
+        # check
+        readlink -f $(which java)
+        ```     
+    4. Manage difference version
+        1. Using [`update-alternatives`](https://linux.die.net/man/8/update-alternatives) command
+            ```shell script
+            # guides
+            - https://linuxhint.com/update_alternatives_ubuntu/
+            - https://askubuntu.com/questions/233190/what-exactly-does-update-alternatives-do
+            - https://unix.stackexchange.com/questions/385578/why-use-the-alternatives-command
+            - https://www.redhat.com/sysadmin/alternatives-command
+            ```
+        - You may have a need to keep multiple versions of an executable (like `java`) on your system. Perhaps most of your system will work with Java 8, but one application needs Java 7.
+          
+          The alternatives program lets you switch from one version to another, quickly.   
+        - Ubuntu keeps track of the default programs by maintaining a list of symbolic links, under `/etc/alternatives` directory. Each entry here is a shortcut points to the actual program, which may have more than one option (i.e. alternatives).
+       
+            ```shell script
+            cd /etc/alternatives
+            find . -name java -exec ls -l '{}' \;
+         
+            # lrwxrwxrwx 1 root root 46 Thg 4  28 01:06 ./java -> /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java      
+            ```
+        - Moreover, the regular /usr/bin binaries are also symlinks
+            ```shell script
+            ls -l $(which java)
+            
+            # lrwxrwxrwx 1 root root 22 Thg 3  10 00:30 /usr/bin/java -> /etc/alternatives/java
+            ```
+        2. Add a group of alternatives to the system
+            ```shell script
+            sudo update-alternatives --install “/usr/bin/java” “java” “</path/to/jdk>/bin/java” 1
+            sudo update-alternatives --install “/usr/bin/javac” “javac” “</path/to/jdk>/bin/javac” 1
+            
+            # sudo update-alternatives --install “/usr/bin/java” “java” “/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java” 1 
+            # sudo update-alternatives --install <link> <name> <path> <priority>
+            ```
+        3. Set default version from list alternatives
+            ```shell script
+            sudo update-alternatives --set java </path/to/jdk>/bin/java
+            sudo update-alternatives --set javac </path/to/jdk>/bin/java
+            ```
+        4. Make sure the correct version is checked for both Java and compiler:
+            ```shell script
+            sudo update-alternatives --config java
+            sudo update-alternatives --config javac
+            
+           # there is command: update-java-alternatives
+            ```  
+        5. List the installed Java alternatives with:
+            ```shell script
+            sudo update-alternatives --list java
+            sudo update-alternatives --list javac
+            ```           
+        6. Tips and trick
+            - https://aboullaite.me/switching-between-java-versions-on-ubuntu-linux/
+            - https://medium.com/@ayeshajayasankha/how-to-install-and-switch-between-alternative-java-versions-66b3671fc382
+    
 - **Jshell**
     - jshell is only available on jdk-9 onward.
         ```shell script
