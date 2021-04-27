@@ -52,7 +52,7 @@ Joiner.on(" ").skipNulls().join("I", null, "love", null, "null");
 - Deal with unicode space char
     - There are rare case which is white-space char is not **white-space** char as you see (`U+0020`), it looks like the same with the naked eyes, but it exactly is **non-breaking space** (`U+00A0`), this is why `StringUtils.containsWhitespace(user.getDisplayName())` return `false` and I have to use `Guava` function `CharMatcher.whitespace().matchesAnyOf(user.getDisplayName())` instead.
     
-    ![](images/mongodb-string-unicode.png)
+    ![](images/white-space-unicode.png)
 
 - Check if character is unicode space char
     ```shell script
