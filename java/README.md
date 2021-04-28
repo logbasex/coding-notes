@@ -1,5 +1,5 @@
 ## Overview
-- oracle-jdk and open-jdk
+- `oracle-jdk` and `open-jdk`
     - https://openplanning.net/12571/lich-su-cua-java-va-su-khac-biet-giua-oracle-jdk-va-openjdk
     - https://www.baeldung.com/oracle-jdk-vs-openjdk
     - Both Default JDK aka Oracle JDK and openJDK are owned by Oracle only.
@@ -9,7 +9,7 @@
       Also in Cloud environment like Cloudfoundry the jdk used for java compilation is openJDK not the OracleJDK and this will hold true for other cloud PaaS as well.
       
       Many Tech giants have their own JDK implementations crafted out from openJDK. One such example is Twitter.
-- LTS versions. Pls check [Java’s Time-Based Releases.](https://www.baeldung.com/java-time-based-releases)
+- **LTS** (long-term support) versions. Pls check [Java’s Time-Based Releases.](https://www.baeldung.com/java-time-based-releases)
     - jdk-8
     - jdk-11
 
@@ -17,6 +17,23 @@
     - When the version string for the product is reported as `java version 1.8.0_5`, the product will be called `JDK` 8u5, `JDK 8 update 5` or, when the update version is not important, `JDK 8`.
     
 - ![](https://i.stack.imgur.com/CBNux.png)
+
+## Concepts
+- **JDK**: `Java Devlopement Kit` let you develop Java application.
+- **JRE**: `Java Runtime Enviroment` let you run Java application. 
+
+    - Note that from `Java 9/11?` onward, the separate `JRE` is no longer exist, only the `JDK` is offered ([by Oracle](https://stackoverflow.com/a/59187135/10393067)). [Java is now a **modular platform**, where you can create your own **JRE** distribution with specifically the modules that you need to run your application](https://stackoverflow.com/a/53733414/10393067).
+    
+        > [In this release, the JRE or Server JRE is no longer offered. Only the JDK is offered. Users can use **jlink** to create smaller custom runtimes](https://www.oracle.com/java/technologies/javase/11-relnote-issues.html).
+        - **jlink** is a tool that generates a custom Java runtime image that contains only the platform modules that are required for a given application.
+        - [Build your own **JRE** with **jink**](https://dzone.com/articles/jlink-in-java-9)
+ 
+- [The Java Platform Module System](https://dzone.com/articles/the-java-platform-module-system)        
+    - https://www.baeldung.com/java-9-modularity
+    - https://viblo.asia/p/what-is-java-9-module-RQqKLYkmZ7z
+- [Summary](https://stackoverflow.com/a/54737381/10393067)
+    ![](https://i.stack.imgur.com/P4Gmt.png)    
+
 ## Install
 - **JDK/JRE**
     1. Check Ubuntu is 32-bit or 64-bit
