@@ -25,3 +25,22 @@
 - bitwise (subnetmark & ip(first 24 bit)) -> networkId
 
 - ip port
+
+## Get Wi-Fi interface device names
+```shell script
+iw dev
+iw dev | awk '$1=="Interface"{print $2}'
+
+sudo lshw -c network -businfo
+```
+
+## PCI (Peripheral Component Interconnect)
+
+- [How PCI work](https://computer.howstuffworks.com/pci.htm)
+- https://www.oreilly.com/library/view/linux-device-drivers/0596005903/ch12.html
+
+## Loopback interface
+
+```shell script
+ip a | grep lo
+```
