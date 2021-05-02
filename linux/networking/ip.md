@@ -45,7 +45,21 @@
       
       Like someone walks in and asks “hey..! where’s John ?”(broadcast) you say “he is in cafe downstairs” (unicast). You need broadcast to certain point only. Once that question is answered its no longer broadcast.
     
+- [What is multicast?](https://www.quora.com/What-is-multicast)    
+    - To transmit a single message to a select group of recipients. **A simple example of multicasting is sending an e-mail message to a mailing list**. Teleconferencing and videoconferencing also use multicasting, but require more robust protocols and networks.
+      
+      Standards are being developed to support multicasting over a TCP/IP network such as the Internet. These standards, IP Multicast and Mbone, will allow users to easily join multicast groups.
+      
+      The terms multicast and narrowcast are often used interchangeably, although narrowcast usually refers to the business model whereas multicast refers to the actual technology used to transmit the data.
+      
+      Transmission method in which one device communicates with several devices with a single transmission. In contrast to broadcasting (in which a message or signal is sent to all connected devices) a multicast message is transmitted only to the selected device(s).
+    - **It's a mechanism for a server to send a single stream of data that's received by multiple clients at the same time.**
+
+- [What is a Unicast Transmission?](http://blog.finjan.com/unicast-broadcast-multicast-data-transmissions)
+    - In computing terms, unicast transmission is the most common method of information transfer which takes place on networks. Traffic in the form of streams of data packets typically moves from a single host (such as a web server) to a single endpoint (such as a client app, computer, or browser).    
     
+- [What is the difference between unicast, anycast, broadcast and multicast traffic?](https://serverfault.com/questions/279482/what-is-the-difference-between-unicast-anycast-broadcast-and-multicast-traffic)    
+
 ## [Hop](https://en.wikipedia.org/wiki/Hop_(networking))
 - In wired computer networking, including the Internet, a hop occurs when a packet is passed from one network segment to the next. Data packets pass through routers as they travel between source and destination. The hop count refers to the number of intermediate devices through which data must pass between source and destination.
 
@@ -134,6 +148,8 @@
 - [How NAT works - Animation videos](https://www.youtube.com/watch?v=FTUV0t6JaDA)
 
 ## DHCP (Dynamic Host Configuration Protocol)
+- [](images/how-dhcp-works.png)
+
 - [Think of it like this](https://www.reddit.com/r/explainlikeimfive/comments/1wnf0d/eli5_what_is_dhcp_and_what_is_it_used_for/). You have a package coming to your front door.
   
   The post office (router) will put your package on a truck but it needs to know where to go. So it uses your address that was assigned by the city(dhcp). In this case that's a static address unless you move, then its dynamic.
@@ -256,3 +272,8 @@
   If any person needs to go out/another house (Internet/another Network), he/she has to pass through Main Door (Default Gateway). Same way, Packets, in your network need Default Gateway to go out/communicate to Internet/Other Network.
   
 ## NAT (Network Address Translation)  
+
+
+## ARP (Address Resolution Protocol )
+- [ELI5: Address Resolution Protocol (ARP)](https://www.reddit.com/r/explainlikeimfive/comments/rfs1g/eli5_address_resolution_protocol_arp/)
+    - ARP stands for Address Resolution Protocol. It maps the network address (IP) to the link-layer address (MAC) so that data knows the appropriate physical interface on which to send data
