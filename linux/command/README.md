@@ -76,10 +76,23 @@ glxinfo|egrep "OpenGL vendor|OpenGL renderer"
     - https://computer.howstuffworks.com/computer-memory3.htm 
 # Install
 
+### Check ubuntu is 32bit or 64bit
+```shell script
+file /sbin/init
+
+file /lib/systemd/systemd
+
+uname -i
+
+arch
+```
+
 ### Install from releases page
 - Check architecture first.
 ```shell script
 dpkg --print-architecture
+
+# amd64 -> 64bit
 ```
 - Download zip or (something else) file
 - Extract zip file
