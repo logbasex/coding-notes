@@ -11,6 +11,15 @@ https://docs.docker.com/get-started/overview/
 
 https://nickjanetakis.com/blog/understanding-how-the-docker-daemon-and-docker-cli-work-together#it-is-a-client-server-architecture
 
+- Docker components: https://www.youtube.com/watch?v=rOTqprHv1YE&t=5s
+
+# Terms
+- [What is the difference between Docker Daemon and Docker Engine?](https://stackoverflow.com/questions/60527336/what-is-the-difference-between-docker-daemon-and-docker-engine/67262061#67262061)
+- [What is the difference between Docker Host and Container](https://stackoverflow.com/questions/33307538/what-is-the-difference-between-docker-host-and-container)
+
+- Container Orchestration
+    - Container orchestration là các công cụ, dịch vụ dùng để điều phối và quản lý nhiều container sao cho chúng làm việc một cách hiệu quả nhất. Khi người người sử dụng container, nhà nhà sử dụng container, các công ty cũng sử dụng container để deploy một cách rộng rãi hơn thì việc tìm ra một tool quản lý tất cả container trong hệ thống hạ tầng chúng ta có là một vấn đề cấp thiết.
+
 # glossary
 
 - https://docs.docker.com/glossary/
