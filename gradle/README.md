@@ -28,6 +28,9 @@
     gradle -v
     # https://linuxize.com/post/how-to-install-gradle-on-ubuntu-20-04/
     ```
+  
+- Set up JVM version for Gradle
+    - https://stackoverflow.com/a/67284400/10393067  
 
 - ## [Gradle's user home directory](https://docs.gradle.org/current/userguide/directory_layout.html)
     ```shell script
