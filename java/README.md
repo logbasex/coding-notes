@@ -171,6 +171,33 @@ Joiner.on(" ").skipNulls().join("I", null, "love", null, "null");
     ```shell script
     Character.isSpaceChar(int codePoint);
     ```
+  
+- Convert Array to String
+    ```
+    String[] strArray = { "one", "two", "three" };
+    String joinedString = Arrays.toString(strArray);
+  
+    String joinedString = StringUtils.join(new String[]{ "Convert", "With", "Apache", "Commons" });
+    ```
+- [What does it mean to escape a string?](https://stackoverflow.com/questions/10646142/what-does-it-mean-to-escape-a-string)  
+  Escaping a string means to reduce ambiguity in quotes (and other characters) used in that string.
+    ```shell
+    "Hello \"World.\""
+    ```
+
+## CSV (Comma separate values)
+- CsvWriter
+    ```
+    CSVWriter csvWriter = new CSVWriter(
+						writer,
+						CSVWriter.DEFAULT_SEPARATOR,
+						CSVWriter.NO_QUOTE_CHARACTER,
+						CSVWriter.NO_ESCAPE_CHARACTER,
+						System.lineSeparator()
+				)
+    ```
+    - `NO_QUOTE_CHARACTER`: [ignore double quote](https://stackoverflow.com/questions/13969254/unwanted-double-quotes-in-generated-csv-file)
+    - `NO_ESCAPE_CHARACTER`: [ignore escape character](https://stackoverflow.com/questions/14531827/opencsv-writing-file-with-some-quoted-elements-and-others-unquoted)
 
 ## Enum
 - Enum constructor is fine with private or default constructor, causing an error with protected or public constructor because that would allow more instances to be created.

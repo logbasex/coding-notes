@@ -37,6 +37,10 @@ Download and select which one has source path
 Further reading here: https://stackoverflow.com/questions/49558009/intellij-shows-decompiled-class-file-instead-of-source-code
 
 
+## Intellij Gradle JVM
+
+![](images/gradle-jvm.png)
+
 ## Replace empty line 
 ```regexp
 ^(?:[\t ]*(?:\r?\n|\r)){1,}
