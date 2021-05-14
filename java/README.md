@@ -146,6 +146,10 @@
     
 </pre>
 
+## VM options
+```shell
+-Duser.timezone=UTC
+```
 
 ## Collection
 
