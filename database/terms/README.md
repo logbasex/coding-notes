@@ -3,6 +3,8 @@ A database is a collection of structured information organized in a way that it 
 
 Complex databases often use more formalized structures and design patterns, typically defined by a Database Management System (DBMS). There are many different types of common database management systems, some using design patterns like the Relational Model and NoSQL, with query languages like SQL.
 
+## Database Ranking
+https://db-engines.com/en/ranking
 
 ## DBMS (Database Management System)
 
@@ -71,3 +73,13 @@ There is a major difference between a database and a table. The differences are 
 - Tables are a way to represent the division of data in a database while the database is a collection of tables and data.
 - Tables are used to group the data in relation to each other and create a dataset. This dataset will be used in the database. The data stored in the table in any form is a part of the database, but the reverse is not true.
 - A database is a collection of organized data and features used to access them, whereas the table is a collection of rows and columns used to store the data.
+
+# Scale
+ - ## [Database Scaling : Horizontal and Vertical Scaling](https://hackernoon.com/database-scaling-horizontal-and-vertical-scaling-85edd2fd9944)
+    - Vertical Scaling - Scale Up
+   
+        ![](https://hackernoon.com/hn-images/0*eJhhXAdzxNqNHv_V.jpg)
+     
+    - Horizontal Scaling - Scale Out
+   
+        ![](https://hackernoon.com/hn-images/0*Z4Ib_tXhm7hXlHNB.jpg)
