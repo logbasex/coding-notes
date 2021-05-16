@@ -60,3 +60,4 @@
   
 ## Tip an tricks
 - https://tomgregory.com/5-tips-for-using-gradle-with-intellij-idea-2019/  
+- [Intellij add gradle dependency](https://www.jetbrains.com/help/idea/work-with-gradle-dependency-diagram.html)
