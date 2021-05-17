@@ -20,6 +20,14 @@
 - [i3, i3bar, i3status](https://www.reddit.com/r/i3wm/wiki/faq/i3i3bari3status)
 - [Debug i3](https://i3wm.org/docs/debugging.html)
 
+- [Brightness](https://stackoverflow.com/questions/25588367/how-to-control-backlight-by-terminal-command)
+    ```
+    sudo apt install xbacklight
+    
+    - ~/.config/i3/config
+    bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+    bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+    ```
 
 ## Controlling i3
 
