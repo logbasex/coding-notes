@@ -1,3 +1,11 @@
+# Config
+
+```
+man git config
+touch ~/.gitconfig
+```
+- https://gist.github.com/pksunkara/988716
+
 ## Viewing unpushed commit
 
 ```shell
