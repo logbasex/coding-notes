@@ -84,7 +84,7 @@ $mod+shift+left/right
 ## Containers
 
 <pre>
-# Default container
+# default (splith/splitv), repeat to toggle splith/splitv
 $mod+e
 
 # https://www.reddit.com/r/i3wm/comments/ek4urs/xubuntu_i3_cannot_split_windows/
