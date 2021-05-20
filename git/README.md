@@ -3,6 +3,11 @@
 ```
 man git config
 touch ~/.gitconfig
+
+# edit configuration
+git config --global -e
+git config --system -e
+git config --local -e
 ```
 - https://gist.github.com/pksunkara/988716
 

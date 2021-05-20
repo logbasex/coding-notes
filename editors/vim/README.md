@@ -249,6 +249,12 @@ gT or :tabprev or :tabp # move to the previous tab
 :tabclose or :tabc      # close the current tab and all its windows
 :tabonly or :tabo       # close all tabs except for the current one
 :tabdo command          # run the command on all tabs (e.g. :tabdo q - closes all opened tabs)
+
+#fzf https://github.com/junegunn/fzf.vim#commands
+Ctrl + g + Ctrl + T     # search file and open in new tab
+Ctrl + g + Ctrl + X     # search file and open in new split
+Ctrl + g + Ctrl + V     # search file and open in new vertical split
+
 ```
 
 ## Windows
@@ -375,6 +381,9 @@ Using vim in a terminal emulator: set -o vi
     :term
    
     :vs term://zsh
+
+    # terminal in new tab
+    :tabnew | term
     ```
 10. Reload config
     ```shell script

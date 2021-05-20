@@ -2,6 +2,7 @@
 - Tutorial
     - https://github.com/addy-dclxvi/i3-starterpack
     - https://kifarunix.com/install-and-setup-i3-windows-manager-on-ubuntu-20-04/
+    - https://thevaluable.dev/i3-config-mouseless/
 - location: `~/.config/i3`
 
 - `i3`: copy `/etc/i3/config` to `~/.config/i3`
@@ -27,6 +28,12 @@
     - ~/.config/i3/config
     bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
     bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+    ```
+
+- Dynamically update workspace name
+    ```
+    https://github.com/cboddy/i3-workspace-names-daemon
+    https://wiki.archlinux.org/title/i3#Installation
     ```
 
 ## Controlling i3
@@ -76,8 +83,12 @@ $mod+Shift+k
 $mod+Shift+l
 
 
-# change order of window in one workspace
+# Change order of window in one workspace
 $mod+shift+left/right
+
+# Move all windows from one workspace to another
+# https://www.reddit.com/r/i3wm/comments/dhsuvu/move_all_windows_from_one_workspace_to_another/
+$mod+a+$mod+Shift+<i>num</i>
 </pre>
 
 
