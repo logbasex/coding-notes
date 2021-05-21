@@ -23,7 +23,7 @@ SSH protocol uses symmetric encryption, asymmetric encryption and hashing in ord
 
 Now, I will discuss about these stages in different sections.
 
-##1. VERIFICATION OF SERVER
+## 1. VERIFICATION OF SERVER
 
 The client initiates a SSH connection with the server. Server listens to default port 22 (this port can be changed) for SSH connections. At this point, the server identity is verified. There are two cases:
 
@@ -32,11 +32,11 @@ The client initiates a SSH connection with the server. Server listens to default
 
 ![](images/known_hosts.png)
 
-##2 .GENERATION OF SESSION KEY
+## 2 .GENERATION OF SESSION KEY
 
 After the server is verified, both the parties negotiate a session key using a version of something called the **Diffie-Hellman algorithm**. This algorithm is designed in such a way that both the parties contribute equally in generation of session key. The generated session key is shared symmetric key i.e. the same key is used for encryption and decryption.
 
-##3.AUTHENTICATION OF THE CLIENT
+## 3.AUTHENTICATION OF THE CLIENT
 
 The final stage involves authentication of the client. Authentication is done using SSH key pair. As the name suggests, SSH key pair is nothing but a pair of two key to serve two different purposes. One is public key that is used to encrypt data and can be freely shared. The other one is private key that is used to decrypt data and is never shared with anyone.
 
@@ -70,7 +70,26 @@ After symmetric encryption has been established, the authentication of the clien
 
 ----------
 
+## Permission
+7 is rwx (do anything with it), 5 is rx (gotta read it to execute it), 6 is wr (any data file you need to modify), 4 is r (we'll let you look at it), and 0 is - (sorry, nothing here to see). And the order is Me, Us, Everyone. These are the basic combinations.
 
+755 I can change and run it, everyone else can run it.
+
+644 I can change it, everyone else can read it.
+
+444 Read only for everyone, we're through here.
+
+500 I can execute it, don't want it to change, everyone else hands off.
+
+```
+chmod 700 ~/.ssh
+
+# Only I can read.
+chmod 400 ~/.ssh/id_rsa
+
+# I can change it, everyone else can read it.
+chmod 644 ~/.ssh/id_rsa.pub
+```
 
 # READ MORE
 
