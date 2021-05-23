@@ -28,3 +28,8 @@ Related:
 ![](http://www.porcupine.org/forensics/forensic-discovery/figure3.3.gif)    
 
 http://www.porcupine.org/forensics/forensic-discovery/chapter3.html#figure3.2
+
+- Directory
+![](https://pbs.twimg.com/media/EV47AIyXsAEDvp4?format=jpg&name=small)
+
+https://twitter.com/climagic/status/1251504373286436864
