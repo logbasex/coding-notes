@@ -1,4 +1,4 @@
-## 
+##  Common directory
 
 <pre>
 /usr/sbin/login             # /sbin/nologin or /usr/sbin/nologin used as a shell in Linux to politely refuse a login attempt. It is a per-account way to disable login on Linux. Many system user using this shell (cat /etc/passwd | grep nologin)
@@ -22,3 +22,9 @@ Related:
     
 - Binary folder        
     - https://www.interserver.net/tips/kb/linux-binary-directories-explained/
+    
+## Layout
+
+![](http://www.porcupine.org/forensics/forensic-discovery/figure3.3.gif)    
+
+http://www.porcupine.org/forensics/forensic-discovery/chapter3.html#figure3.2

@@ -3,7 +3,7 @@
 
 - Using [dotbot](https://github.com/anishathalye/dotbot)
   - Tutorial [here](https://everythingisinput.com/posts/dotfiles) and [here](https://josnun.github.io/posts/managing-dotfiles-and-zsh-with-dotbot-and-antigen/)
-  - 
+  - https://www.elliotdenolf.com/posts/bootstrap-your-dotfiles-with-dotbot
 
 ## II. Packages
 - With debian-based package

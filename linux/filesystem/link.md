@@ -2,6 +2,9 @@
 - display value of a symbolic link
 
 ## Hard Link
+
+- https://www.baeldung.com/linux/symbolic-and-hard-links
+
 ```shell script
 # syntax
 ln <source file> <link>
