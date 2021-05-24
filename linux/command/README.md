@@ -13,6 +13,12 @@ https://ketancmaheshwari.github.io/pdfs/LPT_LISA.pdf
 # Pre-install
 
 - [Disable Secure Boot](https://askubuntu.com/a/843678/978081)
+- Bootable usb
+    ```
+    1. unmount usb
+    2. download ubuntu iso
+    3. sudo dd if=/path/to/.iso of=/dev/usb-device bs=1M status=progress
+    ```
 
 
 # nvidia problems
