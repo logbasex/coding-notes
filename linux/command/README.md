@@ -395,6 +395,10 @@ exa -bghHliS
 
 - #### Media
 
+    - [flameshot](https://github.com/flameshot-org/flameshot#installation): i3wm screenshot
+    ```
+    sudo apt install flameshot
+    ```
     - View image from terminal
     ```shell script
     sudo apt install feh
