@@ -26,7 +26,8 @@ else
 		 12 "MongoDB" on
 		 13 "RabbitMQ" on
 		 14 "Elasticsearch" on
-		 15 "Handy Tools" off)
+		 15 "Backup Eko Test DB" on
+		 16 "Handy Tools" off)
 	choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 	clear
 	for choice in $choices
@@ -113,8 +114,7 @@ else
 		    ;;
 		13)
 		    echo "RabbitMQ"
-		    docker run -d --hostname my-rabbit --name some-rabbit --restart=always -p 4369:4369 -p 5671:5671 -p 5672:5672 -p 15672:15672 rabbitmq
-		    docker exec some-rabbit rabbitmq-plugins enable rabbitmq_management
+		    docker run -d --hostname my-rabbit --name some-rabbit --restart=always -p 4369:4369 -p 5671:5671 -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 		    ;;
 		14)
 		    echo "ElasticSearch"
@@ -131,6 +131,10 @@ else
 		    ;;
 
 		15)
+		    echo "Backup Eko Test DB"
+                 docker exec mongo44 /bin/bash -c 'exec mongodump --host 192.168.5.21:27017 --db eko_test --archive | mongorestore --archive --nsFrom="eko_test.*" --nsTo="eko_dev.*" --drop' 
+		    ;;
+		16)
 		    echo "Handy Tools"
 		    ;;
 	    esac
