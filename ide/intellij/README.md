@@ -51,6 +51,23 @@ Further reading here: https://stackoverflow.com/questions/49558009/intellij-show
 Package's name cannot use reserve word (like enum, class) 
 
 
+## Show white space
+
+![](https://i.imgur.com/xEwFKJd.png)
+
+View -> Active Editor -> Show White Space
+
+
+## Re-debug
+
+![](https://i.imgur.com/HURPiLu.png)
+
+Alt + Shift + F9
+
+## Re-run
+
+Alt + Shift + F10
+
 ## Shortcut
 
 - Reformat popup
