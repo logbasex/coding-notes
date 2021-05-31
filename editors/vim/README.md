@@ -396,6 +396,16 @@ Using vim in a terminal emulator: set -o vi
     :History
     ```
 
+12. Reload vim's config file without restart
+    ```
+    :so %
+    ```
+
+13. [Search command history](https://vim.fandom.com/wiki/Using_command-line_history)
+    ```
+    q:
+    ```
+
 ## Pitfalls    
 
 1. Debug mapping

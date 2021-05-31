@@ -81,7 +81,13 @@ glxinfo|egrep "OpenGL vendor|OpenGL renderer"
     - System RAM speed is controlled by bus width and bus speed. Bus width refers to the number of bits that can be sent to the CPU simultaneously, and bus speed refers to the number of times a group of bits can be sent each second. A bus cycle occurs every time data travels from memory to the CPU. For example, a 100-MHz 32-bit bus is theoretically capable of sending 4 bytes (32 bits divided by 8 = 4 bytes) of data to the CPU 100 million times per second, while a 66-MHz 16-bit bus can send 2 bytes of data 66 million times per second. If you do the math, you'll find that simply changing the bus width from 16 bits to 32 bits and the speed from 66 MHz to 100 MHz in our example allows for three times as much data (400 million bytes versus 132 million bytes) to pass through to the CPU every second.
     - https://computer.howstuffworks.com/computer-memory3.htm 
 
-## System Infor
+
+- [Enable horizontally scroll ubuntu](https://askubuntu.com/questions/440670/how-do-i-enable-horizontal-scroll-on-lubuntu-desktop)
+    ```
+    synclient HorizTwoFingerScroll=1
+    ```
+
+## System Info
 
 - Battery
 ```
@@ -172,6 +178,10 @@ sdk install springboot
 - Golang
 ```shell script
 sudo snap install go --classic
+
+# https://stackoverflow.com/questions/30295146/how-can-i-install-a-package-with-go-get
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 ```
 
 - Rust
@@ -339,6 +349,11 @@ sudo apt install elasticsearch
 ```
 
 #### Handy Tools
+- alacritty
+```
+sudo snap install alacritty --classic
+```
+
 - synaptic package manager
 ```shell script
 sudo apt update
@@ -387,6 +402,13 @@ sudo chmod 0755 /usr/local/bin/selenium-server-standalone.jar
 ```
 sudo apt install httpie
 ```
+
+- [wuzz](https://github.com/asciimoo/wuzz)
+    - Interactive cli tool for HTTP inspection
+    ```
+    go get github.com/asciimoo/wuzz
+    "$GOPATH/bin/wuzz" --help
+    ```
 
 - lazygit
 ```

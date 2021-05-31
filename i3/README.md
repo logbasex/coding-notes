@@ -3,6 +3,13 @@
     - https://github.com/addy-dclxvi/i3-starterpack
     - https://kifarunix.com/install-and-setup-i3-windows-manager-on-ubuntu-20-04/
     - https://thevaluable.dev/i3-config-mouseless/
+    - https://www.sglavoie.com/posts/2019/11/10/using-dmenu-to-optimize-common-tasks/ 
+    - https://www.sglavoie.com/posts/2020/08/15/a-guided-tour-of-an-i3-configuration/
+    - https://www.youtube.com/watch?v=8-S0cWnLBKg&t=873s
+    
+- I3Block    
+    - http://ryan.himmelwright.net/post/started-using-i3blocks/    
+    - https://vivien.github.io/i3blocks/ 
 - location: `~/.config/i3`
 
 - `i3`: copy `/etc/i3/config` to `~/.config/i3`
