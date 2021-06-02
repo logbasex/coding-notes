@@ -89,7 +89,8 @@ Ctrl + b          # scroll **b**ackword one full screen
 Ctrl + f          # scroll **f**orward one full screen
 Ctrl + d          # scroll **d**own 1/2 screen
 Ctrl + u          # scroll **u**p 1/2 a screen
-
+`”                # Go to the position where you were in NORMAL MODE while last closing the file.
+`^                # Go to the position where you were in INSERT MODE while last closing the file.
 
 30G80|                  # goes to line 30, column 80.
 :cal cursor(30, 80)     # goes to line 30, column 80.
@@ -162,6 +163,7 @@ d       # delete marked text
 ## Cut and paste
 ```bash
 yy       # yank (copy) a line
+Y        # yank (copy) a line
 yiw      # yank (copy) inner word (copy word under cursor)
 viwp     # put cursor under another word, select and replace with previous yanked word.
 2yy      # yank (copy) 2 lines
@@ -172,11 +174,20 @@ P        # put (paste) before cursor
 dd       # delete (cut) a line
 2dd      # delete (cut) 2 lines
 dw       # delete (cut) the characters of the word from the cursor position to the start of the next word
-D        # delete (cut) to the end of the line
-d$       # delete (cut) to the end of the line
+D        # delete (cut) to the end of the line in the normal mode
+d$       # delete (cut) to the end of the line in the normal mode
+C        # delete (cut) to the end of the line in the insert mode
+cc       # This will delete the full current line and put you in INSERT mode for new text.
 d^       # delete (cut) to the first non-blank character of the line
 d0       # delete (cut) to the begining of the line
 x        # delete (cut) character
+
+:reg     # list of available register
+:reg 1   # register 1
+"3p      # paster register 3 after current cursor
+"3P      # paster register 3 before current cursor
+ctrl+r+3    # paste register 3 in the insert mode
+"1Y      # yank current line to register 1
 ```
 
 ## Search and replace
