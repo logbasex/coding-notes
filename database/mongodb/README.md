@@ -7,6 +7,13 @@
 ## index
 https://viblo.asia/p/tim-hieu-ve-index-trong-mongodb-924lJL4WKPM
 
+## Docs
+- https://mongodb.github.io/mongo-csharp-driver/2.9/reference/driver/expressions/#bitsanyset
+```shell
+Find(p => (p.PermissionFlags & 7) != 0);
+
+{ PermissionFlags: { $bitsAnySet: 7 } }
+```
 
 ## query
 https://docs.mongodb.com/guides/server/introduction/
