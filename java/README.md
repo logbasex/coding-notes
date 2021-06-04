@@ -246,3 +246,14 @@ The Jackson library provides annotations that you can use in POJOs to control bo
 - @JsonIgnoreProperties
 - @JsonIgnoreType
 - @JsonAutoDetect
+
+
+#### Bit masking
+
+[Bit masking is "useful" to use when we want to store different data value within single data.](https://www.quora.com/What-is-bitmasking-What-kind-of-problems-can-be-solved-using-it)
+For Example - In linux
+```  
+chmod 777 fileName
+```
+In this case 7 represent three value rwx (111 - octal value of 7)
+this is frequently used in device driver development
