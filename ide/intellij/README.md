@@ -101,12 +101,17 @@ alt + shift + ,
 
 - Previous Change
 ```shell script
-
+Navigate -> Navigate in file -> Next change (ctrl + alt + shift + down)
 ```
 
 - Next Change
 ```shell script
+Navigate -> Navigate in file -> Previous change (ctrl + alt + shift + up)
+```
 
+- Last edit location
+```shell
+Ctrl + Shift + Backspace
 ```
 
 - Close notifications

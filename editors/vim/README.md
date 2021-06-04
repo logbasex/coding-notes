@@ -188,6 +188,14 @@ x        # delete (cut) character
 "3P      # paster register 3 before current cursor
 ctrl+r+3    # paste register 3 in the insert mode
 "1Y      # yank current line to register 1
+"Kyy     # append to register K using capital register
+"+p      # paste from system clipboard on linux
+"*p      # paste from system clipboard on window
+
+# https://www.baeldung.com/linux/vim-registers
+# https://www.brianstorti.com/vim-registers/
+# https://stackoverflow.com/a/7018760/10393067 - VIM register macro
+
 ```
 
 ## Search and replace
