@@ -118,3 +118,35 @@ Ctrl + Shift + Backspace
 ```shell
 ctrl + shift + a -> notification
 ```
+## HTTP client
+- Controller
+    ![](https://i.imgur.com/FHLE0Ba.png)
+  
+    ```shell
+    @PostMapping("/public/migration/user")
+	 public final ResponseEntity<Object> createFan(@RequestPart MultipartFile file, @RequestPart CreateFanRequest request) {
+	 	ResponseObject<Object> response = new ResponseObject<>();
+	 	try {
+	 		migrationSv.createFan(file, request);
+	 	} catch (EkoBaseException e) {
+	 		response.setError(e.getError());
+	 	}
+	 	return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
+	 }
+    ```
+
+- HTTP request
+    ![](https://i.imgur.com/LKdk6D7.png)
+  
+- Data.json
+    ```json
+    {
+      "subscriptionIds": ["60b9a6d7be63496829cdc3bc"],
+      "commentToPostRequest": {
+        "content": "60b5a339644051460a0b46c4",
+        "targetId": "",
+        "contentType": "news"
+      }
+    }
+    ```
+- https://www.vojtechruzicka.com/intellij-idea-tips-tricks-testing-restful-web-services/  
