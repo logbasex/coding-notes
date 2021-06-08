@@ -50,6 +50,19 @@ After symmetric encryption has been established, the authentication of the clien
 - The client then sends this MD5 hash back to the server as an answer to the encrypted number message.
 - The server uses the same shared session key and the original number that it sent to the client to calculate the MD5 value on its own. It compares its own calculation to the one that the client sent back. **If these two values match, it proves that the client was in possession of the private key and the client is authenticated.**
 
+## Command
+
+- [Tunnel Everything with a SOCKS proxy](https://askubuntu.com/questions/112177/how-do-i-tunnel-and-browse-the-server-webpage-on-my-laptop)
+  ```shell
+  ssh -D 8080 remote-host
+  ```
+
+- Tunnel a single port.
+  ```shell
+  ssh -L 8080:server-hostname:80 remote-host
+  ```
+
+
 # Question
 
 [How does SSH encryption work?](https://superuser.com/questions/383732/how-does-ssh-encryption-work)
@@ -67,6 +80,16 @@ After symmetric encryption has been established, the authentication of the clien
 
 - **[The client keypair is never used for encrypting data, only for AUTHENTICATION](https://superuser.com/a/383738/1066645)** – "publickey" is one of several available methods, where the client presents its own public key along with proof of private-key ownership. Similarly, the server keypair is only used for authenticating the server during DH or ECDH key exchanges; no data is encrypted using it.
 
+[Are “SOCKS5 proxying” and “ssh tunneling” same thing?](https://stackoverflow.com/questions/39009401/are-socks5-proxying-and-ssh-tunneling-same-thing)
+- ![](https://www.bogotobogo.com/Linux/images/ssh_Tunnel_Proxy/SockProxy_DIagram.png)
+
+[Is SOCKS secure?](https://security.stackexchange.com/questions/719/is-socks-secure?rq=1)
+
+- SOCKS itself does nothing to protect your data. It simply allows you to proxy your connections through another connection.
+
+  The SSH connection from your local computer to the SSH server is what is giving you the security, because all traffic that goes through that connection (including your SOCKS traffic) is encrypted.
+
+  So, any traffic going between the client (eg a web browser) and the SOCKS proxy is not encrypted. Any traffic between the SOCK proxy and the SSH server is encrypted. Any traffic coming out the other side of the SOCKS tunnel is not encrypted. Since you are establishing the SOCK proxy on localhost, that first unencrypted part (between your browser and the proxy) is completely internal to your computer, so it doesn't matter that it is unencrypted.
 
 ----------
 
@@ -90,6 +113,28 @@ chmod 400 ~/.ssh/id_rsa
 # I can change it, everyone else can read it.
 chmod 644 ~/.ssh/id_rsa.pub
 ```
+
+## Jump host
+- https://dev.to/claudiohigashi/ssh-tunneling-via-a-jump-host-2b5d
+
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--M1WppSY0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://imgshare.io/images/2020/03/25/ssh-tunneling-via-jump-host-2.png)
+
+## SSH port forwarding
+There are 3 types of port forwarding: 
+  - local port forwarding 
+  - remote port forwarding 
+  - [dynamic port forwarding.](https://zaiste.net/posts/ssh-port-forwarding/)
+    > Dynamic Port Forwarding allows a communication not on a single port, but across a range of ports. This port forwarding is created using -D parameter. This option will make SSH acts as a SOCKS proxy server.
+    >
+    > SOCKS5 is an internet protocol which routes packets between a server and a client using a proxy server. SOCKS5 proxy servers use both TCP and UDP protocols (SOCKS4 only uses TCP). A SOCKS proxy is simply a SSH tunnel in which specific applications forward their traffic down the tunnel to the remote server, and then on the server end, the proxy forwards the traffic out to the general Internet. Unlike a VPN, a SOCKS proxy has to be configured for each application separately on the client machine. There is, however, no need to install 3rd party applications to use it.
+    >
+    >Proxies usually rewrite data packet headers. This may leads to decrease performance and mislabeling errors. SOCKS5 proxy servers do not rewrite data packet headers. They are more performant and less prone to data routing errors. Unlike HTTP proxies which can only interpret and work with webpages, SOCKS5 proxies can work with any kind of traffic. This is because SOCKS proxy servers are low-level proxies that can handle any program, protocol and any type of traffic.
+    >
+    >Dynamic Port Forwarding can handle connections from multiple ports. It analyzes the traffic to determine the proper destination for the given connection. For example, a browser configured to use it as a SOCKS proxy can then access HTTP, HTTPS, FTP, etc. over the same connection. If you're using dynamic port forwarding, you need to configure programs to use a SOCKS proxy server
+
+## SSH tunnel
+- https://robotmoon.com/ssh-tunnels/
+- https://hackertarget.com/ssh-examples-tunnels/
 
 # READ MORE
 
