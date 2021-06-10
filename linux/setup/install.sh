@@ -5,6 +5,9 @@ if [[ $EUID -ne 0 ]]; then
    	exit 1
 
 else
+        echo "connect to wifi"
+        nmcli d wifi connect Bluebottle password Blu3B0ttl3
+
         echo "Update and upgrade"
         apt update -y && apt upgrade -y && apt dist-upgrade -y && apt full-upgrade -y
 
