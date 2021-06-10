@@ -139,7 +139,9 @@ There are 3 types of port forwarding:
     - ![](https://basimaly.files.wordpress.com/2015/11/clip_image0026_thumb.png?w=557&h=250)
     - ![](https://basimaly.files.wordpress.com/2015/11/clip_image0046_thumb.png?w=470&h=256)
     
-
+## Config
+- https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client
+- https://viblo.asia/p/cau-hinh-shortcut-ssh-config-4P8560RRZY3
 
 # READ MORE
 

@@ -71,7 +71,12 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
     ```shell script
       db.users.deleteMany({})
     ```  
-
+- [Update many in mongodb](https://stackoverflow.com/questions/9038547/mongodb-update-every-document-on-one-field)
+    ```shell
+    db.foo.updateMany( {}, <update> )
+    db.foo.updateMany( {}, {  $set: { lastLookedAt: Date.now() / 1000 }  })
+    ```
+  
 ## Add a field to collection
 
 https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
