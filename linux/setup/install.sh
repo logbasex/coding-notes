@@ -68,6 +68,7 @@ else
 		    ;;
 		7)
 		    echo "Yarn"
+		    #https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install
 		    sudo apt install --no-install-recommends yarn -y
 		    ;;
 		8)
