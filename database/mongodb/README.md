@@ -61,7 +61,25 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
     ```shell script
     {$and: [{displayName: /Madeline\x{00A0}K\x{00A0}Ramsbotham/}]}
     ```
+- Query nested array and object
+  ```json
+  {
+   "_id":"12345",
+   "value": {
+      "T":0,
+      "v": [
+             {
+                "name":"JW",
+                "cost":100
+             }
+         ]
+      }
+  }
   
+  db.collection.find({ "value.v.name": "JW" })
+  ```
+  
+
 - Delete multi documents
   ```shell
   db.users.deleteMany({name: {$in: ["viki", "vino", "naranyamoorthy"]}})
