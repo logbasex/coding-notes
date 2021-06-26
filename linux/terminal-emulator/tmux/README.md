@@ -1,8 +1,15 @@
 ## Install
 
-```shell
-sudo apt install tmux
-```
+- Install
+  ```shell
+  sudo apt update
+  sudo apt install tmux
+  ```
+
+- Check version
+  ```shell
+  tmux -V
+  ```
 
 ## Config
 - Default config file, create if not exits

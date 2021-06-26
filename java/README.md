@@ -18,6 +18,28 @@
     
 - ![](https://i.stack.imgur.com/CBNux.png)
 
+## Open JDK
+
+Firstly, [**OpenJDK provides only source code**](https://stackoverflow.com/questions/61335109/what-is-the-difference-between-azul-openjdk-zulu-openjdk-and-openjdk). So you **cannot** use OpenJDK to run Java apps. You must first build the OpenJDK source code yourself to get executables for your particular host platform, or you must rely on a vendor make a build for you. As seen in the flow chart below, there are several such vendors making builds of the OpenJDK source code.
+
+------
+
+In practical terms, there is only one set of source code for the JDK. The source code is hosted in Mercurial at OpenJDK.
+
+Anyone can take that source code, produce a build and publish it on a URL. But there is a distinct certification process that should be used to ensure the build is valid.
+
+To summarise, the OpenJDK + Vendor process turns one sourcebase into many different builds.
+
+![](https://1.bp.blogspot.com/-6reliLjlXxg/W4xfNstXfaI/AAAAAAAAGuI/ZlUlltoSqgwuTFT46yyH2VmJ2y4ofHQIgCLcBGAs/s320/ManyBuilds.png)
+
+
+- Oracle JDK
+- OpenJDK builds by Oracle
+- AdoptOpenJDK builds
+- Azul Zulu
+
+More: https://blog.joda.org/2018/09/time-to-look-beyond-oracles-jdk.html
+
 ## Concepts
 - **JDK**: `Java Devlopement Kit` let you develop Java application.
 - **JRE**: `Java Runtime Enviroment` let you run Java application. 
