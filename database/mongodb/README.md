@@ -94,7 +94,16 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
     db.foo.updateMany( {}, <update> )
     db.foo.updateMany( {}, {  $set: { lastLookedAt: Date.now() / 1000 }  })
     ```
-  
+
+- [Update specific value in array](https://stackoverflow.com/questions/48545448/mongodb-replace-specific-array-values)  
+    - Using positional paramenter
+  ```shell
+  db.movies.updateMany(
+    { "languages": "French" }, 
+    { "$set": { "languages.2": "Francais" } }
+  )
+  ```
+
 ## Add a field to collection
 
 https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
