@@ -143,6 +143,12 @@ There are 3 types of port forwarding:
 - https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client
 - https://viblo.asia/p/cau-hinh-shortcut-ssh-config-4P8560RRZY3
 
+## Disable hung ssh session
+```shell
+ssh -o ServerAliveInterval=5 logbasex@192.168.1.9
+```
+https://www.golinuxcloud.com/kill-disconnect-hung-ssh-session-linux/
+
 # READ MORE
 
 - https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process
