@@ -1,6 +1,7 @@
 ## Introduction
 - The final (?) package manager
 - Tutorial: https://dev.to/video/asdf-the-final-version-manager-19am
+- https://alphahydrae.com/2021/03/one-version-manager-to-rule-them-all/
 
 ## [Install](https://asdf-vm.com/#/core-manage-asdf?id=install)
 - Bashscript
