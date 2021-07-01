@@ -101,3 +101,12 @@ curl - <TAB>
     ```shell script
     Ctrl + X; Ctrl + e
     ```
+  
+## Binding
+- Custom binding
+```shell
+vi ~/.zshrc
+
+# F12
+bindkey -s '^[[24~' 'You`ve just pressed F12'
+```

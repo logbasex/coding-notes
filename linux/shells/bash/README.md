@@ -20,6 +20,24 @@
   - If the output of echo $0 command is **-bash** it means that bash was invoked as a **login shell**.
   
 
+## binding
+
+- Custom binding
+  ```shell
+  vi ~/.inputrc
+  # alt + z
+  # 015 is octal value of carriage return
+  "\ez": 'cd -\015'
+  # alt + p
+  "\ep": 'pwd\015'
+  ```
+- Reload `.inputrc`  
+  ```shell
+  By default, C-x C-r is bound to re-read-init-file.
+  bind -f  ~/.inputrc
+  ```
+
+- https://brettterpstra.com/2015/07/09/shell-tricks-inputrc-binding-fun/
 ## Tips
 
 ```shell
