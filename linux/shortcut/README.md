@@ -60,3 +60,4 @@ Ctrl+o           # execute command
 ---
 
 https://quantrimang.com/14-lenh-linux-thu-vi-trong-terminal-160595
+https://gist.github.com/tuxfight3r/60051ac67c5f0445efee

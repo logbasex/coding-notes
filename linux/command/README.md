@@ -580,6 +580,9 @@ echo $(rg --version)
 ```shell script
 sudo add-apt-repository -y ppa:hluk/copyq
 sudo apt install -y copyq 
+
+# run copyq in foreground
+copyq &
 ```
 
 - ibus(unikey)
