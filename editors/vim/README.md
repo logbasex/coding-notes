@@ -158,6 +158,16 @@ Ctrl + v # start visual block mode
 y       # yank (copy) marked text
 d       # delete marked text
 ~       # switch case
+v0      # select from cursor to first column of the line
+v^      # select from cursor to first printable character of the line
+v$      # select from cursor to end of the line
+ve      # select from cursor to end of the word
+v/foo/<CR>   #select from cursor to the next occurence of foo in the buffer (always exclusive)
+v?bar<CR>    #select from cursor to previous occurence of bar in the buffer (always exclusive)
+vis     # select a whole sentence
+vip     # select a whole paragraph
+o       # jump between start and end of visual selection (https://stackoverflow.com/a/30005414/10393067).
+:help motion.txt
 ```
 
 ## Cut and paste

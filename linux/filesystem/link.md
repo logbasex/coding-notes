@@ -54,3 +54,6 @@ ls -i
 ## Difference hardlink and soft link
 
 - [ELI5: The difference between a soft and hard link](https://www.reddit.com/r/linuxquestions/comments/lkwsi/eli5_the_difference_between_a_soft_and_hard_link/)
+
+![](https://i.stack.imgur.com/f7Ijz.jpg)
+- https://askubuntu.com/a/801191/978081
