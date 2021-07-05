@@ -46,6 +46,15 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
     {name: {$eq: null}}             # equal
     {name: {$exits: false}}
   ```
+  
+- Not like operator
+  ```shell
+  db.test.find({c: {$not: /ttt/}}
+  ```  
+  
+- [Query String](https://stackoverflow.com/questions/20175122/how-can-i-use-not-like-operator-in-mongodb)
+
+
 - Query multi value
     ```shell script
     {_id: {$in: [ObjectId('604ee9e4473d470b0b044fcf'), ObjectId('604ae4683ab8ed7d865ccc3c')]}}
