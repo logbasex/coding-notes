@@ -108,11 +108,26 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
     - Using positional paramenter
   ```shell
   db.movies.updateMany(
-    { "languages": "French" }, 
+    { "languages": "French" },  
     { "$set": { "languages.2": "Francais" } }
   )
   ```
+  
+- [Find document with array that contains a specific value](https://stackoverflow.com/questions/18148166/find-document-with-array-that-contains-a-specific-value)
+  ```shell
+  db.user.find({"roles.name": {$all: ["ROLE_TALENT"]}}, {roles: 1, _id: 0})
+  
+  [{"_id": {"$oid": "5fb2518eaeddc725f84232a6"}, "name": "ROLE_TALENT", "version": "1.0", "deleted": false}]
+  ```
 
+- [How to select a single field for all documents in a MongoDB collection?](https://stackoverflow.com/questions/25589113/how-to-select-a-single-field-for-all-documents-in-a-mongodb-collection)
+
+  ```shell
+  db.user.find({}, {roles: 1, _id: 0}).pretty();
+  
+  ## data grip
+  {}, {roles:1, _id:0}
+  ```
 ## Add a field to collection
 
 https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
