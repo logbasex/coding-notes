@@ -150,3 +150,8 @@ ctrl + shift + a -> notification
     }
     ```
 - https://www.vojtechruzicka.com/intellij-idea-tips-tricks-testing-restful-web-services/  
+
+
+## Task and context
+- [Refresh Jira Task](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206824295-How-Do-You-Refresh-JIRA-Tasks-)
+    - `Alt + Shift + N` will open a popup show all Jira Task, then you need to click to the ellipsis in order to refresh Jira task. 
