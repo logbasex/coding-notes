@@ -77,5 +77,24 @@ Rebase and autostash
 
     git pull --rebase --autostash    
 
+## Git rebase
+
+[`git rebase X`](http://git-scm.com/docs/git-rebase) means:
+
+> move the commits of the current branch **on top of** branch `X`. 
+
+---
+[ELI5 what is git rebase and common use cases for it?](https://www.reddit.com/r/learnprogramming/comments/4ykgu4/eli5_what_is_git_rebase_and_common_use_cases_for/)
+---
+
+After rebase use can merge using fast-forward merge:
+  - https://stackoverflow.com/a/804178
+  - https://reflectoring.io/git-rebase-merge/
+  - https://www.thinktecture.com/en/tools/demystifying-git-rebase/
+
 ## Cheat sheet
 - https://gist.github.com/chrismccoy/8775224
+
+
+## Tools
+- https://gitexplorer.com/
