@@ -1,19 +1,53 @@
 #!/bin/bash
 
+function info() {
+	local -r message="${1}"
+	echo -e "\033[1;36m${message}\033[0m" 2>&1
+}
+
+function getLastAptGetUpdate() {
+	local aptDate
+	local nowDate
+
+	aptDate="$(stat -c %Y '/var/lib/apt/periodic/update-success-stamp')"
+	nowDate="$(date +'%s')"
+
+	echo $((nowDate - aptDate))
+}
+
+function runAptGetUpdate() {
+	local lastAptGetUpdate
+	local lastUpdate
+
+	lastAptGetUpdate="$(getLastAptGetUpdate)"
+
+	# Default To 24 hours
+	updateInterval="$((24 * 60 * 60))"
+
+	if [[ "${lastAptGetUpdate}" -gt "${updateInterval}" ]]
+	then
+			info "apt update"
+			apt update -y && apt upgrade -y && apt dist-upgrade -y && apt full-upgrade -y
+
+	else
+			lastUpdate="$(date -u -d @"${lastAptGetUpdate}" +'%-Hh %-Mm %-Ss')"
+
+			info "\nSkip apt-get update because its last run was '${lastUpdate}' ago"
+	fi
+}
+
 if [[ $EUID -ne 0 ]]; then
-   	echo "This script must be run as root" 
-   	exit 1
+		echo "This script must be run as root"
+		exit 1
 
 else
-        echo "connect to wifi"
-        nmcli d wifi connect Bluebottle password Blu3B0ttl3
-
-        echo "Update and upgrade"
-        apt update -y && apt upgrade -y && apt dist-upgrade -y && apt full-upgrade -y
+#        echo "connect to wifi"
+#        nmcli d wifi connect Bluebottle password Blu3B0ttl3
+  runAptGetUpdate
 
 	echo "Install common packages"
 	apt install snap python3-pip -y
-        apt install dialog
+				apt install dialog
 	cmd=(dialog --separate-output --checklist "Please select things you want to install" 22 76 16)
 	options=(1 "Google Chrome" on    # any option can be set to default to "on"
 		 2 "Intellij Ultimate" on
@@ -35,112 +69,112 @@ else
 	clear
 	for choice in $choices
 	do
-	    case $choice in
+			case $choice in
 		1)
-		    echo "Google Chrome"
-			    if command -v google-chrome ; then
-				    echo "Google Chrome is already installed."
-			    else		
-				    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-				    sudo dpkg -i google-chrome-stable_current_amd64.deb
-			    fi	    
-		    ;;
+				echo "Google Chrome"
+					if command -v google-chrome ; then
+						echo "Google Chrome is already installed."
+					else
+						wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+						sudo dpkg -i google-chrome-stable_current_amd64.deb
+					fi
+				;;
 		2)
-		    echo "Intellij Ultimate"
-		    sudo snap install intellij-idea-ultimate --classic
-		    ;;
+				echo "Intellij Ultimate"
+				sudo snap install intellij-idea-ultimate --classic
+				;;
 		3)
-		    echo "DataGrip"
-		    sudo snap install datagrip --classic
-		    ;;
+				echo "DataGrip"
+				sudo snap install datagrip --classic
+				;;
 		4)
-		    echo "Communications"
-		    sudo snap install slack --classic
-		    sudo snap install skype --classic
-		    ;;
+				echo "Communications"
+				sudo snap install slack --classic
+				sudo snap install skype --classic
+				;;
 		5)
-		    echo "Office"
-		    sudo apt install libreoffice -y
-		    ;;
+				echo "Office"
+				sudo apt install libreoffice -y
+				;;
 		6)
-		    echo "SublimeText"
-		    sudo snap install sublime-text --classic
-		    ;;
+				echo "SublimeText"
+				sudo snap install sublime-text --classic
+				;;
 		7)
-		    echo "Yarn"
-		    sudo apt install --no-install-recommends yarn -y
-		    ;;
+				echo "Yarn"
+				sudo apt install --no-install-recommends yarn -y
+				;;
 		8)
-		    echo "NodeJs"
-		    sudo apt install git -y
-		    export NVM_DIR="$HOME/.nvm" && (
-		    git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
-		    cd "$NVM_DIR"
-		    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-		    ) && \. "$NVM_DIR/nvm.sh"
-		    
-		    nvm install v14.17.0
-		    nvm use v14.17.0
-		    ;;
+				echo "NodeJs"
+				sudo apt install git -y
+				export NVM_DIR="$HOME/.nvm" && (
+				git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+				cd "$NVM_DIR"
+				git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+				) && \. "$NVM_DIR/nvm.sh"
+
+				nvm install v14.17.0
+				nvm use v14.17.0
+				;;
 		9)
-		    echo "JDK 8"
-		    sudo apt install openjdk-8-jdk openjdk-8-jdk-headless -y
-		    ;;
+				echo "JDK 8"
+				sudo apt install openjdk-8-jdk openjdk-8-jdk-headless -y
+				;;
 		10)
-		    echo "Docker"
-		    sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
-		    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-		    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-		    sudo apt update -y
-		    sudo apt install docker-ce -y && sudo usermod -aG docker $USER && sudo chmod 666 /var/run/docker.sock
+				echo "Docker"
+				sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+				curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+				sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+				sudo apt update -y
+				sudo apt install docker-ce -y && sudo usermod -aG docker $USER && sudo chmod 666 /var/run/docker.sock
 
-		    pip3 install docker-compose
-		    ;;
+				pip3 install docker-compose
+				;;
 		11)
-		    echo "MySQL 5.6"
-		    mkdir -p $HOME/docker/mysql56
-		    sudo docker pull mysql:5.6
+				echo "MySQL 5.6"
+				mkdir -p $HOME/docker/mysql56
+				sudo docker pull mysql:5.6
 
-		    sudo docker run -p 3306:3306 --name mysql56 \
-			    --restart always \
-			    -v $PWD/conf:/etc/mysql \
-			    -v $PWD/logs:/var/log/mysql \
-			    -v $PWD/data:/var/lib/mysql \
-			    -e MYSQL_ROOT_PASSWORD=123456 \
-			    -d mysql:5.6 \
-			    --character-set-server=utf8mb4 \
-			    --collation-server=utf8mb4_unicode_ci	
-		    ;;
+				sudo docker run -p 3306:3306 --name mysql56 \
+					--restart always \
+					-v $PWD/conf:/etc/mysql \
+					-v $PWD/logs:/var/log/mysql \
+					-v $PWD/data:/var/lib/mysql \
+					-e MYSQL_ROOT_PASSWORD=123456 \
+					-d mysql:5.6 \
+					--character-set-server=utf8mb4 \
+					--collation-server=utf8mb4_unicode_ci
+				;;
 		12)
-		    echo "MongoDB"
-		    sudo docker run -d --name=mongo44 --restart=always -p=27017:27017 mongo:latest
-		    ;;
+				echo "MongoDB"
+				sudo docker run -d --name=mongo44 --restart=always -p=27017:27017 mongo:latest
+				;;
 		13)
-		    echo "RabbitMQ"
-		    docker run -d --hostname my-rabbit --name some-rabbit --restart=always -p 4369:4369 -p 5671:5671 -p 5672:5672 -p 15672:15672 rabbitmq:3-management
-		    ;;
+				echo "RabbitMQ"
+				docker run -d --hostname my-rabbit --name some-rabbit --restart=always -p 4369:4369 -p 5671:5671 -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+				;;
 		14)
-		    echo "ElasticSearch"
-		    curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-		    echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-		    sudo apt update -y
-		    sudo apt install elasticsearch -y
-		    
-		    echo "-Xms1G" > /etc/elasticsearch/jvm.options.d/user.options
-		    echo "-Xmx1G" >> /etc/elasticsearch/jvm.options.d/user.options
+				echo "ElasticSearch"
+				curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+				echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+				sudo apt update -y
+				sudo apt install elasticsearch -y
 
-		    sudo systemctl start elasticsearch.service
-		    sudo systemctl enable elasticsearch.service
-		    ;;
+				echo "-Xms1G" > /etc/elasticsearch/jvm.options.d/user.options
+				echo "-Xmx1G" >> /etc/elasticsearch/jvm.options.d/user.options
+
+				sudo systemctl start elasticsearch.service
+				sudo systemctl enable elasticsearch.service
+				;;
 
 		15)
-		    echo "Backup Eko Test DB"
-                 docker exec mongo44 /bin/bash -c 'exec mongodump --host 192.168.5.21:27017 --db eko_test --archive | mongorestore --archive --nsFrom="eko_test.*" --nsTo="eko_dev.*" --drop' 
-		    ;;
+				echo "Backup Eko Test DB"
+								 docker exec mongo44 /bin/bash -c 'exec mongodump --host 192.168.5.21:27017 --db eko_test --archive | mongorestore --archive --nsFrom="eko_test.*" --nsTo="eko_dev.*" --drop'
+				;;
 		16)
-		    echo "Handy Tools"
-		    ;;
-	    esac
+				echo "Handy Tools"
+				;;
+			esac
 	done
 
 fi
