@@ -13,6 +13,26 @@
   #!/bin/bash -x
   ```
 
+## [How to call bash functions](https://superuser.com/questions/106272/how-to-call-bash-functions)
+
+Supposed I have file called `say.sh`
+
+  ```shell
+
+  #!/bin/bash
+
+  function talk()
+  {
+          echo "hi!"
+  }
+  ```
+
+now I want to call its `talk()` function from the command line:
+
+```shell
+source say.sh; talk
+```
+
 ## Special character
 
 - **$0**
@@ -52,6 +72,7 @@
   - https://linux.101hacks.com/unix/bind/
   - https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
   - https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html
+    
 ## Tips
 - https://cfenollosa.com/misc/bash.pdf
   ```shell
@@ -65,3 +86,50 @@
   ctrl + x + ctrl + x -> navigate to mark
   ```
 
+## Color vs escape code
+- [Bash Color](https://gist.github.com/vratiu/9780109)
+  ```shell
+  echo -e '\033[1;42m'This is text with green background
+  ```
+  ![](https://www.nayab.xyz/assets/img/terminal-text-decoration.png)
+
+- [Escape code](https://www.nayab.xyz/linux/escapecodes.html)
+
+## Scripts
+- Last time apt-get update
+  ```shell
+  #!/bin/bash -x
+
+  function info()
+  {
+  local -r message="${1}"
+
+      echo -e "\033[1;36m${message}\033[0m" 2>&1
+  }
+
+  function getLastAptGetUpdate()
+  {
+  local aptDate="$(stat -c %Y '/var/lib/apt/periodic/update-success-stamp')"
+  local nowDate="$(date +'%s')"
+
+      echo $((nowDate - aptDate))
+  }
+
+  function runAptGetUpdate()
+  {
+  local lastAptGetUpdate="$(getLastAptGetUpdate)"
+
+      # Default To 24 hours
+      updateInterval="$((24 * 60 * 60))"
+
+      if [[ "${lastAptGetUpdate}" -gt "${updateInterval}" ]]
+      then
+          info "apt-get update"
+          apt-get update -m
+      else
+          local lastUpdate="$(date -u -d @"${lastAptGetUpdate}" +'%-Hh %-Mm %-Ss')"
+
+          info "\nSkip apt-get update because its last run was '${lastUpdate}' ago"
+      fi
+  }
+  ```

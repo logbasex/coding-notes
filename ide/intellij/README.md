@@ -118,6 +118,11 @@ Ctrl + Shift + Backspace
 ```shell
 ctrl + shift + a -> notification
 ```
+
+- View breakpoints
+```shell
+ctrl + shift + f8
+```
 ## HTTP client
 - Controller
     ![](https://i.imgur.com/FHLE0Ba.png)

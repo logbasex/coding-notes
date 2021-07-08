@@ -58,5 +58,12 @@ If the default settings are not changed, files are created with the access mode 
 
 - [How sudo works?](https://unix.stackexchange.com/questions/80344/how-do-the-internals-of-sudo-work)
 - [sudoers syntax](https://unix.stackexchange.com/questions/18877/what-is-the-proper-sudoers-syntax-to-add-a-user)
+
+- [turorial](https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file)
+
+- Clear timer sudo (usually 15 minutes)
+  ```shell
+  sudo -k
+  ```
 ## Special permissions (the setuid, setgid and sticky bits)
 - https://linuxconfig.org/how-to-use-special-permissions-the-setuid-setgid-and-sticky-bits

@@ -131,6 +131,9 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
 ## Add a field to collection
 
 https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
+```shell
+db.yourCollection.updateMany({}, {$set:{"someField": "someValue"}})
+```
 
 ```shell
 db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)

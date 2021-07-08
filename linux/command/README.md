@@ -769,7 +769,21 @@ whereis <COMMAND>
   :27017   - show only processes in this port number
   ```
 
+- pkill
+  ```shell
+  sudo pkill -9 java
+  sudo pkill -9 chrome 
+  
+  # reload
+  pkill -HUP chrome
+  ```
+  - Use the kill -l command to list all available signals.
+     - The most commonly used signals are:
+        - 1 (HUP): to reload a process.
+        - 9 (KILL): to kill a process.
+        - 15 (TERM): to gracefully stop a process.
 
+- xkill
 ## ls (List directory content)
 - List with line number
   ```shell
