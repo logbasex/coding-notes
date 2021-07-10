@@ -17,6 +17,18 @@ TCP is the postman which deals with delivering the data packets to various hosts
 
 https://www.quora.com/What-is-the-difference-between-TCP-and-IP-protocols
 
+## [TCP ELI5](https://dev.to/ben/explain-tcp-like-im-five)
+
+You and a friend need to share a toy:
+
+1. You ask a friend if he can play with the toy.
+
+2. Your friend asks you if you actually asked him for the toy.
+
+3. You tell your friend that you asked for that toy.
+
+4. He gives you the toy.
+
 ----
 [How would you explain TCP/IP to your grandmother?](https://www.quora.com/How-would-you-explain-TCP-IP-to-your-grandmother)
 
@@ -42,3 +54,34 @@ I would ask her to imagine taking a 1,000 page letter, numbering the pages, and 
 
       
 
+
+## OSI flow
+
+- ### Layer Seven: Application Layer
+  - In our url-clicking case, the application is the browser. The browser selects which web server it is sending data to, contacts the server and send the request. When a response is returned, the browser displays the desired content on the web page.
+  - HTTP hoạt động ở layer này
+  
+- ### Layer Six: Presentation Layer
+  - Usually a web page contains different formats of data: HTML files, Javascript files, image files, etc. In the presentation layer these files are transformed by Abstract Syntax Notation One into XML format to be displayed on the browser.
+
+- ### Layer Five: Session Layer
+  - The session layer controls the connections between two computers by establishing, managing, and terminating sessions. Whenever we visit any website, our computer is creating a session with the web server. In applications that uses Remote Procedure Calls, the session layer is is commonly implemented explicitly.
+  
+- ### Layer Four: Transport Layer
+  - Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are two of the most well-known protocols in Layer 4.
+
+...
+
+- https://medium.com/@jinghua.shih/networking-the-osi-model-4a508d84444
+- https://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/
+- https://stackoverflow.com/questions/38596488/in-which-layer-is-http-in-the-osi-model
+  - ![](https://i.stack.imgur.com/WG5r8.jpg)
+  - **HTTP in application layer**
+  - ![](https://i1.wp.com/cybermaohi.com/iT3k/wp-content/uploads/2015/01/osi.gif)  
+- http://cybermaohi.com/iT3k/2015/the-7-layers-of-the-osi-model/    
+
+## Network Topology
+  - [Why is it called network “topology”? Why not network “graph”?](https://softwareengineering.stackexchange.com/questions/307189/why-is-it-called-network-topology-why-not-network-graph)
+    - Topology is the study of fundamental properties that exist no matter the arrangement of elements (for example the ratio of points, edges and faces in a polygon that does not change as you add or reduce points).
+    - This term fits networks well because what you are looking for with network topology is the different arrangements of the network to perform the same function, with the goal being to produce the simplest configuration that you can to perform the task (thus eliminating waste)
+    - A graph has a much more limited definition in mathematics and is not really about discovering the fundamental properties of arrangements.
