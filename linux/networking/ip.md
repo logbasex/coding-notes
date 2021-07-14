@@ -139,6 +139,8 @@
     
 ## Private IP address
 
+![](https://i.imgur.com/eErYRkb.png)
+
 ## NAT (Network Address Translation)
 
 - ![](images/nat.png)
@@ -277,3 +279,26 @@
 ## ARP (Address Resolution Protocol )
 - [ELI5: Address Resolution Protocol (ARP)](https://www.reddit.com/r/explainlikeimfive/comments/rfs1g/eli5_address_resolution_protocol_arp/)
     - ARP stands for Address Resolution Protocol. It maps the network address (IP) to the link-layer address (MAC) so that data knows the appropriate physical interface on which to send data
+    
+
+
+## Command
+
+- Show network interface
+    ```shell
+    ip link show
+    nmcli device status
+    ```
+- [Show wireless device](https://wiki.archlinux.org/title/Network_configuration/Wireless#Get_the_name_of_the_interface)
+    ```shell
+    iw dev
+    ```
+ 
+- [Common network interface](https://www.cyberciti.biz/faq/linux-list-network-interfaces-names-command/)
+  - **lo** – Loopback interface.
+  - **eth0** – My first Ethernet network interface on Linux.
+  - **wlan0** – Wireless network interface in Linux.
+  - **ppp0** – Point to Point Protocol network interface which can be used by dial up modem, PPTP vpn connection, or 3G wireless USB modem.
+  - **vboxnet0, vmnet1, vmnet8** – Virtual machine interface working in bridge mode or NAT mode on Linux.
+    
+- [Why is my interface now wlp2s0 instead of wlan0?](https://askubuntu.com/questions/702161/why-is-my-interface-now-wlp2s0-instead-of-wlan0)
