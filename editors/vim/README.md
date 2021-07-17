@@ -418,6 +418,7 @@ Using vim in a terminal emulator: set -o vi
     ```shell script
     :source ~/.vimrc
     :so $MYVIMRC
+    :so %
     ```
 11. [Open recent file](https://stackoverflow.com/a/50558960/10393067)
     ```

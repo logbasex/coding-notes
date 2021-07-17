@@ -92,6 +92,11 @@ After rebase use can merge using fast-forward merge:
   - https://reflectoring.io/git-rebase-merge/
   - https://www.thinktecture.com/en/tools/demystifying-git-rebase/
 
+## Git get author name of commit id
+  ```shell
+  git show <commit_id> | grep Author
+  ```
+
 ## Cheat sheet
 - https://gist.github.com/chrismccoy/8775224
 
