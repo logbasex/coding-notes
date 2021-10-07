@@ -39,6 +39,7 @@ ALT+U   # capitalizes every character from the current cursor position to the en
 ALT+L   # uncapitalizes every character from the current cursor position to the end of the word
 ALT+C   # capitalizes the letter under the cursor. The cursor then moves to the end of the word.
 ALT+R   # reverts any changes to a command you’ve pulled from your history if you’ve edited it.
+CTRL + SHIFT + _   # undo operation
 
 BACKSPACE  # deletes one character backward
 DELETE     # deletes one character under cursor

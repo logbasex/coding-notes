@@ -33,13 +33,31 @@ Modern Linux systems (with udev or devtmpfs) create device entries for every dev
     - [X11](https://unix.stackexchange.com/questions/276168/what-is-x11-exactly)
     - https://en.wikipedia.org/wiki/X_Window_System
     - https://en.wikipedia.org/wiki/Graphical_user_interface#Components
-    - Both KDE and GNOME run on top of X Windows. KDE and GNOME are desktop environments whereas X Windows is the windowing manager.
-    - In 1984, MIT developed a basic graphical user interface (GUI) for UNIX systems called "X" or "the X Window System". Unlike Windows or OS X's GUIs, X was designed around TCP/IP networks with the idea that a graphical application would run on a server, but be displayed on a terminal elsewhere on the network.
-      
-      In X, there is a "server" which is an application that draws on a screen. Programs that want something drawn (called "clients"), send commands to the server, telling it what to draw, and in return receive information about mouse movements, and keystrokes. The communication protocol between client and server went through 11 different versions, so it's often called X11.
-      
-      The user-interfaces on Linux are generally based on X11, KDE, GNOME, and other desktop environments work by starting an X11 which controls the display hardware, and then sending instructions to that server about what to draw. 
+    - Both KDE and GNOME run on top of X Windows. KDE and GNOME are desktop environments whereas X Windows is the
+      windowing manager.
+    - In 1984, MIT developed a basic graphical user interface (GUI) for UNIX systems called "X" or "the X Window System"
+      . Unlike Windows or OS X's GUIs, X was designed around TCP/IP networks with the idea that a graphical application
+      would run on a server, but be displayed on a terminal elsewhere on the network.
 
+      In X, there is a "server" which is an application that draws on a screen. Programs that want something drawn (
+      called "clients"), send commands to the server, telling it what to draw, and in return receive information about
+      mouse movements, and keystrokes. The communication protocol between client and server went through 11 different
+      versions, so it's often called X11.
+
+      The user-interfaces on Linux are generally based on X11, KDE, GNOME, and other desktop environments work by
+      starting an X11 which controls the display hardware, and then sending instructions to that server about what to
+      draw.
+    - In computing, xterm is the standard terminal emulator for the X Window System.
+    - To say that the X Window System is a GUI is a considerable overstatement. It is a client/server architecture that
+      allows a client application to write to a graphical output, most commonly a terminal (and that is now a very loose
+      definition), and for the client application to get keystrokes and pointer data from the server. X itself does
+      nothing to provide a GUI, other than to define and independently manage unadorned windows on its console. As such,
+      it provides much of the underlying framework with which to create GUIs. Levels of software that refine the raw X
+      server into a GUI are Window Managers and Desktop environments. Other toolkits such as Qt, GTK, Motif, etc. also
+      allow an application to use canned sets of features such as window adornments, user interface widgets, and tools
+      to permit rendering of generic graphical elements.
+    - By definition xterm is a terminal emulator for the X Window System. Since Ubuntu by default relies on X11
+      graphical server for any graphics - that's why xterm comes with Ubuntu.
 
 4. [Network Transparency](https://en.wikipedia.org/wiki/Network_transparency)
 The term is often partially correctly applied in the context of the X Window System, which is able to transmit graphical data over the network and integrate it seamlessly with applications running and displaying locally; however, certain extensions of the X Window System are not capable of working over the network.[1]

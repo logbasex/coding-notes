@@ -79,6 +79,10 @@ g_                # jump to the last non-blank character of the line
 gg                # go to the first line of the document
 G                 # go to the last line of the document
 5G                # go to line 5
+Ctrl + o          # Retrace your movements in file in backwards
+Ctrl + i          # Retrace your movements in file in backwards
+'.                # Jump to last modification line
+`.                # Jump to last modification spot  
 f<b>x</b>                # jump to next occurrence of character <b>x</b>
 t<b>x</b>                # jump to before next occurrence of character <b>x</b>
 }                 # jump to next paragraph (or function/block, when editing code)
@@ -459,6 +463,7 @@ Using vim in a terminal emulator: set -o vi
          ds               # delete  
          cs               # change
         ```
+    - ![](https://i.imgur.com/o59PiMi.png)
 
 - [NerdTree](https://github.com/preservim/nerdtree)
     ```shell script

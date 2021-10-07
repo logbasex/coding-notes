@@ -98,8 +98,12 @@ After rebase use can merge using fast-forward merge:
   ```
 
 ## Cheat sheet
+
 - https://gist.github.com/chrismccoy/8775224
 
-
 ## Tools
+
 - https://gitexplorer.com/
+- git large file storage
+    - https://git-lfs.github.com/
+  
