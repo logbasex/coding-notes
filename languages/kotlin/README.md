@@ -2,6 +2,15 @@
 
 - https://www.baeldung.com/kotlin/default-named-arguments
 
+# Packages
+Unlike Java, Kotlin doesn’t impose any restrictions on the layout and naming of source files: you can put multiple classes in the same file, and choose any directory structure you’re comfortable with.
+
+- https://proandroiddev.com/the-kotlin-guide-for-the-busy-java-developer-93dde84a77b7
+- https://github.com/HugoMatilla/KotlinCheatSheet/blob/master/Kotlin%20In%20Action.md
+- https://medium.com/@calren24/kotlin-in-action-chapter-1-what-and-why-9d2899560755
+- http://www.tellmehow.co/advanced-kotlin-tips-pro-developers/
+- https://agrawalsuneet.github.io/blogs/safe-calls-vs-null-checks-in-kotlin/
+
 # Keywords
 
 ### 1. val vs var
