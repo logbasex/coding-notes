@@ -19,8 +19,56 @@
   | In Java        | final int n = 20;           | int n = 20;               |
   +----------------+-----------------------------+---------------------------+
   ```
+  
+# Nothing Type
+
+Nothing is a type in Kotlin that represents “a value that never exists”, that means just “no value at all”.
+
+Nothing can be used as the return type of a function that never returns the code execution — like, looped forever or always throws Exception. Don’t get confused because Java does not have anything similar to the Nothing type.
+
+Assume we have reportError() method
+
+- Java
+  ```java
+   void reportError() {
+        throw new RuntimeException();
+   } 
+  ```
+- Kotlin  
+  ```kotlin
+  fun reportError(): Nothing {
+        throw RuntimeException();
+  }
+  ```
+  
+### 1. Missing return statement
+
+- Java
+  ```java
+  String exampleThree(int n) {
+      if (n > 5) {
+          return "Ok";
+      }
+      reportError();
+      // Won't compile - 'Missing return statement' error. 
+  }
+  ```
+- Kotlin
+  ```kotlin
+  fun exampleThree(n: Int): String {
+      if (n > 5) {
+          return "Ok";
+      }
+      reportError(); // throws RuntimeException 
+      // Compiles!
+  }
+  ```
 
 # String
+
+- https://kotlinlang.org/docs/idioms.html#if-not-null-shorthand
+- https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html#create-a-string-from-collection-items
+
 
 ### 1. Pad end
 
