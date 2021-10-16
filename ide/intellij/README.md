@@ -160,3 +160,21 @@ ctrl + shift + f8
 ## Task and context
 - [Refresh Jira Task](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206824295-How-Do-You-Refresh-JIRA-Tasks-)
     - `Alt + Shift + N` will open a popup show all Jira Task, then you need to click to the ellipsis in order to refresh Jira task. 
+
+## Plugins
+
+- ### [Jump to line](https://plugins.jetbrains.com/plugin/14877-jump-to-line)
+  - This plugin allows you jump back and forth to any line of code while debugging.
+  - ![](https://blog.jetbrains.com/wp-content/uploads/2021/04/jump_to_line.gif)
+  
+- ### [Key Promoter X](https://plugins.jetbrains.com/plugin/9792-key-promoter-x)
+  - ![](https://plugins.jetbrains.com/files/9792/screenshot_17105.png) 
+
+- ### [Randomness](https://plugins.jetbrains.com/plugin/9836-randomness)
+  - ![](https://blog.jetbrains.com/wp-content/uploads/2021/04/randomness.png) 
+
+- ### IdeaVim
+- ### JsonParser
+- ### String Manipulation
+- ### [GitToolBox](https://plugins.jetbrains.com/plugin/7499-gittoolbox/)
+  - ![](https://blog.jetbrains.com/wp-content/uploads/2021/04/Git_Toolbox.png)
