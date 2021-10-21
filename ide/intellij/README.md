@@ -68,6 +68,11 @@ Alt + Shift + F9
 
 Alt + Shift + F10
 
+## [Multi selection](https://blog.jetbrains.com/idea/2014/03/intellij-idea-13-1-rc-introduces-sublime-text-style-multiple-selections/)
+![](images/idea-multiple_selections.gif)
+- Select/unselect the next occurrence: Alt + J / Shift + Alt + J
+- Select all occurrences: Shift + Ctrl + Alt + J
+
 ## Shortcut
 
 - Reformat popup

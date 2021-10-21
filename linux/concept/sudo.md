@@ -18,3 +18,7 @@ https://null-byte.wonderhowto.com/how-to/crack-shadow-hashes-after-getting-root-
     ```  
 
     > Note that password is expose in history   
+
+## Configurations
+- https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux/
+- https://www.ducea.com/2006/06/18/linux-tips-password-usage-in-sudo-passwd-nopasswd/
