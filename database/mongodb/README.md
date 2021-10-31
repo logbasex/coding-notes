@@ -15,6 +15,9 @@ Find(p => (p.PermissionFlags & 7) != 0);
 { PermissionFlags: { $bitsAnySet: 7 } }
 ```
 
+- https://geekflare.com/mongodb-queries-examples/
+- https://dzone.com/articles/why-mongodb
+
 ## query
 https://docs.mongodb.com/guides/server/introduction/
 https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
@@ -138,3 +141,58 @@ db.yourCollection.updateMany({}, {$set:{"someField": "someValue"}})
 ```shell
 db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
 ```
+
+## Performance
+
+- [Check RAM limit](https://developerslogblog.wordpress.com/2019/11/27/mongodb-sort-how-to-fix-maximum-ram-exceeded-error/)
+  ```shell
+  db.adminCommand( { getParameter : 1, "internalQueryExecMaxBlockingSortBytes" : 1 } )
+  ``` 
+  
+- [Sort and Indexes](https://pavneetkaur27.medium.com/mongodb-best-practices-for-performing-sorting-e7001f1f503f)
+  ```shell
+  /* Creating compound index on fields 
+    a: ascending order, 
+    b: descending order,
+    c: ascending order
+  */
+  
+  db.getCollection('people').createIndex({a: 1, b: -1, c: 1})
+  This index works for below queries:-
+  
+  // forward direction sort with prefix
+  
+  db.getCollection('people').find({}).sort({a: 1})
+  db.getCollection('people').find({}).sort({a: 1, b: -1})
+  db.getCollection('people').find({}).sort({a: 1, b: -1, c: 1})
+  
+  // backward direction sort
+  
+  db.getCollection('people').find({}).sort({a: -1})
+  db.getCollection('people').find({}).sort({a: -1, b: 1})
+  db.getCollection('people').find({}).sort({a: -1, b: 1, c: -1})
+  
+  Doesn't work for below queries:-
+  
+  db.getCollection('people').find({}).sort({b: -1})
+  db.getCollection('people').find({}).sort({b: 1})
+  db.getCollection('people').find({}).sort({c: 1})
+  db.getCollection('people').find({}).sort({b: -1, a: 1})
+  db.getCollection('people').find({}).sort({b: -1, c: 1}) db.getCollection('people').find({}).sort({c: -1, b: 1, a: -1})
+  ```
+- https://tuyendoan.medium.com/mongodb-best-practice-10c35ce71210
+
+## System
+
+- [Connection count](https://stackoverflow.com/questions/8975531/check-the-current-number-of-connections-to-mongodb)
+  ```shell
+  db.currentOp(true).inprog.reduce(
+    (accumulator, connection) => {
+      ipaddress = connection.client ? connection.client.split(":")[0] : "Internal";
+      accumulator[ipaddress] = (accumulator[ipaddress] || 0) + 1;
+      accumulator["TOTAL_CONNECTION_COUNT"]++;
+      return accumulator;
+    },
+    { TOTAL_CONNECTION_COUNT: 0 }
+  )
+  ``` 
