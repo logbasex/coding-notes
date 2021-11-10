@@ -72,6 +72,7 @@ Alt + Shift + F10
 ![](images/idea-multiple_selections.gif)
 - Select/unselect the next occurrence: Alt + J / Shift + Alt + J
 - Select all occurrences: Shift + Ctrl + Alt + J
+- https://www.vojtechruzicka.com/intellij-idea-tips-tricks-multiple-cursors/
 
 ## Shortcut
 
