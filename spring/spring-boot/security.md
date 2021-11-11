@@ -5,3 +5,5 @@
   - [Difference between Bearer Token and Cookie](https://stackoverflow.com/a/37635977/10393067)
   - 
   - ![https://reflectoring.io/complete-guide-to-csrf/](https://reflectoring.io/assets/img/posts/csrf/csrf-intro.png)
+
+- ![https://mehmetozanguven.github.io/spring/2020/12/29/spring-security-3-userDetailsManager-bcryptPasswordEncoder.html](images/spring-security-diagram.png)
