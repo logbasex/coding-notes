@@ -6,4 +6,8 @@
   - 
   - ![https://reflectoring.io/complete-guide-to-csrf/](https://reflectoring.io/assets/img/posts/csrf/csrf-intro.png)
 
-- ![https://mehmetozanguven.github.io/spring/2020/12/29/spring-security-3-userDetailsManager-bcryptPasswordEncoder.html](images/spring-security-diagram.png)
+- ![https://mehmetozanguven.github.io/spring/2020/12/29/spring-security-3-userDetailsManager-bcryptPasswordEncoder.html](images/security/spring-security-diagram.png)
+
+- ![https://www.javainuse.com/webseries/spring-security-jwt/chap3](images/security/authentication-object.jpeg)
+
+- [The mechanism of Spring security ](https://ducmanhphan.github.io/2019-02-09-The-mechanism-of-spring-security/)
