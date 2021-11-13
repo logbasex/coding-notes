@@ -48,3 +48,5 @@ Nếu attacker lấy được bản copy của JWT, chúng có thể gửi reque
 Có rất nhiều tutorial, video Youtube, và cả các lớp programming tại trường đại học và coding boot camp dạy cho các dev để store JWT trên local storgae như một cơ chế mặc định. Điều này rất không đúng. Nếu bạn nghe ai đó nói bạn như vậy, tránh xa ngay. Thế thì chẳng lẽ không dùng local storage nữa à? Vậy data user tui muốn lưu thì có cách nào thay thế không man?
 
 ### [Dùng gì để lưu trữ data thay thế local storage?](https://topdev.vn/blog/dung-gi-de-luu-tru-data-thay-the-local-storage/)
+
+### [Local storage definition](https://topdev.vn/blog/local-storage-la-gi/)

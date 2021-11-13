@@ -1,0 +1,1 @@
+- [Thiết kế DB cho việc quản lý authentication](https://medium.com/@vietmaihoang/thi%E1%BA%BFt-k%E1%BA%BF-db-cho-vi%E1%BB%87c-qu%E1%BA%A3n-l%C3%BD-authentication-f3d1a6b909f6)
