@@ -44,3 +44,22 @@ https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html
 - [Load sample dataset](https://viblo.asia/p/thong-ke-voi-aggregation-query-trong-elasticsearch-phan-1-cong-cu-truy-van-va-tong-quat-ve-aggregation-query-07LKXAdpZV4)
 > curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/account/_bulk?pretty&refresh" --data-binary "@accounts.json"
 - [Aggregations](https://www.tutorialspoint.com/elasticsearch/elasticsearch_aggregations.htm)
+
+
+### ELASTICSEARCH FULL TEXT QUERIES VS TERM LEVEL QUERIES
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-dsl-query-string-query
+- https://cloudmaterials.com/en/blog-entry/elasticsearch-full-text-queries-vs-term-level-queries
+
+### Inverted Index
+- https://dammayxanh.wordpress.com/2017/11/22/full-text-search-bap-be-hoc-interted-index/
+
+### Synonym search
+- https://stackoverflow.com/questions/34333486/one-way-synonym-search-in-elasticsearch
+- https://medium.com/@purbon/handling-similar-words-in-elasticsearch-9c80aba88627
+
+### https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial/
+
+
+### Init data
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/array.html

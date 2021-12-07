@@ -53,3 +53,4 @@
       TCP connection.
 
 - ![https://medium.com/platform-engineer/web-api-design-35df8167460](https://miro.medium.com/max/2095/1*n-GZzsTgvpoGQ_t_SCkJdw.png)
+- [websocket-springboot](https://medium.com/javarevisited/building-persistable-one-to-one-chat-application-using-spring-boot-and-websockets-303ba5d30bb0)

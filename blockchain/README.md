@@ -24,6 +24,8 @@
   **[April 2017:]** Over roughly the past two months, the mean transaction size was about 506 bytes, and the average count of transactions per block was 1,956.
   - Gộp tất cả transaction trong 10p (thời gian để có một block mới) vào 1 block.
 
+- ###[What if everyone stop mining Bitcoin](https://www.quora.com/What-if-everyone-stop-mining-Bitcoin)
+
 ## Bitcoin transaction
 - https://www.blockchain.com/btc/unconfirmed-transactions
 

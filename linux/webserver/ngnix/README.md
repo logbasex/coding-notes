@@ -1,0 +1,4 @@
+- Install ngnix
+  - https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04
+- ngnix reverse proxy
+  - https://gist.github.com/soheilhy/8b94347ff8336d971ad0
