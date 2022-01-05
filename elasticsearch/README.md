@@ -25,6 +25,8 @@ https://logz.io/blog/10-elasticsearch-concepts/
 
 https://logz.io/blog/managing-elasticsearch-indices/
 
+- [static data and time series data](https://blog.softwaremill.com/6-not-so-obvious-things-about-elasticsearch-422491494aa4)
+
 ## install
 https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html
 
@@ -63,3 +65,10 @@ https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html
 
 ### Init data
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/array.html
+- [Test analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-custom-analyzer.html)
+
+### Use cases
+- [Autocomplete search](https://medium.com/@milosbiljanovic/springboot-autocomplete-with-elasticsearch-11ea95d58854#cdf7)
+
+### SDK
+- https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-create-index.html

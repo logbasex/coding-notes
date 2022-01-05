@@ -83,3 +83,7 @@ Protocols used by MUAs to retrieve emails from a server mailbox. POP3 deletes th
 
 ### MX (Mail Exchanger) record
 A Mail Exchanger (MX) record in the DNS specifies which server is responsible for accepting email addresses on behalf of a domain. The host name from the MX record must map to one or more address record (A or AAAA) in the DNS, and must not point to any CNAME records.
+
+-----
+
+![https://www.oasis-open.org/khelp/kmlm/user_help/html/how_email_works.html](images/howemailworks.png)
