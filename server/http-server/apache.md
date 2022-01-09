@@ -1,0 +1,3 @@
+- An Apache server will handle numerous HTTP requests at a single time. In order to do this, the server has to run on multiple "threads" of execution. A thread is a part of a program that branches off from the main program and runs at the same time in order to accomplish a specific task. The Apache server will create a new thread for each HTTP request that will handle fetching and returning the requested Web page. This allows Apache to serve Web pages to multiple users at the same time.
+
+- [What does it mean to say Apache spawns a thread per request, but node.js does not?](https://stackoverflow.com/questions/19324442/what-does-it-mean-to-say-apache-spawns-a-thread-per-request-but-node-js-does-no)

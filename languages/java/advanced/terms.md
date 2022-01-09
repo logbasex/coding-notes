@@ -1,0 +1,15 @@
+- context switching
+  - https://viblo.asia/p/he-dieu-hanh-may-tinh-hoat-dong-nhu-the-nao-phan-1-aWj534BbK6m
+- program counter
+- CPU thread vs OS thread
+  - https://stackoverflow.com/questions/5593328/software-threads-vs-hardware-threads
+  - https://www.quora.com/What-is-the-difference-between-CPU-thread-and-OS-thread
+  - https://www.geeksforgeeks.org/difference-between-java-threads-and-os-threads/
+- single threaded non-blocking I/O
+- Hyper-threading (CPU thread) vs multi-threading (OS thread)
+  - https://www.quora.com/What-is-hyper-threading-How-does-it-different-from-multithreading
+- register
+  - [How do registers in a CPU actually work?](https://www.reddit.com/r/learnprogramming/comments/f2rif5/how_do_registers_in_a_cpu_actually_work/)
+    - When the operating system switches between different processes, it saves the contents of the registers for the process it's switching from and loads the previously saved values for the process it's switching to.
+- blocking, synchronous, non-blocking, asynchronous  
+- [CPU Bound, I/O Bound, Memory bound, Cache bound](https://stackoverflow.com/questions/868568/what-do-the-terms-cpu-bound-and-i-o-bound-mean)

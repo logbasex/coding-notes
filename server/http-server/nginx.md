@@ -1,0 +1,7 @@
+- [A guide to hosting static websites using NGINX](https://jgefroh.medium.com/a-guide-to-using-nginx-for-static-websites-d96a9d034940)
+- Nginx architecture
+  - https://developpaper.com/nginx-learning-architecture/
+  - https://developpaper.com/on-the-design-of-the-internal-core-architecture-of-nginx-server/
+  - https://developpaper.com/nginx-architecture-and-fundamentals/
+  - https://developpaper.com/in-depth-understanding-how-nginx-can-achieve-high-performance-and-scalability/
+  - https://www.infoq.com/news/2015/06/nginx-design-performance-scale-/

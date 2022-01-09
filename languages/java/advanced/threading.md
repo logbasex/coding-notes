@@ -1,3 +1,7 @@
+## [How Java thread maps to OS thread?](https://medium.com/@unmeshvjoshi/how-java-thread-maps-to-os-thread-e280a9fb2e06)
+
+------------
+
 ## [Does a multithreaded program run faster than a program with just a single thread?](https://www.quora.com/Does-a-multithreaded-program-run-faster-than-a-program-with-just-a-single-thread)
 - Running on a single processor, the multi-threaded program would run slower - there are only so many machine cycles available, and the thread scheduler imposes overhead.
 
@@ -10,6 +14,20 @@ It works by:
 - Allowing a program with multiple threads to run on multiple CPUs if they are available at the same time.
 - using context switching to stop one thread and start Another to give the appearance of threads running to the same time.
 - Java has a memory model which provided guarantees which allow threads to co-ordinate work.
+
+## [Parallel coding Vs Multithreading (on single cpu)](https://stackoverflow.com/questions/1073098/parallel-coding-vs-multithreading-on-single-cpu)
+
+https://dev.to/kwereutosu/multi-threading-and-parallel-programming-1l9m
+
+Parallel coding is the concept of executing multiple actions in parallel(Same time).
+
+### Multi-threaded Programming on a Single Processor
+
+Multi-threading on a single processor gives the illusion of running in parallel. Behind the scenes, the processor is switching between threads depending on how threads have been prioritized.
+
+### Multi-threaded Programming on Multiple Processors
+
+Multi-threading on multiple processor cores is truly parallel. Each microprocessor is running a single thread. Consequently, there are multiple parallel, concurrent tasks happening at once.
 
 ## [Threading vs Parallelism, how do they differ?](https://stackoverflow.com/questions/806499/threading-vs-parallelism-how-do-they-differ)
 There are two different kinds of concurrency:
@@ -37,3 +55,50 @@ Threads are independent. If an exception occurs in one thread, it doesn’t affe
 - Computer Games - You have various objects like cars, humans, birds which are implemented as separate threads. Also playing the background music at the same time as playing the game is an example of multithreading.
 - Text Editors - When you are typing in an editor, spell-checking, formatting of text and saving the text are done concurrently by multiple threads. The same applies for Word processors also.
 - IDE - IDEs like Android Studio run multiple threads at the same time. You can open multiple programs at the same time. It also gives suggestions on the completion of a command which is a separate thread.
+
+## [If a computer has only one CPU, do multi-threaded programs provide any performance improvements over single-threaded programs?](https://www.quora.com/If-a-computer-has-only-one-CPU-do-multi-threaded-programs-provide-any-performance-improvements-over-single-threaded-programs)
+As you must be knowing that the multi-threading “in a single core system” is just time-interleaved multiple tasks (or threads) running together with context switching between one another during their run on a processor.
+
+*Note: In a multi-core system, different threads become different processes running in parallel in multiple cores, where threads running on the same core only experience the time-slicing.*
+
+This implies:
+
+1. Only one thread runs at a time, but it does not run till it completes.
+2. Multiple threads are in the waitlist (pool) and are waiting to execute (to be scheduled) by a thread scheduler.
+Now the questions comes, does this help speed up the program?
+
+Let’s have a look at the following scenarios:
+
+**A)** 2 tasks consuming 6 seconds each without multithreading, running serially:
+
+- start -> task1 (6s) -> task2 (6s)
+- total time = 12 secs
+
+**B)** We can schedule similar tasks in a multithreaded environment with 2 sec provided to each by the scheduler (considering context switching time to be negligible and fair scheduling)
+
+- start -> task1 (2s) -> task2 (2s) -> task1 (2s) -> task2 (2s) -> task1 (2s) -> task2 (2)
+- total time = 12 sec
+- considering some context switching time we get total time > 12 sec!
+
+Now why do we use multithreading when it may take more time than what a single threaded program can offer?
+
+To answer, let’s revisit the scenario B again:
+
+We assumed there that the each task takes 6 seconds **in the CPU**, meaning that each task is “**pure computation**” and need at-least 6 seconds to complete. In this case, on a single core system, a single threaded program would yield better results.
+
+But things get interesting when we’re running a program doing a lot of I/O or network bound processing (very common in web-applications) where the entire process is not happening in the CPU.
+
+**B-extended**: consider each task request some resource from I/O which takes 4 seconds out of their 6 seconds running time.
+
+```
+x = requestResource()	// takes 4 secondsprocess(x) 				
+// takes 2 seconds
+```
+
+- start -> task1(2s, requested resource) -> task2(2s, requested resource) -> task1 (result received, 2s) -> task2(result received, 2s) (sau khi task2 request resource thì task1 đã có data và xử lý tiếp mất 2s...)
+- total time = 8 secs
+- considering 1 sec context switching time (3 context-switches) = 11 secs, still better than single threaded program!
+- [While some part of the program waits for I/O, other part can still use the CPU, and/or you can concurrently wait for I/O.](https://www.quora.com/What-is-the-benefit-of-using-asynchronous-programming-on-a-single-core-machine)
+
+
+PS: The arbitrary values taken are just for demostration purpose, considering that I/O or network bound processes takes more amount of time in relative terms, which is quite true.
