@@ -1,5 +1,27 @@
 ## [How Java thread maps to OS thread?](https://medium.com/@unmeshvjoshi/how-java-thread-maps-to-os-thread-e280a9fb2e06)
 
+## How jvm threads communicate with underlying OS threads?
+- https://www.quora.com/How-jvm-threads-communicate-with-underlying-OS-threads
+- https://www.quora.com/How-lightweight-are-Java-threads
+
+## [Green Threads vs Non Green Threads](https://stackoverflow.com/questions/5713142/green-threads-vs-non-green-threads?noredirect=1&lq=1)
+
+**JAVA Multi-Threading is implemented by two models:**
+
+1. Green Thread Model
+2. Native OS Model
+
+**Green Thread Model**: The Thread which is managed by JVM, without taking underlying OS support is called Green Thread. Very few OS like Sun Solaris provide support for green thread model. It is deprecated and not recommended to use.
+
+**Native OS Model**: The Thread which is manged by the JVM with the help of underlying OS is called Native OS Model. All windows OS provide support for native OS model.
+
+## [What is the difference between normal thread and daemon thread in JVM?](https://www.quora.com/What-is-the-difference-between-normal-thread-and-daemon-thread-in-JVM)
+JVM has 2 types of threads i.e. Daemon & Non-Daemon. Daemon threads are generally started by the JVM itself for background tasks such as Garbage Collection and Non-Daemon (normal) threads are started by the application user to achieve multi-tasking. Eg. Main thread is a Non-Daemon thread.
+
+Though the threads started by user are Non-Daemon but user can create Daemon threads as well by setting the setDaemon(boolean) api of thread class.
+
+Key differences between Daemon & Non-Daemon threads is that JVM will not exit untill all the Non-Daemon thread have been terminated. Daemon threads can't stop JVM from shutting. In simple words JVM will shut down when all Non-Daemon threads had terminated.
+    
 ------------
 
 ## [Does a multithreaded program run faster than a program with just a single thread?](https://www.quora.com/Does-a-multithreaded-program-run-faster-than-a-program-with-just-a-single-thread)
