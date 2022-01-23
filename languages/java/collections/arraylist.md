@@ -23,3 +23,9 @@ As for if your usage of array is OK, for the given scenario, it is. If your arra
 - But you should consider the alternative of dropping these special cases altogether. Since Java 8, the default constructor `new ArrayList<>()` will not create a backing array. It is deferred until the first addition of an element.
 
 - So you can initialize all fields with a plain `new ArrayList<>()` and implement the `addInfo`, `addWarn`, and `addErr` with a plain `add` call, getting rid of the `addTo` method, the conditionals, and the repeated assignments. Even declaring the fields `final` is possible. While still not requiring a significant amount of memory for the unused lists.
+
+## [new ArrayList()<> object size ~ 24 bytes](https://www.baeldung.com/java-size-of-object)
+- http://btoddb-java-sizing.blogspot.com/2012/01/object-sizes.html
+- ~40000 new ArrayList() instance take up 1 MB. (when object declare with field = new ArrayList(), it will be create each time class is called?)
+
+## [Best practice for initializing an ArrayList field in Java](https://stackoverflow.com/questions/38124912/best-practice-for-initializing-an-arraylist-field-in-java)
