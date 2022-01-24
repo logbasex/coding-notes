@@ -15,3 +15,12 @@
 - https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/?ref=lbp
 - https://www.geeksforgeeks.org/understanding-storage-of-static-methods-and-static-variables-in-java/
 - https://www.linkedin.com/pulse/static-variables-methods-java-where-jvm-stores-them-kotlin-malisciuc
+
+- https://stackoverflow.com/questions/37717885/making-all-methods-static/37717932
+
+One rule-of-thumb: ask yourself "Does it make sense to call this method, even if no object has been constructed yet?" If so, it should definitely be static.
+
+A few good examples here. I would add, however, that "static" is often valuable when you know something is not going to change across instances. If this is the case, I would really consider the "Single Responsability Principle", which implies a class should have one responsability and thus only one reason to change.
+
+[Do static members help memory efficiency?](https://stackoverflow.com/questions/1496629/do-static-members-help-memory-efficiency)
+- The only difference between static methods and non-static (instance) methods behind the scenes is that an extra, hidden parameter (```this``` **keyword**) is passed to instance methods and that instance methods might be called using an indirect dispatch (if virtual). There is no additional code space taken.
