@@ -1,0 +1,3 @@
+- [Microservice database design](https://www.baeldung.com/cs/microservices-db-design)
+- [Distributed transaction](https://viblo.asia/p/distributed-transaction-two-phase-commit-naQZRBemZvx)
+- [Service Mesh](https://viblo.asia/p/service-mesh-la-gi-dong-vai-tro-nhu-the-nao-trong-microservices-architecture-djeZ1jr3lWz)
