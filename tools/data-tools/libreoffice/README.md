@@ -14,3 +14,6 @@
 - Advanced filter
     - https://www.ahuka.com/libreoffice-3-5-tutorials/libreoffice-calc/libreoffice-calc-data-manipulation-2-standard-filters/
     - youtube.com/watch?v=r8pK4B_aJl8
+
+
+- Convert hyperlink to text: https://gist.github.com/ibarraespinosa/bb26845563c0afff069de4434d60db29
