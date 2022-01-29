@@ -1,0 +1,2 @@
+- [Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards](https://github.com/donnemartin/system-design-primer#system-design-topics-start-here)
+- [Design Principles: Fan-In vs Fan-Out](https://www.toolbox.com/tech/enterprise-software/blogs/design-principles-fan-in-vs-fan-out-050407/)
