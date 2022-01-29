@@ -1,0 +1,2 @@
+- https://peterdaugaardrasmussen.com/2021/02/26/polling-vs-pushing-data/
+- https://medium.com/@_JeffPoole/thoughts-on-push-vs-pull-architectures-666f1eab20c2
