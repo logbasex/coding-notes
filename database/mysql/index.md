@@ -172,3 +172,23 @@ The B+-tree and the B-tree work by having each node store a huge number of keys 
 The typical use case for a B+-tree or B-tree is in a database, where there is a huge amount of information and the data are so numerous that they can't all fit into main memory.  Accordingly, the data can then be stored in a B+-tree or B-tree on a hard disk somewhere.  This minimizes the number of disk reads necessary to pull in the data during lookups.  Some filesystems (like ext4, I believe) use B-trees as well for the same reason - they minimize the number of disk lookups necessary, which is the real bottleneck.
 
 Hope this helps!
+
+---------
+
+## [What are the differences between B+Tree and B-Tree?](https://www.quora.com/What-are-the-differences-between-B+Tree-and-B-Tree)
+- B+ trees don't store data pointer in interior nodes, they are ONLY stored in leaf nodes. This is not optional as in B-Tree. This means that interior nodes can fit more keys on block of memory.
+- The leaf nodes of B+ trees are linked, so doing a linear scan of all keys will requires just one pass through all the leaf nodes. A B tree, on the other hand, would require a traversal of every level in the tree. This property can be utilized for efficient search as well since data is stored only in leafs.
+-
+- https://stackoverflow.com/questions/870218/what-are-the-differences-between-b-trees-and-b-trees
+- 
+- Vì B+ trees interior node không chứa data nên [braching factor](https://www.quora.com/What-are-the-advantages-of-B+-Trees-over-B-Trees) sẽ nhỏ hơn, cây sẽ thấp hơn và sẽ giảm thiểu được disk access.
+----------
+
+## Some useful overview
+- https://towardsdatascience.com/why-we-need-indexes-for-database-tables-25198145a8ca
+- https://towardsdatascience.com/how-b-tree-indexes-are-built-in-a-database-6f847fb3cfcc
+
+---------
+
+## Great Tutorial
+- https://www.youtube.com/watch?v=aZjYr87r1b8
