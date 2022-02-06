@@ -24,6 +24,41 @@
   > Partitions result in smaller B-trees/indexes, hence there’s less work to recompute those indexes on inserts.
  
 -----------
+## [BẠN BIẾT GÌ VỀ INDEX?](https://www.facebook.com/1516243098686660/posts/2486168548360772/)
+
+Index là một thành phần không thể thiếu khi tối ưu việc truy vấn cơ sở dữ liệu, hiểu rõ về nó là yêu cầu bắt buộc với người thiết kế, và cả người lập trình ứng dụng cơ sở dữ liệu.
+
+❗️Trong bài viết này mình sẽ nói chi tiết về cách thức lưu trữ, vận hành cũng như các yếu tố ảnh hưởng đến Index, nếu bạn chưa biết gì về Index thì đây không phải là bài viết dành cho bạn. Nội dung tập trung vào CSDL Mysql, tuy nhiên các kiến thức này đều có thể áp dụng vào các cơ sở dữ liệu khác như MSSQL hay Oracle, vì hầu hết chúng lưu trữ và vận hành giống nhau, ngoại trừ một số dạng dữ liệu đặc biệt.
+
+👉 Index được tạo ra dựa trên nguyên tắc: Tìm dữ liệu trên một tập đã sắp xếp sẽ nhanh hơn nhiều so với tìm trên tập sắp xếp ngẫu nhiên.
+
+👉 Index được lưu trữ trên đĩa dưới dạng B-Tree, với kích thước 16KB, mỗi lá trong B-Tree gọi là một trang, chứa một hoặc nhiều record, mỗi record tương ứng với một dòng trong CSDL.
+
+👉 Luôn có một index chính, gọi là CLUSTERED index, cũng chính là nơi chứa dữ liệu của table, mỗi record trong index này sẽ chứa toàn bộ dữ liệu của một dòng. Các record này được lưu trữ theo thứ tự của PRIMARY KEY (PK), nếu bảng này không có PK, nó sẽ tìm một UNIQUE NOT NULL (tất cả các cột trong index đó đều NOT NULL), nếu không có nữa thì nó sẽ tự tạo một cột ẩn để làm khóa.
+
+👉 Như vậy ta biết rằng, tất cả dữ liệu của ta sẽ luôn được lưu một cách có thứ tự, và mỗi dòng luôn có một giá trị khóa duy nhất trong bảng. Để đơn giản, khi nhắc đến PK, có nghĩa ta đang nhắc đến cột (hoặc nhóm cột) đang được dùng để sắp xếp trong CLUSTERED INDEX.
+
+👉 Trong thực tế, ta luôn có nhu cầu tìm kiếm dựa trên những cột khác nhau, ví dụ ta có thể tìm một người theo tên, nhưng cũng có thể tìm theo năm sinh. Nhưng người có tên A lại có thể già hơn người có tên Z. Nếu tên là khóa chính, vậy năm sinh sẽ không thể được lưu trữ một cách có thứ tự, ta sẽ phải tìm ra một cách sao cho có thể sắp xếp cả những cột không phải khóa chính. Từ đây ta có thêm SECONDARY INDEX.
+
+👉 SECONDARY INDEX cũng là một B-Tree, tuy nhiên mỗi record sẽ chỉ chứa giá trị của PK, và các cột được chọn làm Index (ở đây ta thấy vì PK luôn xuất hiện trong tất cả các Index, cũng như sẽ được dùng làm khóa so sánh, nên việc chọn một PK có kích thước nhỏ sẽ giúp tối ưu rất nhiều, đó là lý do vì sao người ta chuộng dùng INT auto_increment làm khóa chính).
+
+👉 Khi ta tìm kiếm một hoặc nhiều giá trị, Mysql sẽ tìm các index tương ứng với thứ tự từ trái sang. Ví dụ, nếu có một index A với 2 cột (ID, Name), vậy nó sẽ được dùng mỗi khi ta tìm kiếm theo ID, hoặc ID và Name, nhưng A sẽ không được dùng nếu ta tìm kiếm chỉ dựa trên Name.
+
+👉 Khi một dòng bị xóa khỏi CSDL, các record trong CLUSTERED INDEX và SECONDARY INDEX cũng sẽ bị xóa (bằng cách đánh dấu record đó không dùng nữa), dữ liệu vẫn nằm theo đúng thứ tự, MySql không cần làm gì thêm.
+
+👉 Khi cập nhật hoặc thêm một dòng mới, Mysql sẽ phải đảm bảo dữ liệu trong các index vẫn nằm đúng thứ tự sau khi thực hiện cập nhật. Khi đó nó sẽ tìm xem vị trí tương ứng có record nào chưa dùng (hoặc đã bị xóa) không, nếu có nó chỉ việc đưa dữ liệu vào đó, nếu không, nó sẽ phải dịch chuyển dữ liệu của các record trong cùng trang lên trên hoặc xuống dưới để tạo record trống và đưa dữ liệu vào.
+
+👉 Nếu trang hiện tại không còn chỗ trống, Mysql sẽ tạo một trang mới, chuyển bớt dữ liệu từ trang cũ vào đó, và đưa record mới vào đúng vị trí của nó.
+
+👉 Vậy ta thấy nếu các trang trong một CSDL còn trống nhiều, việc cập nhật, xóa sửa sẽ diễn ra nhanh hơn nhiều, nhưng bù lại nó sẽ chiếm nhiều dung lượng đĩa. Ngược lại, nếu tỷ lệ chỗ trống trên mỗi trang thấp, việc cập nhật sẽ chậm hơn, nhưng tiết kiệm đĩa (Các CSDL này phù hợp với các dữ liệu ít thay đổi, như dữ liệu thống kê, back up...)
+
+👉 Sau một thời gian, Mysql sẽ cần sắp xếp lại các trang, khi đó ta có thể yêu cầu nó giữ một tỷ lệ chỗ trống mong muốn, tùy vào mục đích sử dụng của loại dữ liệu, tỷ lệ này thường được gọi là fill factor (bạn có thể google cách thiết đặt với từng CSDL cụ thể).
+
+Index ít quan trọng trên các bảng nhỏ, và trên thực tế không hẳn lúc nào Index cũng mang lại lợi ích (nhưng đa số là có). Hiểu rõ về nó giúp các bạn làm việc được với các CSDL lớn và rất lớn, trở thành các chuyên gia về CSDL, và nắm được những vai trò quan trọng trong nhóm dự án.
+
+🧨 Một điều thú vị ở đây là bạn lại nghe về B-Tree khi nói về CSDL. Đó là lý do tại sao bạn phải học kỹ các môn cơ sở, bao gồm cấu trúc dữ liệu và thuật toán nếu muốn tiến xa trong nghề lập trình.
+
+---
 ## Memory access and disk access
 ### Consequences of the memory hierarchy
 - Accessing a variable can be fast or slow, depending on various factors
@@ -181,7 +216,7 @@ Hope this helps!
 -
 - https://stackoverflow.com/questions/870218/what-are-the-differences-between-b-trees-and-b-trees
 - 
-- Vì B+ trees interior node không chứa data nên [braching factor](https://www.quora.com/What-are-the-advantages-of-B+-Trees-over-B-Trees) sẽ nhỏ hơn, cây sẽ thấp hơn và sẽ giảm thiểu được disk access.
+- Vì B+ trees interior node không chứa data nên [**BRACHING FACTOR**](https://www.quora.com/What-are-the-advantages-of-B+-Trees-over-B-Trees) sẽ nhỏ hơn, cây sẽ thấp hơn và sẽ giảm thiểu được disk access.
 ----------
 
 ## Some useful overview
@@ -190,5 +225,12 @@ Hope this helps!
 
 ---------
 
-## Great Tutorial
+## Great tutorial explain well about sector, block, multilevel index
+
 - https://www.youtube.com/watch?v=aZjYr87r1b8
+
+-------
+
+## Btree height, I/O complexity
+- https://www.fatalerrors.org/a/mysql-basics-37-how-to-query-b-tree-height-and-how-much-data-the-tree-can-store.html
+- https://stackoverflow.com/questions/60716446/how-to-predict-the-io-count-of-mysql-query

@@ -1,0 +1,3 @@
+- [Locality of Reference and Cache Operation in Cache Memory](https://www.geeksforgeeks.org/locality-of-reference-and-cache-operation-in-cache-memory/)
+- Cache Hit vs cache miss
+- https://genk.vn/nghe-nhieu-nhung-ban-da-hieu-ve-caching-mot-ki-thuat-pho-bien-de-tang-hieu-nang-may-tinh-2021051622092888.chn
