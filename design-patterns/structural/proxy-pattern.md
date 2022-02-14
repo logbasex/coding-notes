@@ -1,0 +1,1 @@
+- https://medium.com/swlh/what-is-proxy-pattern-64ff58a8bc00
