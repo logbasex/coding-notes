@@ -1,0 +1,3 @@
+- [How Spring Boot Application Work Internally | Example | Java Techie](https://www.youtube.com/watch?v=qlygg_H1M20)
+- [1 Spring Boot Internals || How Spring Boot Works || Spring Boot Architecture || Green Learner](https://www.youtube.com/watch?v=3eA8AiCV5oE&list=PLq3uEqRnr_2F0NK6_mpFcTxQh_s1U-s5r)
+- [How Spring Boot Application Internally Works | Let's Debug and Understand run() Method Step by Step](https://www.youtube.com/watch?v=TWK7-gzTiHk)
