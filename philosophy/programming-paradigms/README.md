@@ -9,7 +9,7 @@
     - https://www.youtube.com/watch?v=m_MQYyJpIjg 
 
 
-## Imperative vs Declartive
+## Imperative vs Declarative
 - https://www.youtube.com/watch?v=sqV3pL5x8PI
 - https://www.youtube.com/watch?v=E7Fbf7R3x6I
 
