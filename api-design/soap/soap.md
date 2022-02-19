@@ -1,0 +1,4 @@
+- Vẫn được dùng nhiều trong các hệ thống ngân hàng vì tính ACID (như transactional trong DB)
+- https://gpcoder.com/5572-tim-hieu-ve-web-service/
+- [The History of REST APIs](https://blog.readme.com/the-history-of-rest-apis/)
+- ![https://stackoverflow.com/questions/209905/representational-state-transfer-rest-and-simple-object-access-protocol-soap](http://i.stack.imgur.com/GwRYd.jpg)

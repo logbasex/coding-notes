@@ -1,3 +1,8 @@
+## Disclaimer
+REST - Representational State Transfer is an architectural style!
+
+SOAP - Simple Object Access Protocol is a protocol!
+
 ## Representational State Transfer
 
 ### [Resource](https://stackoverflow.com/a/48119872/10393067)

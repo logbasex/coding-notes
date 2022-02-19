@@ -1,2 +1,0 @@
-- Vẫn được dùng nhiều trong các hệ thống ngân hàng vì tính ACID (như transactional trong DB)
-- https://gpcoder.com/5572-tim-hieu-ve-web-service/
