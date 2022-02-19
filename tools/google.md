@@ -3,3 +3,6 @@
 
 - https://dev.to/denicmarko/google-like-a-pro-5cf6
 - https://betterprogramming.pub/programmers-youre-using-google-wrong-and-it-s-costing-you-valuable-time-5477c3f0ff1a
+
+## Google is dying
+- https://dkb.io/post/google-search-is-dying
