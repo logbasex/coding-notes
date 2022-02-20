@@ -1,0 +1,4 @@
+- [Understanding gRPC](https://betterprogramming.pub/understanding-grpc-60737b23e79e)
+- [REST, RPC, and Brokered Messaging](https://medium.com/@natemurthy/rest-rpc-and-brokered-messaging-b775aeb0db3)
+- [REST is the new SOAP](https://medium.com/free-code-camp/rest-is-the-new-soap-97ff6c09896d)
+- [Here’s my follow-up to REST is the new SOAP: let’s talk about the Original REST](https://medium.com/free-code-camp/follow-up-to-rest-is-the-new-soap-the-origins-of-rest-21c59d243438)
