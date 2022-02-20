@@ -1,0 +1,2 @@
+- https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
+- ![](https://miro.medium.com/max/1120/1*IPS8EUQAU6lmsV81aPlGjA.jpeg)

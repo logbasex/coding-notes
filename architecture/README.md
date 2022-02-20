@@ -1,0 +1,1 @@
+- [The Dependency Rule](https://khalilstemmler.com/wiki/dependency-rule/)
