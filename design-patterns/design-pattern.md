@@ -31,7 +31,6 @@ Trong cuốn "Agile Software Development: Principles, Patterns, and Practices", 
    - (ADP) Acyclic Dependencies Principle
    - (SDP) Stable Dependencies Principle
    - (SAP) Stable Abstractions Principle
-   Ngoài ra còn có các nguyên lý khác như
 
 ### [Other](https://dev.to/unitybuddy/top-10-coding-principles-every-developer-must-know-2gk4)
 - (DRY) Don't Repeat Yourself
