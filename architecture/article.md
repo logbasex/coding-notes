@@ -1,0 +1,3 @@
+- [How to Design a Web Application: Software Architecture 101](https://betterprogramming.pub/how-to-design-a-web-application-software-architecture-101-df568b88da76)
+- [Software Archtecture Căn Bản](https://edwardthienhoang.wordpress.com/software-architecture/)
+- [How to Build Good Software - Li Hongyi ](https://www.csc.gov.sg/articles/how-to-build-good-software)
