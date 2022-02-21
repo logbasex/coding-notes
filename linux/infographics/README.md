@@ -1,0 +1,1 @@
+- https://community.clearlinux.org/t/linux-related-infographics-and-cheat-sheets/2010/20
