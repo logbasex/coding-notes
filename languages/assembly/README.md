@@ -1,0 +1,2 @@
+- https://www.baeldung.com/cs/assembly-language#2-computer-architecture
+- https://www.youtube.com/watch?v=HgEGAaYdABA&t=345s
