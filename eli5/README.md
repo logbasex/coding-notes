@@ -1,0 +1,13 @@
+- https://medium.com/the-urban-nerd/tuns-eli5-cs-degree-series-arrays-91ecca4ca43f
+- https://www.youtube.com/watch?v=Xpk67YzOn5w
+- https://www.reddit.com/r/explainlikeimfive/comments/jv91t/eli5_what_prime_numbers_are_and_why_theyre/c2ff9ta/
+- https://www.youtube.com/watch?v=QZwneRb-zqA
+- [Who Invented Internet?](https://www.youtube.com/watch?v=Msyl-stMklk)
+- [Who Invented Computers?](https://www.youtube.com/watch?v=vzRqNTX6xgA)
+- [The History Of Computers, Programming, and Coding](https://www.youtube.com/watch?v=M4d3FXu9-3I)
+- [How COMPUTERS do MATH](https://www.youtube.com/watch?v=VBDoT8o4q00)
+- [Not Everyone Should Code](https://www.youtube.com/watch?v=EFwa5Owp0-k)
+- [A Brief History of Graphics](https://www.youtube.com/watch?v=QyjyWUrHsFc)
+- [How do computers read code?](https://www.youtube.com/watch?v=QXjU9qTsYCc)
+- [How a CPU Works](https://www.youtube.com/watch?v=cNN_tTXABUA)
+- [ELI5 how computers were invented](https://www.reddit.com/r/explainlikeimfive/comments/jvrlu/eli5_how_computers_were_invented/)
