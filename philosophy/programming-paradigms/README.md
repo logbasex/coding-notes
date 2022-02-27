@@ -1,9 +1,9 @@
 
 ## Paradigms
-![](functional-programming-taxonomy.png)
+![](images/functional-programming-taxonomy.png)
 
 - https://www.baeldung.com/cs/imperative-vs-declarative-programming
-- PROCEDURAL PROGRAMMING VS OBJECT ORIENTED PROGRAMMING
+- PROCEDURAL PROGRAMMING VS OBJECT ORIENTED PROGRAMMING (OOP - object-oriented)
     - https://www.youtube.com/watch?v=70sld4fYcqU
 - Fundamental Concepts of Object Oriented Programming
     - https://www.youtube.com/watch?v=m_MQYyJpIjg 

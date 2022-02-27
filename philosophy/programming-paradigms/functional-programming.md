@@ -1,0 +1,5 @@
+- [So You Want to be a Functional Programmer (Part 1/2/3/4/5/6)](https://cscalfani.medium.com/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536)
+- [The Rise and Fall and Rise of Functional Programming (Composing Software)](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)
+- [Functional Programming in 40 Minutes • Russ Olsen • GOTO 2018](https://www.youtube.com/watch?v=0if71HOyVjY)
+- [First Steps into Functional Programming](https://speakerdeck.com/vakila/first-steps-into-functional-programming?slide=45)
+- [Is functional programming slow because of the data stack being allocated each iteration?](https://www.quora.com/Is-functional-programming-slow-because-of-the-data-stack-being-allocated-each-iteration)

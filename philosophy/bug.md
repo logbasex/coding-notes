@@ -1,0 +1,1 @@
+- https://www.quora.com/What-are-good-ways-to-avoid-bugs-while-programming
