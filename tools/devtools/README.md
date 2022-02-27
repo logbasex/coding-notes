@@ -1,2 +1,5 @@
 - Command menu
 - ![](https://wd.imgix.net/image/admin/zvMtw02eegZb1WUyCrdb.png?auto=format)
+- [What's New In DevTools (Chrome 99)](https://developer.chrome.com/blog/new-in-devtools-99/#websocket)
+  - https://developer.chrome.com/docs/devtools/open/
+- [https://umaar.com/dev-tips/99-line-level-profiling/](https://umaar.com/dev-tips/99-line-level-profiling/)
