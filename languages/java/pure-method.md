@@ -1,0 +1,1 @@
+## https://dzone.com/articles/pure-bliss-with-pure-functions-in-java
