@@ -1,0 +1,7 @@
+- https://gist.github.com/psayre23/c30a821239f4818b0709
+- https://www.bigocheatsheet.com/
+- https://java.libhunt.com/jctools-alternatives
+- https://bitbucket.org/trove4j/trove/src/master/
+- https://dzone.com/articles/leaner-java-collections-with-fastutil
+- https://www.baeldung.com/fastutil
+- https://ivanursul.com/articles/java/collections-performance.html
