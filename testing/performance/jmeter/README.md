@@ -1,0 +1,3 @@
+- [What is Jmeter plugin](https://www.simplilearn.com/tutorials/jmeter-tutorial/jmeter-plugins)
+  - [JMeter Plugins : All You Need To Know About Plugins Manager](https://www.edureka.co/blog/jmeter-plugins/) 
+  - [jmeter missing.class com.thoughtworks.xstream.converters.ConversionException](https://stackoverflow.com/questions/45979130/jmeter-missing-class-com-thoughtworks-xstream-converters-conversionexception)
