@@ -27,6 +27,14 @@
 - [What programming language is most like natural language?](https://stackoverflow.com/questions/491971/what-programming-language-is-most-like-natural-language)
 - [Programming Across Paradigms • Anjana Vakil • GOTO 2017](https://www.youtube.com/watch?v=Pg3UeB-5FdA)
 
+## [Functional Programming Through the Lens of a Philosopher & Linguist • Anjana Vakil • GOTO 2021](https://www.youtube.com/watch?v=0kI-as3K4Zo)
+
+- Programming languages are more for communicating with other people and it's just a side effect that we have computers running those instructions.
+- The more time I'm writing code, the less time to care about performance, correctness...
+- Doing functional programming is just what are my inputs and what I supposed to return, I don't have to think about the other thing or sometimes another thread can go in and change that underneath me.
+- ..........
 ## Naming
 - https://hackernoon.com/software-complexity-naming-6e02e7e6c8cb
-- 
+
+--------
+- state in rest and state in OOP.
