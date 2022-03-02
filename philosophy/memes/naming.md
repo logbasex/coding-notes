@@ -22,3 +22,9 @@
 ---
 
 ## [Code like shakespeare](https://dmitripavlutin.com/coding-like-shakespeare-practical-function-naming-conventions/)
+
+------
+
+## [boolean guidelines](https://www.serendipidata.com/posts/naming-guidelines-for-boolean-variables)
+- Guideline 1: Avoid negative names for standalone variables
+- Guideline 2: Always choose names that enable setting “false” by default
