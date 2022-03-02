@@ -2,10 +2,28 @@
 - [Lambda expression vs method reference](https://stackoverflow.com/questions/24487805/lambda-expression-vs-method-reference)
   - Is not about performance, it's about readability.
 
-
+---------
 ## Performance
-- [Lamda performance study](https://www.oracle.com/technetwork/java/jvmls2013kuksen-2014088.pdf)
+[Lamda performance study](https://www.oracle.com/technetwork/java/jvmls2013kuksen-2014088.pdf)
 
+### [Does a lambda expression create an object on the heap every time it's executed?](https://stackoverflow.com/questions/27524445/does-a-lambda-expression-create-an-object-on-the-heap-every-time-its-executed)
+- Short answer: no.  For stateless lambdas (those that do not capture anything from their lexical context), only one instance will ever be created (lazily), and cached at the capture site.  (This is how the implementation works; the spec was carefully written to allow, but not require, this approach.)
+
+- This is covered by The Java® Language Specification, chapter [15.27.4. Run-time Evaluation of Lambda Expressions](http://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.27.4)
+
+  Summarized:
+
+  > These rules are meant to offer flexibility to implementations of the Java programming language, in that:
+  >
+  > - A new object need not be allocated on every evaluation.
+  >
+  > - Objects produced by different lambda expressions need not belong to different classes (if the bodies are identical, for example).
+  >
+  > - Every object produced by evaluation need not belong to the same class (captured local variables might be inlined, for example).
+  >
+  > - If an "existing instance" is available, it need not have been created at a previous lambda evaluation (it might have been allocated during the enclosing class's initialization, for example).
+  > 
+--------------
 ## Capture/Non-capture | Stateless/Stateful lambda expression
 
 ### Java 8 in action (p.476)
@@ -85,6 +103,14 @@ class Hello {
 }
 ```
 
+## this, super keywords
+
+> Unlike anonymous functions, a lambda expression can be considered as a simple code block when considering about variable scoping. Hence all scoping rules for code blocks also apply to lambda expression. This means a variable defined in the lambda expression can only be accessed within the lambda expression and the variables defined in the enclosing class can be accessed by the lambda expression as well, this also include the this keyword which refers to the enclosing class object.
+>
+> In short, for anonymous class ‘this’ keyword resolves to anonymous class object, whereas for lambda expression ‘this’ keyword resolves to enclosing class object where lambda is written
+> 
+- [Lambda this reference in java](https://stackoverflow.com/questions/24202236/lambda-this-reference-in-java)
+
 ## [Variable capture && effective final](http://tutorials.jenkov.com/java/lambda-expressions.html#variable-capture)
 > A Java lambda expression is capable of accessing variables declared outside the lambda function body under
 certain circumstances.
@@ -99,3 +125,6 @@ MyFactory myFactory = (chars) -> {
 As you can see, the lambda body now references the local variable myString which is declared outside the lambda body. **This is possible if, and only if, the variable being references is `effectively final`, meaning it does not change its value after being assigned**. 
 
 - https://www.oracle.com/technical-resources/articles/java/architect-lambdas-part1.html
+
+## [First-class citizen and impure function](https://stackoverflow.com/a/15241404/10393067)
+> In summary, Java 8 lambdas are more first-class functions than I had originally thought. They just aren't pure first-class functions.
