@@ -23,6 +23,17 @@
   >
   > - If an "existing instance" is available, it need not have been created at a previous lambda evaluation (it might have been allocated during the enclosing class's initialization, for example).
   > 
+  
+### [Implementation differences/optimizations between Lambda Expressions and Anonymous Classes](https://stackoverflow.com/questions/32360599/implementation-differences-optimizations-between-lambda-expressions-and-anonymou)
+  ```
+  s -> s.length == 10
+  ``` 
+- Since s -> s.length() == 10 is invariant, it always becomes a constant, without the need for the JIT’s help
+
+### [Why does lambda translation need generation of a static method?](https://stackoverflow.com/questions/30014200/why-does-lambda-translation-need-generation-of-a-static-method)
+
+Because this way it's actually cheaper. Generating a lambda from the method on the fly during the first invocation is better than loading a separate class via class loader. Internally it uses `UNSAFE.defineAnonymousClass` which is more light-weight class than normal. Such "lambda-class" is not bound to any class loader, so can be easily garbage-collected when it's no longer necessary
+
 --------------
 ## Capture/Non-capture | Stateless/Stateful lambda expression
 
@@ -43,6 +54,9 @@
   such as reduce store state to calculate a value. Some operations such as sorted and distinct also
   store state because they need to buffer all the elements of a stream before returning a new stream.
   Such operations are called stateful operations
+
+### [Is method reference caching a good idea in Java 8](https://stackoverflow.com/questions/23983832/is-method-reference-caching-a-good-idea-in-java-8/23991339#23991339)
+The compiler will optimize lambda creation if the lambda doesn't access variables out of its scope, which means the lambda instance only create once by the JVM
 
 ## [Lexical scoped](https://github.com/ngminhtrung/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch2.md)
 Listing 10
@@ -128,3 +142,38 @@ As you can see, the lambda body now references the local variable myString which
 
 ## [First-class citizen and impure function](https://stackoverflow.com/a/15241404/10393067)
 > In summary, Java 8 lambdas are more first-class functions than I had originally thought. They just aren't pure first-class functions.
+>
+
+## LambdaMetaFactory
+> t.jar -> java.lang.invoke
+> 
+**Q**: [I'm reading through the linked doc specifying the implementation.  AFAICT, s -> s.length() == 10 is lowered to a private static method, but I am still under the impression that the JIT implements the lambda metafactory that decides how to convert that into the interface instance?](https://stackoverflow.com/questions/32360599/implementation-differences-optimizations-between-lambda-expressions-and-anonymou)
+
+**A**: o, the LambdaMetafactory is an ordinary Java class which generates bytecode using the well-known ASM library. You can even step through it using a Java debugger when a lambda expression is instantiated the first time. But due to how the invokedynamic instruction works, subsequent executions will use the result of that first invocation which is either a handle to a constant or a factory method/ constructor invocation.
+
+**Q**: I thought the invokedynamic gave you a handle to a constant method, sure -- but I thought that constant handle was a handle to the method that returned the lambda object, not that the lambda was itself guaranteed to be a constant?
+
+
+**A**: It depends on what the meta factory returns. In case of a stateless lambda, it will return a handle which wraps a constant whose evaluation merely means “return the constant”. In case of capturing lambda, the handle will indeed represent executable code which in turn produces the lambda instance, i.e. a factory method or constructor invocation.
+
+
+## invokedynamic, invokestatic, invokevirtual
+
+### [why-are-java-8-lambdas-invoked-using-invokedynamic](https://stackoverflow.com/questions/30002380/why-are-java-8-lambdas-invoked-using-invokedynamic)
+
+Current Java 8's lambda implementation is a compound decision:
+
+* 1. Compile the lambda expression to a static method in the enclosing class; instead of compiling lambdas to separate inner class files (Scala compiles this way, which generates many $$$ class files)
+* 2. Introduce a constant pool: `BootstrapMethods`, which wraps the static method invocation to callsite object (can be cached for later use)
+
+So to answer your question,
+
+* 3. the current lambda implementation using `invokedynamic` is a little bit faster than the separate inner class way, because no need to load these inner class files, but instead create the inner class byte[] on the fly (to satisfy for example the Function interface), and cached for later use.
+* 4. JVM team may still choose to generate separate inner class (by referencing the enclosing class's static methods) files: it's flexible
+
+
+## [Why are only final variables accessible in anonymous class?](https://stackoverflow.com/a/53242527/10393067)
+
+[The local variable is allocated in the `stack`, **and it will fall out of scope after testMethod(). Making the variable final ensures that it is ok to just pass a reference to it to the anonymous class. If it was not final, a later assignment to it in testMethod() could change the value later with confusing results**](https://stackoverflow.com/questions/18230870/why-variables-have-to-be-final-in-anonymous-methods-and-class-fields-dont). (The user might expect the later assigned value used, but that would be impossible).
+
+A field of the parent class, however can be accessed through the parent reference of the anonymous class, so any later assignments can be handled without confusion.
