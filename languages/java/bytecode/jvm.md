@@ -11,7 +11,7 @@ Java Virtual Machine (JVM) is a engine that provides runtime environment to driv
 
 ### JVM Architecture
 
-![](images/guru99-jvm-architecture.png)
+![](../images/guru99-jvm-architecture.png)
 
 **1) ClassLoader**
 - The class loader is a subsystem used for loading class files. It performs three major functions viz. Loading, Linking, and Initialization.
@@ -62,18 +62,18 @@ Now in this JVM tutorial, let's look at the process for JAVA. In your main, you 
 - f1 is stored in a file as a2.java
 - f2 is stored in a file as a3.java
 
-![](images/guru99-java-compiler.jpg)
+![](../images/guru99-java-compiler.jpg)
 
 The compiler will compile the three files and produces 3 corresponding .class file which consists of BYTE code. **Unlike C, no linking is done.**
 
 The Java VM or Java Virtual Machine resides on the RAM. During execution, using the class loader the class files are brought on the RAM. The BYTE code is verified for any security breaches.
 
-![](images/guru99-java-jvm.jpg)
+![](../images/guru99-java-jvm.jpg)
 
 Next, **the execution engine will convert the Bytecode into Native machine code**. This is just in time compiling. It is one of the main reason why Java is comparatively slow.
 
 
-![](images/guru99-java-jit.jpg)
+![](../images/guru99-java-jit.jpg)
 
 
 ### Why is Java both Interpreted and Compiled Language?
