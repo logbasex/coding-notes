@@ -28,13 +28,13 @@ https://www.informit.com/articles/article.aspx?p=2024315&seqNum=11
       As I mentioned earlier, there is no POP or PUSH operations, so the instruction for adding is just one line. But unlike the stack, we need to explicitly mention the addresses of the operands as R1, R2, and R3. The advantage here is that the overhead of pushing to and popping from a stack is non-existent, and instructions in a register based VM execute faster within the instruction dispatch loop.
 
 
- 
+ -----------
 ## [Build your own virtual machine](https://github.com/danistefanovic/build-your-own-x#build-your-own-emulator--virtual-machine)
 - https://github.com/parrt/simple-virtual-machine
 - https://bzotto.medium.com/building-a-java-virtual-machine-how-hard-could-it-be-810a98d9c798
 - [So You Want to Build a Language VM - Part 01 - Overview and a Simple VM](https://blog.subnetzero.io/post/building-language-vm-part-01/)
 - [Building a stack-based virtual machine](https://dev.to/jimsy/building-a-stack-based-virtual-machine-5gkd)
-
+---------
 ## [Virtual Method Table/Virtual method invocation](https://stackoverflow.com/questions/2486160/java-virtual-methods)
 All methods in java are virtual by default. That means that any method can be overridden when used in inheritance, unless that method is declared as final or static.
 
@@ -53,19 +53,39 @@ https://www.delftstack.com/howto/java/virtual-function-in-java/#virtual-function
 When calling an interface method, a so called v-table is used to determine the memory address of the called method. Each type has its own v-table that contains pointers to each implemented method, and every object of that type has a pointer to its type's v-table. Thus, during method invocation, there is no branching or searching for the right memory address, since the pointers will always uniquely point to the right v-table and method addresses.
 
 ![](https://i.stack.imgur.com/6CHpc.png)
-----------
-## [Dynamic dispatch](https://stackoverflow.com/questions/4343247/what-is-dynamic-method-dispatch-and-how-does-it-relate-to-inheritance)
-    
-    
+
+## [Methods invocation inside of a Java Virtual Machine](https://www.lohika.com/methods-invocation-inside-of-a-java-virtual-machine)
+
+The JVM instruction set has 5 different bytecode instructions for a method invocation. In this part of the article, I briefly look at four of them: **invokestatic**, **invokeinterface**, **invokevirtual** and **invokespecial** – the fifth, **invokedynamic**, deserves a dedicated part of the article. Let’s have a look at the first four instructions. 
+- invokestatic instruction means the method that will be invoked is a method of a class not an instance method. Also, they are called static because you need to use static keyword in Java to say that a method is a class method, not an instance method.
+- invokespecial instruction indicates an invocation of private instance methods, superclass methods or constructors. 
+- invokevirtual instruction is generated for methods with public, package private or default and protected access modifiers. Those methods are virtual and could be overridden by subclasses. 
+- invokeinterface instruction tells JVM that it should invoke a class implementation of an interface method.
+
+... JVM method invocation instructions closer look
+- Before invoking a method, JVM performs two actions: method resolution and method lookup
+- ....
+
+### [Mastering the mechanics of Java method invocation](https://blogs.oracle.com/javamagazine/post/mastering-the-mechanics-of-java-method-invocation)
+
+### [How the Java virtual machine handles method invocation and return](https://www.infoworld.com/article/2076949/how-the-java-virtual-machine-handles-method-invocation-and-return.html?page=2)
+
+### [Dynamic dispatch](https://stackoverflow.com/questions/4343247/what-is-dynamic-method-dispatch-and-how-does-it-relate-to-inheritance)
+
+### [Static and Dynamic Dispatch](https://medium.com/ingeniouslysimple/static-and-dynamic-dispatch-324d3dc890a3)
+
+### [Virtual method table](https://en.wikipedia.org/wiki/Virtual_method_table)
+
+
 ----
 ## Derived class
 
 A derived class is a Java class that inherits properties from its super class.
 A class can be derived from the base class in Java by using the extends keyword            
             
-                
+## Constant pool
 
-
+- [Understanding the constant pool inside a Java class file](https://blogs.oracle.com/javamagazine/post/java-class-file-constant-pool)
 
     
 
