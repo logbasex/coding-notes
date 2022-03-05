@@ -1,3 +1,8 @@
+## Tutorial
+- https://medium.com/swlh/an-introduction-to-jvm-bytecode-5ef3165fae70
+    - this keyword
+    - constructor
+    - reference value (pass by value)
 ## [opcode](https://en.wikipedia.org/wiki/Opcode)
 A Java Virtual Machine instruction consists of a one-byte opcode specifying the operation to be performed, followed by zero or more operands supplying arguments or data that are used by the operation. Many instructions have no operands and consist only of an opcode.
 
@@ -43,11 +48,20 @@ If Java didn't have virtual method invocation, it would determine at compile tim
 
 https://www.delftstack.com/howto/java/virtual-function-in-java/#virtual-function-in-java
 
+### [Does method invoke cost remain constant with more interface implementions](https://stackoverflow.com/questions/44335865/does-method-invoke-cost-remain-constant-with-more-interface-implementions)
+
+When calling an interface method, a so called v-table is used to determine the memory address of the called method. Each type has its own v-table that contains pointers to each implemented method, and every object of that type has a pointer to its type's v-table. Thus, during method invocation, there is no branching or searching for the right memory address, since the pointers will always uniquely point to the right v-table and method addresses.
+
+![](https://i.stack.imgur.com/6CHpc.png)
+----------
 ## [Dynamic dispatch](https://stackoverflow.com/questions/4343247/what-is-dynamic-method-dispatch-and-how-does-it-relate-to-inheritance)
     
     
-        
-            
+----
+## Derived class
+
+A derived class is a Java class that inherits properties from its super class.
+A class can be derived from the base class in Java by using the extends keyword            
             
                 
 

@@ -1,0 +1,3 @@
+- [Jclasslib](https://dev.to/theodesp/how-to-read-java-bytecode-with-examples-4p7g)
+- [Bytecode editor - Recaf](https://github.com/Col-E/Recaf)
+- [JAVA Chỉnh sửa *.JAR file mà không cần sourcecode](https://viblo.asia/p/java-chinh-sua-jar-file-ma-khong-can-sourcecode-LzD5daxwKjY)

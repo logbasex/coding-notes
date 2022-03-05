@@ -34,3 +34,12 @@ To summarize, this is typically not an issue. Most memory issues are created whe
 -----
 
 Java tạo ra bản sao của biến (primitive) hoặc bản sao của object reference (non-primitive) khi truyền vào method nên chỉ là pass by value. Bản sao của object refrence thường chỉ là địa chỉ ô nhớ trong stack sẽ được reclaim sau khi method return nên chả xảy xảy ra vấn đề gì phức tạp cả. Memory leak thường gây ra bởi mismanage heap space.
+
+---
+https://www.journaldev.com/3884/java-is-pass-by-value-and-not-pass-by-reference
+
+pass by value, tuy nhiên nếu method của method pass vào được gọi thì sẽ ảnh hưởng đến object trên heap. nếu reassign object thì k sao..
+```
+a.method() //affect
+a = b // non-issue
+```
