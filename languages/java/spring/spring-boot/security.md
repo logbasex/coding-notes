@@ -3,9 +3,6 @@
 - ### [Tutorial](https://www.marcobehler.com/guides/spring-security)
 - ### [Reason to disable CSRF in spring boot](https://stackoverflow.com/questions/62696806/reason-to-disable-csrf-in-spring-boot)
   - [Difference between Bearer Token and Cookie](https://stackoverflow.com/a/37635977/10393067)
-  - 
-  - ![https://reflectoring.io/complete-guide-to-csrf/](https://reflectoring.io/assets/img/posts/csrf/csrf-intro.png)
-
 - ![https://mehmetozanguven.github.io/spring/2020/12/29/spring-security-3-userDetailsManager-bcryptPasswordEncoder.html](images/security/spring-security-diagram.png)
 
 - ![https://www.javainuse.com/webseries/spring-security-jwt/chap3](images/security/authentication-object.jpeg)
