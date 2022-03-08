@@ -1,0 +1,2 @@
+- [Java Reflection, but much faster](https://www.optaplanner.org/blog/2018/01/09/JavaReflectionButMuchFaster.html)
+- MethodHandles
