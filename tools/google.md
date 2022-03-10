@@ -6,3 +6,11 @@
 
 ## Google is dying
 - https://dkb.io/post/google-search-is-dying
+
+## Fact
+- [are google search biased?](https://www.quora.com/Are-Google-search-results-biased)
+- [Do I get the same Google search results as someone else?](https://www.quora.com/Do-I-get-the-same-Google-search-results-as-someone-else/answer/Phillip-Remaker)
+- https://www.google.com/search/howsearchworks/algorithms/
+- [What does "about 116,700,000 results (0.50 seconds)" mean while searching on Google?](https://www.quora.com/What-does-about-116-700-000-results-0-50-seconds-mean-while-searching-on-Google)
+  - That means google has searched around 116,700,700 pages/websites from your key words from its database in a time of 0.50 seconds i.e such a quick search results google is providing. Also among these results top results are always based on SEO(search engine optimization). Hope it is helpful to you :)
+
