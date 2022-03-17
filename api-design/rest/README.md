@@ -3,6 +3,12 @@ REST - Representational State Transfer is an architectural style!
 
 SOAP - Simple Object Access Protocol is a protocol!
 
+## [4 Maturity Levels of REST API Design - Glory of REST](https://blog.restcase.com/4-maturity-levels-of-rest-api-design/)
+![](https://miro.medium.com/max/401/0*wVZKnk1Ow_68ibii.png)
+
+[REST API Maturity - Towards The Glory of REST](https://dev.to/ragrag/rest-api-maturity-towards-the-glory-of-rest-5cm3)
+
+
 ## Representational State Transfer
 
 ### [Resource](https://stackoverflow.com/a/48119872/10393067)

@@ -1,0 +1,2 @@
+- [Everything You Need to Know About API Versioning](https://nordicapis.com/everything-you-need-to-know-about-api-versioning/)
+- [Microservice Versioning](https://stackoverflow.com/questions/39485459/microservice-versioning)
