@@ -8,3 +8,5 @@
 - ![https://www.javainuse.com/webseries/spring-security-jwt/chap3](images/security/authentication-object.jpeg)
 
 - [The mechanism of Spring security ](https://ducmanhphan.github.io/2019-02-09-The-mechanism-of-spring-security/)
+- [How to validate a token from a OAuth server?](https://stackoverflow.com/questions/41854531/how-to-validate-a-token-from-a-oauth-server)
+  - using token store?
