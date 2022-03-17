@@ -1,0 +1,3 @@
+- [Thiết kế phần mềm [P1] - Tất cả đều xoay quanh sự phức tạp](https://viblo.asia/p/thiet-ke-phan-mem-p1-tat-ca-deu-xoay-quanh-su-phuc-tap-RnB5pjvdZPG)
+- https://blog.pragmaticengineer.com/a-philosophy-of-software-design-review/
+- [A Philosophy of Software Design | John Ousterhout | Talks at Google](https://www.youtube.com/watch?v=bmSAYlu0NcY&t=403s)
