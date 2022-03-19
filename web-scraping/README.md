@@ -1,0 +1,3 @@
+- [Web Scraping with Python: Everything you need to know (2021)](https://www.scrapingbee.com/blog/web-scraping-101-with-python/#3-requests--beautifulsoup)
+- [Xpath cheatsheet](https://devhints.io/xpath)
+- [10 Things to Master in XPath Syntax for Python Scrapy Web Scraping Framework](https://mipsmonsta.medium.com/10-things-to-master-in-xpath-syntax-for-python-scrapy-web-scraping-framework-56b9f7116573)
