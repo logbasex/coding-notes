@@ -1,3 +1,3 @@
 - [visualization](https://www.cs.usfca.edu/~galles/visualization/BTree.html)
 - [Difference B-Tree and B+-Tree](https://www.baeldung.com/cs/b-trees-vs-btrees)
-  - More in ../database/mysql/index.md ![](../database/mysql/index.md)
+  - More in ../database/mysql/index.md ![](../../web-development/backend/database/mysql/index.md)
