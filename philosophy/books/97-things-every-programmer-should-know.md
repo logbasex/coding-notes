@@ -1,0 +1,2 @@
+- https://github.com/97-things/97-things-every-programmer-should-know/blob/master/en/thing_09/README.md
+- https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/en/thing_01/
