@@ -1,0 +1,9 @@
+- https://github.com/sqshq/piggymetrics
+- https://github.com/rohitghatol/spring-boot-microservices
+- https://github.com/prontera/spring-cloud-rest-tcc
+- https://github.com/paulc4/microservices-demo
+- https://github.com/dyc87112/SpringCloud-Learning
+- https://github.com/forezp/SpringCloudLearning
+- https://github.com/YunaiV/SpringBoot-Labs
+- https://github.com/macrozheng/mall
+  - http://www.macrozheng.com/#/cloud/bus
