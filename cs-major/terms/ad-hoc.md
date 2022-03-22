@@ -1,0 +1,1 @@
+> [It basically means writing some quick and dirty code without the intention of reuse.  User-entered queries are usually the main example.  Another common occurrence is a utility to convert data sets from 1 form to another, which will have no use when the conversion is done.](https://stackoverflow.com/questions/1786735/what-does-ad-hoc-mean-in-programming)

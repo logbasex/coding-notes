@@ -1,1 +1,5 @@
 - https://app.codecrafters.io/courses
+- https://betterprogramming.pub/7-advanced-projects-to-improve-your-programming-skills-f05d7875104
+  - Program a Calculator (Learning about tokenization, also known as lexical analysis)
+  - Virtual Machine
+  - ....

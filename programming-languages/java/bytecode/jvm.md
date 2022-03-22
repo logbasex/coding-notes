@@ -118,3 +118,20 @@ The bytecode verifier in the JVM first checks the bytecode then it is the JVM wh
 This is how Java achieves its platform independence. Since the JVM converts the bytecode to a machine specific code we have different JVMs for different platforms. **Yes, JVMs are not platform independent**, the platform independence that Java exhibits is a layer of abstraction, under which there exists dependence on the platform.
 
 ![](https://qph.fs.quoracdn.net/main-qimg-e76fb3b68d1bd2b3d7a10791c9761834.webp)
+
+-------
+
+## Question
+
+[How isolated are static variables?](https://softwareengineering.stackexchange.com/questions/297757/how-isolated-are-static-variables)
+
+If I have a
+
+    public class SomeClass {
+        public static final HashMap hashmap = new HashMap();
+    }
+
+and then I have five different classes with `main(String[] args)` methods, that I will run.
+
+when they access `SomeClass.hashmap`, would they be accessing the same `HashMap` or will they each have their own `hashmap` created in the JVM?
+
