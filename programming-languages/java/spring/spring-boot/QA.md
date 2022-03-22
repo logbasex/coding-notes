@@ -10,4 +10,10 @@
 
 ------------
 
+[Return ResponseEntity vs returning POJO](https://stackoverflow.com/questions/49673660/return-responseentity-vs-returning-pojo)
 
+[When use ResponseEntity<T> and @RestController for Spring RESTful applications](https://stackoverflow.com/questions/26549379/when-use-responseentityt-and-restcontroller-for-spring-restful-applications)
+
+ResponseEntity<T> represents the entire HTTP response. Besides the body, its API allows you to set headers and a status code to the response.
+
+Returning just a bean is fine but doesn't give you much flexibility: In the future, if you need to add a header to the response or modify the status code, for example, you need to change the method return type.
