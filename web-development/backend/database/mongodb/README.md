@@ -181,7 +181,8 @@ db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
   db.getCollection('people').find({}).sort({b: -1, c: 1}) db.getCollection('people').find({}).sort({c: -1, b: 1, a: -1})
   ```
 - https://tuyendoan.medium.com/mongodb-best-practice-10c35ce71210
-
+- [How to Speed-Up MongoDB Regex Queries by a Factor of up-to 10](https://medium0.com/statuscode/how-to-speed-up-mongodb-regex-queries-by-a-factor-of-up-to-10-73995435c606)
+  - Regex and text index
 ## System
 
 - [Connection count](https://stackoverflow.com/questions/8975531/check-the-current-number-of-connections-to-mongodb)
@@ -196,3 +197,11 @@ db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
     { TOTAL_CONNECTION_COUNT: 0 }
   )
   ``` 
+
+
+## Full-text search
+- [MongoDB diacriticInSensitive search not showing all accented (words with diacritic mark) rows as expected and vice-versa](https://stackoverflow.com/questions/43138189/mongodb-diacriticinsensitive-search-not-showing-all-accented-words-with-diacrit)
+  - Tìm kiếm dựa vào base character (bỏ dấu)
+- [mongoDB prefix wildcard: fulltext-search ($text) find part with search-string](https://stackoverflow.com/questions/24343156/mongodb-prefix-wildcard-fulltext-search-text-find-part-with-search-string)
+- [Language stemming](https://stackoverflow.com/questions/21018738/mongodb-fulltext-search-workaround-for-partial-word-match)
+  - Stemming is the process of reducing words to their root, base or .. well .. stem.
