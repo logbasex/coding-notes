@@ -205,3 +205,5 @@ db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
 - [mongoDB prefix wildcard: fulltext-search ($text) find part with search-string](https://stackoverflow.com/questions/24343156/mongodb-prefix-wildcard-fulltext-search-text-find-part-with-search-string)
 - [Language stemming](https://stackoverflow.com/questions/21018738/mongodb-fulltext-search-workaround-for-partial-word-match)
   - Stemming is the process of reducing words to their root, base or .. well .. stem.
+- [Mongodb match accented characters as underlying character](https://stackoverflow.com/questions/7707671/mongodb-match-accented-characters-as-underlying-character?noredirect=1&lq=1)
+- [MongoDB text search partial words](https://sqlserverguides.com/mongodb-text-search-partial-words/)
