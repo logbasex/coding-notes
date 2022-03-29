@@ -142,6 +142,10 @@ db.yourCollection.updateMany({}, {$set:{"someField": "someValue"}})
 db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
 ```
 
+## Aggregation
+- https://viblo.asia/p/tim-hieu-ve-aggregation-framework-trong-mongodb-Az45brRV5xY
+- https://www.baeldung.com/java-mongodb-aggregations
+
 ## Performance
 
 - [Check RAM limit](https://developerslogblog.wordpress.com/2019/11/27/mongodb-sort-how-to-fix-maximum-ram-exceeded-error/)
