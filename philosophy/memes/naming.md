@@ -28,3 +28,12 @@
 ## [boolean guidelines](https://www.serendipidata.com/posts/naming-guidelines-for-boolean-variables)
 - Guideline 1: Avoid negative names for standalone variables
 - Guideline 2: Always choose names that enable setting “false” by default
+
+---
+
+[How and why to decide between naming methods with "get" and "find" prefixes](https://softwareengineering.stackexchange.com/questions/182113/how-and-why-to-decide-between-naming-methods-with-get-and-find-prefixes)
+
+I would say that find may fail but get shouldn't.
+
+To me, find implies there can possibly be more than one result present. get implies only one.
+
