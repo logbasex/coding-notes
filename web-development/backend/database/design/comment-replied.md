@@ -1,0 +1,5 @@
+- https://mongodb-documentation.readthedocs.io/en/latest/use-cases/storing-comments.html
+- https://www.mongodb.com/docs/manual/applications/data-models-tree-structures/
+- https://dzone.com/articles/manage-hierarchical-data-in-mongodb-with-spring
+- https://medium.com/@nehajirafe/data-modeling-designing-facebook-style-comments-with-sql-4cf9e81eb164
+- [Build a schema for post and comments: Array of comments objectID OR post objectID in each comment](https://www.mongodb.com/community/forums/t/build-a-schema-for-post-and-comments-array-of-comments-objectid-or-post-objectid-in-each-comment/108632)

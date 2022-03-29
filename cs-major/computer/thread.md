@@ -1,0 +1,1 @@
+- https://kipalog.com/posts/Gioi-thieu-ve-thread-tu-phan-cung-ra-phan-mem

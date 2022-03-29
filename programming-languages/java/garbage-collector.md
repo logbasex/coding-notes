@@ -1,0 +1,1 @@
+- https://www.alibabacloud.com/blog/how-does-garbage-collection-work-in-java_595387

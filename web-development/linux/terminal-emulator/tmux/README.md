@@ -34,4 +34,6 @@ https://danielmiessler.com/study/tmux/
   tmux source-file ~/.tmux.conf
   ```
 
+## Shortcut
 
+- Ctrl + b + [ -> using arrow key to scroll.
