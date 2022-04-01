@@ -9,6 +9,12 @@ https://www.guru99.com/java-virtual-machine-jvm.html
 
 Java Virtual Machine (JVM) is a engine that provides runtime environment to drive the Java Code or applications. **It converts Java bytecode into machines language**. JVM is a part of Java Run Environment (JRE). In other programming languages, the compiler produces machine code for a particular system. However, Java compiler produces code for a Virtual Machine known as Java Virtual Machine.
 
+### [Get JVM info](https://stackoverflow.com/a/5103166/10393067)
+
+```
+System.out.println(System.getProperty("java.vm.name"));
+```
+
 ### JVM Architecture
 
 ![](../images/guru99-jvm-architecture.png)

@@ -3,6 +3,10 @@
 - In linux, it reside in `~/bin` folder
 - Config here [here](https://stackoverflow.com/questions/26879172/how-to-open-webstorm-from-terminai) and [here](https://blog.jetbrains.com/blog/2018/08/23/toolbox-app-1-11-whats-new/)
 
+## Edit VM options
+Jetbrains toolbox -> Intellij -> Settings ->  Configuration -> Edit Java Virtual Machine options
+
+https://github.com/FoxxMD/intellij-jvm-options-explained
 
 ## Navigate
 
