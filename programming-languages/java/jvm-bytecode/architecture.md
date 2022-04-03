@@ -46,3 +46,21 @@ Operand stack holds the operand used by operators to perform operations. Each en
 ```
 
 > [**See, every operation in JVM is done on operand stack**. So whenever you have to perform any operation on a variable, you have to first load (pushed ) on the operand stack by load command and then perform operation. This is why store is followed by load instruction in bytecode.](https://stackoverflow.com/questions/42779752/why-does-java-bytecode-store-often-followed-by-load)
+
+## Stack and Heap
+
+### [Whenever a class is loaded, what are stored in the heap and what are stored in the stack ?](https://stackoverflow.com/questions/2826222/jvm-heap-and-stack/7597480#7597480)
+
+It's really easy:
+
+- **objects (i.e. instances of classes) are always on the `heap`**. They can't be anywhere else
+  - fields are part of objects, so they also live on the heap.
+  > The variables that are declared inside the class but outside the scope of any method are called instance variables in Java. **Đó là lý do mà instance variable có default value như primitive type int, float...**
+- **local variables (including method/constructor) parameters are always on the `stack`**. They can't be anywhere else.
+**Note that local variables can only hold references ("pointers") or primitive values**. A local variable can't ever hold "an object".
+
+Note that this view is what is defined in the JVM specification. A concrete JVM could allocate objects in a non-heap area if it wants to. For example: if it knows that a newly created object never escapes the current invocation, then it could put the instantiated object in the stack area. However, that's a very optimization that is not visible to the developer.
+
+### [Where does the constructor invocation get stored? Stack or Heap?](https://stackoverflow.com/questions/39805105/where-does-the-constructor-invocation-get-stored-stack-or-heap)
+
+- The parameters and local variables for the constructor call are stored on the stack until the constructor returns.

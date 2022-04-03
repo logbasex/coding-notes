@@ -24,3 +24,7 @@ A few good examples here. I would add, however, that "static" is often valuable 
 
 [Do static members help memory efficiency?](https://stackoverflow.com/questions/1496629/do-static-members-help-memory-efficiency)
 - The only difference between static methods and non-static (instance) methods behind the scenes is that an extra, hidden parameter (```this``` **keyword**) is passed to instance methods and that instance methods might be called using an indirect dispatch (if virtual). There is no additional code space taken.
+
+## [When are Static Variables Initialized in Java?](https://www.baeldung.com/java-static-variables-initialization)
+
+![](../jvm-bytecode/../images/class-initialization-process-2.jpg)
