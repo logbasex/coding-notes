@@ -24,3 +24,7 @@ Extra features comes at cost and the cost includes decreased speed and increased
 > Although if you wrote a program once in C and again in Assembly, the C version would probably be faster because the compiler is smarter than you are.
 
 > C is faster because it does less (for you).
+
+---
+
+[In what cases is Java faster, if at all, than C++ ?](https://www.quora.com/In-what-cases-is-Java-faster-if-at-all-than-C)
