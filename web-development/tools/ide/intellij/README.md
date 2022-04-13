@@ -188,3 +188,5 @@ ctrl + shift + f8
 - ### String Manipulation
 - ### [GitToolBox](https://plugins.jetbrains.com/plugin/7499-gittoolbox/)
   - ![](https://blog.jetbrains.com/wp-content/uploads/2021/04/Git_Toolbox.png)
+- ### [RoboPOJOGenerator](https://plugins.jetbrains.com/plugin/8634-robopojogenerator)
+  - ![](https://plugins.jetbrains.com/files/8634/screenshot_21630.png)
