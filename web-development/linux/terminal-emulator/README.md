@@ -1,0 +1,1 @@
+- [How to Change the Default Terminal in Ubuntu](https://itsfoss.com/change-default-terminal-ubuntu/)
