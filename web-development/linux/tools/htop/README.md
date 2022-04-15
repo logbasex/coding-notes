@@ -1,7 +1,10 @@
-- [Why are there many processes listed under the same title in htop?](https://superuser.com/questions/118086/why-are-there-many-processes-listed-under-the-same-title-in-htop)
+## [Why are there many processes listed under the same title in htop?](https://superuser.com/questions/118086/why-are-there-many-processes-listed-under-the-same-title-in-htop)
   - press **H** to show main process. 
-
-- ##Htop usage
+  - https://askubuntu.com/questions/17047/in-htop-i-sometimes-see-lists-of-64-processes-identical-for-all-but-the-pid-w
+  
+## [Anchor htop to one specific process?](https://askubuntu.com/questions/545230/anchor-htop-to-one-specific-process)
+  - press **F**    - follow process.
+## Htop usage
   ```
   a	Set CPU affinity. Mark which CPUs a process may use.
   u	Show processes owned by a user.
@@ -20,17 +23,17 @@
   https://www.softprayog.in/tutorials/htop-command-in-linux
 
 
-- ##[Get chrome's total memory usage](https://unix.stackexchange.com/questions/288589/get-chromes-total-memory-usage)
+##[Get chrome's total memory usage](https://unix.stackexchange.com/questions/288589/get-chromes-total-memory-usage)
   - Chrome using many sub-processes. 
   - ```
     smem -t -k -c pss -P chrom | tail -n 1
     ```
 
-- ##Load averrage
-    - https://www.site24x7.com/blog/load-average-what-is-it-and-whats-the-best-load-average-for-your-linux-servers
-    - https://blogd.net/linux/giai-thich-ve-loadavg-tren-linux/
+##Load averrage
+  - https://www.site24x7.com/blog/load-average-what-is-it-and-whats-the-best-load-average-for-your-linux-servers
+  - https://blogd.net/linux/giai-thich-ve-loadavg-tren-linux/
   
-- ##[Process Memory](https://www.baeldung.com/linux/process-memory-management)
+##[Process Memory](https://www.baeldung.com/linux/process-memory-management)
   - VSZ
   - RSS (RES - Resident Set Size) is a measurement that shows how much RAM has been allocated to a process during its execution.
   - USS
