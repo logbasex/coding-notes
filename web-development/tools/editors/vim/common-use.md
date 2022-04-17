@@ -2,7 +2,10 @@
 ```shell
 export EDITOR=vi && crontab -e 
 
-# if crontab line start with number, comment it out
+# if crontab line start with number or *, comment it out
 # https://unix.stackexchange.com/questions/382208/regex-to-match-beginning-and-end-of-line-in-vim-quote-around-whole-line
-:%s/^\([0-9].*\)/#&/
+:%s/^\([0-9|*].*\)/#&/
+
+## uncomment
+%s/^#\([0-9|*].*\)/\1/
 ```
