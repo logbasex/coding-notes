@@ -1,0 +1,3 @@
+- https://faun.pub/how-linux-system-boots-up-f15c9e0f7a96
+- https://linuxexplained.wordpress.com/
+- [How Linux Works: What Every Super-User Should Know](https://www.cin.ufpe.br/~pjs/How_Linux_Works_(2004)%5BBrianWard%5D.pdf)
