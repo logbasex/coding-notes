@@ -1,3 +1,5 @@
 - https://faun.pub/how-linux-system-boots-up-f15c9e0f7a96
 - https://linuxexplained.wordpress.com/
+- [LINUX BOOTING PROCESS](https://medium.com/@vikasv210/linux-booting-process-424a7d15d75)
 - [How Linux Works: What Every Super-User Should Know](https://www.cin.ufpe.br/~pjs/How_Linux_Works_(2004)%5BBrianWard%5D.pdf)
+- [Tìm hiểu về Linux boot process](https://kipalog.com/posts/Tim-hieu-ve-Linux-boot-process----2)

@@ -4,6 +4,8 @@
 > 
 > [GRUB không chỉ giới hạn trong việc khởi động vào hệ điều hành Linux, bạn cũng có thể sử dụng nó để khởi động vào các hệ điều hành khác như Windows.](https://quantrimang.com/grub-bootloader-la-gi-182515)
 
+> [GRUB is a complete program for loading and managing the boot process. It is the most common bootloader for Linux distributions. A bootloader is the first software that runs when a computer starts. It loads the kernel of the operating system and then the kernel initializes the rest of the operating system: shell, display manager, desktop environment, etc.](https://itsfoss.com/what-is-grub/)
+> 
 ![image](https://user-images.githubusercontent.com/22516811/163780694-1674ecb5-af2d-4909-a1c2-72ade78b9de2.png)
 
 ---------
