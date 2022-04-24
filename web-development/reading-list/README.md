@@ -1,0 +1,1 @@
+- https://kipalog.com/posts/A-bookmark-reading-list-for-programmers
