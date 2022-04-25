@@ -1,0 +1,1 @@
+- https://semaphoreci.com/blog/books-every-senior-engineer-should-read
