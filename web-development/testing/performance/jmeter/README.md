@@ -1,3 +1,31 @@
+## Install
+Download
+```
+https://jmeter.apache.org/download_jmeter.cgi
+```
+
+Unpack and launch
+
+
+## [Check Jmeter version](https://stackoverflow.com/a/52632844/10393067)
+```
+bash ~/Downloads/apache-jmeter-5.3/bin/jmeter --version
+```
+
+Output
+```
+    _    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____
+   / \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \
+  / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) |
+ / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 5.3
+
+Copyright (c) 1999-2020 The Apache Software Foundation
+```
+
+----------
+
+
 - [What is Jmeter plugin](https://www.simplilearn.com/tutorials/jmeter-tutorial/jmeter-plugins)
   - [JMeter Plugins : All You Need To Know About Plugins Manager](https://www.edureka.co/blog/jmeter-plugins/) 
   - [jmeter missing.class com.thoughtworks.xstream.converters.ConversionException](https://stackoverflow.com/questions/45979130/jmeter-missing-class-com-thoughtworks-xstream-converters-conversionexception)
