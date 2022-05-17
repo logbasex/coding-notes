@@ -44,3 +44,9 @@ Copyright (c) 1999-2020 The Apache Software Foundation
     And your test scenario is 30 users trying to log in.
     Then all these users will try to login for as many times as possible for the time span of 60 seconds.
     To verify this look in to the result tree and calculate how many login attempts happened during that period.
+    
+## [Create test plan from curl](https://dev.to/qainsights/curl-tips-for-performance-engineers-1j0f)
+
+![image](https://user-images.githubusercontent.com/22516811/168575240-1c413309-0c55-4b47-89ad-114cc96e1ded.png)
+![image](https://user-images.githubusercontent.com/22516811/168575261-1922e3cf-02e7-43e4-990a-aea8b1537485.png)
+
