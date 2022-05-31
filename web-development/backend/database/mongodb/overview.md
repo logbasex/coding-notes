@@ -25,3 +25,16 @@ BSON provides several advantages over using regular JSON:
 
 https://www.mongodb.com/basics/bson
 
+The biggest thing that BSON has that JSON doesn’t that benefits storage and networking is it has the length - in bytes, as a fixed-byte quantity - of the object at the front of the object. **[This means that code that’s reading the object doesn’t actually need to parse the object contents to figure out where the object ends and the next one begins. It just reads the length, allocates enough bytes to hold the object, and loads the object as a bunch of bytes.](https://www.quora.com/What-was-the-need-of-BSON-in-MongoDB-when-we-have-JSON)**
+
+![image](https://user-images.githubusercontent.com/22516811/171206778-6a5a97c7-b391-45e9-af46-24a8cfac8c0d.png)
+
+[Use Binary Encoding Instead of JSON](https://betterprogramming.pub/use-binary-encoding-instead-of-json-dec745ec09b6)
+
+
+## Storage Engine
+
+[Files in a WiredTiger database](https://muralidba.blogspot.com/2018/04/files-in-wiredtiger-database.html)
+
+![image](https://user-images.githubusercontent.com/22516811/171205992-d646e5e5-cded-41ea-ab6b-fe547283fb7c.png)
+
