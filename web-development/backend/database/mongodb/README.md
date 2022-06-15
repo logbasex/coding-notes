@@ -158,8 +158,32 @@ db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
     },
     { TOTAL_CONNECTION_COUNT: 0 }
   )
-  ``` 
+  ```
+- [Size](https://stackoverflow.com/questions/6082748/does-the-mongodb-stats-function-return-bits-or-bytes)
+  ```shell
+  db.stats()                in Bytes
+  db.stats(1024)            in KB
+  db.stats(1024*1024)       in MB
+  db.stats(1024*1024*1024)  in GB
+  ```
+  ```shell
+  # https://gist.github.com/joeyAghion/6511184
+  var stats = [];
 
+  db.getCollectionNames().forEach(function (n) {
+  stats.push(db[n].stats());
+  });
+  
+  stats = stats.sort(function (a, b) {
+  return b['size'] - a['size']
+  });
+  
+  for (var c in stats) {
+  // skip views
+  if (!stats[c]["ns"]) continue;
+  print(stats[c]["ns"] + ": " + stats[c]["size"] + " (" + (stats[c]["storageSize"] / 1073741824).toFixed(3) + "GB)");
+  }
+  ```
 
 ## Full-text search
 - [MongoDB diacriticInSensitive search not showing all accented (words with diacritic mark) rows as expected and vice-versa](https://stackoverflow.com/questions/43138189/mongodb-diacriticinsensitive-search-not-showing-all-accented-words-with-diacrit)
