@@ -53,3 +53,6 @@ public static void main(java.lang.String[]);
 ![https://www.jrebel.com/blog/java-bytecode-tutorial](https://user-images.githubusercontent.com/22516811/177038249-101a0d13-5f3c-450e-8894-2a1cfb164a1c.png)
 
 ![image](https://user-images.githubusercontent.com/22516811/177036849-ffb8e08f-a3d4-4570-9901-d2673205004e.png)
+
+![http://asmsupport.github.io/jvmref/ref-dup.html](https://user-images.githubusercontent.com/22516811/177038524-6046c855-f771-4ce9-9eb7-156f33ac5cc2.png)
+
