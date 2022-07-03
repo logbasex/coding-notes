@@ -44,4 +44,12 @@ public static void main(java.lang.String[]);
 
 ![image](https://user-images.githubusercontent.com/22516811/177036812-b1807c10-d936-4178-833a-a056e40c692f.png)
 
+`invokespecial` nhận vào **#1** là object's heap address từ stack mà không trả về (call constructor return void) nên trước khi call `invokespecial` cần `dup` stack top value trước, nếu không sau khi call `invokespecial` thì stack sẽ bị rỗng, hay nói cách khác là sau khi object được khởi tạo thì không trả về object's heap address.
+
+[Because **`INVOKESPECIAL` will consume value created by `NEW`** from the operand stack, but you may need to actually use this value, so the reference is duplicated in advance.](https://stackoverflow.com/questions/7282585/why-do-dup-when-creating-new-instance)
+
+![https://stackoverflow.com/questions/61634385/is-that-a-correct-depiction-of-the-process-of-creating-a-new-object-in-java](https://user-images.githubusercontent.com/22516811/177038133-206aa173-8e4d-4f19-b5cc-1ceaf6ca0c1a.png)
+
+![https://www.jrebel.com/blog/java-bytecode-tutorial](https://user-images.githubusercontent.com/22516811/177038249-101a0d13-5f3c-450e-8894-2a1cfb164a1c.png)
+
 ![image](https://user-images.githubusercontent.com/22516811/177036849-ffb8e08f-a3d4-4570-9901-d2673205004e.png)
