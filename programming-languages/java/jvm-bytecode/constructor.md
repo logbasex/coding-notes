@@ -1,3 +1,6 @@
+## Invokespecial
+- **invokespecial** instruction is used to call the **constructor**, as we know. But it also is used to call private methods of the same class and accessible methods of the super class.
+
 ## [Is the constructor for an object invoked after object creation on heap (Java)?](https://stackoverflow.com/questions/2419286/is-the-constructor-for-an-object-invoked-after-object-creation-on-heap-java)
 
 Once `new` is called it knows how much memory needs to be allocated into the heap for a variable of type, in your case Foo.  Once that memory is allocated only then are the values set.  Think about it how else are you going to assign member variables if you don't have memory for the member variable?  If there is no memory new will throw an exception which you need to handle.

@@ -76,6 +76,7 @@ The JVM instruction set has 5 different bytecode instructions for a method invoc
 
 ### [Virtual method table](https://en.wikipedia.org/wiki/Virtual_method_table)
 
+## [Virtual method](https://stackoverflow.com/questions/9453701/what-is-virtual-method-calling-in-java)
 
 ----
 ## Derived class
