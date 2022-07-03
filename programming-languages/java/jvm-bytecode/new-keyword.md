@@ -36,3 +36,12 @@ public static void main(java.lang.String[]);
 - Tại ví trí `0`, khi dùng từ khóa `new` object được tạo ra nhưng chưa được khởi tạo (uninitialized).
 - Tại ví trí `4`, khi gọi constructor, object mới được khởi tạo.
 
+[Explain](https://developpaper.com/as-far-as-i-know-the-bytecode-instruction-set-and-parsing-of-jvm-virtual-machine-operand-stack-management-instruction/)
+
+![image](https://user-images.githubusercontent.com/22516811/177036764-312318ce-bd0f-452e-9928-7cec4d206627.png)
+
+![image](https://user-images.githubusercontent.com/22516811/177036802-26fe81ec-2353-4d57-8ea1-2e14b4dcab31.png)
+
+![image](https://user-images.githubusercontent.com/22516811/177036812-b1807c10-d936-4178-833a-a056e40c692f.png)
+
+![image](https://user-images.githubusercontent.com/22516811/177036849-ffb8e08f-a3d4-4570-9901-d2673205004e.png)
