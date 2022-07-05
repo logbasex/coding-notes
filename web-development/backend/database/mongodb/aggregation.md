@@ -9,3 +9,5 @@
             books: { $push : "$$ROOT" }
         }}
   ```
+- [Find duplicate records in MongoDB](https://stackoverflow.com/questions/26984799/find-duplicate-records-in-mongodb)
+- ![image](https://user-images.githubusercontent.com/22516811/177312842-b7e2feaf-b51d-4f96-b94b-6ae8cf6058c5.png)
