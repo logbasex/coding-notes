@@ -47,6 +47,9 @@ DEFAULT_BACKUP_PARENT_DIR="/tmp/mongodb-backups/"
 
 # using default backup folder
 mkdir -p "$DEFAULT_BACKUP_PARENT_DIR"
+# Variables in the Bourne shell do not have to be declared, as they do in languages like C.
+# But if you try to read an undeclared variable, the result is the empty string. You get no warnings or errors.
+# https://www.shellscript.sh/variables1.html
 if [ -z "${folder}" ]; then
 	folder=$DEFAULT_BACKUP_PARENT_DIR
 fi
