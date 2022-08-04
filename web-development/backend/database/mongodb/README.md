@@ -134,6 +134,13 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
   ## data grip
   {}, {roles:1, _id:0}
   ```
+## Delete
+
+- [Delete by date greater than equal](https://stackoverflow.com/questions/22422178/mongodb-remove-all-dates-less-than-specified)
+  ```shell
+  db.user.deleteMany({createdDate: {$gte: new Date("2022-08-01")}})
+  ```
+
 ## Add a field to collection
 
 https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
