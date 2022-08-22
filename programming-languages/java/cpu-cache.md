@@ -1,0 +1,2 @@
+- https://blogs.oracle.com/javamagazine/post/java-and-the-modern-cpu-part-1-memory-and-the-cache-hierarchy
+- https://medium.com/software-design/why-software-developers-should-care-about-cpu-caches-8da04355bb8a

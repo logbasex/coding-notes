@@ -9,6 +9,8 @@ https://dev.to/_darrenburns/10-tools-to-power-up-your-command-line-4id4
 https://github.com/alebcay/awesome-shell
 https://ketancmaheshwari.github.io/pdfs/LPT_LISA.pdf
 ```
+- Mind map
+  - https://www.xmind.net/m/WwtB/
 
 # Pre-install
 

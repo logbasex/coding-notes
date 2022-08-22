@@ -158,6 +158,8 @@ As you can see, the lambda body now references the local variable myString which
 
 
 ## invokedynamic, invokestatic, invokevirtual
+- http://asmsupport.github.io/jvmref/ref-invokespecial.html
+- https://stackoverflow.com/questions/13764238/why-invokespecial-is-needed-when-invokevirtual-exists
 
 ### [why-are-java-8-lambdas-invoked-using-invokedynamic](https://stackoverflow.com/questions/30002380/why-are-java-8-lambdas-invoked-using-invokedynamic)
 

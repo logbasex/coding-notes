@@ -51,3 +51,9 @@
 [Sort hibernate collection when retrieving from database](https://stackoverflow.com/questions/5081349/sort-hibernate-collection-when-retrieving-from-database)
 
 [What's the difference between ordering and sorting?](https://stackoverflow.com/a/17247525/10393067)
+
+## Index
+[Understanding indexing and cardinality for MongoDB](https://bharatkalluri.com/posts/cardinality-and-indexing-mongodb)
+- Cardinality càng thấp thì data trùng lặp càng nhiều, index ít tác dụng.
+
+[Performance Best Practices: Indexing](https://www.mongodb.com/blog/post/performance-best-practices-indexing)
