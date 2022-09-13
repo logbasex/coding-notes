@@ -259,21 +259,17 @@ sudo apt install torbrowser-launcher
 - Docker
 
 ```shell script
+sudo apt update -y
+sudo apt install docker.io
 
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-sudo apt install docker-ce && sudo chmod 666 /var/run/docker.sock
+=====
+
+sudo snap install docker
 ```
 
 - Docker-compose
 ```shell script
-pip3 install docker-compose
-
-OR
-
-sudo wget --output-document=/usr/local/bin/docker-compose "https://github.com/docker/compose/releases/download/$(wget --quiet --output-document=- https://api.github.com/repos/docker/compose/releases/latest | grep --perl-regexp --only-matching '"tag_name": "\K.*?(?=")')/run.sh"
-sudo chmod +x /usr/local/bin/docker-compose
+sudo apt install docker-compose
 ```
 
 - Mysql 
@@ -302,7 +298,7 @@ docker exec -i mysql56 bash -c 'exec mysql -uroot -p"123456"' < /some/path/on/yo
 
 - MongoDB
 ```shell script
-sudo docker run -d --name=mongo44 -p=27017:27017 mongo:latest
+sudo docker run -d --name=mongo -p=27017:27017 --restart=always mongo:latest
 ```
 
 - Jenkins
@@ -427,6 +423,15 @@ exa -l
 exa -bghHliS
 ```
 
+- Mattermost
+```
+sudo snap install mattermost-desktop
+```
+
+- Postman
+```shell
+sudo snap install postman --classic
+```
 - #### Media
 
     - [flameshot](https://github.com/flameshot-org/flameshot#installation): i3wm screenshot
