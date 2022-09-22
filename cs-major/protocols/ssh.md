@@ -113,6 +113,19 @@ chmod 400 ~/.ssh/id_rsa
 # I can change it, everyone else can read it.
 chmod 644 ~/.ssh/id_rsa.pub
 ```
+## Debug SSH connection
+```shell
+# Debug ssh connection
+# https://unix.stackexchange.com/questions/123091/understand-debug-messages-from-sshd
+ssh -vT git@gitlab.fruitful.io
+```
+
+## [Bypassing SSH Server Verification](https://www.baeldung.com/linux/public-key-known_hosts)
+SSH server verification is performed on the client side, where the SSH client prompts an interactive question whenever we try to connect to a new/unknown SSH server.
+> $ ssh demo@test.rebex.net
+> The authenticity of host 'test.rebex.net (195.144.107.198)' can't be established.
+> ECDSA key fingerprint is SHA256:OzvpQxRUzSfV9F/ECMXbQ7B7zbK0aTngrhFCBUno65c.
+> Are you sure you want to continue connecting (yes/no)?
 
 ## Jump host
 - https://dev.to/claudiohigashi/ssh-tunneling-via-a-jump-host-2b5d
