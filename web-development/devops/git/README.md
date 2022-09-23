@@ -97,6 +97,22 @@ After rebase use can merge using fast-forward merge:
   git show <commit_id> | grep Author
   ```
 
+## [remove sensitive data in git history using `BFG Repo-Cleaner`](https://viblo.asia/p/thoi-xong-tui-push-secret-key-len-github-roi-1Je5ED0GlnL)
+- https://www.youtube.com/watch?v=z8tIOYg_oho
+
+```shell
+# install
+sudo snap install bfg-repo-cleaner --beta
+
+# delete files contains sensitive data then commit (cd into folder contains .git).
+git commit -m "delete"
+git push
+
+# rewrite history
+bfg --delete-files mongo-fandelo.sh
+git push origin --force --all
+```
+
 ## Cheat sheet
 
 - https://gist.github.com/chrismccoy/8775224
