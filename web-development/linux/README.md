@@ -180,6 +180,7 @@ sdk install springboot
 - Golang
 ```shell script
 sudo snap install go --classic
+sudo snap install --classic --stable go
 
 # https://stackoverflow.com/questions/30295146/how-can-i-install-a-package-with-go-get
 export GOPATH=$HOME/go
@@ -222,15 +223,14 @@ sudo apt update && sudo apt install yarn
 
 OR
 
-sudo apt install --no-install-recommends yarn
+npm install -g yarn
 ```
 
 - Sublime Text
 ```shell script
-sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
-curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
-sudo apt install sublime-text
+sudo snap install sublime-text --classic
+
+subl a.txt
 ```
 
 - Google Chrome
@@ -344,6 +344,10 @@ docker exec some-rabbit rabbitmq-plugins enable rabbitmq_management
 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 sudo apt install elasticsearch
+
+
+## Docker
+sudo docker run --name elasticsearch -p 9200:9200 -e discovery.type=single-node -e ES_JAVA_OPTS="-Xms1g -Xmx1g" -e xpack.security.enabled=false -d --restart=always docker.elastic.co/elasticsearch/elasticsearch:8.2.2
 ```
 
 #### Handy Tools
@@ -415,6 +419,12 @@ sudo apt-get update
 sudo apt-get install lazygit
 ```
 
+- lazydocker
+```
+download linux_x86_64: https://github.com/jesseduffield/lazydocker/releases/tag/v0.18.1
+sudo install lazydocker /usr/local/bin/
+```
+
 - [exa](modern replacement for ls)
 ```shell script
 sudo apt install exa
@@ -432,6 +442,12 @@ sudo snap install mattermost-desktop
 ```shell
 sudo snap install postman --classic
 ```
+
+- Redis
+```shell
+sudo docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 --restart=always redis/redis-stack:latest
+```
+
 - #### Media
 
     - [flameshot](https://github.com/flameshot-org/flameshot#installation): i3wm screenshot

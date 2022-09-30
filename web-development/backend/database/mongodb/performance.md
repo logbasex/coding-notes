@@ -1,3 +1,9 @@
+## Tutorials
+- [Pipeline performance](https://www.youtube.com/watch?v=trEGalB0EZM)
+- [Mongodb presentation](https://www.youtube.com/playlist?list=PL4RCxklHWZ9tKWSS21BmtFxOs51f-l1o9)
+- [Embedded and Referenced document](https://betterprogramming.pub/embedded-vs-referenced-documents-in-mongodb-how-to-choose-correctly-for-increased-performance-d267769b8671)
+- [Embedded and Referenced document performance](https://medium.com/geekculture/mongodb-relationships-embedding-vs-linking-pro-and-cons-5f7583e655ab)
+- [Best Practices Guide for MongoDB Performance](https://www.mongodb.com/basics/best-practices)
 ## Performance
 
 - [Check RAM limit](https://developerslogblog.wordpress.com/2019/11/27/mongodb-sort-how-to-fix-maximum-ram-exceeded-error/)
