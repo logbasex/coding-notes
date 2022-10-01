@@ -3,7 +3,20 @@
 SSL/TLS is the underlying security technology behind the "S" in HTTPS. HTTPS is HTTP over TLS/SSL. Where a normal HTTP connection just uses a TCP/IP socket, HTTPS uses a TLS/SSL socket which wraps the HTTP connection in TLS/SSL.
 
 ## SSL (Secure Socket Layer)
+Về cơ bản thì chỉ để đảm bảo việc 2 máy tính có thể giao tiếp với nhau mà không có bất cứ ai có thể xen vào và biết được nội dung cuộc trò chuyện.
+Đảm bảo client gửi message đúng server và server response trả về đúng client. Đảm bảo nội dung tin nhắn được mã hóa mà
+message gửi đi thì chỉ có server đọc được và message trả về chỉ có client đọc được.
 
+- [How does HTTPS work? What's a CA? What's a self-signed Certificate?](https://www.youtube.com/watch?v=T4Df5_cojAs)
+- [SSL/TLS handshake Protocol](https://www.youtube.com/watch?v=sEkw8ZcxtFk)
+- [HTTPS và SSL/TLS - giải thích cho trẻ em 5 tuổi thế nào?](https://www.nextsec.vn/2021/05/https-va-ssl-tls-nhu-giai-thich-cho-tre-5-tuoi.html.html)
+- https://twitter.com/logbasex/status/1576093683140636672
+
+![image](https://user-images.githubusercontent.com/22516811/193396738-14877210-d38e-43c1-8a93-0e4d64b4a6d2.png)
+![image](https://user-images.githubusercontent.com/22516811/193396779-4d974cf9-76d3-41bc-a8e7-7559b59b1580.png)
+![image](https://user-images.githubusercontent.com/22516811/193396784-0e8d0c07-6b4d-4941-8212-748a96f74780.png)
+![image](https://user-images.githubusercontent.com/22516811/193396789-b67b3dbe-1de3-46ab-82c7-4c3fea0de2d8.png)
+![image](https://user-images.githubusercontent.com/22516811/193396794-50766946-8a0b-4c1e-bbc4-59e0684c158c.png)
 
 ## TLS (Transport Layer Security)
 
