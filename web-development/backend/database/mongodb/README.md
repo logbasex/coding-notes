@@ -149,14 +149,20 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
 
 ## Add a field to collection
 
-https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
-```shell
-db.yourCollection.updateMany({}, {$set:{"someField": "someValue", "someField": "someValue"}})
-```
+- https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
+  ```shell
+  db.yourCollection.updateMany({}, {$set:{"someField": "someValue", "someField": "someValue"}})
+  ```
+  
+  ```shell
+  db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
+  ```
 
-```shell
-db.crawl_api_config.update(query,{$set: {"pageIndex":""}},false,true)
-```
+## Remove field from document
+- https://stackoverflow.com/questions/6851933/how-to-remove-a-field-completely-from-a-mongodb-document
+  ```shell
+  db.crawl_item.updateMany({sportName: "Tennis"},{"$unset":{"title": 1, "rawTitle": 1}})
+  ```
 
 ## System
 
