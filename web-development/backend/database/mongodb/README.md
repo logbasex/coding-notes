@@ -134,6 +134,12 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
   ## data grip
   {}, {roles:1, _id:0}
   ```
+  
+- Distinct by condition
+  ```shell
+   db.event.distinct("results.name", {leagueName: 'LMB'})
+  ```
+  
 ## Delete
 
 - [Delete by date greater than equal](https://stackoverflow.com/questions/22422178/mongodb-remove-all-dates-less-than-specified)
@@ -145,7 +151,7 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
 
 https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection
 ```shell
-db.yourCollection.updateMany({}, {$set:{"someField": "someValue"}})
+db.yourCollection.updateMany({}, {$set:{"someField": "someValue", "someField": "someValue"}})
 ```
 
 ```shell
