@@ -1,0 +1,3 @@
+- https://medium.com/@sece.cosmin/monitor-spring-boot-application-performance-with-elastic-apm-elasticsearch-and-kibana-8d4299cad2be
+- https://www.baeldung.com/spring-boot-self-hosted-monitoring
+- https://levelup.gitconnected.com/how-to-integrate-elastic-apm-java-agent-with-spring-boot-7ce8388a206e
