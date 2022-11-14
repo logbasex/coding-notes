@@ -120,6 +120,8 @@ chmod 644 ~/.ssh/id_rsa.pub
 ssh -vT git@gitlab.fruitful.io
 ```
 
+Note that when backup config file from UNIX to Window -> **ensure line break format is correct**. Or using tool like `dos2unix` in order to convert `\n` in UNIX to `\n\r` in Window.
+
 ## [Bypassing SSH Server Verification](https://www.baeldung.com/linux/public-key-known_hosts)
 SSH server verification is performed on the client side, where the SSH client prompts an interactive question whenever we try to connect to a new/unknown SSH server.
 > $ ssh demo@test.rebex.net
