@@ -5,11 +5,11 @@ comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-
 apt-mark showmanual
 apt-mark showauto
 ```
-## [Ignore update package]
+## [Ignore update package](https://askubuntu.com/questions/678630/how-can-i-avoid-kernel-updates)
 ```
 apt-mark hold [package]
 ```
-## [Increase bandwidth]
+## [Increase bandwidth](https://superuser.com/questions/945015/why-is-apt-get-downloads-so-slow)
 ```
 // sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
 // Use apt bandwidth limit feature, this example limits the download
