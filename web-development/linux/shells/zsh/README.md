@@ -110,3 +110,7 @@ vi ~/.zshrc
 # F12
 bindkey -s '^[[24~' 'You`ve just pressed F12'
 ```
+
+## DIY Oh-my-zsh
+- https://medium.com/@dpeachesdev/intro-to-zsh-without-oh-my-zsh-part-1-c039de5ee22e
+- https://ianyepan.github.io/posts/moving-away-from-ohmyzsh/
