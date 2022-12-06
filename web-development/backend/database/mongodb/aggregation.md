@@ -135,3 +135,150 @@ Bài toán ở đây là dựa vào **eventId** từ hệ thống bên ngoài (*
     }
 ]
 ```
+
+## Spring mongodb
+
+### Example 1
+Given document `user_setting` with list of subscriptions (talents), let query active subscriptions only and order by position, and return more data about each subscription (`defaultLogoId` field store in collection `user_setting`, `name` field in collection `talent`).
+
+Document `user_setting`
+
+```json
+{
+  "_id": {
+    "$oid": "63888b964366ba202995d897"
+  },
+  "userId": "63888b964366ba202995d896",
+  "subscriptions": [
+    {
+      "userId": "6040b93008dcaa1aef2d6cfe",
+      "active": true,
+      "position": 0
+    },
+    {
+      "userId": "6040b92f08dcaa1aef2d6cfa",
+      "active": true,
+      "position": 1
+    },
+    {
+      "userId": "62c826f19c02eb53b726e8af",
+      "active": false
+    }
+  ],
+  "_class": "social.eko.entities.entity.UserSetting"
+}
+```
+
+```spring-mongodb-json
+db.user_setting.aggregate([
+    {
+        $unwind:"$subscriptions"
+    },
+    {
+        $match: {
+            "userId": "63888b964366ba202995d896",
+            "subscriptions.active": true
+        }
+    },
+    {
+        $lookup: {
+            from: "talent",
+            localField: "subscriptions.userId",
+            foreignField: "userId",
+            as: "t"
+        }
+    },
+    {
+        $unwind:"$t"
+    },
+    {
+        $project: {
+            name: "$t.name",
+
+            userId: "$t.userId",
+            position: "$subscriptions.position"
+        }
+    },
+    {
+        $lookup: {
+            from: "user_setting",
+            localField: "userId",
+            foreignField: "userId",
+            as: "u"
+        }
+    },
+    {
+        $unwind:"$u"
+    },
+    {
+        $project: {
+            defaultLogoId: "$u.defaultLogoId",
+            name: 1,
+            userId: 1,
+            position: 1
+        }
+    }
+])
+```
+
+Code
+
+```java
+public class SpringMongodb {
+	
+  UnwindOperation unwindSubscriptions = Aggregation.unwind(FieldConst.SUBSCRIPTIONS);
+  MatchOperation subscriptionMatch = Aggregation.match(
+          Criteria
+                  .where(FieldConst.USER_ID)
+                  .is(userId)
+                  .and(FieldConst.SUBSCRIPTION_ACTIVE)
+                  .is(true)
+  );
+
+  AggregationOperation subscriptionTalentLookup = Aggregation.lookup(
+          CollectionConst.TALENT,
+          FieldConst.SUBSCRIPTION_USER_ID,
+          FieldConst.USER_ID,
+          "subscription_talent"
+  );
+  UnwindOperation unwindSubscriptionTalent = Aggregation.unwind("subscription_talent");
+
+  ProjectionOperation talentNameProjection = Aggregation
+          .project()
+          .and("$subscription_talent.name")
+          .as(FieldConst.NAME)
+          .and("$subscription_talent.userId")
+          .as(FieldConst.USER_ID)
+          .and("$subscriptions.position")
+          .as(FieldConst.POSITION);
+
+  AggregationOperation subscriptionUserSettingLookup = Aggregation.lookup(
+          CollectionConst.USER_SETTING,
+          FieldConst.USER_ID,
+          FieldConst.USER_ID,
+          "subscription_user_setting"
+  );
+  UnwindOperation unwindSubscriptionUserSetting = Aggregation.unwind("subscription_user_setting");
+
+  ProjectionOperation defaultLogoIdProjection = Aggregation
+          .project(FieldConst.NAME, FieldConst.USER_ID, FieldConst.POSITION)
+          .and("$subscription_user_setting.defaultLogoId")
+          .as(FieldConst.DEFAULT_LOGO_ID);
+
+  SortOperation sortByPosition = Aggregation.sort(Sort.Direction.ASC, FieldConst.POSITION);
+
+  Aggregation agr = Aggregation.newAggregation(
+          unwindSubscriptions,
+          subscriptionMatch,
+          subscriptionTalentLookup,
+          unwindSubscriptionTalent,
+          talentNameProjection,
+          subscriptionUserSettingLookup,
+          unwindSubscriptionUserSetting,
+          defaultLogoIdProjection,
+          sortByPosition,
+          Aggregation.skip((long) pageable.getPageNumber() * pageable.getPageSize()),
+          Aggregation.limit(pageable.getPageSize())
+  );
+}
+```
