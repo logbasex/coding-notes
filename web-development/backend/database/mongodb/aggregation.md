@@ -282,3 +282,7 @@ public class SpringMongodb {
   );
 }
 ```
+
+### Example 2
+
+- https://stackoverflow.com/questions/62479752/spring-data-mongodb-aggregation-rename-id-in-projection
