@@ -24,6 +24,112 @@
   location: { $first: "$eventObj.location" }
 }
 ```
+### [$replaceRoot vs $unwind](https://stackoverflow.com/questions/64968829/mongodb-aggregation-project-the-specific-fields-from-lookup)
+
+- https://mongoplayground.net/p/_3mNnNtsFet
+
+```spring-mongodb-json
+db={
+  "orders": [
+    {
+      "_id": 1,
+      "itemId": "111",
+      "price": 12,
+      "quantity": 2
+    },
+    {
+      "_id": 2,
+      "itemId": "222",
+      "price": 20,
+      "quantity": 1
+    }
+  ],
+  "items": [
+    {
+      "_id": 111,
+      "item": "almonds",
+      "description": "almond clusters",
+      "instock": 120
+    },
+    {
+      "_id": 155,
+      "item": "bread",
+      "description": "raisin and nut bread",
+      "instock": 80
+    },
+    {
+      "_id": 222,
+      "item": "pecans",
+      "description": "candied pecans",
+      "instock": 60
+    }
+  ]
+}
+```
+
+**$replaceRoot**
+
+```spring-mongodb-json
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "items",
+      let: {
+        itemId: {
+          $convert: {
+            input: "$itemId",
+            to: "int"
+          }
+        }
+      },
+      pipeline: [
+        {
+          $match: {
+            $expr: {
+              $eq: [
+                "$_id",
+                "$$itemId"
+              ]
+            }
+          }
+        }
+      ],
+      // field in the items collection
+      as: "fromItems"
+    }
+  },
+  {
+    $replaceRoot: {
+      newRoot: {
+        $mergeObjects: [
+          {
+            $arrayElemAt: [
+              "$fromItems",
+              0
+            ]
+          },
+          "$$ROOT"
+        ]
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 1,
+      description: 1,
+      price: 1,
+      quantity: 1
+    }
+  }
+])
+```
+
+-------
+
+https://mongoplayground.net/p/wK0hKVrwmIK
+
+![Screenshot from 2022-12-07 17-22-43](https://user-images.githubusercontent.com/22516811/206153622-01ac17a8-8ec7-44ff-b6e9-94e74dc85b22.png)
+
 
 ### Match, Join by _id and Project field
 
