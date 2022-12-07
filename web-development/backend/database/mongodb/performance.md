@@ -6,12 +6,12 @@
 - [Best Practices Guide for MongoDB Performance](https://www.mongodb.com/basics/best-practices)
 ## Performance
 
-- [Check RAM limit](https://developerslogblog.wordpress.com/2019/11/27/mongodb-sort-how-to-fix-maximum-ram-exceeded-error/)
+### [Check RAM limit](https://developerslogblog.wordpress.com/2019/11/27/mongodb-sort-how-to-fix-maximum-ram-exceeded-error/)
   ```shell
   db.adminCommand( { getParameter : 1, "internalQueryExecMaxBlockingSortBytes" : 1 } )
   ``` 
 
-- [Sort and Indexes](https://pavneetkaur27.medium.com/mongodb-best-practices-for-performing-sorting-e7001f1f503f)
+### [Sort and Indexes](https://pavneetkaur27.medium.com/mongodb-best-practices-for-performing-sorting-e7001f1f503f)
   ```shell
   /* Creating compound index on fields 
     a: ascending order, 
@@ -46,6 +46,31 @@
 - [How to Speed-Up MongoDB Regex Queries by a Factor of up-to 10](https://medium0.com/statuscode/how-to-speed-up-mongodb-regex-queries-by-a-factor-of-up-to-10-73995435c606)
     - Regex and text index
 
+### **Explain `find()` query and `aggregation()` query**
+  - https://medium.com/mongodb-performance-tuning/explaining-aggregation-pipelines-2d1edd46a341
+
+    ```spring-mongodb-json
+    db.user_setting.find().explain("executionStats")
+    
+    db.user_setting.explain('executionStats').aggregate([
+        {
+            $unwind:"$subscriptions"
+        }]
+        // {
+        //     explain:true
+        // }
+    )
+    
+    db.user_setting.aggregate([
+        {
+            $unwind:"$subscriptions"
+        }],
+        {
+            explain:true
+        }
+    )
+    ```
+
 ## Sorting and Ordering
 
 [Ordering vs Sorting with Hibernate – What should you use?](https://thorben-janssen.com/ordering-vs-sorting-hibernate-use/#Ordering)
@@ -63,3 +88,9 @@
 - Cardinality càng thấp thì data trùng lặp càng nhiều, index ít tác dụng.
 
 [Performance Best Practices: Indexing](https://www.mongodb.com/blog/post/performance-best-practices-indexing)
+
+## Tools
+
+- Mongodb Profiler
+  - https://hevodata.com/learn/mongodb-profiler/
+  - https://dev.to/playtomic/lets-talk-about-performance-and-mongodb-4048
