@@ -128,7 +128,19 @@ db.orders.aggregate([
 
 https://mongoplayground.net/p/wK0hKVrwmIK
 
-![Screenshot from 2022-12-07 17-22-43](https://user-images.githubusercontent.com/22516811/206153622-01ac17a8-8ec7-44ff-b6e9-94e74dc85b22.png)
+![image](https://user-images.githubusercontent.com/22516811/206153622-01ac17a8-8ec7-44ff-b6e9-94e74dc85b22.png)
+
+-------
+https://mongoplayground.net/p/8__hXTjL2hf
+
+![https://stackoverflow.com/questions/66625887/using-replaceroot-in-mongodb](https://user-images.githubusercontent.com/22516811/206216071-df092e22-eb4f-491e-a6a7-61e3b6c6da32.png)
+
+-------
+https://mongoplayground.net/p/4bO7_UCte42
+
+https://stackoverflow.com/questions/71211274/mongodb-aggregate-unwind-and-keep-roots-as-seperate-documents
+
+![image](https://user-images.githubusercontent.com/22516811/206218772-1e8fbdec-874c-4b3d-a3e0-733f4aaed724.png)
 
 
 ### Match, Join by _id and Project field
