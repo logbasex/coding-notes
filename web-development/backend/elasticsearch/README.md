@@ -72,3 +72,17 @@ https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html
 
 ### SDK
 - https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-create-index.html
+
+## Tools
+- [elasticsearch-dump](https://github.com/elasticsearch-dump/elasticsearch-dump)
+    ```spring-mongodb-json
+    elasticdump \
+  --input=http://192.168.5.21:9200/news_index \
+  --output=http://localhost:9200/news_index \
+  --type=mapping
+
+    elasticdump \
+    --input=http://192.168.5.21:9200/news_index \
+    --output=http://localhost:9200/news_index \
+    --type=data
+    ```
