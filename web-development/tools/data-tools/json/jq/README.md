@@ -15,6 +15,51 @@ Remember: if JSON value has no double quotes (eg. for numeric) to do not supply 
 curl https://selenium-release.storage.googleapis.com | xq | jq 'last(.ListBucketResult|.Contents|.[]|.Key| select(test(".*selenium-server-standalone.*.jar")))
 ```
 
+## [How to iterate through keys of different names](https://stackoverflow.com/questions/35086391/jq-how-to-iterate-through-keys-of-different-names)
+
+- https://jqplay.org/s/dhVVmNrq0h2
+
+```json
+{
+  "leaderBoard": {
+    "people": {
+      "person": {
+        "41": {
+          "id": "f27fl5vv05p9259gz2oonuoyx",
+          "matchName": "Si Woo Kim",
+          "firstName": "Si Woo",
+          "lastName": "Kim",
+          "gender": "Male",
+          "nationalityId": "4vzpxtqkiwx0puygnmayr74di",
+          "nationality": "Korea Republic",
+          "madeCut": "Yes",
+          "position": 1,
+          "score": -18,
+          "holesPlayed": 72,
+          "strokes": 262
+        },
+        "42": {
+          "id": "f27fl5vv05p9259gz2oonuoyx",
+          "matchName": "Si Woo Kimm",
+          "firstName": "Si Woo",
+          "lastName": "Kim",
+          "gender": "Male",
+          "nationalityId": "4vzpxtqkiwx0puygnmayr74di",
+          "nationality": "Korea Republic",
+          "madeCut": "Yes",
+          "position": 1,
+          "score": -18,
+          "holesPlayed": 72,
+          "strokes": 262
+        }
+      }
+    }
+  }
+}
+```
+
+> .leaderBoard.people.person | to_entries | .[].value.matchName
+
 ## Remove double quote
 ```shell script
 --raw-ouput
