@@ -338,6 +338,13 @@ docker run -d --hostname my-rabbit --name some-rabbit -p 4369:4369 -p 5671:5671 
 docker exec some-rabbit rabbitmq-plugins enable rabbitmq_management
 ```
 
+### ELK 
+
+```shell
+# https://stackoverflow.com/questions/49088327/running-a-local-kibana-in-a-container
+# https://stackoverflow.com/questions/40341346/kibana-on-docker-cannot-connect-to-elasticsearch
+docker network create elasticsearch-kibana
+```
 - Elasticsearch
 
 ```shell script
@@ -347,7 +354,26 @@ sudo apt install elasticsearch
 
 
 ## Docker
-sudo docker run --name elasticsearch -p 9200:9200 -e discovery.type=single-node -e ES_JAVA_OPTS="-Xms1g -Xmx1g" -e xpack.security.enabled=false -d --restart=always docker.elastic.co/elasticsearch/elasticsearch:8.2.2
+docker run \
+  --name elasticsearch \ 
+  --network elasticsearch-kibana \
+  -p 9200:9200 \
+  -e discovery.type=single-node \ 
+  -e ES_JAVA_OPTS="-Xms1g -Xmx1g" \
+  -e xpack.security.enabled=false \
+  -d --restart=always \
+  docker.elastic.co/elasticsearch/elasticsearch:8.2.2
+```
+
+- Kibana
+```shell
+docker run \
+  --name kibana \
+  --publish 5601:5601 \
+  --network elasticsearch-kibana \
+  --env "ELASTICSEARCH_HOSTS=http://[Elasticsearch container's name]:9200" \
+  -d --restart=always \
+  docker.elastic.co/kibana/kibana:8.2.2
 ```
 
 #### Handy Tools
