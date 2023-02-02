@@ -44,9 +44,10 @@ https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html
 ## exercises
 
 - [Load sample dataset](https://viblo.asia/p/thong-ke-voi-aggregation-query-trong-elasticsearch-phan-1-cong-cu-truy-van-va-tong-quat-ve-aggregation-query-07LKXAdpZV4)
-> curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/account/_bulk?pretty&refresh" --data-binary "@accounts.json"
+    > curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/account/_bulk?pretty&refresh" --data-binary "@accounts.json"
 - [Aggregations](https://www.tutorialspoint.com/elasticsearch/elasticsearch_aggregations.htm)
 
+- [Get array size for each document](https://discuss.elastic.co/t/how-to-get-array-size-for-each-document/226599)
 
 ### ELASTICSEARCH FULL TEXT QUERIES VS TERM LEVEL QUERIES
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
