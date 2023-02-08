@@ -1,3 +1,6 @@
+## Introduction
+> **HTML is about content, meaning, semantics, and accessibility.**
+
 ## <!DOCTYPE html>
 - [Standards vs Quirks mode](https://www.youtube.com/watch?v=G1MOlh5uJYE)
   - Đại khái là quirks mode for compatible with previous version. Nếu không có dòng này thì sẽ bật quirks mode, một số code syntax cũ kĩ không chạy với standtard mới nhưng với quirk mode thì chạy vẫn ngon.
