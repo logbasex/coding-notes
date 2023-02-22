@@ -26,6 +26,18 @@ Note, you can use dependency injection for more than just testing. DI can also b
 
 ----
 
+https://forum.codewithmosh.com/t/what-is-the-difference-between-singleton-and-dependency-injection/11652
+
+Dependency Injection involves passing a service to an object; typically you pass an interface. The purpose of this is that the object being injected doesn’t need to create an instance of the class and makes it easier for code reuse and testing.
+
+The Singleton design pattern ensures an object only has once instance and cannot be re-instantiated.
+
+For Dependency Injection, typically you **would create an instance** of the service outside of the target object (the client) and pass it to the client.
+
+For a Singleton, the object **instantiates itself** only once and you can only get/set properties or use methods of the object; you cannot create a new singleton object.
+
+----
+
 https://stackoverflow.com/questions/53631662/dependency-injection-and-vs-global-singleton
 
 ----
