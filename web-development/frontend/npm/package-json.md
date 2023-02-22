@@ -1,3 +1,7 @@
+## [An Absolute Beginner's Guide to Using npm](https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/)
+> `npm init`
+> 
+> Generate **package.json** file
 ## [Do I need both package-lock.json and package.json?](https://stackoverflow.com/questions/45052520/do-i-need-both-package-lock-json-and-package-json)
 
 **package-lock.json**: records the exact version of each installed package which allows you to re-install them. Future installs will be able to build an identical dependency tree.
