@@ -1,3 +1,5 @@
+## [Elasticsearch: The Definitive Guide](https://feliperohdee.gitbooks.io/elastic-search-definitive-guide/content/010_Intro/25_Tutorial_Indexing.html)
+
 - apache lucene
   https://kipalog.kaopiz.com/posts/Lucene
   
