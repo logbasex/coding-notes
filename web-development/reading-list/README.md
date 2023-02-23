@@ -1,1 +1,4 @@
 - https://kipalog.com/posts/A-bookmark-reading-list-for-programmers
+- [Guide cho Senior Engineer trong việc hướng dẫn người mới](https://viblo.asia/p/guide-cho-senior-engineer-trong-viec-huong-dan-nguoi-moi-1Je5E84AlnL)
+- [5 kĩ năng giải quyết vấn đề của một kĩ sư phần mềm giỏi](https://viblo.asia/p/5-ki-nang-giai-quyet-van-de-cua-mot-ki-su-phan-mem-gioi-aWj532obl6m)
+- [Giải thích về Javascript thời hiện đại cho khủng long](https://viblo.asia/p/giai-thich-ve-javascript-thoi-hien-dai-cho-khung-long-Eb85oBM2l2G)
