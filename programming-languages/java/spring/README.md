@@ -107,3 +107,20 @@ So, all in all:
 - You may have a hard time justifying the cost of an application server when you only use it to boot Spring.
 - Commercial application servers also come with very good management consoles (like Websphere or Weblogic). If you need the application server to be maintained by some operations department … well spring doesn’t help much. Also if you need clustering, high availability and other centralized tasks, with Spring and most other “free” application servers you’ll have to struggle by yourself (not very difficult, but no nice GUI interface).
 - Personally, I always try to go with JEE where possible, and only think about Spring if the requirements are exotic enough and there’s no easy way around that.
+
+## Containerless - Make Jar not War
+
+Để adapt microservice
+
+https://medium.com/javarevisited/evolution-of-spring-boot-and-microservices-4d1109b5a4d3
+
+https://medium.com/@satyajit.nalavade/make-jar-not-war-josh-long-d6ce5fbb8a23
+
+1. Runnable Jars are a convenient way to package self-contained runnable application. This way we can minimize the dependencies.
+2. It is very cloud friendly and convenient. (bring your own container)
+3. Sharing application server by multiple applications was one of the reasons for packing multiple applications as wars.
+4. Build by Spring boot Maven and Gradle plugin
+5. Version control everything that is needed to run the application
+6. Easy to scale. For instance, copy it to another server, and then ‘just run it’. No installation and/or configuration necessary of a container such as TomEE, Wildfly, Websphere etc.
+7. Since we have to provide all dependencies, we know exactly what they are for each build
+8. We would like seen application as a single process that can be easily restarted with a service like upstart.
