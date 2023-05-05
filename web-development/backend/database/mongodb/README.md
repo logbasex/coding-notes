@@ -164,6 +164,13 @@ https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/
   db.crawl_item.updateMany({sportName: "Tennis"},{"$unset":{"title": 1, "rawTitle": 1}})
   ```
 
+## Group by multiple fields
+  ```shell
+  db.point.aggregate([
+      {$group : {_id:{userId:"$userId", talentUserId:"$talentUserId"}, count:{$sum:1}}}
+  ])
+  ```
+
 ## System
 
 - [Connection count](https://stackoverflow.com/questions/8975531/check-the-current-number-of-connections-to-mongodb)
