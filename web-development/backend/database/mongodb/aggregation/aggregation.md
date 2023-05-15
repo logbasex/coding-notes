@@ -1,5 +1,38 @@
 ## Tutorial
 - https://www.practical-mongodb-aggregations.com/
+
+## Syntax
+
+### Lookup & pipeline
+
+(ChatGPT mongodb match inside lookup syntax)
+
+You can use the `$match` stage inside a `$lookup` pipeline to filter the documents from the joined collection based on a condition. The syntax for using `$match` inside a `$lookup` pipeline is as follows:
+
+```json5
+{
+  $lookup: {
+    from: "joined_collection",
+    let: { localField: "$localField" },
+    pipeline: [
+      { $match:
+        { $expr:
+          { $and:
+            [
+              { $eq: [ "$joinedField", "$$localField" ] },
+              { $gte: [ "$someField", 10 ] }
+            ]
+          }
+        }
+      }
+    ],
+    as: "joined_docs"
+  }
+}
+```
+
+In this example, the `$lookup` stage is used to join the current collection with the `joined_collection`. The `let` variable `localField` is defined with the value of the local field that is used for the join. The `$match` stage is used inside the `pipeline` option of the `$lookup` stage to filter the documents from the `joined_collection`. In this case, the documents are filtered based on two conditions: `joinedField` must match the value of `localField`, and `someField` must be greater than or equal to 10. Finally, the resulting documents are stored in the `joined_docs` field.
+
 ## Aggregation
 - https://viblo.asia/p/tim-hieu-ve-aggregation-framework-trong-mongodb-Az45brRV5xY
 - https://www.baeldung.com/java-mongodb-aggregations
