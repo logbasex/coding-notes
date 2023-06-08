@@ -1,4 +1,4 @@
-## Editing
+# Editing
 
 ```shell script
 ctrl + x                                # Cut line
@@ -18,8 +18,11 @@ shift + tab / ctrl + [                  # unindent current line
 ctrl + shift + D         # duplicate line
 ```
 
+## Multiple Selection
+- https://stackoverflow.com/questions/43741052/sublime-text-3-multiple-selection
+- Select All => ctrl + shift + l
 
-## Navigation
+# Navigation
 
 ```shell script
 ctrl + p              # quick open file by name
@@ -40,3 +43,5 @@ ctrl + shift + p          # command prompt
 ```shell script
 F6                        # spelling check
 ```
+
+
