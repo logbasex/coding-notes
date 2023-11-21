@@ -4,6 +4,8 @@
 - [Embedded and Referenced document](https://betterprogramming.pub/embedded-vs-referenced-documents-in-mongodb-how-to-choose-correctly-for-increased-performance-d267769b8671)
 - [Embedded and Referenced document performance](https://medium.com/geekculture/mongodb-relationships-embedding-vs-linking-pro-and-cons-5f7583e655ab)
 - [Best Practices Guide for MongoDB Performance](https://www.mongodb.com/basics/best-practices)
+- [Indexing Strategies for High Performance in MongoDB
+  ](https://mingo.io/blog/indexing-strategies-for-high-performance-in-mongodb)
 ## Performance
 
 ### [Check RAM limit](https://developerslogblog.wordpress.com/2019/11/27/mongodb-sort-how-to-fix-maximum-ram-exceeded-error/)
