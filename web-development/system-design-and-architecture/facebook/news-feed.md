@@ -1,8 +1,8 @@
-##[A Dive into the Facebook Newsfeed Architecture](https://algodaily.com/lessons/dive-into-facebook-newsfeed-architecture)
+## [A Dive into the Facebook Newsfeed Architecture](https://algodaily.com/lessons/dive-into-facebook-newsfeed-architecture)
 
 ---
 
-##[Is Redis or MongoDB better for a news feed?](https://www.quora.com/Is-Redis-or-MongoDB-better-for-a-news-feed)
+## [Is Redis or MongoDB better for a news feed?](https://www.quora.com/Is-Redis-or-MongoDB-better-for-a-news-feed)
 
 Redis requires much more memory than mongoDb but therefore is much faster.
 
