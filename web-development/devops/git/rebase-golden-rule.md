@@ -1,0 +1,1 @@
+## Do not rebase commits that exist outside your repository.
