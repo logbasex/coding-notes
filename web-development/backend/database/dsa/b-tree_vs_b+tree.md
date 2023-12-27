@@ -2,6 +2,7 @@
 - https://vijini.medium.com/all-you-need-to-know-about-deleting-keys-from-b-trees-9090f3334b5c
 - https://www.baeldung.com/cs/b-tree-data-structure
 - https://www.youtube.com/watch?v=UzHl2VzyZS4
+- https://iorilan.medium.com/those-data-structures-can-not-be-learned-from-leetcode-b-tree-b-tree-1d7ada823fae
 
 ## Root / Internal / Leaf node.
 
