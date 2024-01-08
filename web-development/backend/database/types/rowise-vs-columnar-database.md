@@ -1,5 +1,9 @@
 ## Refenences
 - https://mangatmodi.medium.com/rowise-vs-columnar-database-theory-and-in-practice-53f54c8f6505
+- [Column vs Row Oriented Databases Explained](https://www.youtube.com/watch?v=Vw1fCeD06YI)
+- [Episode 2: Row vs Column Store](https://www.youtube.com/watch?v=XNrsRVMfj1c)
+- [Wide-column Database, Column Databases – A Deep Dive
+  ](https://scaleyourapp.com/wide-column-and-column-oriented-databases/)
 
 ----
 ----
