@@ -6,13 +6,21 @@
 ## Sample
 - https://gist.github.com/logbasex/9022949ac513bb1be632dd9b8013e277
 
-### Check Style with Google Style
+### Install Check Style plugin
 
 ![](intellij-check-style-plugin.png)
 
 ![](intellij-check-style-plugin-inspection.png)
 
-![](intellij-check-style-plugin-config.png)
+## Config custom checkstyle
+
+Download custom configuration [here](https://gist.github.com/logbasex/9022949ac513bb1be632dd9b8013e277)
+
+![](intellij-import-scheme-checkstyle-configuration.png)
+
+![](intellij-check-style-plugin-add-local-configuration.png)
+
+![](intellij-check-style-plugin-add-local-configuration-2.png)
 
 ### Check before commit
 
