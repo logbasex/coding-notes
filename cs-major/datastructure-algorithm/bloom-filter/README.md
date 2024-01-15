@@ -1,3 +1,18 @@
+## References
+- [Bloom Filters | Algorithms You Should Know #2](https://www.youtube.com/watch?v=V3pzxngeLqw)
+- [Bloom Filters Explained by Example](https://www.youtube.com/watch?v=gBygn3cVP80)
+- [What Are Bloom Filters? - Easy to understand](https://www.youtube.com/watch?v=kfFacplFY4Y)
+- [URL Shortening using Bloom Filter](https://systemdesign.one/url-shortening-system-design/#database-cleanup)
+- [Bloom Filters Explained](https://systemdesign.one/bloom-filters-explained/)
+----
+----
+ ## [Exploring Key Distributed System Algorithms and Concepts Series: 4— Bloom Filter and HeartBeat](https://medium.com/@gurpreet.singh_89/exploring-key-distributed-system-algorithms-and-concepts-series-4-bloom-filter-and-heartbeat-38895fc9eeb4)
+
+![](bloom-filter-graphic.png)
+
+----
+----
+
 ## [Bloom Filter Thread](https://twitter.com/mhevery/status/1628249281361747968)
 
 Make your code faster with Bloom filters. They are like HashMaps but smaller and allow you to short-circuit more expensive operations.
@@ -82,3 +97,79 @@ To check whether our Bloom filter contains a particular element ("is John here?"
 > If all those bits are set to true, the element **might be** in the set. 
 
 > If any of those bits is still set to false, the element **certainly isn't** in the set.
+
+----
+----
+
+## Trade Off
+
+![](bloom-filter-trade-off.png)
+
+## [Java code example](https://medium.com/@abhishekranjandev/demystifying-bloom-filters-with-real-life-examples-b66db7e37b37)
+
+The following code will show you the structure of a Bloom filter and how you can use it to check the presence of an element.
+
+```java
+import java.util.BitSet;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class BloomFilter {
+    private BitSet bitSet;
+    private int bitSetSize;
+    private int numOfHashFunctions;
+    
+    public BloomFilter(int size, int numOfHashFunctions) {
+        this.bitSetSize = size;
+        this.numOfHashFunctions = numOfHashFunctions;
+        this.bitSet = new BitSet(bitSetSize);
+    }
+    
+    // Add element to Bloom Filter
+    public void add(String url) throws NoSuchAlgorithmException {
+        for (int i = 0; i < numOfHashFunctions; i++) {
+            int hashCode = getHash(url, i);
+            bitSet.set(Math.abs(hashCode % bitSetSize));
+        }
+    }
+    
+    // Check if element is present in Bloom Filter
+    public boolean mightContain(String url) throws NoSuchAlgorithmException {
+        for (int i = 0; i < numOfHashFunctions; i++) {
+            int hashCode = getHash(url, i);
+            if (!bitSet.get(Math.abs(hashCode % bitSetSize))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // Computes the i-th hash function for the given URL
+    private int getHash(String url, int i) throws NoSuchAlgorithmException {
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+        md5.update(ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(i).array());
+        md5.update(url.getBytes());
+        byte[] digest = md5.digest();
+        int hash = ByteBuffer.wrap(digest).getInt();
+        return hash;
+    }
+}
+```
+
+Here is how you can use this Bloom filter:
+
+```java
+public static void main(String[] args) throws NoSuchAlgorithmException {
+    BloomFilter bloomFilter = new BloomFilter(1000000, 3);
+
+    // Add some URLs to the Bloom filter
+    bloomFilter.add("http://example1.com");
+    bloomFilter.add("http://example2.com");
+
+    // Check if URLs are present in the Bloom filter
+    System.out.println(bloomFilter.mightContain("http://example1.com")); // Outputs: true
+    System.out.println(bloomFilter.mightContain("http://example3.com")); // Outputs: false
+}
+```
