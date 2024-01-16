@@ -1,6 +1,15 @@
 ## References
 - [7 Bad Practices to Avoid When Writing SQL Queries for Better Performance 🚀](https://dev.to/abdelrahmanallam/7-bad-practices-to-avoid-when-writing-sql-queries-for-better-performance-c87)
 
+## Can use bitmap index for OR operator
+
+Bitmap indexing is used for columns with few unique values. Each bitmap represents a unique value. A bitmap indicates the presence or absence of a value in a dataset, using 1’s & 0’s. For existing values, the position of the 1 in the bitmap shows the location of the row in the table. Bitmap indexes are very effective in handling complex queries where multiple columns are used.
+
+
+![](images/bitmap-index-dictionary.png)
+
+![](images/bitmap-index-where-clause.png)
+
 ## [Why queries using OR cannot directly benefit from the single index scan.](https://www.postgresql.org/docs/9.6/indexes-bitmap-scans.html)
 
 Queries using `OR` conditions typically cannot directly benefit from a single index scan due to the way indexing and index scans are structured in relational databases. Here's a deeper dive into the reasons:
