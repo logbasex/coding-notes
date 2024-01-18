@@ -1,9 +1,13 @@
 ## References
 - [Indexes in Relational Databases(Detailed)](https://medium.com/@rishabh171192/indexes-in-relational-databases-detailed-ba5926121c38)
 - [Understanding Database Internals: How Tables and Indexes are Stored on Disk and Queried](https://vipulvyas.medium.com/understanding-database-internals-how-tables-and-indexes-are-stored-on-disk-and-queried-7cf09a6a48a4)
+- [How does the database index work?](https://www.linkedin.com/pulse/how-does-database-index-work-tushar-goel/)
+- [Database Indexes Explained](https://www.codeproject.com/Articles/5164742/Database-Indexes-Explained)
 
 ## Notes
 >  In the context of databases, the terms **page** and **block** are often used interchangeably.
+
+![](images/disk-data-pages.png)
 
 ----
 ----
@@ -14,7 +18,7 @@ Before jumping directly on indexing in relational DBMS. **Do you know tables are
 
 Tables are stored as files in memory. Files in turn consist of **continuous** blocks of storage. Tables are stored in these blocks.
 
-![](disk-data-file.png)
+![](images/disk-data-file.png)
 
 **File consisting of contiguous blocks**
 
@@ -41,8 +45,10 @@ After 5 blocks 1000B is used. Now for inserting 6th block, there are 2 ways we c
 2. Store full 200B in the next block. Also known as **Unspanned Mapping** .
 
 Mostly database systems using Unspanned Mapping as it helps in accessing elements quickly.
-## **We will move in an unorthodox way to learn Indexing.** First we will learn **why indexing?**  and then we will move to **what is Indexing?**
-## Why Indexing?
+
+### **We will move in an unorthodox way to learn Indexing.** First we will learn **why indexing?**  and then we will move to **what is Indexing?**
+
+### Why Indexing?
 
 Take a file with 10000 blocks and each block contains 100 items.
 
@@ -66,7 +72,7 @@ For **Indexing**  a table, internally a separate table/file(index file) is creat
 
 Size of the **Indexed file**  is very less as compared to the main file as it contains minimal data.
 
-![](disk-indexed-file.png)
+![](images/disk-indexed-file.png)
 
 
 **How to optimise Index file size when file contains sorted records?**
@@ -79,7 +85,7 @@ With this approach we can reduce the index file size.
 
 This is also called **Sparse Indexing(Not all records in Index file)**
 
-![](disk-indexed-file-optimized.png)
+![](images/disk-indexed-file-optimized.png)
 
 **Here 1–3 id will be taken care by one id =1 , rest by 4**
 
@@ -115,7 +121,7 @@ As the data grows in tables then the index table will also grow. So keeping data
 
 **Multilevel Index** breaks a big index file into multiple small internal and outer indexes. We just need to store a small outer index in main memory.
 
-![](disk-multi-level-index.png)
+![](images/disk-multi-level-index.png)
 
 **Multilevel Index**
 
@@ -152,7 +158,7 @@ On the other hand, a **row_id**  (also known as a row identifier or tuple identi
 
 Let’s consider an example to understand these concepts better. Suppose we have a table called “Employees” with the following structure:
 
-![](database-table.png)
+![](images/database-table.png)
 
 In this example, **Employees** is the table name, and each row represents information about an employee. The columns represent attributes such as employee ID, first name, last name, age, and salary. The table provides a structured way to store and organize employee data.
 
@@ -231,3 +237,26 @@ Notes:
 - **Primary Key and Clustered Index:**  As mentioned earlier,**the primary key of a table is typically implemented as a clustered index.**  A primary key is a unique identifier for each row in the table, and by organizing the table data around this unique key, the database system can quickly locate and retrieve specific rows based on their primary key values.
 - **MySQL InnoDB and Clustered Index:**  InnoDB is a storage engine used in MySQL. **InnoDB tables always have a primary key, which automatically becomes the clustered index.**  Any additional indexes created on the table will point to the primary key “value,” meaning that they will use the clustered index for accessing the corresponding rows.
 - **Postgres and Secondary Indexes:**  In **PostgreSQL (Postgres), unlike MySQL InnoDB, only secondary indexes exist.**  These secondary indexes do not have the data itself; instead, they **directly point to the row_id, which serves as the identifier for each row in the heap** . When using a secondary index in Postgres, the database looks up the row_id from the index and then fetches the complete row from the heap based on that row_id.
+
+----
+----
+
+## [What does physical data organization mean?](https://www.freecodecamp.org/news/database-indexing-at-a-glance-bb50809d48bd/)
+
+Physically, data is organized on disk across thousands or millions of disk / data blocks. For a clustered index, it’s not mandatory that all the disk blocks are contagiously stored. Physical data blocks are all the time moved around here & there by the OS whenever it’s necessary. A database system does not have any absolute control over how physical data space is managed, but inside a data block, records can be stored or managed in the logical order of the index key. The following simplified diagram explains it:
+
+![](images/disk-block.png)
+
+- The yellow coloured big rectangle represents a disk block / data block
+
+- The blue coloured rectangles represent data stored as rows inside that block
+
+- The footer area represents the index of the block where red coloured small rectangles reside in sorted order of a particular key. These small blocks are nothing but sort of pointers pointing to offsets of the records.
+
+Records are stored on the disk block in any arbitrary order. Whenever new records are added, they get added in the next available space. Whenever an existing record is updated, the OS decides whether that record can still fit into the same position or a new position has to be allocated for that record.
+
+So position of records are completely handled by OS & no definite relation exists between the order of any two records. In order to fetch the records in the logical order of key, disk pages contain an index section in the footer, the index contains a list of offset pointers in the order of the key. Every time a record is altered or created, the index is adjusted.
+
+In this way, you really don’t need to care about actually organizing the physical record in a certain order, rather a small index section is maintained in that order & fetching or maintaining records becomes very easy.
+
+### explain

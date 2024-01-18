@@ -1,6 +1,7 @@
 ## References
 - [Database Indexing Explained.](https://twitter.com/NikkiSiapno/status/1719352895169265797)
 - [Indexing 101](https://dev.to/shofiya2003/indexing-101-2nbe)
+- [How database indexing actually works internally?](https://www.pankajtanwar.in/blog/how-database-indexing-actually-works-internally)
 
 ## Overview
 
