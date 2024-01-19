@@ -2,6 +2,7 @@
 - [Bitmap Indexing in DBMS](https://www.geeksforgeeks.org/bitmap-indexing-in-dbms/)
 - [Insights into Bitmap Index](https://levelup.gitconnected.com/insights-into-indexing-using-bitmap-index-c28a3db1ad97)
 - [003: Hiểu về Index để tăng performance với PostgreSQL P2](https://viblo.asia/p/003-hieu-ve-index-de-tang-performance-voi-postgresql-p2-m68Z049MZkG)
+- [Bitmap indexes in Go: unbelievable search speed](https://medium.com/bumble-tech/bitmap-indexes-in-go-unbelievable-search-speed-bb4a6b00851)
 
 ## Overview
 > Bitmap Indexing is a data indexing technique used in database management systems (DBMS) to improve the performance of read-only queries that involve large datasets. It involves creating a bitmap index, which is **a data structure that represents the _`presence`_ or _`absence`_ of data values in a table or column**.

@@ -2,6 +2,7 @@
 - [Why is the default page size for databases so small?](https://dba.stackexchange.com/questions/294587/why-is-the-default-page-size-for-databases-so-small)
 - [Database Pages — A deep dive](https://medium.com/@hnasr/database-pages-a-deep-dive-38cdb2c79eb5)
 - [Understanding the Internals of a Data Page](https://www.sqlservercentral.com/articles/understanding-the-internals-of-a-data-page)
+- [Following a database read to the metal](https://medium.com/@hnasr/following-a-database-read-to-the-metal-a187541333c2)
 
 ---
 ---
