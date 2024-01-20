@@ -43,10 +43,10 @@ Vì chúng ta luôn biết được ngày đầu tiên của năm là thứ mấ
 
 day_of_week_index(1/2/0002) = day_of_week_index(1/1/0002) + (số_ngày_từ ngày_đầu_tiên_của_năm) % 7.
 							= day_of_week_index(1/1/0002) + 31 % 7.
-							= 1 + 3 = 5 (thứ 5).
+							= 1 + 3 = 4 (thứ 5).
 
 day_of_week_index(1/3/0002) = day_of_week_index(1/1/0002) + (31 + 28) % 7.
-							= 1 + 3 = 5 (thứ 5).
+							= 1 + 3 = 4 (thứ 5).
 
 day_of_week_index = (y + y/4 - y/100 + y/400 + (day_offset_from_start_day_of_year % 7)) % 7
 
