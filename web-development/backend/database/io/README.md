@@ -1,0 +1,2 @@
+## References
+- [Optimizing Data Memory Movement: Buffer Pools and Memory-Mapped File I/O](https://medium.com/@ahmedm.saeedelgohary/optimizing-data-memory-movement-buffer-pools-and-memory-mapped-file-i-o-a3b153dc1002)
