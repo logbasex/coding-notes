@@ -6,7 +6,7 @@
 
 ```
 {thứ 2, thứ 3, thứ 4, thứ 5, thứ 6, thứ 7, chủ nhật}
-
+{    0,     1,     2,     3,     4,     5,        6}
 1/1/0001 => thứ 2
 1/1/0002 => thứ 3
 1/1/0003 => thứ 4
@@ -43,10 +43,10 @@ Vì chúng ta luôn biết được ngày đầu tiên của năm là thứ mấ
 
 day_of_week_index(1/2/0002) = day_of_week_index(1/1/0002) + (số_ngày_từ ngày_đầu_tiên_của_năm) % 7.
 							= day_of_week_index(1/1/0002) + 31 % 7.
-							= 1 + 3 = 4 (thứ 5).
+							= 1 + 3 = 4 (thứ 6).
 
 day_of_week_index(1/3/0002) = day_of_week_index(1/1/0002) + (31 + 28) % 7.
-							= 1 + 3 = 4 (thứ 5).
+							= 1 + 3 = 4 (thứ 6).
 
 day_of_week_index = (y + y/4 - y/100 + y/400 + (day_offset_from_start_day_of_year % 7)) % 7
 
