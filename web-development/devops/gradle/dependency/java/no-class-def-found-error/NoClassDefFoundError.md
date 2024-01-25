@@ -6,29 +6,31 @@ My project is built using **Spring Boot 3** and **Java 21**. However, when I att
 
 Vấn đề có thể là library(chứa file .java) dùng dể compile ra file .class khác với library được import vào trong hệ thống (có thể được upgrade thông qua gradle dependency version resolve)
 
-![](no-class-def-found-error.png)
+![](images/no-class-def-found-error.png)
 
-![](library-source-code-does-not-match-byte-code-of-class.png)
+![](images/library-source-code-does-not-match-byte-code-of-class.png)
+
+> Encountering a NoClassDefFoundError in a Gradle project typically indicates that a required class is not found at runtime, even though it was available during compile time.
 
 ---
 ---
 
 ## [RUNTIME CLASSPATH VS COMPILE-TIME CLASSPATH](https://techblog.bozho.net/runtime-classpath-vs-compile-time-classpath/)
 
-![](gradle-dependencies.png)
+![](images/gradle-dependencies.png)
 
 So, what is a classpath? A set of all the classes (and jars with classes) that are required by your application. But there are two, or actually three distinct classpaths:
 
 ### compile-time classpath
 
-![](dependencies-compile-classpath.png)
+![](images/dependencies-compile-classpath.png)
 
 - **compile-time classpath**. Contains the classes that you’ve added in your IDE (assuming you use an IDE) in order to compile your code. In other words, this is the classpath passed to **`javac`** (though you may be using another compiler).
 
 
 ### runtime classpath
 
-![](dependencies-runtime-classpath.png)
+![](images/dependencies-runtime-classpath.png)
 
 - **runtime classpath**. Contains the classes that are used when your application is running. That’s the classpath passed to the **`java`** executable. In the case of web apps this is your /lib folder, plus any other jars provided by the application server/servlet container
 
@@ -106,12 +108,12 @@ In both cases, to resolve these issues, you need to ensure that all required lib
 
 ## Direct Dependency vs Transitive Dependency
 
-![](dependency-direct.png)
+![](images/dependency-direct.png)
 > direct dependencies (those you explicitly define)
 
 ----
 
-![](dependency-transitive.png)
+![](images/dependency-transitive.png)
 > transitive dependencies (dependencies of your direct dependencies)
 
 ----
