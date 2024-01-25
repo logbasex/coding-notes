@@ -125,3 +125,56 @@ dependencies {
 ### Summary:
 
 In this example, the Java compilation process focuses on ensuring that the necessary API signatures (methods, classes) are present and correctly referenced in your code. It doesn't delve into the actual implementation details or execute any methods. This allows for changes in the library (like adding new methods or changing internal implementations) without affecting the ability of dependent code to compile, as long as the API signatures remain consistent.
+
+----
+----
+
+Certainly! Let's create a hypothetical example to illustrate how your code might use classes or methods from a Java 8-dependent library (`legacy-java8-lib`) and how the compiler handles this during the build process in a Gradle project.
+
+### Scenario Setup
+
+Assume `legacy-java8-lib` is a library that provides a utility class named `Java8Utility`. This class contains a method `performAction()` that you want to use in your application.
+
+### Step 1: Add the Dependency in `build.gradle`
+
+Your `build.gradle` file includes the dependency:
+
+```groovy
+dependencies {
+    implementation 'com.example:legacy-java8-lib:1.0.0'
+}
+```
+
+### Step 2: Write Code Using `legacy-java8-lib`
+
+You write a class in your project that uses `Java8Utility` from `legacy-java8-lib`. Here is an example Java class:
+
+```java
+import com.example.legacy.Java8Utility;
+
+public class MyApp {
+    public void useLegacyLib() {
+        Java8Utility utility = new Java8Utility();
+        utility.performAction();
+    }
+}
+```
+
+### Step 3: Compile the Project with Gradle
+
+When you execute the build (e.g., `gradlew build`), the following happens:
+
+1. **Gradle Resolves Dependencies**: Gradle downloads `legacy-java8-lib` and makes it available on the classpath.
+
+2. **Compilation**: The Java compiler compiles your code. It sees the import statement `import com.example.legacy.Java8Utility;` and looks for `Java8Utility` in the classpath.
+
+3. **Classpath Check**: Because `legacy-java8-lib` is in the classpath, the compiler finds `Java8Utility` and its method `performAction()`.
+
+4. **Successful Compilation**: Assuming there are no other issues (like syntax errors), the compiler successfully compiles your `MyApp` class, as it can resolve all references.
+
+### Compile-Time vs. Runtime
+
+- **Compile-Time**: The compiler only needs to ensure that all referenced classes and methods are present in the classpath. It doesn't execute the code or check the runtime environment's library versions.
+- **Runtime**: When you run the application, the JVM will try to load `Java8Utility` and execute `performAction()`. If `Java8Utility` or any of its dependencies use classes that are not available in the runtime environment (for example, Java 21), you will encounter a `NoClassDefFoundError` or similar runtime errors.
+
+This example illustrates how a project can compile successfully because all dependencies are resolved at compile-time, but still fail at runtime if the runtime environment differs significantly from the compile-time environment, such as using a different Java version that doesn't include certain classes or APIs.
