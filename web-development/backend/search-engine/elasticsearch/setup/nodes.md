@@ -1,13 +1,25 @@
+## Node roles
+- [How to configure all Elasticsearch node roles (master, data, coordinating..)](https://opster.com/guides/elasticsearch/data-architecture/how-to-configure-all-elasticsearch-node-roles/#Master-node)
+
 ## What is worker node(data node) vs master node in elasticsearch
+
+![](nodes-role.png)
+
 In Elasticsearch, the architecture is designed to be distributed and scalable, often involving multiple nodes. Understanding the difference between a worker node and a master node is crucial for effective management and utilization of Elasticsearch clusters.
 
 1. **Master Node:**
+
+   ![](cluster-master-node.png)
+
    - **Primary Role:** The master node in Elasticsearch is responsible for managing the cluster's overall operations. It doesn't typically handle client requests or store data. Instead, its main tasks include creating or deleting indices, keeping track of which nodes are part of the cluster, and managing other cluster-wide settings and operations.
    - **Cluster State Management:** The master node maintains the cluster state, which includes information about all the indices, shards, and which nodes hold which shards.
    - **Election Process:** In a cluster, there can be multiple nodes with the potential to become a master, but only one is elected to be the active master at any given time. This election process is crucial for cluster resilience.
    - **Minimal Resource Utilization:** Since the master node has critical responsibilities for cluster stability, it's often configured to use minimal resources for data processing or querying, ensuring it can efficiently handle cluster management tasks.
 
 2. **Worker Node:**
+
+   ![](cluster-worker-node.png)
+
    - **Primary Role:** Worker nodes are the workhorses of an Elasticsearch cluster. They are responsible for storing data and executing data-related operations like indexing, search queries, and aggregations.
    - **Data Handling:** Each worker node holds shards of data. These shards can either be primary (original copy) or replica shards (backup copies). This distribution of data enhances performance and fault tolerance.
    - **Scalability:** Adding more worker nodes to a cluster can increase its capacity for data storage and processing power, improving overall performance and scalability.

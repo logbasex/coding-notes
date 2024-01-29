@@ -3,8 +3,20 @@
 
 ----
 ----
+
 ## Def
+
+![](cluster-architecture.png)
+
 > Each index in Elasticsearch is divided into shards. For each shard, there are primary shards and replica shards.
+
+A key aspect that allows Elasticsearch to be a fault-tolerance and scalable tool is the ability to distribute data across multiple nodes. **[Shards are building blocks representing a subset of the data stored in the index.](https://www.baeldung.com/java-shards-replicas-elasticsearch)** Not just that, a shard is a Lucene index defined and stored within a node, while the collection of one or more shards represents an Elacticsearch index. **Shards are used as a way to distribute data horizontally across the cluster nodes/members.**
+
+Elacticsearch indexes represent a set of data distributed across the Elasticsearch cluster. A cluster is a group of machines running Elasticsearch that can communicate with each other. This means one cluster can contain multiple indexes and, therefore, various shards. **Such shards improve fault tolerance by removing the single point of failure caused by the possibility of storing all the data in a single node.**
+
+The distribution of the shards across the nodes guarantees in case of loss, or when the node goes down, only a sub-part of the data becomes unavailable, but the cluster can continue serving the other part. **Another benefit is stability, as each shard will try to handle the request concurrently, which may optimize the use of the cluster’s resources and result in better performance.** Of course, this depends on several factors, like index size, instance size, and node load.
+
+Sharding also reduces the amount of data Elasticsearch needs to scan to fulfill each request by distributing each across different instances and therefore parallelizing the execution of the query. However, this has its price, and when sharding an index, we add some extra costs like coordination and communication between nodes.
 
 ----
 ----
