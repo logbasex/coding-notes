@@ -76,3 +76,10 @@ networks:
 Check
 
 > curl -X GET localhost:9200/_cat/nodes
+
+![](cluster-master-node.png)
+
+![](cluster-worker-node.png)
+
+---
+---
