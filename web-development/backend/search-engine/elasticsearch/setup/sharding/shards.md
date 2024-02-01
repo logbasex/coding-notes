@@ -1,12 +1,19 @@
 ## References
 - [Why is my shard unassigned](https://writequit.org/org/es/#why-is-my-shard-unassigned)
-
+- [Elasticsearch Pro-Tips Part I - Sharding](https://www.linkedin.com/pulse/elasticsearch-pro-tips-part-i-sharding-prakhar-nigam/)
+- [Understanding Sharding in Elasticsearch](https://codingexplained.com/coding/elasticsearch/understanding-sharding-in-elasticsearch)
 ----
 ----
 
 ## Def
+![](sharding-1.png)
 
-![](cluster-architecture.png)
+> There are two main reasons why sharding is important, with the **first one being that it allows you to split and thereby scale volumes of data**. So if you have growing amounts of data, you will not face a bottleneck because you can always tweak the number of shards for a particular index. I will get back to how to specify the number of shards in just a moment. **The other reason why sharding is important, is that operations can be distributed across multiple nodes and thereby parallelized**. This results in increased performance, because multiple machines can potentially work on the same query. This is completely transparent to you as a user of Elasticsearch.
+
+
+![](sharding-2.png)
+
+![](../cluster-architecture.png)
 
 > Each index in Elasticsearch is divided into shards. For each shard, there are primary shards and replica shards.
 
@@ -28,7 +35,7 @@ Sharding also reduces the amount of data Elasticsearch needs to scan to fulfill 
 
 ### Cannot allocate because allocation is not permitted to any of the nodes
 
-![](cluster-shards-unassigned.png)
+![](../cluster-shards-unassigned.png)
 
 Endpoint:
 ```
@@ -123,7 +130,7 @@ Response
 
 ### Allocation successfully
 
-![](cluster-shards-prirep.png)
+![](../cluster-shards-prirep.png)
 
 In the context of Elasticsearch, the numbers you're referring to, like `1 0 2`, likely represent the count of different types of shards on a particular node within the Elasticsearch cluster. Here's what each number typically stands for:
 
@@ -209,8 +216,19 @@ The cluster health is green, which means all primary and replica shards are allo
 > 
 > node **es_container_1** có 2 shard là 0 và 1. shard 0 là **r**(replica) và shard 1 là **p**(primary).
 
+Elasticsearch ensures that replica shards are not allocated on the same node as their corresponding primary shards. This design decision enhances fault tolerance by protecting against node-level failures. If both the primary and its replicas were on the same node, a node failure would result in the loss of both copies of the data.
+
+> Ví dụ ở trên trong trường hợp shard 2 thì primary shard nằm ở node **es_container_2**
+> và replica shard nằm ở node **es_container_3**.
+
+For indexing operations, each document must be written to both the primary shard and its replicas. This ensures that all copies of the data are up-to-date and consistent.
+
+More: [**Elasticsearch Pro-Tips Part I - Sharding**](https://www.linkedin.com/pulse/elasticsearch-pro-tips-part-i-sharding-prakhar-nigam/)
+
+
 ----
 ----
+
 ## explain how index data allocate to shard with data example
 To explain how index data is allocated to shards in Elasticsearch, let's consider a practical example. Imagine we have an Elasticsearch cluster and we want to index a dataset of customer information. Each record in the dataset represents a customer and contains fields like `customer_id`, `name`, `email`, `location`, and `join_date`.
 
@@ -282,7 +300,7 @@ In Elasticsearch, data in an index is divided into shards, which are essentially
 ### Replica Shards
 - **Purpose**: Replica shards are copies of the primary shards. They serve two main purposes: to provide high availability and to increase read throughput.
 - **High Availability**: If a node containing a primary shard fails, one of the replica shards can be promoted to a primary shard, ensuring that no data is lost and the index remains available for both reads and writes.
-- **Read Scalability**: Replica shards can serve read requests (searches), which means you can scale out search volume by adding more replicas.
+- **Read Scalability**: Replica shards can serve read requests (searches), which means you can scale out search volume by adding more replicas => distribute the search load.
 - **Dynamic**: Unlike primary shards, the number of replica shards can be adjusted dynamically on a live index to change the redundancy and capacity of the system.
 
 Each primary shard can have one or more replica shards, and by default, Elasticsearch creates one replica for each primary shard.
@@ -298,3 +316,50 @@ The primary and replica shard mechanism is central to the distributed nature of 
 ----
 ----
 
+## Does each primary shard need to have one replica shard
+
+In Elasticsearch, each primary shard does not necessarily need to have exactly one replica shard; the number of replica shards is configurable and can be set based on your specific requirements for redundancy, availability, and read throughput. When you create an index in Elasticsearch, you can specify the number of replicas for each primary shard using the `number_of_replicas` setting. This setting can be adjusted at any time on a live cluster, allowing you to increase or decrease the number of replica shards as needed.
+
+### Key Points:
+- **Default Setting**: By default, Elasticsearch sets the `number_of_replicas` to 1, meaning each primary shard will have one replica shard. This default configuration provides a basic level of redundancy and improved read capacity.
+- **Configurability**: You can configure the number of replicas per primary shard to be zero (no replicas), one, or more, depending on your requirements:
+   - **Zero replicas** mean that no additional copies of the primary shard's data are stored. **This might be suitable for `development` or `testing environments` where high availability is not a concern**.
+   - **One or more replicas** increase fault tolerance and read capacity. The more replica shards you have, the better your cluster can handle read requests, as they can be distributed across more shards. However, each additional replica requires more storage space and resources.
+- **Adjustments**: The number of replica shards can be adjusted dynamically without downtime, allowing you to respond to changes in your data storage and access needs. For instance, you might start with a lower number of replicas and increase them as your read load grows.
+
+### Example: Setting Replica Count
+
+When creating an index, you can specify the number of replicas like so:
+
+```json
+PUT /my_index
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 3, // Number of primary shards
+      "number_of_replicas": 2 // Number of replicas for each primary shard
+    }
+  }
+}
+```
+
+This example creates an index with 3 primary shards and 2 replicas for each primary shard, resulting in a total of 6 replica shards.
+
+### Adjusting Replicas Dynamically
+
+You can adjust the number of replicas dynamically using the Update Index Settings API:
+
+```json
+PUT /my_index/_settings
+{
+  "index": {
+    "number_of_replicas": 1
+  }
+}
+```
+
+This command changes the number of replicas to 1 for each primary shard of the index `my_index`.
+
+### Conclusion
+
+The decision on how many replicas to configure for each primary shard should consider factors such as the criticality of the data (for redundancy), the expected read and write workload, and the resources available in your Elasticsearch cluster. There is no strict requirement to have exactly one replica per primary shard; the optimal configuration depends on your specific use case and operational requirements.
