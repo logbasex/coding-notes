@@ -1,8 +1,62 @@
 ## References
 - [Distributed Search Execution](https://www.elastic.co/guide/en/elasticsearch/guide/master/distributed-search.html)
+- [Scaling Elasticsearch](https://medium.com/hipages-engineering/scaling-elasticsearch-b63fa400ee9e)
 
 ----
 ----
+
+## Scaling Elasticsearch
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an awesome product. It’s a great search engine that sits on top of the great [Apache Lucene](http://lucene.apache.org/core/) project and makes index management a breeze.
+
+Its very simple initial setup can mislead you into thinking that operations will be simple as well, but in reality they can be quite challenging. The biggest challenge is understanding how to scale it, how it will behave under load, how it will behave when there’s an issue and a node is down. The _non-happy_ case.
+
+The TL;DR of this article would be that as long as you’re operating under the capacity of your cluster Elasticsearch will scale almost linearly with the size of your data and throughput; but as soon as you hit the capacity of your cluster it will degrade exponentially. Understanding why this happens will help you do proper capacity planning.
+
+There are a couple of basic concepts you need to grasp to properly understand how to scale Elasticsearch:
+
+## Index Sharding
+
+One of the great features of Elasticsearch is that it’s designed from the ground up to be _horizontally scalable_, meaning that by adding more nodes to the cluster you’re capable to grow the capacity of the cluster (as opposed to _vertical scalability_ that requires you to have bigger machines to be able to grow your capacity). We’ll see later what capacity actually means.
+
+Elasticsearch achieves horizontal scalability by sharding its index and assigning each shard to a node in the cluster. The index is the internal structure that Elasticsearch utilises to store and locate documents in an efficient way (think of a book’s index)
+
+![](distributed-search-1.png)
+
+Figure 1: Sharding of the document index and assignment to nodes: 5 shards
+
+This allows each node to have to deal with only part of the full document index. Furthermore, Elasticsearch also has the concept of _replicas_, which are copies of shards. This allows fault tolerance and redundancy, as well as an increased throughput.
+
+![](distributed-search-2.png)
+
+Figure 2: Shards and replicas — 5 shards, 1 replica
+
+For example, Figure 2 shows a cluster that can handle the loss of any one node as another node will have a replica of any of its primary shards.
+
+## Distributed Search
+
+Now that we know how the index is managed, we need to understand how searches are handled.
+
+In this distributed environment, searches are done in two phases:
+
+-   [Query Phase](https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_phase.html): A new search is received, and it’s transformed into a set of searches (one on each shard). Each shard returns its matching documents, the lists are merged, rank, and sorted  
+    → The result of this phase is the list of documents ids that will be returned to the user
+-   [Fetch Phase](https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html): Get the documents by id from their owning shards and return to the client
+
+Important to know also is that in Elasticsearch any node can receive a search request. That node acts as the coordinator for that search and sends instructions to the other nodes on what they need to do to be able to fulfill it.
+
+![](distributed-search-3.png)
+
+Figure 3: How Distributed search works
+
+In Figure 3 we see how distributed search works and how each node managed the search on the shards it has and reported back to the coordinator with the results.
+
+Each of these searches is performed by a Thread in the “Search” thread pool of each node. How many threads are available in each node is configured in Elasticsearch on the _thread\_pool.search_ setting (see more info [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-threadpool.html)), and can be monitored with a call to the _/\_cat/thread\_pool_ endpoint (as described in [the docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-thread-pool.html))
+
+Now that we have a good understanding of how document index is managed, and how a distributed search is done, we can learn about how to scale Elasticsearch
+
+----
+----
+
 
 ## Explain life cycle of a search request inside Elasticsearch Cluster
 
