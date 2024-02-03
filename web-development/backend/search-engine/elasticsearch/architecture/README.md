@@ -3,6 +3,7 @@
 - [Elasticsearch: How Reads, Writes and Search work in the Cluster](https://medium.com/wix-engineering/elasticsearch-how-reads-writes-and-search-work-in-the-cluster-5e011aaa7de9)
 - [Elasticsearch Collection](https://github.com/exajobs/elasticsearch-collection/blob/main/README.md)
 - [Shards and Replicas in Elasticsearch ](https://www.baeldung.com/java-shards-replicas-elasticsearch)
+- [Elasticsearch: How Reads, Writes and Search work in the Cluster](https://medium.com/wix-engineering/elasticsearch-how-reads-writes-and-search-work-in-the-cluster-5e011aaa7de9)
 
 ----
 ----
