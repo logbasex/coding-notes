@@ -5,6 +5,18 @@
 ---
 ---
 
+![](insertion.png)
+
+## [Refresh vs Flush](https://stackoverflow.com/questions/19963406/refresh-vs-flush)
+
+> **refresh**: transform in-memory buffer to in-memory segment which can be searched.
+
+![](insertion-refresh.png)
+
+> **flush**: (a) merge small segments to be a big segment (b) fsync the big segment to disk (c) empty translog.
+
+![](insertion-flush.png)
+
 ## How insertion works with lucene segment in elasticsearch
 
 In Elasticsearch, which is built on top of Lucene, the process of inserting (indexing) documents into segments is a critical part of how it manages and searches data efficiently. Here's a step-by-step overview of how insertion works within the context of Lucene segments in Elasticsearch:
