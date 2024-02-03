@@ -1,7 +1,7 @@
 ## References
 - [Analysis of Lucene — Basic Concepts](https://alibaba-cloud.medium.com/analysis-of-lucene-basic-concepts-5ff5d8b90a53)
 - [Managing Relations Inside Elasticsearch](https://www.elastic.co/blog/managing-relations-inside-elasticsearch)
-
+- [ELASTICSEARCH INTERNALS](https://www.javaadvent.com/2022/12/elasticsearch-internals.html)
 ---
 ---
 
@@ -16,6 +16,48 @@
 > **flush**: (a) merge small segments to be a big segment (b) fsync the big segment to disk (c) empty translog.
 
 ![](insertion-flush.png)
+
+---
+---
+
+## Translog vs Memory Buffer
+
+![](insertion-1.png)
+
+In Elasticsearch, both the "translog" (transaction log) and "memory buffer" serve crucial roles in the process of indexing and persisting data, but they have different purposes and characteristics.
+
+### Translog
+
+The translog, or transaction log, is a durability mechanism in Elasticsearch that ensures data is not lost in the event of a crash. Here's how it works:
+
+- **Purpose**: The translog records all the operations (such as index, update, delete) that occur after a document is indexed and before it is committed to the segment files on disk. Its primary purpose is to provide a way to recover data that was in the process of being indexed but not yet fully persisted due to a crash or restart.
+
+- **Operation**: When a document is indexed in Elasticsearch, it first goes to an in-memory buffer and then is written to the translog. Periodically, the data in the memory buffer is flushed to a new segment file on disk, and the translog is used to ensure that any operations not yet committed to disk can be replayed and thus not lost.
+
+- **Durability**: The translog plays a critical role in Elasticsearch's durability guarantee, enabling the system to recover from crashes by replaying operations from the translog.
+
+### Memory Buffer
+
+The memory buffer in Elasticsearch is a temporary holding area for newly indexed documents before they are written to disk. It functions as follows:
+
+- **Purpose**: The memory buffer collects and holds documents that are awaiting to be written to a segment file on disk. This process is part of Elasticsearch's mechanism to efficiently index and store data.
+
+- **Operation**: Documents are collected in the memory buffer and, once a certain size or time threshold is reached, the buffer is flushed to disk as a new segment file. This process is known as a "refresh," making the data in the newly created segment available for search.
+
+- **Performance**: The memory buffer is key to managing indexing performance and search freshness in Elasticsearch. By buffering documents in memory, Elasticsearch can optimize disk I/O and manage the trade-off between indexing speed and search freshness.
+
+### Comparison
+
+While both components are essential for Elasticsearch's operation, they serve different stages in the data lifecycle:
+
+- **Translog** is focused on data durability and recovery, ensuring that no data is lost in the event of a crash by keeping a log of operations that have not yet been committed to disk.
+
+- **Memory Buffer** is concerned with the performance and efficiency of indexing operations, temporarily holding documents in memory before they are written to disk, optimizing the indexing process, and managing search freshness.
+
+In summary, the translog and memory buffer in Elasticsearch complement each other by ensuring both the durability of data and efficient indexing performance.
+
+---
+---
 
 ## How insertion works with lucene segment in elasticsearch
 

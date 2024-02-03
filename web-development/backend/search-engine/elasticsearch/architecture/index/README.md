@@ -6,6 +6,12 @@
 ----
 ----
 
+![](lucene-index.png)
+
+> [Each time you update a single field in your document, a new segment will be created and the information in the previous segment is marked as deleted.](https://luis-sena.medium.com/the-complete-guide-to-increase-your-elasticsearch-write-throughput-e3da4c1f9e92)
+
+![](lucene-index-1.png)
+
 ### Updates, Inserts and Deletes in Elasticsearch
 
 Elasticsearch has an Update API that can be used to process updates and deletes. The Update API reduces the number of network trips and potential for version conflicts. The Update API retrieves the existing document from the index, processes the change and then indexes the data again. That said, Elasticsearch does not offer in-place updates or deletes. So, the entire document still must be reindexed, a CPU intensive operation.

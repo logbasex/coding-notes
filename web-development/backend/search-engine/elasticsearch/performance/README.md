@@ -1,5 +1,8 @@
 ## References
 - [Elasticsearch Cluster Sizing and Performance Tuning](https://alikzlda.medium.com/elasticsearch-cluster-sizing-and-performance-tuning-42c7dd54de3c)
+- [The Complete Guide to Increasing Your Elasticsearch Write Throughput and Speed](https://luis-sena.medium.com/the-complete-guide-to-increase-your-elasticsearch-write-throughput-e3da4c1f9e92)
+- [Handling Too Many Requests in Elasticsearch](https://opster.com/guides/elasticsearch/operations/elasticsearch-handling-too-many-requests/)
+- [Tune for disk usage](https://www.elastic.co/guide/en/elasticsearch/reference/current/tune-for-disk-usage.html)
 
 ---
 ---
