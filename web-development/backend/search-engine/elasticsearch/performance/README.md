@@ -4,6 +4,8 @@
 - [Handling Too Many Requests in Elasticsearch](https://opster.com/guides/elasticsearch/operations/elasticsearch-handling-too-many-requests/)
 - [Tune for disk usage](https://www.elastic.co/guide/en/elasticsearch/reference/current/tune-for-disk-usage.html)
 - [Advance Optimization Techniques for Elasticsearch](https://medium.com/csit-tech-blog/advance-optimization-techniques-for-elasticsearch-b728f59b70cc)
+- [How to Reindex One Billion Documents in One Hour at SoundCloud](https://developers.soundcloud.com/blog/how-to-reindex-1-billion-documents-in-1-hour-at-soundcloud)
+- [How we upgraded an old, 3PB large, Elasticsearch cluster without downtime. Part 3 - Search Performance & Wildcards](https://underthehood.meltwater.com/blog/2022/11/25/how-we-upgraded-an-old-3pb-large-elasticsearch-cluster-without-downtime-part-3-search-performance-and-wildcards/)
 
 ---
 ---

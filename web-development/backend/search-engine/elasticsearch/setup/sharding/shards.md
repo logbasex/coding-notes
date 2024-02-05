@@ -13,7 +13,7 @@
 
 ![](sharding-2.png)
 
-![](../cluster-architecture.png)
+![](cluster-architecture.png)
 
 > Each index in Elasticsearch is divided into shards. For each shard, there are primary shards and replica shards.
 
@@ -35,7 +35,7 @@ Sharding also reduces the amount of data Elasticsearch needs to scan to fulfill 
 
 ### Cannot allocate because allocation is not permitted to any of the nodes
 
-![](../cluster-shards-unassigned.png)
+![](cluster-shards-unassigned.png)
 
 Endpoint:
 ```
@@ -130,7 +130,7 @@ Response
 
 ### Allocation successfully
 
-![](../cluster-shards-prirep.png)
+![](cluster-shards-prirep.png)
 
 In the context of Elasticsearch, the numbers you're referring to, like `1 0 2`, likely represent the count of different types of shards on a particular node within the Elasticsearch cluster. Here's what each number typically stands for:
 
