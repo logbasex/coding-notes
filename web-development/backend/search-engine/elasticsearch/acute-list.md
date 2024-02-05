@@ -8,3 +8,7 @@
 - [Elasticsearch in Action: Understanding Master: Master and Elections (1/2)](https://mkonda007.medium.com/elasticsearch-in-action-understanding-master-master-and-elections-1-2-cbc514c049bc)
 - [Elasticsearch in Action: Understanding Master: Quorum and Split Brain (2/2)](https://mkonda007.medium.com/elasticsearch-in-action-understanding-master-quorum-and-split-brain-2-2-e7002b53af80)
 - [High Availability - Phần 3: Tổng quan về Quorum, STONITH/Fencing](https://www.tranvanbinh.vn/2022/11/high-availability-phan-3-tong-quan-ve.html)
+
+## Courses
+- [My course on Elasticsearch architecture fundamentals; shards!](https://www.reddit.com/r/elasticsearch/comments/oo6ykv/my_course_on_elasticsearch_architecture/)
+

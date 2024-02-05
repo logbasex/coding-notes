@@ -3,6 +3,7 @@
 - [The Complete Guide to Increasing Your Elasticsearch Write Throughput and Speed](https://luis-sena.medium.com/the-complete-guide-to-increase-your-elasticsearch-write-throughput-e3da4c1f9e92)
 - [Handling Too Many Requests in Elasticsearch](https://opster.com/guides/elasticsearch/operations/elasticsearch-handling-too-many-requests/)
 - [Tune for disk usage](https://www.elastic.co/guide/en/elasticsearch/reference/current/tune-for-disk-usage.html)
+- [Advance Optimization Techniques for Elasticsearch](https://medium.com/csit-tech-blog/advance-optimization-techniques-for-elasticsearch-b728f59b70cc)
 
 ---
 ---
