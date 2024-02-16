@@ -128,3 +128,56 @@ To optimize costs and improve performance, the service adopted a role-based opti
 ### Conclusion
 
 This example underscores the importance of a role-based node configuration in Elasticsearch clusters, especially for businesses with variable data and workload patterns. By strategically assigning node roles and adjusting resources based on real-time demands, organizations can achieve both operational efficiency and cost savings, ensuring their infrastructure can scale flexibly with their needs.
+
+----
+----
+
+## Which specs should I use for each node type?
+
+Selecting the appropriate specifications for each type of node in an Elasticsearch cluster depends on the role of the node and the specific workload it will handle. Here's a general guideline on what specs to consider for different node types, keeping in mind that these should be adjusted based on your actual use case, data volume, query complexity, and performance requirements:
+
+### 1. Master Nodes
+
+- **Purpose**: Managing the cluster state, including keeping track of nodes and shard allocation. They do not handle data directly or execute user queries.
+- **Specs**:
+    - **CPU**: Moderate CPU resources are sufficient since they are not heavily involved in query or data processing.
+    - **RAM**: At least 8GB of RAM, but 16GB is recommended for larger clusters to manage the cluster state efficiently.
+    - **Storage**: SSDs are preferred for faster access to cluster state data, although storage requirements are not high. A moderate-sized SSD (e.g., 250GB) should suffice.
+
+### 2. Data Nodes
+
+- **Purpose**: Storing data and executing data-related operations such as search and aggregation queries.
+- **Specs**:
+    - **CPU**: High CPU resources for processing queries and aggregations. The exact requirements depend on your query load.
+    - **RAM**: The more, the better, since Elasticsearch relies heavily on memory for caching and faster data access. 32GB to 64GB of RAM is common, but for large datasets or heavy query loads, more may be necessary.
+    - **Storage**: High-capacity SSDs are recommended for faster data access and improved I/O performance. The size depends on your data volume and growth projections.
+
+### 3. Ingest Nodes
+
+- **Purpose**: Preprocessing documents before indexing (e.g., applying transformations, enrichments).
+- **Specs**:
+    - **CPU**: Moderate to high CPU resources depending on the complexity of preprocessing tasks.
+    - **RAM**: At least 16GB to accommodate the overhead of processing documents, with more required for complex transformations or high-volume ingestions.
+    - **Storage**: Moderate-sized SSDs are typically sufficient since these nodes are not primarily used for long-term storage.
+
+### 4. Coordinating Nodes
+
+- **Purpose**: Coordinating client requests and aggregating results from data nodes, without storing data themselves.
+- **Specs**:
+    - **CPU**: High CPU resources to manage concurrent queries and compile results from data nodes.
+    - **RAM**: High memory is beneficial for managing large aggregations and response data. 16GB to 32GB of RAM can be a good starting point, with adjustments based on the complexity and volume of queries.
+    - **Storage**: Minimal storage requirements since they do not store data. SSDs are preferred for operating system and Elasticsearch software for better overall performance.
+
+### 5. Hot/Warm/Cold Nodes (for tiered storage architectures)
+
+- **Hot Nodes**: High-performance CPUs and RAM (similar to data nodes), with fast SSDs to handle active indexing and querying.
+- **Warm Nodes**: Moderate CPU and RAM, with larger but slightly slower SSDs or high-performance HDDs, for less frequently accessed data.
+- **Cold Nodes**: Lower CPU and RAM can be sufficient, with high-capacity HDDs for storing rarely accessed data.
+
+### General Recommendations
+
+- **Networking**: Fast networking is crucial for all node types to facilitate quick data transfer and communication within the cluster.
+- **Overprovisioning**: Initially, it might be wise to slightly overprovision resources to accommodate unexpected spikes in load or data growth, with monitoring to adjust as needed.
+- **Monitoring and Adjustment**: Regularly monitor the performance and resource utilization of your nodes to fine-tune their specifications over time based on actual usage patterns and requirements.
+
+Choosing the right specs for each node type in your Elasticsearch cluster is critical for achieving optimal performance and cost-efficiency. It's important to start with a solid understanding of your workload and be prepared to adjust your configuration as your needs evolve.
