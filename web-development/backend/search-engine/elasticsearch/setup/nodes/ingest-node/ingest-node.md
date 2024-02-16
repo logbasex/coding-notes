@@ -1,3 +1,15 @@
+## References
+- [Ingest pipelines](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html#test-pipeline)
+- [From scratch to search: playing with your data (Elasticsearch Ingest Pipelines)](https://towardsdatascience.com/from-scratch-to-search-playing-with-your-data-elasticsearch-ingest-pipelines-6d054bf5d866)
+- [Elasticsearch Data Ingestion: Advanced Techniques and Best Practices](https://opster.com/guides/elasticsearch/operations/elasticsearch-data-ingestion/)
+
+----
+----
+
+![](ingest-pipeline.png)
+
+![](ingest-node.png)
+
 ## What is Ingest Node in elasticsearch
 
 In Elasticsearch, an **ingest node** is a specialized type of node within the cluster that focuses on **pre-processing data before it gets indexed**. Unlike data nodes, which store and serve indexed data, ingest nodes handle data transformation and enrichment using **ingest pipelines**.
