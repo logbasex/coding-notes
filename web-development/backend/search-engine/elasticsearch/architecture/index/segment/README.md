@@ -2,7 +2,7 @@
 - [Analysis of Lucene — Basic Concepts](https://alibaba-cloud.medium.com/analysis-of-lucene-basic-concepts-5ff5d8b90a53)
 - [Max_Num_Segments in Elasticsearch](https://opster.com/guides/elasticsearch/operations/elasticsearch-max-num-segments/)
 - [cat Segments API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-segments.html#cat-segments)
-
+- [Changes in Lucene Index files when document gets add/update/delete?](https://stackoverflow.com/questions/27147960/changes-in-lucene-index-files-when-document-gets-add-update-delete)
 ----
 ----
 
