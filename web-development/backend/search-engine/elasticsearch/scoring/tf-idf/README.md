@@ -1,14 +1,15 @@
 ## References
 - [TF-IDF in Python (Scikit-learn Example) – Term frequency-inverse document frequency](https://www.jcchouinard.com/tf-idf/)
 - [Calculate TF-IDF in NLP (Simple Example)](https://www.youtube.com/watch?app=desktop&v=vZAXpvHhQow)
-
+- [Inverse Document Frequency and the Importance of Uniqueness](https://moz.com/blog/inverse-document-frequency-and-the-importance-of-uniqueness)
+- 
 ---
 ---
 
 ## Term
 
 ![](images/tf-idf.png)
-
+x
 > TF-IDF provides a **rarity** measure.
 
 ![](images/tf.png)
