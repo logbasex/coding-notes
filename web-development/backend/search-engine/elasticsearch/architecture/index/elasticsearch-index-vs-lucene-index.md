@@ -1,6 +1,6 @@
 ## References
 - [What is the difference between Lucene and Elasticsearch](https://stackoverflow.com/questions/27793721/what-is-the-difference-between-lucene-and-elasticsearch)
-
+- [Some Basic Lucene Index Structures](https://northcoder.com/post/some-basic-lucene-index-structures/)
 ---
 ---
 ## [Apache Lucene - Index File Formats](https://lucene.apache.org/core/3_0_3/fileformats.html#Segments)
