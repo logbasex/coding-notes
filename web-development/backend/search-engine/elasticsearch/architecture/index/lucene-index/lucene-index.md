@@ -127,3 +127,30 @@ Store term vector information for documents, detailing term occurrences within s
 
 ### Simplified Conceptual Data Representation:
 This is a high-level and simplified representation of how Lucene might organize and store information about the two example documents. Actual Lucene files are stored in a binary format optimized for performance and not directly human-readable. Each file type serves a specific purpose in the indexing and retrieval process, from storing metadata about the index (`segments_N`, `.si`), to detailing document contents and their associated terms (`.fdt`, `.fdx`, `.tim`, `.doc`, `.pos`), to supporting search optimizations and functionalities (`.nvd`, `.nvm`, `.dvd`, `.dvm`, `.tvx`, `.tvd`).
+
+----
+----
+
+## Old extension
+
+![](lucene-index-file-extensions.png)
+
+The image you've uploaded appears to be a screenshot of a table that summarizes the names and extensions of files in a Lucene index. It lists various file types such as Segments File, Lock File, Compound File, Fields, and so on, along with their extensions and a brief description of their purpose.
+
+The content in the image is essentially the same as what I've previously described in text form. However, there are a couple of notable differences in the naming of files:
+
+1. **Term Infos vs. Term Dictionary**: The `.tis` extension is mentioned as "Term Infos" in the image, which corresponds to the Term Dictionary I described earlier. The Term Infos file in Lucene traditionally holds the term dictionary, storing term info.
+
+2. **Term Info Index vs. Term Index**: The `.tii` extension is mentioned as "Term Info Index" in the image, which serves a similar purpose to the Term Index. It provides an index into the Term Infos file, helping locate terms quickly.
+
+3. **Frequencies**: The image lists `.frq` for Frequencies, which stores the list of documents that contain each term along with the term's frequency. This corresponds to the `.doc` files I described, which in newer versions of Lucene store term frequencies and document IDs.
+
+4. **Positions**: The image shows `.prx` for Positions, which stores position information about where a term occurs in the index. This is similar to the `.pos` files in newer versions of Lucene.
+
+5. **Norms**: The image uses `.nrm` for Norms, which encodes length and boost factors for documents and fields. This is consistent with the `.nvd` and `.nvm` files I mentioned, which serve the same purpose.
+
+6. **Deleted Documents**: The `.del` file extension is mentioned for storing information about deleted documents, which is a part of Lucene's functionality for managing the lifecycle of documents in the index.
+
+The differences between the names and extensions might be due to changes in Lucene's file format between versions, or they could simply be alternative names for the same concept. The underlying purpose of these files remains to manage various aspects of the indexing and search process in Lucene.
+
+![](lucene-index-file-extensions-1.png)

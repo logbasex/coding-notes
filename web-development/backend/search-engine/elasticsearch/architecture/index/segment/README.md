@@ -194,3 +194,8 @@ root@debian10523:../Dq4baBxUS8m5Tw0iQ8aO7g/0/index# ls -lahS _7h*
 -rw-r--r-- 1 elasticsearch elasticsearch  158 Oct  5 05:42 _7h.fdm
 -rw-r--r-- 1 elasticsearch elasticsearch   87 Oct 11 09:13 _7h_1_Lucene80_0.dvd
 ```
+
+----
+----
+
+![](../lucene-index/luke.png)
