@@ -78,6 +78,54 @@ Imagine you're searching for information about "healthy recipes" online. Several
 
 This demonstrates how the log function in TF-IDF helps prevent under-valuation of common terms, ensuring they contribute appropriately to the overall relevance score and facilitating the retrieval of more comprehensive and contextually relevant information for your search queries.
 
+----
+----
+
+## Show example of Prevents Under-valuation of Common Terms that express directly through TF-IDF formula
+
+It's true that the **core TF-IDF formula (TF-IDF(t, d) = TF(t, d) * IDF(t))** doesn't directly show the prevention of under-valuation for common terms. This formula only calculates the score for a specific term (t) within a specific document (d).
+
+However, we can demonstrate the **prevention of under-valuation** by analyzing the two components of the formula:
+
+**1. Term Frequency (TF):**
+
+* The TF component directly reflects the **frequency** of a term within a document. This means that even **common terms** like "the" or "and" can have a **high TF** if they appear frequently in a specific document.
+
+**2. Inverse Document Frequency (IDF):**
+
+* The IDF component acts as a **balancer** that prevents overly frequent terms from dominating the TF-IDF score. It's calculated using the following formula:
+
+**IDF(t) = log(N / DF(t))**
+
+where:
+
+* N is the total number of documents in the collection.
+* DF(t) is the document frequency of term t, which is the number of documents containing the term t.
+
+**How IDF prevents under-valuation:**
+
+* **Common terms** generally have a **high DF(t)** because they appear in many documents.
+* As DF(t) increases, the **log(N / DF(t))** value in the IDF formula **decreases**, making the IDF value **smaller** for common terms.
+* However, the **logarithmic function** used in the IDF formula **compresses the impact of increasing DF(t)**. This means that while the IDF of common terms will be lower than that of less frequent terms, it **won't decrease to zero**.
+
+**Example:**
+
+* Imagine two documents:
+    * Doc 1: Mentions "healthy" once and "recipes" twice, along with many other common words.
+    * Doc 2: Mentions "healthy" five times and "recipes" three times, using fewer common words.
+
+* Assuming both terms have the same TF in both documents (e.g., TF = 1), and there are 100 documents in the collection:
+
+    * **IDF(healthy):**
+        * Doc 1: log(100 / DF(healthy)) (assuming high DF for "healthy")
+        * Doc 2: log(100 / DF(healthy)) (assuming the same high DF)
+    * **IDF(recipes):**
+        * Doc 1: log(100 / DF(recipes)) (assuming high DF for "recipes")
+        * Doc 2: log(100 / DF(recipes)) (assuming the same high DF)
+
+* While the IDF values for both terms will be lower in Doc 1 due to their higher DF, the **logarithmic compression** ensures they **don't become zero**. This allows the TF component, which reflects their actual frequency within the document, to still contribute meaningfully to the overall TF-IDF score.
+
+Therefore, even though the formula itself doesn't explicitly state the prevention of under-valuation, the **combined effect of TF and IDF** helps ensure that **common terms** are not completely disregarded and can still contribute appropriately to the overall TF-IDF score, reflecting their **importance within the specific context of a document**.
 
 ----
 ----
@@ -128,5 +176,90 @@ This process allows you to quantitatively assess which documents are most releva
 ----
 ----
 
+## Does TF-IDF in practice is more than a just formula?
+
+While the core TF-IDF formula (TF-IDF(t, d) = TF(t, d) * IDF(t)) provides a foundation for ranking documents, real-world implementations involve a fascinating interplay of various factors. Let's delve deeper into the aspects that make TF-IDF more than just a formula:
+
+**1. Preprocessing Decisions:**
+
+Imagine sifting through a library full of books, but some have typos and missing pages. Before analyzing the content, you'd likely organize and clean them up. Similarly, before applying TF-IDF, we often preprocess the documents:
+
+* **Stop Word Removal:** Common words like "the" and "and" contribute little to meaning and are often removed. However, deciding which words to remove can impact scores. For example, removing "a" and "an" might affect scores for searches related to specific articles or products.
+* **Stemming/Lemmatization:** Words like "running" and "ran" convey the same meaning. Converting them to their root form ("run") can improve consistency. Different stemming/lemmatization algorithms can lead to slight variations in scores.
+
+**2. Term Weighting Schemes:**
+
+Not all terms within a document hold equal importance. Imagine searching for "healthy recipes" and encountering a document mentioning "healthy" several times but focusing primarily on baking techniques. Assigning a higher weight to "recipes" compared to "healthy" could be beneficial in such scenarios. Different weighting schemes exist:
+
+* **Equal Weight:** All terms contribute equally, suitable for situations where every term is equally important.
+* **Frequency-Based Weighting:** Terms appearing more frequently within a document receive higher weights, amplifying their importance.
+* **Positional Weighting:** Terms appearing closer to the document's beginning might be seen as more relevant and receive higher weights.
+
+**3. Combining TF-IDF Scores:**
+
+Imagine you have separate scores for "healthy" and "recipes" based on TF-IDF. How do you combine them into a single score for a document? Here are common methods:
+
+* **Simple Average:** The average of individual TF-IDF scores provides a basic approach.
+* **Weighted Average:** Similar to term weighting, different weights can be assigned to different terms before averaging their scores, allowing for more nuanced ranking.
+
+**4. Interaction with Other Ranking Factors:**
+
+While TF-IDF is a powerful tool, it's often combined with other factors:
+
+* **Document Length:** Very short documents might receive lower scores even with high TF-IDF, as they might lack the depth to be truly relevant.
+* **User Clicks:** If users consistently click on documents with lower TF-IDF scores but higher user engagement, the ranking algorithm might adapt to consider these click-through rates (CTR).
+* **Link Popularity:** Documents with many high-quality links pointing to them might be seen as more trustworthy and receive a ranking boost.
+
+**5. Adapting to Evolving Language:**
+
+Language is constantly evolving, with new terms and phrases emerging. Real-world implementations need to adapt to handle these changes:
+
+* **New Term Inclusion:** Including new terms in the vocabulary ensures the system can analyze and rank documents containing them effectively.
+* **Synonym Handling:** Identifying synonyms and related terms can help capture the true meaning of a search query and retrieve relevant documents even if they don't use the exact keyword.
+
+**6. Interpretation and Context:**
+
+It's crucial to remember that TF-IDF scores are just one piece of the puzzle. They don't guarantee a document's quality or relevance in isolation. Factors like the specific search query, document collection characteristics, and chosen implementation methods all influence the interpretation of these scores:
+
+* **Domain-Specific Considerations:** A high TF-IDF score for a technical term in a scientific paper might not translate to relevance in a general audience search.
+* **Subjectivity and Quality:** TF-IDF doesn't inherently judge the quality or trustworthiness of a document. Human evaluation or additional filtering mechanisms might be necessary to ensure the retrieved information is reliable and meets user expectations.
+
+By understanding these nuances, we can appreciate TF-IDF not just as a formula, but as a foundation for building intelligent and adaptive information retrieval systems that go beyond simply matching keywords to documents.
 
 
+----
+----
+
+## How about document context
+You're absolutely right, document context plays a crucial role in TF-IDF and its effectiveness in retrieving relevant information. Here's how:
+
+**1. Beyond Keyword Matching:**
+
+* TF-IDF goes beyond simply counting keyword occurrences. It considers the **frequency and distribution** of terms within a document, capturing some sense of context.
+* Documents mentioning the search query terms ("healthy" and "recipes" in your example) more frequently and spread throughout the content are likely more relevant than those with infrequent mentions concentrated in specific sections.
+
+**2. Co-occurrence and Semantic Relationships:**
+
+* TF-IDF doesn't directly capture the **meaning** of terms, but it can indirectly reflect **semantic relationships** through co-occurrence.
+* If a document mentions "healthy" and "recipes" alongside terms like "ingredients," "instructions," "nutritional value," or related healthy food options, it suggests a stronger **semantic connection** and a higher likelihood of being relevant to the search query.
+
+**3. Limitations and Addressing them:**
+
+* While TF-IDF captures some context, it doesn't fully understand the **meaning** of text.
+* Techniques like **Latent Semantic Indexing (LSI)** attempt to address this by analyzing the relationships between words across a large corpus to identify **semantic similarities** and improve retrieval based on **conceptual understanding**.
+
+**4. Contextual Understanding and Future Directions:**
+
+* Research continues to explore ways to incorporate **deeper context understanding** into information retrieval systems. This involves:
+    * **Natural Language Processing (NLP) techniques** to understand the **syntax and semantics** of text.
+    * **Machine learning approaches** to train models on large datasets of text and associated labels to learn and predict relevance based on various contextual factors.
+
+**5. Example:**
+
+* Imagine searching for "healthy recipes" and encountering two documents:
+    * Doc 1: Mentions "healthy" once and "recipes" twice in a list of healthy foods, not providing any information on how to prepare them.
+    * Doc 2: Mentions "healthy" and "recipes" several times throughout the text, discussing various healthy ingredients, step-by-step instructions, and nutritional information.
+
+While both documents contain the keywords, Doc 2 exhibits a **stronger contextual connection** due to the co-occurrence of relevant terms and the overall structure and information it provides. This would likely be reflected in its **higher TF-IDF score** and potentially lead to a **higher ranking** in the search results.
+
+**In conclusion, TF-IDF, while not perfect, offers a basic and effective way to incorporate some level of context by considering the frequency, distribution, and co-occurrence of terms within documents. This helps retrieve information that goes beyond simple keyword matching and provides a better user experience.**
