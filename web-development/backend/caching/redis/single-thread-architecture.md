@@ -2,6 +2,69 @@
 
 ----
 ----
+## I mean with CPU has max capacity with 1000 task each sec, then single-threaded even loop is limit with 1000 task each sec also
+
+You're exactly correct. In a scenario where your CPU can handle a maximum of 1000 tasks per second, a single-threaded event loop with non-blocking I/O would also be limited to around 1000 tasks per second at best.
+
+Here's the breakdown:
+
+* **Single Thread Bottleneck:**  The single thread acts as a processing bottleneck. Even though non-blocking I/O allows it to initiate tasks and wait for them to finish without getting stuck, the thread itself can only execute one task at a time.
+* **CPU Capacity:**  The CPU has a finite processing capacity. If you throw more than 1000 tasks per second at the single thread, it will queue up the excess tasks. Processing these queued tasks will take additional time, leading to delays and potentially exceeding the 1 second timeframe.
+
+**Essentially, the single thread becomes the limiting factor, preventing the system from fully utilizing the CPU's 1000 task-per-second capacity.**
+
+Here are some additional points to consider:
+
+* **Task complexity:** The complexity of each task also plays a role. If each task requires minimal processing power, the single thread might be able to handle more than 1000 tasks per second within the 1 second limit.
+* **Overhead:**  There's some overhead associated with managing the event loop itself, including context switching between tasks. This overhead can slightly reduce the effective number of tasks processed per second.
+
+**In conclusion:**
+
+A single-threaded event loop with non-blocking I/O is excellent for I/O bound tasks where the CPU waits more for I/O completion than for processing. However, for CPU-bound workloads where processing dominates, it reaches a limit based on the single thread's capacity and the overall CPU power. If you need to handle more than 1000 tasks per second and leverage the full potential of your CPU, consider exploring alternative approaches like multi-threaded models or asynchronous task queues.
+
+=====
+=====
+
+## When to use single-threaded event loop and when not to use?
+
+A single-threaded event loop, like the one used by Redis, is an architectural pattern designed for efficient and scalable handling of concurrent tasks. This pattern has advantages and disadvantages, making it suitable for some scenarios while not ideal for others. Here's when you should consider using a single-threaded event loop and when to avoid it:
+
+### When to Use Single-Threaded Event Loop
+1. **High Concurrency with I/O-Bound Tasks**:
+   - If your application deals with many I/O-bound tasks, such as network requests, database access, or file operations, a single-threaded event loop can efficiently manage these tasks. It handles multiple connections without the overhead of thread context switching.
+
+2. **Low Latency Requirements**:
+   - Single-threaded event loops can deliver low-latency responses because there's minimal overhead in managing threads. If your application needs rapid response times, this architecture is a good fit.
+
+3. **Simplicity and Minimal Concurrency Issues**:
+   - A single-threaded event loop avoids common concurrency issues like deadlocks and race conditions. This simplicity makes it easier to reason about your code and reduces the need for complex synchronization mechanisms.
+
+4. **Resource Constraints**:
+   - If your environment has limited resources, such as memory or CPU cores, a single-threaded event loop is more efficient than multi-threading, which can be resource-intensive.
+
+5. **Event-Driven Architectures**:
+   - Single-threaded event loops are ideal for event-driven systems, like servers handling many simultaneous client connections, without dedicating a thread to each connection. This approach is common in networking servers, like Redis, Nginx, or Node.js applications.
+
+### When Not to Use Single-Threaded Event Loop
+1. **CPU-Bound Tasks**:
+   - If your application has heavy CPU-bound tasks, a single-threaded event loop can become a bottleneck. It may block the event loop, causing delays in handling other tasks. In this case, multi-threading or parallel processing is more suitable.
+
+2. **Long-Running Operations**:
+   - For tasks that take a long time to complete, such as complex computations or intensive data processing, a single-threaded event loop can cause delays for other clients. This issue can lead to poor responsiveness.
+
+3. **Complex Concurrency Requirements**:
+   - If your application requires complex concurrency with many background operations running in parallel, a single-threaded event loop may not be the best choice. Multi-threading or multi-process architectures are better suited for these scenarios.
+
+4. **High Throughput Needs**:
+   - While single-threaded event loops can handle high concurrency, they may struggle with high throughput requirements, especially if many tasks require significant processing time.
+
+5. **Limited Single-Core Performance**:
+   - If your environment has limited single-core performance but ample multi-core resources, a single-threaded event loop may not fully utilize the hardware's capabilities.
+
+In summary, a single-threaded event loop is ideal for high-concurrency, low-latency, and I/O-bound scenarios where simplicity is a priority. However, it may not be suitable for CPU-bound tasks, long-running operations, complex concurrency requirements, or high-throughput needs. Understanding the nature of your application and workload can guide you in choosing the appropriate architecture.
+
+====
+====
 
 Redis, a popular in-memory data store, employs I/O multiplexing to efficiently manage multiple client connections. For a developer with one year of experience, here's a simplified explanation:
 
