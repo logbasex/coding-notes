@@ -355,10 +355,10 @@ sudo apt install elasticsearch
 
 ## Docker
 docker run \
-  --name elasticsearch \ 
+  --name elasticsearch \
   --network elasticsearch-kibana \
   -p 9200:9200 \
-  -e discovery.type=single-node \ 
+  -e discovery.type=single-node \
   -e ES_JAVA_OPTS="-Xms1g -Xmx1g" \
   -e xpack.security.enabled=false \
   -d --restart=always \
