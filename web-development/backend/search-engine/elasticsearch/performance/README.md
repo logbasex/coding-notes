@@ -7,6 +7,9 @@
 - [How to Reindex One Billion Documents in One Hour at SoundCloud](https://developers.soundcloud.com/blog/how-to-reindex-1-billion-documents-in-1-hour-at-soundcloud)
 - [How we upgraded an old, 3PB large, Elasticsearch cluster without downtime. Part 3 - Search Performance & Wildcards](https://underthehood.meltwater.com/blog/2022/11/25/how-we-upgraded-an-old-3pb-large-elasticsearch-cluster-without-downtime-part-3-search-performance-and-wildcards/)
 - [How to Optimize Elasticsearch for Better Search Performance](https://medium.com/@burak.altas/how-to-optimize-elasticsearch-for-better-search-performance-283492e475f8)
+- [How to ruin your Elasticsearch performance — Part I: Know your enemy](https://blog.allegro.tech/2021/09/how-to-ruin-elasticsearch-performance-part-i.html)
+- [How to ruin your Elasticsearch performance — Part II: Breaking things, one at a time](https://blog.allegro.tech/2021/10/how-to-ruin-elasticsearch-performance-part-ii.html)
+
 ---
 ---
 

@@ -3,8 +3,14 @@
 - [Updates, Inserts, Deletes: Challenges to avoid when indexing mutable data in Elasticsearch](https://rockset.com/blog/updates-inserts-deletes-elasticsearch-rockset/)
 - [Understand Lucene To Understand ElasticSearch](https://blog.devgenius.io/understand-lucene-to-understand-elasticsearch-85037d5b7577)
 - [Lucene Index In Action](https://dongguangming.github.io/pdf/lucene_in_action_2nd_edition.pdf)
+- [Elasticsearch from the Bottom Up, Part 1](https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up)
+- [Elasticsearch from The Bottom Up](https://kipalog.kaopiz.com/posts/Elasticsearch-from-The-Bottom-Up)
+
 ----
 ----
+
+> Khi tạo inverted index ta cần ưu tiên một số vấn đề: tốc độ tìm kiếm, khối lượng của index, tốc độ index và thời gian cập nhật index. Tốc độ tìm kiếm và khối lượng của index liên quan phụ thuộc vào nhau: Khi tìm kiếm trên một index nhỏ, ta chỉ cần xử lý một lượng dữ liệu nhỏ có thể lưu trữ tại bộ nhớ trong. Vì vậy, cả tốc độ tìm kiếm và tốc độ index đều phụ thuộc vào tính nhỏ gọn của index. Để giảm khối lượng của index, rất nhiều kĩ thuật nén được sử dụng. Ví dụ: khi lưu trữ dữ liệu, Lucene thực hiện các thủ thuật như mã hóa delta (delta-encoding) (ví dụ: [42,100,666] sẽ được lưu thành [42,58,566]), sử dụng các biến số dạng byte (các số nhỏ có thể lưu trữ trong một byte),.. Việc giữ cho dung lượng của index nhỏ cũng đồng nghĩa với việc sẽ khó khăn khi cập nhật các index (tốn nhiều chi phí hơn). Trên thực tế, Lucene sẽ không update các index đã được tạo: Các index đã được tạo ra là immutable (bất biến). Index này khá khác với cấu trúc B-trees có thể cập nhật khá dễ dàng. Đối với việc xóa dữ liệu, khi ta xóa một document trong elasticsearch index, document đó sẽ được đánh dấu là xóa trong một file bitmap. Sau khi xóa cấu trúc của index cũng sẽ không được cập nhật. Kết quả là, việc update một document sẽ là xóa document đó và thêm document update vào cuối index. Cần chú ý rằng, việc cập nhật này là hết sức tốn kém, vì vậy ta không nên lưu trữ các loại dữ liệu thường xuyên thay đổi trên Lucene index. Khi một document mới được thêm vào, những thay đổi từ index sẽ được đưa vào buffer trong bộ nhớ trong (memory) cuối cùng được flush ra bộ nhớ ngoài (disk). Các files được tạo sẽ trở thành một phân đoạn chỉ mục (index segments)
+
 
 ![](lucene-index.png)
 
