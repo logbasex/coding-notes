@@ -1,5 +1,9 @@
 ## References
 - [From Log-Structured Merge-Tree storage engine to a toy database](https://careers.coccoc.com/blogs/from-log-structured-merge-tree-storage-engine-to-a-toy-database)
+- [Secret Sauce Behind NoSQL: LSM Tree — System Design](https://interviewnoodle.com/secret-sauce-behind-nosql-lsm-tree-system-design-b928e81e9a25)
+- [What is a LSM Tree?](https://dev.to/creativcoder/what-is-a-lsm-tree-3d75)
+- [The Secret Sauce Behind NoSQL: LSM Tree](https://www.youtube.com/watch?v=I6jB0nM9SKU)
+- [Log Structured Merge Tree](https://blog.devgenius.io/log-structured-merge-tree-a8733ce152b2)
 
 ====
 ====
@@ -231,3 +235,147 @@ In the context of SSDs (Solid State Drives), sequential writes refer to the proc
 Sequential writes are a critical aspect of optimizing SSD performance and longevity. By writing data in a linear, contiguous fashion, sequential writes leverage the inherent strengths of SSD architecture, providing higher throughput, lower latency, and more efficient use of the storage medium. This makes them particularly suitable for applications and systems that require high write performance and durability.
 
 ====
+
+## Random I/O vs Sequential I/O
+
+Certainly! Let's delve into more detail about how LSM Trees and SSDs handle I/O operations, and why sequential writes are preferred over random writes even for SSDs.
+
+### LSM Trees
+
+Log-Structured Merge (LSM) Trees are a data structure designed to optimize write-intensive workloads. They work by batching multiple write operations into a single, large sequential write. This approach has several benefits:
+1. **Reduction of Write Amplification**: By batching writes and writing them sequentially, LSM Trees can significantly reduce the overhead caused by write amplification.
+2. **Improved Write Throughput**: Sequential writes are generally more efficient than random writes, especially on traditional HDDs, but also on SSDs to a lesser extent.
+3. **Compaction**: LSM Trees periodically merge smaller, sorted runs of data into larger ones in a process called compaction. This process helps in maintaining read performance and reduces fragmentation.
+
+### Random vs. Sequential I/O on SSDs
+
+#### SSD Architecture
+1. **Flash Memory Cells**: SSDs use NAND flash memory cells to store data. These cells are grouped into pages, which are the smallest writable units. Pages are further grouped into blocks, which are the smallest erasable units.
+2. **Access Latency**: SSDs have much lower access latency compared to HDDs because they do not have moving parts. However, the performance of random writes can still be lower than sequential writes due to the internal workings of SSDs.
+
+#### Random Writes
+1. **Write Amplification**: When an SSD performs random writes, it often needs to read, modify, and rewrite entire blocks even if only a small part of the data changes. This increases write amplification.
+2. **Garbage Collection**: Random writes can lead to fragmentation and the need for frequent garbage collection, where the SSD reorganizes data to consolidate free space. This process can temporarily degrade performance.
+3. **Wear Leveling**: Random writes can cause uneven wear on flash memory cells, necessitating more complex wear leveling algorithms to ensure all cells are used evenly.
+
+#### Sequential Writes
+1. **Efficiency**: Sequential writes can fill entire pages and blocks more efficiently, minimizing the need for read-modify-write cycles.
+2. **Garbage Collection**: Sequential writes can reduce the frequency and complexity of garbage collection because data is written in contiguous blocks, reducing fragmentation.
+3. **Wear Leveling**: Sequential writes help SSDs in distributing writes more evenly across all blocks, aiding in effective wear leveling.
+
+### How LSM Trees Leverage Sequential Writes
+
+1. **Write Buffers (Memtables)**: LSM Trees use in-memory write buffers, called memtables, to accumulate incoming writes. Once the memtable is full, it is written to disk as a new sorted run (SSTable) in a sequential manner.
+2. **Compaction**: During compaction, multiple SSTables are merged and written back to disk sequentially. This process consolidates fragmented data, making future reads more efficient and reducing the overhead of garbage collection.
+
+### Example Workflow of LSM Trees on SSDs
+
+1. **Initial Writes**: Writes are first stored in a memtable (in-memory structure).
+2. **Flushing**: When the memtable reaches its capacity, it is flushed to disk as an SSTable in a sequential write.
+3. **Compaction**: Periodically, smaller SSTables are merged into larger SSTables in a sequential process, optimizing disk usage and maintaining read performance.
+
+### Performance Impact on SSDs
+
+1. **Reduced Latency**: Sequential writes minimize latency by avoiding the need for frequent read-modify-write cycles and reducing the burden on garbage collection.
+2. **Increased Throughput**: By transforming random writes into sequential writes, LSM Trees can sustain higher write throughput.
+3. **Longevity**: Improved wear leveling and reduced write amplification help in prolonging the lifespan of SSDs.
+
+### Conclusion
+
+While SSDs mitigate some of the performance disparities between random and sequential I/O due to their lack of moving parts, the principles behind LSM Trees still hold significant value. By converting random writes into sequential writes, LSM Trees can enhance the performance, efficiency, and longevity of SSDs, much like they do for HDDs, albeit through different mechanisms related to flash memory management.
+
+
+====
+
+## Flow of read
+
+![](images/lsm-1.png)
+
+![](images/lsm-2.png)
+
+Certainly! Let's break down the components of the image and illustrate the flow of a search request in an LSM tree.
+
+### Components of the Image
+
+1. **Index Summary**:
+   - **Sample Key**: A subset of keys from the SSTable.
+   - **Index Position**: The position of these sample keys in the SSTable Index.
+
+2. **SSTable Index**:
+   - **Row Key**: All keys stored in the SSTable.
+   - **Index Entry**: The entries corresponding to each key, pointing to their positions in the SSTable Data.
+
+3. **SSTable Data**:
+   - **Row Key**: The actual key of the data.
+   - **Row Size**: The size of the row.
+   - **Column names bloom filter**: A bloom filter for column names to quickly check for the presence of columns.
+   - **Row tombstone**: Marks if the row is deleted.
+   - **Column count**: Number of columns.
+   - **Sorted list of columns**: The actual data columns, sorted.
+
+### Flow of a Search Request
+
+Here is the step-by-step process of a search request using the LSM tree structure illustrated:
+
+1. **Initiate Search**:
+   - The system receives a request to find the value associated with a specific key (e.g., `user470`).
+
+2. **Consult Index Summary**:
+   - The search starts by consulting the Index Summary to narrow down the range in the SSTable Index.
+   - For example, if the key is `user470`, the Index Summary shows that this key falls between `user374` and `user528`.
+
+3. **Locate in SSTable Index**:
+   - Using the range identified in the Index Summary, the search then moves to the SSTable Index to find the exact position.
+   - The SSTable Index contains every key, so it locates `user470` directly.
+
+4. **Fetch Data from SSTable Data**:
+   - The Index Entry for `user470` points to its corresponding position in the SSTable Data.
+   - The system fetches the row from the SSTable Data, which includes row size, bloom filter, tombstone marker, column count, and the sorted list of columns.
+
+5. **Return Result**:
+   - The system returns the data associated with `user470` to the requester.
+
+### Example Illustration
+
+#### Index Summary
+| Sample Key | Index Position |
+|------------|----------------|
+| user620    | 0              |
+| user374    | 5              |
+| user470    | 10             |
+| user63     | 15             |
+| user271    | 20             |
+| user528    | 25             |
+| ...        | ...            |
+| start: user620 end: user385 | - |
+
+#### SSTable Index
+| Row Key | Index Entry |
+|---------|-------------|
+| user620 | Entry 0     |
+| user20  | Entry 1     |
+| user796 | Entry 2     |
+| user506 | Entry 3     |
+| user374 | Entry 4     |
+| user520 | Entry 5     |
+| user470 | Entry 6     |
+| ...     | ...         |
+| user385 | Entry 10    |
+
+#### SSTable Data
+- **Row Key: user470**
+   - Row Size: (size in bytes)
+   - Column names bloom filter: (bloom filter data)
+   - Row tombstone: (tombstone marker if deleted)
+   - Column count: (number of columns)
+   - Sorted list of columns: (actual data columns)
+
+### Summary
+
+- **Step 1**: Search starts with Index Summary.
+- **Step 2**: Index Summary points to the range in SSTable Index.
+- **Step 3**: SSTable Index locates the exact position of the key.
+- **Step 4**: SSTable Data fetches the row associated with the key.
+- **Step 5**: Return the result.
+
+This process ensures efficient and fast data retrieval by leveraging the hierarchical index structure of the LSM tree.
