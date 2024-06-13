@@ -10,6 +10,8 @@
 - [High Availability - Phần 3: Tổng quan về Quorum, STONITH/Fencing](https://www.tranvanbinh.vn/2022/11/high-availability-phan-3-tong-quan-ve.html)
 - [Elasticsearch story](https://web.archive.org/web/20220322001658/https://www.elastic.co/about/history-of-elasticsearch)
 - [Terminology](https://www.elastic.co/guide/en/elastic-stack-glossary/current/terms.html)
+- [A Day in the Life of an Elasticsearch Architect](https://www.youtube.com/watch?v=ms7FtQebWLw)
+- [Elasticsearch Zero to Hero #2 - Cơ chế hoạt động của Elasticsearch](https://viblo.asia/p/elasticsearch-zero-to-hero-2-co-che-hoat-dong-cua-elasticsearch-38X4ENMXJN2)
 
 ## Courses
 - [My course on Elasticsearch architecture fundamentals; shards!](https://www.reddit.com/r/elasticsearch/comments/oo6ykv/my_course_on_elasticsearch_architecture/)
