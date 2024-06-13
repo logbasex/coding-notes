@@ -1,11 +1,24 @@
 ## References
 - [Self-attention in transformers clearly explained](https://x.com/akshay_pachaar/status/1784923112813035592![img.png](img.png))
 - [The math behind Attention: Keys, Queries, and Values matrices](https://www.youtube.com/watch?v=UPtG_38Oq8o)
+- [Attention Mechanism In a nutshell](https://www.youtube.com/watch?v=oMeIDqRguLY)
 
 ====
 ====
 
 ![](self-attention-6.png)
+
+
+## [The ABC of Self-Attention Mechanism: Simplifying AI’s Game-Changer](https://medium.com/@tommyadeliyi/the-abc-of-self-attention-mechanism-simplifying-ais-game-changer-e2346a8a1f79)
+
+> To appreciate the innovation behind self-attention, consider how we, as humans, process information. When we read a book or engage in a conversation, our understanding isn’t linear. We don’t focus on each word or idea equally; instead, we draw on the broader context, emphasising certain details over others based on their relevance. This process of focusing our attention is analogous to the self-attention mechanism in AI.
+
+> **Self-attention** allows an AI model to weigh the importance of different parts of the input data when performing a task. It enables the model to view and analyse the entire context of the input, such as a sentence or sequence of events, in one go. This is a departure from earlier methods where models processed data sequentially, often struggling with long-range dependencies or the broader context.
+
+![](self-attention-7.png)
+![](self-attention-8.png)
+![](self-attention-9.png)
+![](self-attention-10.png)
 
 ====
 ====
