@@ -49,6 +49,34 @@ The rise and fall of symbolic AI reflect the natural evolution of the field of a
 =====
 =====
 
+## Why symbolic AI, which is rule-based system is considered as AI?
+
+You're spot on about symbolic AI (also known as rule-based AI) being rule-based. Here's why it's still considered a form of AI, even though it might seem less "intelligent" compared to other approaches:
+
+**Early days of simulating human thought:**
+
+* Back in the early days of AI (think 1950s-1990s), symbolic AI was the dominant approach. Researchers believed intelligence could be captured by explicitly defining rules and logic, mimicking human reasoning.
+* Symbolic AI allowed us to create systems that could solve complex problems, make decisions based on those rules, and even explain their reasoning process (something some advanced AI still struggles with). This was a significant step towards machines exhibiting intelligent behavior.
+
+**Thinking vs. mimicking:**
+
+* True, symbolic AI doesn't necessarily "think" in the same way humans do. It doesn't learn or adapt on its own. But it can **mimic** intelligent behavior by applying pre-defined rules in a complex way.
+* Imagine a chess program. It doesn't understand chess "strategy" the way a human does. But by following a vast amount of rules about piece movement and evaluating potential outcomes, it can make strategic decisions and play a convincing game.
+
+**A different kind of intelligence:**
+
+* While machine learning might seem more "intelligent" due to its ability to learn, symbolic AI offers a different kind of intelligence – one based on explicit logic and reasoning. This approach is still valuable for tasks with well-defined rules, where explainability and control are important.
+* For instance, a medical diagnosis system based on symbolic AI might be preferable because doctors can understand the reasoning behind its recommendations.
+
+**Building blocks for future AI:**
+
+* Although not the sole focus now, symbolic AI laid the groundwork for other AI advancements. The concepts of knowledge representation, logic, and reasoning developed during this era are still crucial for building more complex AI systems.
+
+In essence, symbolic AI might not be the pinnacle of artificial intelligence, but it was a significant step in creating machines that could exhibit intelligent behavior through rule-based approaches. It remains a valuable tool in specific situations and continues to influence the development of AI as a whole.
+
+=====
+=====
+
 ## Symbolic AI vs modern AI approach
 
 Let's delve into more detail with a simple example to illustrate how modern AI approaches overcome the limitations of symbolic AI. We'll use the task of classifying handwritten digits from the MNIST dataset, a common benchmark in AI.
