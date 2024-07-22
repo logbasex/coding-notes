@@ -1,3 +1,160 @@
+## References
+- [Hyperparameter tuning for machine learning models](https://www.jeremyjordan.me/hyperparameter-tuning/)
+- [Model parameter là gì](https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM)
+
+====
+====
+
+![](model-parameter.png)
+
+![](model-parameter-1.png)
+
+====
+====
+
+## Các tham số của một mô hình AI được xác định như thế nào?
+
+Tất nhiên, tôi sẽ đưa ra một ví dụ đơn giản để minh họa quá trình xác định tham số của một mô hình AI. Hãy xem xét một bài toán hồi quy tuyến tính đơn giản để dự đoán giá nhà dựa trên diện tích.
+
+Ví dụ: Mô hình hồi quy tuyến tính y = wx + b
+
+Trong đó:
+y: Giá nhà (đầu ra)
+x: Diện tích nhà (đầu vào)
+w: Hệ số (trọng số)
+b: Độ chệch (bias)
+
+Bước 1: Khởi tạo tham số
+- Khởi tạo ngẫu nhiên w = 0.5 và b = 1
+
+Bước 2: Huấn luyện
+Giả sử có 3 mẫu dữ liệu:
+(50m², 100,000$), (100m², 200,000$), (150m², 300,000$)
+
+Lặp lại các bước sau:
+
+1. Lan truyền tiến:
+   Với x = 50, tính y_pred = 0.5 * 50 + 1 = 26,001$
+
+2. Tính lỗi:
+   error = y_true - y_pred = 100,000 - 26,001 = 73,999
+
+3. Lan truyền ngược (tính gradient):
+   dw = -x * error = -50 * 73,999 = -3,699,950
+   db = -error = -73,999
+
+4. Cập nhật tham số (giả sử tốc độ học là 0.0000001):
+   w = w - 0.0000001 * dw = 0.5 + 0.37 = 0.87
+   b = b - 0.0000001 * db = 1 + 7.4 = 8.4
+
+Lặp lại quá trình này cho tất cả các mẫu và qua nhiều epoch.
+
+Bước 3: Đánh giá
+Sau khi huấn luyện, giả sử ta có w = 2000 và b = 0
+
+Bước 4: Sử dụng mô hình
+Để dự đoán giá của một căn nhà 75m²:
+y = 2000 * 75 + 0 = 150,000$
+
+Đây là một ví dụ rất đơn giản, nhưng nó minh họa các nguyên tắc cơ bản về cách xác định tham số trong mô hình AI:
+1. Khởi tạo tham số
+2. Sử dụng dữ liệu để điều chỉnh tham số
+3. Lặp lại quá trình cho đến khi đạt được kết quả mong muốn
+
+Trong thực tế, mô hình phức tạp hơn nhiều, với hàng triệu tham số và các kỹ thuật tối ưu hóa phức tạp. Bạn có muốn tôi giải thích thêm về bất kỳ phần nào của ví dụ này không?
+
+-----
+### More detail
+
+Được, tôi sẽ giải thích chi tiết hơn một chút nhưng vẫn giữ ở mức độ dễ hiểu:
+
+1. Chuẩn bị dữ liệu:
+    - Ví dụ: (50m², 100,000$), (100m², 200,000$), (150m², 300,000$)
+
+2. Chọn mô hình:
+    - Công thức: Giá = (Hệ số) x (Diện tích) + (Độ lệch)
+
+3. Khởi tạo:
+    - Chọn số ngẫu nhiên: Hệ số = 1000, Độ lệch = 10000
+
+4. Dự đoán:
+    - Với nhà 50m²: Giá dự đoán = 1000 x 50 + 10000 = 60,000$
+
+5. So sánh:
+    - Giá thực: 100,000$
+    - Sai số = Giá thực - Giá dự đoán = 100,000$ - 60,000$ = 40,000$
+
+6. Điều chỉnh:
+    - Tăng Hệ số lên một chút (vì dự đoán thấp hơn thực tế)
+    - Ví dụ: Hệ số mới = 1000 + 10 = 1010
+    - Độ lệch mới = 10000 + 100 = 10100
+
+7. Lặp lại:
+    - Thực hiện bước 4-6 cho tất cả mẫu dữ liệu
+    - Sau đó lặp lại toàn bộ quá trình nhiều lần
+
+8. Kết thúc:
+    - Giả sử sau nhiều lần lặp, ta có:
+    - Hệ số cuối = 2000, Độ lệch cuối = 0
+    - Công thức cuối: Giá = 2000 x Diện tích + 0
+
+9. Sử dụng:
+    - Với nhà 75m²: Giá dự đoán = 2000 x 75 + 0 = 150,000$
+
+Điểm quan trọng:
+- Mỗi lần điều chỉnh, ta chỉ thay đổi Hệ số và Độ lệch một chút
+- Việc điều chỉnh dựa trên sai số giữa dự đoán và thực tế
+- Quá trình này được lặp lại hàng nghìn lần để tìm ra Hệ số và Độ lệch tốt nhất
+
+Đây là cách AI "học" từ dữ liệu để tìm ra mối quan hệ giữa diện tích và giá nhà. Trong thực tế, mô hình phức tạp hơn nhiều, nhưng nguyên lý cơ bản vẫn tương tự.
+
+----
+### Rộng hơn một chút. Với những mô hình như GPT có thể đưa ra câu trả lời cho gần như mọi lĩnh vực thì quá trình train model diễn ra như thế nào? Người dùng có thể nhập vào bất cứ câu hỏi nào ở bất kì lĩnh vực nào, vậy thì làm sao có thể kiểm tra và tinh chỉnh hết được?
+
+Đúng vậy, đây là một thách thức lớn trong việc phát triển và đảm bảo chất lượng cho các mô hình ngôn ngữ lớn như GPT. Tôi sẽ giải thích cách các nhà phát triển AI giải quyết vấn đề này:
+
+1. Đánh giá trên tập dữ liệu đa dạng:
+    - Sử dụng nhiều bộ dữ liệu chuẩn từ các lĩnh vực khác nhau.
+    - Tạo ra các bộ câu hỏi-đáp tự động để kiểm tra nhiều khía cạnh.
+
+2. Kiểm tra tổng quát:
+    - Thay vì kiểm tra từng câu hỏi cụ thể, tập trung vào khả năng hiểu và xử lý ngôn ngữ tổng quát.
+    - Đánh giá tính nhất quán, logic và khả năng suy luận.
+
+3. Phương pháp few-shot và zero-shot:
+    - Kiểm tra khả năng mô hình thực hiện các tác vụ mới với ít hoặc không có ví dụ.
+    - Đánh giá khả năng áp dụng kiến thức tổng quát vào các tình huống cụ thể.
+
+4. Kiểm tra tự động:
+    - Sử dụng AI để tạo ra và đánh giá các câu hỏi-đáp.
+    - Phát hiện các lỗi logic, mâu thuẫn hoặc thông tin sai lệch.
+
+5. Đánh giá của chuyên gia:
+    - Chuyên gia từ nhiều lĩnh vực đánh giá chất lượng câu trả lời trên mẫu ngẫu nhiên.
+
+6. Phản hồi từ người dùng:
+    - Thu thập và phân tích phản hồi từ người dùng thực tế.
+    - Sử dụng thông tin này để cải thiện mô hình.
+
+7. Tinh chỉnh liên tục:
+    - Cập nhật mô hình dựa trên phản hồi và đánh giá.
+    - Sử dụng kỹ thuật học tăng cường từ phản hồi của con người.
+
+8. Xử lý các trường hợp đặc biệt:
+    - Xác định và xử lý riêng các lĩnh vực nhạy cảm hoặc đòi hỏi độ chính xác cao.
+
+9. Giới hạn và minh bạch:
+    - Thừa nhận rõ ràng các giới hạn của mô hình.
+    - Khuyến khích người dùng kiểm chứng thông tin quan trọng.
+
+10. Cập nhật liên tục:
+    - Cập nhật mô hình định kỳ với dữ liệu và kiến thức mới.
+
+Mặc dù không thể kiểm tra mọi câu hỏi có thể, nhưng các phương pháp này giúp đảm bảo mô hình có khả năng xử lý đa dạng các tình huống và liên tục cải thiện. Quan trọng là nhận ra rằng mô hình vẫn có thể mắc lỗi và cần được sử dụng một cách có trách nhiệm.
+
+----
+----
+
 ## What is parameter in language model AI?
 
 In the context of large language models (LLMs) like me, parameters are essentially the adjustable dials that fine-tune the model's performance.  Imagine them like tiny knobs on a complex machine.
