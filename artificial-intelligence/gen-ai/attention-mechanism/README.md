@@ -1,5 +1,5 @@
 ## References
-- [Self-attention in transformers clearly explained](https://x.com/akshay_pachaar/status/1784923112813035592![img.png](img.png))
+- [Self-attention in transformers clearly explained](https://x.com/akshay_pachaar/status/1784923112813035592)
 - [The math behind Attention: Keys, Queries, and Values matrices](https://www.youtube.com/watch?v=UPtG_38Oq8o)
 - [Attention Mechanism In a nutshell](https://www.youtube.com/watch?v=oMeIDqRguLY)
 

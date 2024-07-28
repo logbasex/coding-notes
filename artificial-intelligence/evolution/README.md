@@ -1,6 +1,6 @@
 ## References
 - [A busy person’s Intro to AI Agents](https://medium.com/@mayaakim/a-busy-persons-intro-to-ai-agents-d9779d50cd84)
-
+- [The Evolution of Language Models: A Journey Through Time](https://medium.com/@adria.cabello/the-evolution-of-language-models-a-journey-through-time-3179f72ae7eb)
 
 ======
 ======
