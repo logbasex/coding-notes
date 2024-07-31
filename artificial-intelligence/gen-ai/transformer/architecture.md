@@ -44,11 +44,16 @@ Trong trường hợp này, mô hình dự đoán từ có khả năng xuất hi
 
 Quá trình này cho phép mô hình hiểu ngữ cảnh và mối quan hệ giữa các từ trong câu, từ đó đưa ra dự đoán chính xác hơn về từ tiếp theo.
 
+> The transformer has a two-step process for updating the hidden state for each word of the input passage:
+> 
+> **1.** [In the **attention step**, words “look around” for other words that have relevant context and share information with one another.](https://www.understandingai.org/p/large-language-models-explained-with)
+> 
+> **2.** In the **feed-forward step**, each word “thinks about” information gathered in previous attention steps and tries to predict the next word.
+
 =====
 =====
 
-## Word Embeddings
-
+## [Word Embeddings](../word-embedding/README.md)
 
 =====
 =====

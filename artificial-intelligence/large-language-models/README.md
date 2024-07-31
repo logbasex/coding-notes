@@ -1,6 +1,12 @@
+## References
+- [How Large Language Models work. From zero to ChatGPT](https://medium.com/data-science-at-microsoft/how-large-language-models-work-91c362f5b78f)
+
+====
+====
+
 ## Explain LLM
 
-### 1\. Large Language Model (LLM) có nghĩa là gì?
+### 1. Large Language Model (LLM) có nghĩa là gì?
 
 Một mô hình ngôn ngữ lớn (LLM) là một loại mô hình học máy có khả năng thực hiện nhiều nhiệm vụ xử lý ngôn ngữ tự nhiên (Natural Laguage Processing ) như tạo và phân loại văn bản, trả lời câu hỏi trong một cuộc đối thoại, và dịch văn bản từ một ngôn ngữ sang ngôn ngữ khác. Từ "Lớn" dùng  chỉ số lượng giá trị (tham số) mà mô hình ngôn ngữ có thể thay đổi tự động khi nó học. Một số LLM thành công nhất có hàng trăm tỷ tham số.
 
