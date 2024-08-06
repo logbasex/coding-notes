@@ -111,3 +111,37 @@ Tất nhiên, tôi sẽ đưa ra các ví dụ minh họa cho một số vấn �
    Ví dụ: Từ ghép "xe đạp" có thể được tokenize thành "xe" và "đạp" riêng biệt, hoặc là một token duy nhất "xe_đạp", dẫn đến các embedding khác nhau.
 
 Các ví dụ này cho thấy những thách thức mà các nhà nghiên cứu và kỹ sư NLP phải đối mặt khi làm việc với word embeddings. Mỗi vấn đề đòi hỏi các giải pháp riêng biệt và đôi khi phức tạp để cải thiện hiệu suất tổng thể của các mô hình ngôn ngữ.
+
+====
+====
+
+## Word embedding vs Classification
+
+Giả sử chúng ta có bài toán phân loại cảm xúc (sentiment classification) cho các đánh giá sản phẩm. Mục tiêu là phân loại một đánh giá là tích cực hay tiêu cực.
+
+Bước 1: Word Embedding
+Đầu tiên, chúng ta chuyển đổi mỗi từ trong đánh giá thành vector số:
+
+- "Tuyệt": [0.9, 0.8, 0.7]
+- "vời": [0.8, 0.9, 0.7]
+- "Tệ": [0.2, 0.1, 0.3]
+- "Chán": [0.3, 0.2, 0.1]
+
+Bước 2: Biểu diễn câu
+Chúng ta kết hợp các vector của từng từ để tạo ra vector đại diện cho cả câu. Ví dụ:
+
+- "Sản phẩm tuyệt vời": Trung bình của vector "tuyệt" và "vời"
+- "Sản phẩm tệ, chán": Trung bình của vector "tệ" và "chán"
+
+Bước 3: Classification
+Sử dụng các vector đại diện này làm đầu vào cho mô hình phân loại:
+
+- Vector [0.85, 0.85, 0.7] (gần với "tuyệt vời") → Phân loại: Tích cực
+- Vector [0.25, 0.15, 0.2] (gần với "tệ, chán") → Phân loại: Tiêu cực
+
+Ưu điểm của cách này:
+1. Mô hình hiểu được mối quan hệ giữa các từ (ví dụ: "tuyệt" và "vời" có ý nghĩa gần nhau).
+2. Có thể xử lý các từ không xuất hiện trong tập huấn luyện, miễn là có word embedding cho chúng.
+3. Giảm kích thước đầu vào cho mô hình phân loại, giúp mô hình hiệu quả hơn.
+
+Bạn có muốn tôi giải thích thêm về bất kỳ phần nào của quá trình này không?
