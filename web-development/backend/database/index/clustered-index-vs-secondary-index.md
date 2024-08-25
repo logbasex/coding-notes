@@ -301,3 +301,52 @@ Mặc dù SSD có thể giảm bớt tác động của phân mảnh dữ liệu
 - Giảm hiệu quả của bộ nhớ đệm, làm tăng chi phí I/O khi thực hiện các truy vấn phức tạp hoặc tuần tự.
 
 Nếu hiệu suất là yếu tố quan trọng, bạn có thể cân nhắc sử dụng UUID tuần tự hoặc khóa chính số tuần tự để giảm thiểu các tác động tiêu cực này.
+
+
+=====
+=====
+
+## PostgreSQL all indexes are secondary index.
+
+Việc PostgreSQL không tự động sử dụng **Clustered Index** và tất cả các chỉ mục mặc định đều là **Secondary Index** có những ưu và nhược điểm nhất định. Dưới đây là phân tích về những lợi ích và hạn chế của phương pháp này:
+
+### Ưu điểm:
+
+1. **Tự do trong việc tổ chức dữ liệu**:
+    - PostgreSQL không ép buộc bạn sắp xếp dữ liệu theo khóa chính hoặc bất kỳ chỉ mục nào, do đó bạn có thể quản lý bảng dữ liệu theo cách mà hệ thống yêu cầu. Điều này tạo ra sự linh hoạt cao trong cách lưu trữ và quản lý dữ liệu.
+    - Các chỉ mục hoạt động như các lớp độc lập, hỗ trợ cho các truy vấn mà không can thiệp vào cấu trúc lưu trữ vật lý của bảng.
+
+2. **Giảm chi phí duy trì chỉ mục**:
+    - Không có **Clustered Index** mặc định nghĩa là PostgreSQL không phải liên tục sắp xếp lại dữ liệu mỗi khi có bản ghi mới được thêm vào, điều này giảm thiểu chi phí về mặt hiệu suất cho việc chèn (insert) và cập nhật (update) dữ liệu. Điều này có lợi cho các ứng dụng yêu cầu tốc độ ghi dữ liệu cao.
+    - Việc không phải sắp xếp dữ liệu liên tục giúp cơ sở dữ liệu có thể thực hiện các hoạt động ghi nhanh hơn trong nhiều trường hợp.
+
+3. **Cấu trúc đơn giản**:
+    - Dữ liệu chỉ cần lưu theo thứ tự chèn vào mà không cần quản lý phức tạp liên quan đến thứ tự sắp xếp. Điều này làm cho hệ thống đơn giản hơn trong các hoạt động bảo trì hoặc tái cấu trúc bảng dữ liệu.
+    - Tạo và duy trì các Secondary Index tiêu chuẩn là quy trình tương đối ít phức tạp hơn so với Clustered Index.
+
+4. **Linh hoạt trong việc chọn lựa Clustered Index**:
+    - Người dùng có quyền tự quyết định khi nào cần sử dụng **Clustered Index** thông qua lệnh `CLUSTER`. Điều này giúp linh hoạt hơn trong việc tối ưu hóa các truy vấn dựa trên các chỉ số cụ thể mà bạn quan tâm.
+
+### Nhược điểm:
+
+1. **Hiệu suất truy vấn không tối ưu trong một số trường hợp**:
+    - **Range Queries** (truy vấn theo phạm vi): Vì dữ liệu không được sắp xếp vật lý theo thứ tự khóa chính, các truy vấn yêu cầu quét dữ liệu theo phạm vi (ví dụ: `BETWEEN`) sẽ không tận dụng được lợi ích của việc sắp xếp vật lý và có thể chậm hơn so với các hệ quản trị cơ sở dữ liệu sử dụng Clustered Index.
+    - Điều này đặc biệt đúng với các bảng lớn, nơi việc truy vấn dữ liệu không được sắp xếp có thể cần phải đọc và tìm kiếm qua nhiều trang dữ liệu hơn.
+
+2. **Cache locality kém hơn**:
+    - Do dữ liệu không được lưu trữ theo thứ tự chỉ mục, bộ nhớ đệm (cache) có thể hoạt động kém hiệu quả hơn. Các bản ghi có giá trị khóa gần nhau không đảm bảo sẽ được lưu trữ vật lý gần nhau, điều này có thể gây ra nhiều truy vấn I/O không cần thiết.
+    - Việc thiếu tổ chức dữ liệu vật lý theo chỉ mục làm giảm khả năng tận dụng bộ nhớ đệm, đặc biệt là đối với các truy vấn có tính chất tuần tự.
+
+3. **Không tự động sắp xếp lại dữ liệu**:
+    - PostgreSQL không tự động sắp xếp lại bảng sau khi có lệnh `CLUSTER`. Điều này có nghĩa là nếu bạn đã sắp xếp bảng dữ liệu theo một chỉ mục nhất định, các bản ghi mới được thêm vào sau khi sắp xếp sẽ không được tự động đưa vào vị trí chính xác, khiến dữ liệu trở nên phân mảnh và làm giảm hiệu suất của các truy vấn trong tương lai.
+    - Để duy trì hiệu suất, bạn cần phải thủ công thực hiện lệnh `CLUSTER` định kỳ, điều này gây thêm chi phí bảo trì và quản lý.
+
+4. **Khó khăn với cơ sở dữ liệu lớn**:
+    - Với các bảng lớn, việc không sắp xếp dữ liệu vật lý theo khóa chính hoặc các chỉ mục khác có thể khiến cơ sở dữ liệu trở nên không hiệu quả. Khi truy vấn trên các bảng lớn với dữ liệu không có tổ chức cụ thể, cơ sở dữ liệu phải thực hiện nhiều lần quét dữ liệu ngẫu nhiên và gây tốn kém tài nguyên hệ thống.
+
+### Tóm lại:
+
+- **Ưu điểm chính** của việc PostgreSQL sử dụng tất cả chỉ mục dưới dạng **Secondary Index** là sự linh hoạt, giảm chi phí sắp xếp dữ liệu, và hỗ trợ các thao tác ghi dữ liệu nhanh hơn. Điều này rất có lợi cho các ứng dụng yêu cầu tốc độ ghi cao hoặc không phụ thuộc nhiều vào các truy vấn tuần tự theo khóa chính.
+- **Nhược điểm chính** là hiệu suất của các truy vấn phụ thuộc vào thứ tự dữ liệu (đặc biệt là các truy vấn theo phạm vi) sẽ bị ảnh hưởng, và việc thiếu tổ chức vật lý có thể gây ra các vấn đề về hiệu suất khi dữ liệu phát triển lớn hơn.
+
+Việc hiểu rõ ưu và nhược điểm này giúp bạn có thể điều chỉnh chiến lược tối ưu hóa truy vấn và cơ sở dữ liệu phù hợp với yêu cầu thực tế của hệ thống.
