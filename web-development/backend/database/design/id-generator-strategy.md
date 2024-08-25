@@ -159,6 +159,15 @@ In fact, almost any database expert will tell you to avoid using the standard UU
 -   [UUID or GUID as Primary Keys? Be Careful!](https://tomharrisonjr.com/uuid-or-guid-as-primary-keys-be-careful-7b2aa3dcb439)
 -   [Identity Crisis: Sequence v. UUID as Primary Key](https://brandur.org/nanoglyphs/026-ids)
 
+
+======
+======
+
+![](../index/clustered-index-vs-secondary-index.md)
+
+======
+======
+
 ### TSID – Time-Sorted Unique Identifiers
 
 If you plan to store UUID values in a Primary Key column, then you are better off using a TSID (time-sorted unique identifier).
