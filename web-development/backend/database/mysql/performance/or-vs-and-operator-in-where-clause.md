@@ -2,6 +2,7 @@
 - [7 Bad Practices to Avoid When Writing SQL Queries for Better Performance 🚀](https://dev.to/abdelrahmanallam/7-bad-practices-to-avoid-when-writing-sql-queries-for-better-performance-c87)
 
 ## Can use bitmap index for OR operator
+> MySQL don't support bitmap index scan
 
 Bitmap indexing is used for columns with few unique values. Each bitmap represents a unique value. A bitmap indicates the presence or absence of a value in a dataset, using 1’s & 0’s. For existing values, the position of the 1 in the bitmap shows the location of the row in the table. Bitmap indexes are very effective in handling complex queries where multiple columns are used.
 
