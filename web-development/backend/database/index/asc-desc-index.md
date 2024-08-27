@@ -2,6 +2,8 @@
 
 ![](asc-desc-index-btree.png)
 
+![](asc-desc-index-btree-1.png)
+
 ## 1. Cấu trúc dữ liệu B-Tree
 
 MySQL sử dụng cấu trúc dữ liệu B-Tree cho cả ascending và descending index. B-Tree là một cây cân bằng, cho phép tìm kiếm, chèn và xóa trong thời gian logarit.
