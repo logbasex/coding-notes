@@ -113,3 +113,26 @@ Kết luận:
 - Low Cardinality (như Department) thích hợp cho truy vấn thống kê hoặc nhóm, nhưng ít hiệu quả cho tìm kiếm cụ thể.
 
 Hiểu được sự khác biệt này sẽ giúp bạn thiết kế cấu trúc dữ liệu và index hiệu quả hơn, cũng như tối ưu hóa các truy vấn dựa trên đặc điểm của dữ liệu.
+
+=======
+=======
+
+## selectivity thấp hay cardinality thấp đều k tốt dung k?
+
+
+Đúng vậy, cả **selectivity thấp** và **cardinality thấp** đều không tốt trong ngữ cảnh tối ưu hóa chỉ mục trong cơ sở dữ liệu, nhưng chúng có những tác động và ý nghĩa khác nhau.
+
+### 1. **Cardinality thấp**
+- **Cardinality thấp** có nghĩa là cột chứa ít giá trị khác nhau, với nhiều giá trị trùng lặp.
+- Điều này không tốt vì nếu bạn tạo chỉ mục trên cột có cardinality thấp, chỉ mục đó sẽ không hiệu quả trong việc phân biệt các bản ghi. Ví dụ, nếu bạn tạo chỉ mục trên một cột chỉ có hai giá trị (như giới tính: "Male", "Female"), chỉ mục đó sẽ không giúp ích nhiều trong việc thu hẹp kết quả truy vấn, vì nhiều bản ghi sẽ có giá trị giống nhau.
+
+### 2. **Selectivity thấp**
+- **Selectivity thấp** có nghĩa là chỉ mục không phân biệt tốt các bản ghi, và việc sử dụng chỉ mục có thể không giúp cải thiện hiệu suất truy vấn.
+- **Selectivity thấp** thường xảy ra khi cột có cardinality thấp hoặc khi truy vấn yêu cầu nhiều bản ghi phù hợp. Khi chỉ số selectivity thấp, cơ sở dữ liệu có thể quyết định không sử dụng chỉ mục vì lợi ích mang lại không đủ lớn. Thay vào đó, việc quét toàn bộ bảng (table scan) có thể hiệu quả hơn.
+
+### Tại sao cả hai đều không tốt?
+- **Cardinality thấp** dẫn đến chỉ mục kém hiệu quả vì không có đủ sự đa dạng trong các giá trị của cột.
+- **Selectivity thấp** làm giảm khả năng của chỉ mục trong việc thu hẹp kết quả tìm kiếm, dẫn đến việc chỉ mục trở nên ít hữu ích.
+
+Tóm lại, **cardinality thấp** có thể là nguyên nhân dẫn đến **selectivity thấp**. Cả hai tình huống đều không tốt cho hiệu suất truy vấn khi sử dụng chỉ mục, vì chúng làm giảm khả năng chỉ mục loại bỏ các bản ghi không liên quan, dẫn đến truy vấn chậm hơn hoặc không có sự cải thiện về tốc độ.
+
