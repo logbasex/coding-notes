@@ -117,6 +117,30 @@ Hiểu được sự khác biệt này sẽ giúp bạn thiết kế cấu trúc
 =======
 =======
 
+Trong cơ sở dữ liệu, **cardinality** và **selectivity** là hai khái niệm quan trọng liên quan đến việc đánh giá hiệu quả của các chỉ mục (indexes) khi thực hiện truy vấn. Chúng có sự khác biệt cơ bản như sau:
+
+### 1. **Cardinality**
+- **Cardinality** đề cập đến số lượng các giá trị riêng biệt (distinct values) của một cột trong bảng dữ liệu.
+- Ví dụ: Nếu bạn có một cột lưu trữ giá trị của các quốc gia, và trong bảng có 100 bản ghi nhưng chỉ có 10 quốc gia khác nhau, thì **cardinality** của cột này là 10.
+- Cardinality giúp đánh giá tính đa dạng của dữ liệu trong một cột. **Cardinality cao** có nghĩa là nhiều giá trị khác nhau, trong khi **cardinality thấp** có nghĩa là ít giá trị khác nhau (ví dụ: nhiều giá trị trùng lặp).
+
+### 2. **Selectivity**
+- **Selectivity** là một thước đo về mức độ phân biệt (discriminating power) của một chỉ mục. Nó được tính toán bằng cách chia số lượng các giá trị riêng biệt cho tổng số bản ghi trong bảng.
+- Công thức tính **selectivity**:  
+    > Selectivity = Cardinality / Tổng số bản ghi.
+- **Selectivity** thường nằm trong khoảng từ 0 đến 1:
+    - **Selectivity cao** (gần 1): Nghĩa là cột có nhiều giá trị riêng biệt, do đó, chỉ mục trên cột này có thể rất hiệu quả.
+    - **Selectivity thấp** (gần 0): Nghĩa là cột có nhiều giá trị trùng lặp, chỉ mục trên cột này sẽ kém hiệu quả hơn vì nó không giúp loại bỏ nhiều bản ghi trong quá trình tìm kiếm.
+
+### Sự khác biệt chính
+- **Cardinality** tập trung vào số lượng giá trị riêng biệt trong một cột.
+- **Selectivity** đánh giá hiệu quả của một chỉ mục dựa trên sự phân biệt của các giá trị trong cột đó.
+
+Trong thực tế, các cơ sở dữ liệu thường sử dụng **selectivity** để quyết định có nên sử dụng một chỉ mục cho một truy vấn cụ thể hay không. Nếu một chỉ mục có **selectivity** thấp, cơ sở dữ liệu có thể quyết định không sử dụng chỉ mục đó vì việc quét toàn bộ bảng có thể hiệu quả hơn.
+
+=======
+=======
+
 ## selectivity thấp hay cardinality thấp đều k tốt dung k?
 
 
