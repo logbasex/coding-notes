@@ -13,6 +13,54 @@
 ----
 ----
 
+## Giai thich don gian
+
+Hãy tưởng tượng Bloom filter như một bảng trắng nhỏ với 10 ô vuông được đánh số từ 0 đến 9. Chúng ta sẽ sử dụng bảng này để ghi nhớ tên của bạn bè. Thay vì viết tên họ lên bảng, chúng ta sẽ đánh dấu các ô theo một quy tắc.
+
+Quy tắc đánh dấu (giả lập hàm băm):
+1. Lấy chữ cái đầu tiên của tên, đổi thành số (A=1, B=2, ..., Z=26).
+2. Lấy số ký tự trong tên.
+3. Tính tổng hai con số trên và chia lấy dư cho 10.
+
+Ví dụ:
+1. Thêm bạn "Anna" vào danh sách:
+    - Chữ cái đầu A = 1
+    - Tên có 4 ký tự
+    - (1 + 4) % 10 = 5
+    - Đánh dấu ô số 5
+
+2. Thêm bạn "Bob":
+    - Chữ cái đầu B = 2
+    - Tên có 3 ký tự
+    - (2 + 3) % 10 = 5
+    - Ô số 5 đã được đánh dấu, không cần đánh dấu lại
+
+3. Thêm bạn "Charlie":
+    - Chữ cái đầu C = 3
+    - Tên có 7 ký tự
+    - (3 + 7) % 10 = 0
+    - Đánh dấu ô số 0
+
+Bây giờ, nếu ai đó hỏi "David có trong danh sách bạn bè không?":
+- D = 4, tên có 5 ký tự
+- (4 + 5) % 10 = 9
+- Kiểm tra ô số 9: nếu không có dấu, chắc chắn David không có trong danh sách
+
+Tuy nhiên, nếu ô số 9 có dấu, chúng ta chỉ có thể nói "David có thể có trong danh sách", vì có thể đó là dấu của một người khác.
+
+Ưu điểm:
+- Tiết kiệm không gian: Chỉ cần 10 ô để ghi nhớ nhiều tên
+- Nhanh chóng kiểm tra: Chỉ cần nhìn vào một ô
+
+Nhược điểm:
+- Có thể có kết quả dương tính giả: Đôi khi nói có trong khi thực tế không có
+- Không thể xóa tên: Một khi đã đánh dấu, không thể bỏ dấu đi
+
+Đây là cách Bloom filter hoạt động, nhưng trong thực tế, nó sử dụng nhiều "ô" hơn và nhiều quy tắc đánh dấu phức tạp hơn để tăng độ chính xác.
+
+----
+----
+
 ## [Bloom Filter Thread](https://twitter.com/mhevery/status/1628249281361747968)
 
 Make your code faster with Bloom filters. They are like HashMaps but smaller and allow you to short-circuit more expensive operations.
