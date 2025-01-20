@@ -6,6 +6,6 @@
 ## Reuse ssh connection
 - https://www.cyberciti.biz/faq/linux-unix-reuse-openssh-connection/
 
-## SSH session manager
+## SSH session manager (download .deb instead of snap package)
 
 [Termius](https://termius.com/free-ssh-client-for-linux)
