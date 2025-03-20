@@ -1,5 +1,7 @@
 # 🔥 **Chi Tiết & Sâu Sắc Hơn: Authorization trong Keycloak – Tư Duy Từng Bước Một**
 
+> https://chatgpt.com/share/67db6e84-e8e8-800c-b817-93cde08c204c
+> 
 > **Mục tiêu của bài viết:** Giải thích từng bước hoạt động của Authorization trong Keycloak theo cách giúp bạn **hiểu cốt lõi**, **có thể tư duy lại**, và **biết cách triển khai thực tế**.
 
 ---
